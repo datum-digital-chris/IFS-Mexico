@@ -2,19 +2,25 @@
 /**
  * The breadcrumb, then the page's opening passage.
  *
- * This was a bordered panel, following the US site's overview block. It has
- * become a section like any other, because the panel was the one thing on the
- * page that could not line up with the rest of it: its padding pushed the copy
- * 40px in from every other text block, and its own width was the container on
- * a page with a support photograph and 52rem on a page without one — the same
- * component at two widths on sibling pages.
+ * This is the reference page's overview block, measured off
+ * https://ifscoatings.com/appliances/ rather than described: a #fafafa band
+ * holding a #ebebeb panel with a 1px brand rule across its top, padded to 56px
+ * at the widest tier, splitting a display heading and the opening passage
+ * against a second column.
  *
- * So: a brand bar, the opening passage at the shared measure, and the
- * photograph beside it filling the rest of the row. Every run of text on the
- * page now starts and ends in the same place.
+ * The panel was removed once, because its padding put the copy 40px in from
+ * every other text block and because its width changed with whether the page
+ * had a photograph. Both are fixed rather than avoided: the panel is always the
+ * full container width, and the inset is the panel's own, the same on every
+ * page that has one.
+ *
+ * There the second column holds authored "advantages"; here it holds the page's
+ * photograph, which is the one thing this content has to put beside the copy.
+ * A page with neither has no second column, so the panel is capped to the
+ * measure plus its own padding rather than run full width with a void in it.
  *
  * A table, the colour tabs or the contact form is not prose and does not belong
- * at the measure, so those run full width below it.
+ * in a panel, so those run full width below it.
  */
 import Block from "@/components/Block.astro";
 import { runsOf, type Block as BlockType } from "@/lib/blocks";
@@ -29,9 +35,11 @@ interface Props {
   headline: string | null;
   body: BlockType[];
   image: string | null;
+  /** The editorial link the reference block closes its copy column on. */
+  action: { label: string; href: string } | null;
 }
 
-const { title, category, categoryHref, headline, body, image } = Astro.props;
+const { title, category, categoryHref, headline, body, image, action } = Astro.props;
 
 const runs = runsOf(body);
 const prose = runs.filter((r) => !r.wide).flatMap((r) => r.blocks);
@@ -39,7 +47,7 @@ const wide = runs.filter((r) => r.wide);
 const hasLead = prose.length > 0 || headline;
 ---
 
-<section class="bg-surface-warm">
+<section class="bg-surface-alt">
   <div class="container-ox band">
     <nav aria-label="Ruta de navegación" class:list={[hasLead || wide.length ? "mb-10" : ""]}>
       <ol class="text-ink-body flex flex-wrap items-center gap-2 text-[0.8125rem]">
@@ -67,35 +75,46 @@ const hasLead = prose.length > 0 || headline;
 
     {
       hasLead && (
-        <div
-          class:list={[
-            "grid items-start gap-8",
-            image && "lg:grid-cols-[minmax(0,var(--container-measure))_minmax(0,1fr)] lg:gap-12",
-          ]}
-        >
-          <div>
-            <span class="bg-brand mb-6 block h-[3px] w-14" aria-hidden="true" />
-            {headline && (
-              <h2 class="display max-w-measure mb-6 text-3xl sm:text-4xl">{headline}</h2>
+        <div class:list={["bg-surface-warm", !image && "lg:max-w-[52rem]"]}>
+          <div class="bg-brand h-1" aria-hidden="true" />
+          <div
+            class:list={["grid gap-10 p-8 sm:p-10 lg:gap-16 lg:p-14", image && "lg:grid-cols-2"]}
+          >
+            <div>
+              {headline && (
+                <h2 class="display mb-7 text-4xl sm:text-5xl lg:text-6xl">{headline}</h2>
+              )}
+              <div class="doc-lead">
+                {prose.map((b) => (
+                  <Block block={b} />
+                ))}
+              </div>
+              {action && (
+                <a href={action.href} class="ox-link mt-9">
+                  {action.label}
+                  <svg class="h-4 w-4" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                    <path
+                      fill-rule="evenodd"
+                      d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                </a>
+              )}
+            </div>
+            {image && (
+              <div class="relative min-h-[280px] self-stretch">
+                <img
+                  src={image}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                  class="absolute inset-0 h-full w-full object-cover"
+                />
+              </div>
             )}
-            <div class="doc-lead">
-              {prose.map((b) => (
-                <Block block={b} />
-              ))}
-            </div>
           </div>
-          {image && (
-            <div class="relative min-h-[280px] self-stretch">
-              <img
-                src={image}
-                alt=""
-                aria-hidden="true"
-                loading="lazy"
-                decoding="async"
-                class="absolute inset-0 h-full w-full object-cover"
-              />
-            </div>
-          )}
         </div>
       )
     }

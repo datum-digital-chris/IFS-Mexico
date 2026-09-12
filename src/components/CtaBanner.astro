@@ -25,6 +25,7 @@ interface Props {
 const { page } = Astro.props;
 const copy = cta.pages[page as keyof typeof cta.pages] ?? cta.default;
 const isTarget = Astro.url.pathname === cta.href;
+const isSecondaryTarget = Astro.url.pathname === cta.secondary.href;
 ---
 
 {
@@ -35,21 +36,16 @@ const isTarget = Astro.url.pathname === cta.href;
           <h2 class="display text-surface text-3xl sm:text-4xl">{copy.heading}</h2>
           <p class="text-surface/75 mt-3 text-lg">{copy.description}</p>
         </div>
-        <a
-          href={cta.href}
-          class="ox-btn ox-btn--white ox-btn--lg inline-flex shrink-0 items-center gap-2.5 self-start sm:self-auto"
-        >
-          {cta.label}
-          <svg class="h-3.5 w-3.5" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-            <path
-              d="M1 7h11M8 3l4 4-4 4"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </a>
+        <div class="flex shrink-0 flex-col gap-3 self-start sm:flex-row sm:self-auto">
+          <a href={cta.href} class="ox-btn ox-btn--white ox-btn--lg">
+            {cta.label}
+          </a>
+          {!isSecondaryTarget && (
+            <a href={cta.secondary.href} class="ox-btn ox-btn--outline ox-btn--lg">
+              {cta.secondary.label}
+            </a>
+          )}
+        </div>
       </div>
     </section>
   )

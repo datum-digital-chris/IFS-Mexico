@@ -162,12 +162,15 @@
   --container-measure: 42rem;
   --spacing-section: 75px;
 
-  /* Section padding, from the US style guide's one standard: py-20 sm:py-28.
-     The guide is explicit that py-12 and py-16 are not section padding, and
-     tighter bands than this are most of what made these pages read as a
-     different site. */
-  --spacing-band: 5rem;
-  --spacing-band-lg: 7rem;
+  /* Section padding, measured off ifscoatings.com rather than taken from its
+     style guide: the guide states py-20 sm:py-28 as the standard, but what the
+     site actually renders is py-14 sm:py-20 on an overview band and
+     py-12 sm:py-16 on a content band. The live page is the thing being matched,
+     so these are its numbers. The CTA band is py-20 sm:py-24 on both. */
+  --spacing-band: 3.5rem;
+  --spacing-band-lg: 5rem;
+  --spacing-band-tight: 3rem;
+  --spacing-band-tight-lg: 4rem;
   /* The container gutter: px-4 sm:px-6. */
   --spacing-gutter: 1rem;
   --spacing-gutter-lg: 1.5rem;
@@ -321,13 +324,20 @@
     }
   }
 
-  /* A full-bleed band: one standard vertical rhythm for every section. */
+  /* A full-bleed band. `.band` is the overview rhythm, `.band--tight` the one
+     the content bands use. */
   .band {
     padding-block: var(--spacing-band);
+  }
+  .band--tight {
+    padding-block: var(--spacing-band-tight);
   }
   @media (min-width: 640px) {
     .band {
       padding-block: var(--spacing-band-lg);
+    }
+    .band--tight {
+      padding-block: var(--spacing-band-tight-lg);
     }
   }
 
@@ -388,6 +398,50 @@
   .ox-btn--lg {
     padding: 1rem 2rem;
     font-size: 1rem;
+  }
+
+  /* Secondary action on a dark surface. Filling on hover rather than veiling:
+     a translucent veil lightens the ground and drags the border under 3:1. */
+  .ox-btn--outline {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #fff;
+  }
+  .ox-btn--outline:hover {
+    background: var(--color-surface);
+    border-color: var(--color-surface);
+    color: var(--color-brand-deep);
+  }
+
+  /* Inline editorial link with a trailing arrow, as the reference site's
+     overview block closes on. Two affordances on hover - the arrow slides and
+     an underline arrives - so it still reads as a link with motion suppressed. */
+  .ox-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-brand-deep);
+  }
+  .ox-link svg {
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .ox-link:hover {
+    color: var(--color-brand-hover);
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.18em;
+  }
+  .ox-link:hover svg {
+    transform: translateX(4px);
+  }
+  .ox-link--on-dark {
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .ox-link--on-dark:hover {
+    color: #fff;
   }
 
   /* On the CTA band the primary action inverts: nothing else on the band can be
@@ -459,50 +513,40 @@
      parent. The gap trick is shorter, but an odd number of items leaves the
      last slot empty and the parent colour shows through it as a stray filled
      tile — and most of these lists are odd. */
+  /* The cell shape is the reference page's applications grid
+     (ApplicationsBlock.astro): separate cells on a small gap, each on the card
+     surface with a rule down its leading edge. Its cells carry an icon; these
+     carry the brand check instead, which is the same job - a mark that says
+     "one of a set" before the label. */
   ul.feature-list,
   .rich-text ul.feature-list {
     display: grid;
     grid-template-columns: 1fr;
-    background: var(--color-surface-alt);
-    border: 1px solid var(--color-surface-edge);
+    gap: 0.5rem;
     margin-block: 1.75rem;
     padding: 0;
     list-style: none;
   }
   ul.feature-list li {
     display: flex;
-    align-items: baseline;
-    gap: 0.7rem;
-    padding: 0.7rem 0.9rem;
-    border-top: 1px solid var(--color-surface-edge);
-    font-size: 1rem;
-    line-height: 1.45;
-  }
-  ul.feature-list li:first-child {
-    border-top: 0;
+    align-items: center;
+    gap: 0.9rem;
+    background: var(--color-surface-alt);
+    border-left: 2px solid var(--color-surface-edge-strong);
+    padding: 0.85rem 1.25rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--color-ink);
   }
   @media (min-width: 640px) {
     ul.feature-list,
     .rich-text ul.feature-list {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-    /* Two columns: the second cell is also on the top row, and every cell in
-       the right-hand column carries the column rule. */
-    ul.feature-list li:nth-child(2) {
-      border-top: 0;
-    }
-    ul.feature-list li:nth-child(even) {
-      border-left: 1px solid var(--color-surface-edge);
-    }
     ul.feature-list--wide,
     .rich-text ul.feature-list--wide {
       grid-template-columns: 1fr;
-    }
-    ul.feature-list--wide li:nth-child(2) {
-      border-top: 1px solid var(--color-surface-edge);
-    }
-    ul.feature-list--wide li:nth-child(even) {
-      border-left: 0;
     }
   }
   /* A check drawn in CSS rather than a glyph, so it is identical in every font. */

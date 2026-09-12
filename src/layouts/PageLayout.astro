@@ -38,6 +38,7 @@ const { key, title, eyebrow, eyebrowHref, heroImage, supportImage, lead, section
 // Both the header action and the closing band point at Contáctenos, so on that
 // page they would send you back to where you already are. It keeps the form.
 const isContact = Astro.url.pathname === cta.href;
+const isColours = Astro.url.pathname === cta.secondary.href;
 ---
 
 <BaseLayout title={title} description={description} ogImage={heroImage}>
@@ -47,6 +48,7 @@ const isContact = Astro.url.pathname === cta.href;
     lead={lead.hero}
     image={heroImage}
     action={isContact ? null : { label: cta.label, href: cta.href }}
+    secondary={isColours ? null : cta.secondary}
   />
 
   <PageOverview
@@ -56,6 +58,7 @@ const isContact = Astro.url.pathname === cta.href;
     headline={lead.headline}
     body={lead.body}
     image={supportImage}
+    action={isContact ? null : { label: cta.label, href: cta.href }}
   />
 
   {

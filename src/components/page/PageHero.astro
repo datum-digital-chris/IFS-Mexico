@@ -25,9 +25,11 @@ interface Props {
   image: string | null;
   /** Omitted on the page the action itself points at. */
   action: { label: string; href: string } | null;
+  /** The editorial second action, as the reference header carries. */
+  secondary: { label: string; href: string } | null;
 }
 
-const { title, eyebrow, lead, image, action } = Astro.props;
+const { title, eyebrow, lead, image, action, secondary } = Astro.props;
 ---
 
 <section
@@ -77,16 +79,32 @@ const { title, eyebrow, lead, image, action } = Astro.props;
   <div class="bg-brand absolute inset-x-0 top-0 h-1" aria-hidden="true"></div>
 
   <div class:list={["container-ox", image ? "pt-16 pb-20" : "band"]}>
-    {eyebrow && <p class="eyebrow eyebrow--on-dark mb-4">{eyebrow}</p>}
+    {eyebrow && <p class="eyebrow eyebrow--on-dark mb-5">{eyebrow}</p>}
     <h1 class="display display--black text-surface max-w-measure text-5xl sm:text-6xl">
       {title}
     </h1>
-    {lead && <p class="text-surface/60 max-w-measure mt-6 text-lg leading-relaxed">{lead}</p>}
+    {lead && <p class="text-surface/60 mt-8 max-w-lg text-lg leading-relaxed">{lead}</p>}
     {
-      action && (
-        <a href={action.href} class="ox-btn ox-btn--lg mt-8">
-          {action.label}
-        </a>
+      (action || secondary) && (
+        <div class="mt-8 flex flex-wrap items-center gap-6">
+          {action && (
+            <a href={action.href} class="ox-btn ox-btn--lg">
+              {action.label}
+            </a>
+          )}
+          {secondary && (
+            <a href={secondary.href} class="ox-link ox-link--on-dark">
+              {secondary.label}
+              <svg class="h-4 w-4" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                <path
+                  fill-rule="evenodd"
+                  d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </a>
+          )}
+        </div>
       )
     }
   </div>

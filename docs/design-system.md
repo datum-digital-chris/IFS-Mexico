@@ -317,12 +317,15 @@ two.
 Two consequences worth recording:
 
 - **The measure is in `rem`, not `ch`.** `ch` resolves against the element's own
-  font size, so a 72ch cap on a 60px display heading is 2,600px — which is no
-  cap at all. `46rem` is 72ch at the 18px body size and holds for a heading.
-- **The overview panel had to go.** A bordered panel cannot line up with
-  unpadded prose below it: its padding pushed the copy 40px in from every other
-  text block on the page. It is now a section like any other — brand bar,
-  heading, copy at the measure, photograph beside it.
+  font size, so a 66ch cap on a 60px display heading is 2,400px — which is no
+  cap at all. `42rem` is `max-w-2xl`, the widest the style guide allows a
+  paragraph to run, and 66ch at the 18px body size.
+- **The overview panel came back.** It was removed because a padded panel
+  cannot line up with unpadded prose below it, and because its width changed
+  with whether the page had a photograph. The reference page carries that inset
+  too, so the panel is kept and the width is fixed instead: the container width
+  when it has a second column, the measure plus its own padding when it does
+  not.
 
 ### Hairlines on the cells, not gaps over a parent
 
