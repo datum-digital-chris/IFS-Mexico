@@ -240,6 +240,85 @@
     color: #fff;
   }
 
+  /* The footer's two columns were a 50/50 row at every width, which leaves the
+     logo and the contact details cramped against each other on a phone. */
+  @media (max-width: 640px) {
+    .ox-footer .ox-columns {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    .ox-footer .ox-columns > * {
+      width: 100% !important;
+      align-items: center !important;
+      text-align: center;
+    }
+  }
+
+  /* Long-form market copy. The old pages ran 140-750 words with no measure and
+     no rhythm between headings and body, so everything read as one block. */
+  .market-prose {
+    max-width: 68ch;
+  }
+  .market-prose :is(h2, h3, h4, h5, h6) {
+    margin-top: 2.25rem;
+  }
+  .market-prose h2 {
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--color-surface-edge);
+  }
+  /* The divider is a separator between sections, so the opening heading must
+     not carry one — otherwise the article starts with a stray rule. */
+  .market-prose > :is(h2, h3, h4, h5, h6):first-child,
+  .market-prose > :first-child :is(h2, h3, h4, h5, h6):first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+  }
+  /* The opening paragraph carries the page: give it more presence. */
+  .market-prose > .rich-text:first-child > p:first-child {
+    font-size: 1.1875rem;
+    line-height: 1.6;
+    color: var(--color-ink);
+  }
+  .market-prose figure img {
+    display: block;
+  }
+
+  /* Specification tables. Dense technical data, so the styling stays quiet:
+     a header rule, hairline row separators, and no zebra striping. */
+  .spec-table th,
+  .spec-table td {
+    padding: 0.7rem 0.9rem;
+    vertical-align: top;
+    text-align: left;
+    border-bottom: 1px solid var(--color-surface-edge);
+  }
+  .spec-table thead th {
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-ink);
+    background: var(--color-surface-alt);
+    border-bottom: 2px solid var(--color-surface-edge);
+    white-space: nowrap;
+  }
+  .spec-table tbody th {
+    font-weight: 500;
+    color: var(--color-ink);
+  }
+  .spec-table tbody tr:last-child :is(th, td) {
+    border-bottom: 0;
+  }
+  /* The closing row names the product, so it reads as a conclusion. */
+  .spec-table tbody tr:last-child {
+    background: var(--color-surface-alt);
+  }
+  .spec-table tbody tr:last-child :is(th, td) {
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+
   /* Footer. Its content is rendered through the same block renderer as the
      page, so the inverted palette is set once here rather than per element. */
   .ox-footer {
@@ -253,6 +332,29 @@
   }
   .ox-footer a:hover {
     color: #fff;
+  }
+
+  /* Centred variant of the section rule. */
+  .ox-rule-center::after {
+    content: "";
+    display: block;
+    width: 3.5rem;
+    height: 3px;
+    margin: 1rem auto 0;
+    background: var(--color-brand);
+  }
+
+  /* Market cards. Hairline border that picks up the brand colour on hover,
+     like every other card on the site. */
+  .ox-market {
+    border: 1px solid var(--color-surface-edge);
+    transition:
+      border-color 0.18s ease,
+      box-shadow 0.18s ease;
+  }
+  .ox-market:hover,
+  .ox-market:focus-within {
+    border-color: var(--color-brand);
   }
 
   /* A short brand rule under a section's opening heading, replacing the

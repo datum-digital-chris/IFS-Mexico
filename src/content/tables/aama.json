@@ -1,0 +1,39 @@
+{
+  "_note": "Authored content, NOT generated. The AAMA performance table for /mercado-arquitectonico/. Figures come from the IFS Coatings US site (content/architectural/index.md, aama.rows), translated to Spanish. The source's description and footnote are deliberately omitted: the Mexican page already carries equivalent sentences either side of the table. The product code is IFS 500P to match that page's own copy (the US site calls it IFS 500FP).",
+  "caption": "Especificaciones de rendimiento AAMA",
+  "headers": ["Prueba", "AAMA 2603", "AAMA 2604", "AAMA 2605"],
+  "rows": [
+    {
+      "label": "Resistencia a la humedad — ASTM D2247",
+      "values": [
+        ["1,500 h", "Pocas ampollas"],
+        ["3,000 h", "Ampollas de tamaño máx. 8"],
+        ["4,000 h", "Ampollas de tamaño máx. 8"]
+      ]
+    },
+    {
+      "label": "Resistencia a la niebla salina — ASTM G85",
+      "values": [
+        ["1,000 h", "Avance de 1–2 mm", "Ampollas de tamaño máx. 8"],
+        ["1,500 h", "Avance de 1–2 mm", "Ampollas de tamaño máx. 8"],
+        ["2,000 h", "Avance de 1–2 mm", "Ampollas de tamaño máx. 8"]
+      ]
+    },
+    {
+      "label": "Exposición en Florida",
+      "values": [["1 año"], ["5 años"], ["10 años"]]
+    },
+    {
+      "label": "Retención del color",
+      "values": [["“Cambio leve”"], ["Delta E < 5"], ["Delta E < 5"]]
+    },
+    {
+      "label": "Retención del brillo",
+      "values": [["“Cambio leve”"], ["Retención mínima del 30%"], ["Retención mínima del 50%"]]
+    },
+    {
+      "label": "Producto IFS",
+      "values": [["IFS 300SP"], ["IFS 400SD"], ["IFS 500P"]]
+    }
+  ]
+}

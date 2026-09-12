@@ -1,0 +1,70 @@
+{
+  "hero": {
+    "image": "/uploads/2023/05/hero-homepage-01.jpg",
+    "headline": "Elija el polvo de rendimiento adecuado",
+    "supporting": [
+      "Cientos de colores",
+      "Haga la elección de un revestimiento sostenible"
+    ],
+    "button": {
+      "label": "Ver Colores",
+      "href": "/colors/"
+    }
+  },
+  "intro": {
+    "eyebrow": "IFS Coatings Internacional",
+    "heading": "Encuentra los Revestimientos en Polvo Adecuados para su Mercado...",
+    "image": "/uploads/2023/05/hero-general-industrial.jpg"
+  },
+  "markets": [
+    {
+      "title": "Arquitectónico",
+      "description": "Descubra soluciones de revemiento sostenibles para sus edificios",
+      "href": "/mercado-arquitectonico/",
+      "label": "conoce más",
+      "image": "/uploads/2023/05/architecture-01.jpg"
+    },
+    {
+      "title": "Industriales Generales",
+      "description": "Recubrimientos de alta dureza y resistentes para aplicaciones industriales",
+      "href": "/aplicaciones-industriales-generales/",
+      "label": "conoce más",
+      "image": "/uploads/2023/05/general-industrial-01.jpg"
+    },
+    {
+      "title": "Electrodomésticos",
+      "description": "Hermosos acabados protectores para el mercado de electrodomésticos",
+      "href": "/electrodomesticos/",
+      "label": "conoce más",
+      "image": "/uploads/2023/05/electrodomesticos-02.jpg"
+    },
+    {
+      "title": "Repintado de Automóviles",
+      "description": "Increíbles colores y desempeño para aplicaciones automotrices",
+      "href": "/repintado-de-automoviles/",
+      "label": "conoce más",
+      "image": "/uploads/2023/05/automoviles-01.jpg"
+    },
+    {
+      "title": "Maquiladores",
+      "description": "Miles de colores, efectos y formulaciones químicas de productos para usted y sus clientes",
+      "href": "/maquiladores/",
+      "label": "conoce más",
+      "image": "/uploads/2023/05/custom-workshop-01.jpg"
+    },
+    {
+      "title": "Tráilers",
+      "description": "Soluciones de recubrimiento en polvo resistentes diseñadas para el mercado de remolques",
+      "href": "/trailers/",
+      "label": "conoce más",
+      "image": "/uploads/2023/05/trailer-01.jpg"
+    },
+    {
+      "title": "Varillas de Refuerzo",
+      "description": "Lo último en protección de varilla de refuerzo según las normas ASTM y AASHTO",
+      "href": "/varillas-de-refuerzo/",
+      "label": "conoce más",
+      "image": "/uploads/2023/05/rebar-01.jpg"
+    }
+  ]
+}

@@ -67,7 +67,7 @@
                   "kind": "richtext",
                   "id": "_rich_text-8-707",
                   "html": "<p>Las lavadoras, secadoras, refrigeradores, hornos, microondas y la mayoría de los electrodomésticos son atacados regularmente por dedos pegajosos, limpiadores de cocina, agua, calor, frío y golpes.</p><p>Ya sea para uso doméstico, comercial o industrial, IFS tiene una amplia gama de formulaciones en polvo diseñadas específicamente para electrodomésticos para ofrecer un rendimiento técnico de primera clase, que incluye:</p><ul><li>Resistencia química</li><li>Resistencia a las manchas</li><li>Dureza</li><li>Resistencia al rayado</li><li>Resistencia a la corrosión</li><li>Tratamiento antimicrobiano</li></ul><p>Con formulaciones inteligentes para cumplir con sus requisitos técnicos y parámetros de aplicación, también entendemos que estos electrodomésticos deben tener un aspecto increíble. Nuestros polvos ofrecen:</p><ul><li>Un acabado suave y hermoso</li><li>Enorme gama de colores impresionantes</li><li>Rango de niveles de brillo</li><li>Hermosos efectos metálicos y de mica</li><li>Desarrollo y combinación de colores personalizados disponibles</li></ul><p>Hable con su representante de IFS sobre el mejor polvo para su aplicación.</p>",
-                  "className": "border-b-[2px] border-b-brand",
+                  "className": "",
                   "isCard": false,
                   "wrapClassName": "",
                   "bg": null,
@@ -160,5 +160,64 @@
         }
       ]
     }
-  ]
+  ],
+  "template": "market",
+  "market": {
+    "title": "Electrodomésticos",
+    "heroImage": "/uploads/markets/electrodomesticos-hero.jpg",
+    "supportImage": null,
+    "body": [
+      {
+        "kind": "richtext",
+        "id": "_rich_text-8-707",
+        "html": "<p>Las lavadoras, secadoras, refrigeradores, hornos, microondas y la mayoría de los electrodomésticos son atacados regularmente por dedos pegajosos, limpiadores de cocina, agua, calor, frío y golpes.</p><p>Ya sea para uso doméstico, comercial o industrial, IFS tiene una amplia gama de formulaciones en polvo diseñadas específicamente para electrodomésticos para ofrecer un rendimiento técnico de primera clase, que incluye:</p><ul><li>Resistencia química</li><li>Resistencia a las manchas</li><li>Dureza</li><li>Resistencia al rayado</li><li>Resistencia a la corrosión</li><li>Tratamiento antimicrobiano</li></ul><p>Con formulaciones inteligentes para cumplir con sus requisitos técnicos y parámetros de aplicación, también entendemos que estos electrodomésticos deben tener un aspecto increíble. Nuestros polvos ofrecen:</p><ul><li>Un acabado suave y hermoso</li><li>Enorme gama de colores impresionantes</li><li>Rango de niveles de brillo</li><li>Hermosos efectos metálicos y de mica</li><li>Desarrollo y combinación de colores personalizados disponibles</li></ul><p>Hable con su representante de IFS sobre el mejor polvo para su aplicación.</p>",
+        "className": "",
+        "isCard": false,
+        "wrapClassName": "",
+        "bg": null,
+        "bgSize": null,
+        "bgPosition": null
+      }
+    ],
+    "sidebar": {
+      "heading": "Mercados",
+      "items": [
+        {
+          "label": "Mercado Arquitectónico",
+          "href": "/mercado-arquitectonico/",
+          "current": false
+        },
+        {
+          "label": "Electrodomésticos",
+          "href": "/electrodomesticos/",
+          "current": true
+        },
+        {
+          "label": "Repintado de Automóviles",
+          "href": "/repintado-de-automoviles/",
+          "current": false
+        },
+        {
+          "label": "Maquiladores",
+          "href": "/maquiladores/",
+          "current": false
+        },
+        {
+          "label": "Aplicaciones Industriales",
+          "href": "/aplicaciones-industriales-generales/",
+          "current": false
+        },
+        {
+          "label": "Varillas de Refuerzo",
+          "href": "/varillas-de-refuerzo/",
+          "current": false
+        },
+        {
+          "label": "Tráilers",
+          "href": "/trailers/",
+          "current": false
+        }
+      ]
+    }
+  }
 }

@@ -67,7 +67,7 @@
                   "kind": "richtext",
                   "id": "_rich_text-13-103",
                   "html": "<p>Los imprimadores en polvo duros y resistentes están diseñados para agregar otro nivel de protección a su producto. IFS tiene una gama de imprimadores y también puede ofrecer formulaciones personalizadas:</p><ul><li><strong>Imprimador epoxi de IFS</strong>: este imprimador proporciona una excelente resistencia a la corrosión y longevidad exterior. Código de producto: ERSS 70424.</li><li><strong>Imprimador KW de IFS</strong>: creado con una resina epoxi y modificado para ofrecer una buena resistencia a la corrosión. Solo para aplicaciones interiores. Código de producto ELSS 72131.</li><li><strong>Imprimador rico en zinc</strong>: este imprimador tiene zinc adicional extruido en el producto para brindar una protección superior contra la corrosión en las aplicaciones exteriores.&nbsp;ELS 72683.</li><li><strong>IMPRIMADOR OGF DE IFS</strong>: este producto inteligente facilita la desgasificación en piezas como piezas fundidas o galvanizadas. Se basa en una resina epoxi. Código de producto ELSS 73127.</li><li><strong>Imprimador conductor de IFS</strong>: este imprimador proporciona resistencia superficial y buena resistencia química y a la corrosión. Código de producto ELSS 74220.</li></ul>",
-                  "className": "border-b-[2px] border-b-brand",
+                  "className": "",
                   "isCard": false,
                   "wrapClassName": "",
                   "bg": null,

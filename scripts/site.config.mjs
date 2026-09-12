@@ -21,6 +21,57 @@ export default {
   // The WP default sample post, never linked from the site. Retired, not migrated.
   retireSlugs: ["hello-world"],
 
+  // The seven market ("Mercados") pages. They share one template
+  // (src/layouts/MarketLayout.astro) and take their imagery from the IFS
+  // Coatings US site's library, which has proper market photography where the
+  // Mexican site had none: every market page carried a single bare photo band
+  // and zero images in the body.
+  //
+  // `from` is relative to the IFS-Coatings repo's public/ directory; run
+  // `npm run import-images` to copy them in.
+  marketsSource: "/Users/Chris/GitHub/IFS-Coatings/public",
+  markets: {
+    "mercado-arquitectonico": {
+      hero: "architectural-coatings-hero.jpg",
+      // A real building rather than the marketing collage in
+      // performance-coatings-for-every-facade-*.jpg.
+      support: "uploads/brooklyn-tower-9-dekalb-hero.jpg",
+    },
+    "aplicaciones-industriales-generales": {
+      hero: "general-industrial-hero.jpg",
+      support: "uploads/hardware-hero-01.jpg",
+    },
+    electrodomesticos: {
+      hero: "uploads/appliances-hero-02.jpg",
+      support: null,
+    },
+    "repintado-de-automoviles": {
+      hero: "uploads/automotive-powder-hero-01.jpg",
+      support: null,
+    },
+    maquiladores: {
+      hero: "uploads/custom-coaters-hero-02.jpg",
+      support: "uploads/custom-coaters-hero.jpg",
+    },
+    "trailers-2": {
+      hero: "uploads/trailers-hero-02.jpg",
+      support: null,
+    },
+    "varillas-de-refuerzo": {
+      // rebar-lr-1200.jpg is the same dimensions at 1.9MB and will not
+      // re-compress; this one is the better-encoded version of the same shot.
+      hero: "uploads/rebars-toughest-coating-yet.jpg",
+      support: "uploads/top-5-questions-for-rebar-industry.jpg",
+    },
+  },
+
+  // WordPress shortcodes whose plugin is not installed, mapped to a table
+  // authored in src/content/tables/. The old site printed the literal
+  // shortcode text on the page; these render the real thing instead.
+  shortcodeTables: {
+    "wpdatatable id=2": "aama",
+  },
+
   // Old -> new path rewrites. WordPress gave Tráilers a duplicate-slug suffix.
   pathRewrites: { "/trailers-2/": "/trailers/" },
 };

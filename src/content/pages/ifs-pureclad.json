@@ -67,7 +67,7 @@
                   "kind": "richtext",
                   "id": "_rich_text-8-701",
                   "html": "<p>IFS PureClad es una línea de revestimientos en polvo que cambia la industria y proporciona una solución de acabado de mayor calidad, más fuerte y más segura para productos sensibles al calor, como materiales de madera natural y de ingeniería, incluyendo MDF y OSB.</p>",
-                  "className": "border-b-[2px] border-b-brand",
+                  "className": "",
                   "isCard": false,
                   "wrapClassName": "",
                   "bg": null,

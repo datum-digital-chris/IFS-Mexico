@@ -44,7 +44,7 @@
           "kind": "richtext",
           "id": "_rich_text-7-689",
           "html": "<p>En IFS, nuestra misión es brindar un servicio y un producto incomparables a la industria a la vez que brindamos una opción ambientalmente responsable.</p><p>Estamos orgullosos de nuestro servicio, entonces, ¿cómo definimos el servicio? Los cuatro pilares del servicio incomparable de IFS son:</p><ol><li>Sensibilidad:&nbsp;Escuchamos, actuamos con rapidez y eficacia, cumplimos con precisión y nos comunicamos abiertamente.</li><li>Pericia:Nos enfocamos exclusivamente en revestimientos en polvo y formamos un equipo experimentado, bien informado y talentoso.</li><li>Personalización:&nbsp;Somos flexibles y ofrecemos soluciones personalizadas.</li><li>Confiabilidad:&nbsp;Somos confiables, profesionales y siempre estamos ahí cuando nos necesita.</li></ol><p>Trabajar en IFS es ser parte de la familia IFS. Nuestra cultura es lo que valoramos en un miembro de la familia IFS y cómo esperamos que un miembro de la familia IFS se comporte con los demás dentro y fuera de la empresa. Entonces, ¿cuáles son los valores y comportamientos de IFS?&nbsp;</p>",
-          "className": "border-b-[2px] border-b-brand mb-[20px]",
+          "className": "mb-[20px]",
           "isCard": false,
           "wrapClassName": "",
           "bg": null,

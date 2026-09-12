@@ -5,11 +5,14 @@
  */
 import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import MarketLayout from "@/layouts/MarketLayout.astro";
 import Block from "@/components/Block.astro";
 import type { Block as BlockType } from "@/lib/blocks";
 
 export async function getStaticPaths() {
-  const pages = await getCollection("pages");
+  // Home has its own template (src/pages/index.astro), which presents the same
+  // content as a grid rather than seven stacked slabs.
+  const pages = (await getCollection("pages")).filter((p) => p.data.slug !== "");
   return pages.map((page) => ({
     params: { slug: page.data.slug || undefined },
     props: { page },
@@ -17,9 +20,17 @@ export async function getStaticPaths() {
 }
 
 const { page } = Astro.props;
-const { title, description, ogImage, sections } = page.data;
+const { title, description, ogImage, sections, template, market } = page.data;
 ---
 
-<BaseLayout title={title} description={description} ogImage={ogImage}>
-  {(sections as BlockType[]).map((section) => <Block block={section} />)}
-</BaseLayout>
+{
+  template === "market" && market ? (
+    <MarketLayout market={market} description={description} />
+  ) : (
+    <BaseLayout title={title} description={description} ogImage={ogImage}>
+      {(sections as BlockType[]).map((section) => (
+        <Block block={section} />
+      ))}
+    </BaseLayout>
+  )
+}

@@ -57,6 +57,108 @@ hairline rule, which matters on product pages several thousand pixels long.
 brand-coloured `:focus-visible` ring. Buttons moved from grey-on-grey to solid
 brand with white text. Both navigations work without JavaScript.
 
+## The home page
+
+The restyle above changed the paint but not the structure, and on the home page
+the structure was the problem: the seven markets were rendered as seven
+full-width alternating slabs, about 3,000px to present what is really a
+seven-item list. Nothing could be compared against anything else, and "conoce
+más" appeared seven times down the page.
+
+`src/pages/index.astro` now presents the same content as a grid:
+
+- The hero's three slogans become one headline plus a supporting line, so the
+  page opens with a hierarchy instead of three equal claims. The scrim is
+  directional rather than flat, so the powder photograph still reads.
+- *"IFS Coatings Internacional / Encuentra los Revestimientos en Polvo Adecuados
+  para su Mercado…"* was a photo band competing with the hero. It is the heading
+  for the markets, so it is used as one.
+- The seven markets become a responsive card grid (3 / 2 / 1 across). Each card
+  is a stretched link, with the original "conoce más" kept as the visible
+  affordance.
+
+Result: **4,040px → 2,761px on desktop (-32%)**, 5,827px → 4,628px on mobile,
+with every word retained — `npm run compare` stays at 0 missing.
+
+The content model is derived by `scripts/extract-content.mjs` into
+`src/content/home.json`; every string and image is read out of the extracted
+page, and the script warns if the source page's shape stops matching. The
+generic `[...slug].astro` route excludes the home slug so the two do not clash.
+
+### One fault fixed
+
+On *Industriales Generales* and *Maquiladores* the old site's background image
+and foreground `<img>` were swapped — a workshop photo captioned "Industriales
+Generales" and a factory photo captioned "Maquiladores". The background was
+correct on all seven cards, so the grid reads from the background and the
+pairing is right.
+
+## The Mercados pages
+
+All seven markets shared one shape: a bare photo band carrying **no title**,
+then 140–750 words of unbroken prose beside a floating sidebar, with **zero
+images in the body**. `src/layouts/MarketLayout.astro` gives them a common
+structure:
+
+- A page header — eyebrow, title, market photograph with a directional scrim.
+  The title was previously buried as the first heading in the body; it is lifted
+  into the header, so the page opens by saying what it is.
+- A 68ch measure for the article, with a hairline divider above each `h2` so the
+  sections are visible at a glance. The opening paragraph is set larger.
+- A supporting photograph placed after the opening passage — never directly
+  after a heading, which would separate it from its own text.
+- A sticky "Mercados" card listing all seven with the current one marked.
+
+### Imagery
+
+The Mexican site had no market photography, so hero and supporting images come
+from the IFS Coatings US library, mapped in `cfg.markets` and copied by
+`npm run import-images` (which caps the long edge at 2000px and re-encodes —
+the originals run to 3000×4500 and 1.9MB). 11 images, 4.7MB. **This is the only
+place new material was introduced; all copy is still the extracted original.**
+
+### Faults this exposed
+
+Restructuring made three existing faults visible, all now fixed:
+
+1. **A duplicated heading.** "Productos de polvo arquitectónico" appeared twice
+   in a row, once as a second `h1`. Body `h1`s are demoted (the page has its own
+   now) and a heading that merely repeats the one before it is dropped.
+2. **A broken shortcode.** `[wpdatatable id=2]` prints as literal text on the
+   old site too — the plugin is not installed. Blocks whose entire content is a
+   shortcode are marked `unresolved` and left out rather than reproduced as
+   broken text. Listed in `compare-content.mjs` `EXPECTED`.
+3. **Arbitrary red rules.** The old design drew a 2px brand rule under some text
+   blocks; against the new rhythm they landed at random. Dropped in the restyle
+   layer.
+
+### The AAMA table
+
+`/mercado-arquitectonico/` says "…se destacan en la siguiente tabla:" and then,
+on the old site, printed the literal text `[wpdatatable id=2]` — the plugin is
+not installed, so the table has never rendered on the live site.
+
+The figures were recovered from the IFS Coatings US repo
+(`content/architectural/index.md`, `aama.rows`), where the same table drives
+both the Architectural page and the Spec Builder. They are authored in Spanish
+in `src/content/tables/aama.json` and rendered by `SpecTable.astro`, mapped to
+the shortcode through `cfg.shortcodeTables` so the slot is filled where the
+sentence points.
+
+**This is authored content, not extracted** — the only Spanish text on the site
+that was written rather than migrated, and the figures are technical
+specifications, so it warrants review before launch.
+
+Two decisions recorded there:
+
+- The source's description and footnote are **omitted**: the Mexican page
+  already carries equivalent sentences either side of the table, and including
+  them would duplicate the copy.
+- The product row reads **IFS 500P**, matching this page's own body copy. The US
+  site calls the same product **IFS 500FP**. One of the two is wrong and it is
+  worth settling, because it is the code a specifier writes into a construction
+  document.
+
 ## Note on `verify:layout`
 
 That gate measured the rebuild against the old site element by element, and it

@@ -17,7 +17,8 @@ export type BlockKind =
   | "text"
   | "form"
   | "navmenu"
-  | "tabs";
+  | "tabs"
+  | "spectable";
 
 export interface Background {
   /** Ordered CSS background-image layers, already pointing at local assets. */
@@ -46,6 +47,10 @@ export interface Block {
   tag?: string;
   heading?: string;
   intro?: string;
+  /** Content is only a shortcode for a plugin that is not installed. */
+  unresolved?: boolean;
+  /** Name of an authored table in src/content/tables/. */
+  table?: string;
   items?: { label: string; href: string | null; current: boolean }[];
   tabs?: { id: string; label: string; className?: string; innerId?: string; innerClassName?: string }[];
   panels?: { id: string; children: Block[] }[];

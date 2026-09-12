@@ -1,0 +1,56 @@
+---
+/**
+ * A specification table that replaces an unresolved WordPress shortcode.
+ *
+ * The old site printed "[wpdatatable id=2]" as literal text because the plugin
+ * is not installed, so the sentence "…se destacan en la siguiente tabla"
+ * pointed at nothing. The figures are authored in src/content/tables/.
+ *
+ * Scrolls horizontally on narrow screens rather than forcing the page to.
+ */
+import aama from "@/content/tables/aama.json";
+
+const TABLES: Record<string, typeof aama> = { aama };
+
+interface Props {
+  name: string;
+}
+
+const { name } = Astro.props;
+const table = TABLES[name];
+---
+
+{
+  table && (
+    <figure class="my-8 -mx-4 sm:mx-0">
+      <div class="overflow-x-auto px-4 sm:px-0">
+        <table class="spec-table w-full min-w-[560px] border-collapse text-[15px]">
+          <caption class="sr-only">{table.caption}</caption>
+          <thead>
+            <tr>
+              {table.headers.map((h, i) => (
+                <th scope="col" class:list={[i === 0 && "text-left"]}>
+                  {h}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {table.rows.map((row) => (
+              <tr>
+                <th scope="row">{row.label}</th>
+                {row.values.map((cell) => (
+                  <td>
+                    {cell.map((line, i) => (
+                      <span class:list={["block", i > 0 && "text-ink-body/75"]}>{line}</span>
+                    ))}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </figure>
+  )
+}

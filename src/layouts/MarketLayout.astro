@@ -1,0 +1,126 @@
+---
+/**
+ * The seven Mercados pages.
+ *
+ * The old design opened every one with a bare photo band carrying no title,
+ * then ran 140–750 words of unbroken prose beside a floating sidebar, with no
+ * images in the body at all. This gives the page a real header, a readable
+ * measure, and imagery from the IFS Coatings library.
+ *
+ * All copy comes from the extracted page; only the photography is new.
+ */
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Block from "@/components/Block.astro";
+import type { Block as BlockType } from "@/lib/blocks";
+
+interface Market {
+  title: string;
+  heroImage: string | null;
+  supportImage: string | null;
+  body: BlockType[];
+  sidebar: { heading?: string; items: { label: string; href: string | null; current: boolean }[] } | null;
+}
+
+interface Props {
+  market: Market;
+  description?: string;
+  eyebrow?: string;
+}
+
+const { market, description = "", eyebrow = "Mercados" } = Astro.props;
+const { title, heroImage, supportImage, body, sidebar } = market;
+
+// Drop the supporting image in after the opening passage rather than at the top
+// or bottom, so it breaks the prose where it actually gets long — and never
+// directly after a heading, which would separate it from its own text.
+const firstProse = body.findIndex((b) => b.kind === "richtext");
+const splitAt = Math.min(4, Math.max(firstProse + 1, Math.floor(body.length / 3)) || 1);
+const opening = body.slice(0, splitAt);
+const rest = body.slice(splitAt);
+---
+
+<BaseLayout title={title} description={description} ogImage={heroImage}>
+  <section class="relative isolate overflow-hidden bg-surface-dark">
+    {
+      heroImage && (
+        <img
+          src={heroImage}
+          alt=""
+          aria-hidden="true"
+          class="absolute inset-0 -z-10 h-full w-full object-cover"
+          fetchpriority="high"
+        />
+      )
+    }
+    <div
+      class="absolute inset-0 -z-10 bg-gradient-to-r from-[#0b1522]/90 from-10% via-[#0b1522]/60 via-50% to-[#0b1522]/20"
+      aria-hidden="true"
+    >
+    </div>
+    <div class="container-ox py-16 md:py-20 lg:py-24">
+      <p class="font-heading text-[0.8125rem] font-semibold uppercase tracking-[0.14em] text-surface/70">
+        {eyebrow}
+      </p>
+      <h1 class="mt-3 max-w-3xl text-surface">{title}</h1>
+    </div>
+  </section>
+
+  <div class="bg-surface">
+    <div class="container-ox py-14 md:py-20">
+      {/* Sized to the content rather than the container: a 68ch measure beside
+          a 300px sidebar is ~1000px, and stretching that across the full 1120px
+          container just opens a gap between the two. */}
+      <div class="mx-auto grid max-w-[1000px] gap-12 lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-14">
+        <article class="market-prose min-w-0">
+          {opening.map((b) => <Block block={b} />)}
+
+          {
+            supportImage && (
+              <figure class="my-10">
+                <img
+                  src={supportImage}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                  class="w-full object-cover"
+                />
+              </figure>
+            )
+          }
+
+          {rest.map((b) => <Block block={b} />)}
+        </article>
+
+        {
+          sidebar && (
+            <aside class="lg:sticky lg:top-28 lg:self-start">
+              {sidebar.heading && (
+                <h2 class="mb-3 font-heading text-[0.8125rem] font-semibold uppercase tracking-[0.14em] text-ink-body">
+                  {sidebar.heading}
+                </h2>
+              )}
+              <ul class="divide-y divide-surface-edge border border-surface-edge bg-surface">
+                {sidebar.items.map((i) => (
+                  <li>
+                    <a
+                      href={i.href}
+                      class:list={[
+                        "block border-l-2 px-4 py-2.5 text-[15px] leading-snug transition-colors",
+                        i.current
+                          ? "border-brand bg-surface-alt font-medium text-brand-deep"
+                          : "border-transparent text-ink-body hover:border-surface-edge hover:bg-surface-alt hover:text-brand-deep",
+                      ]}
+                      aria-current={i.current ? "page" : undefined}
+                    >
+                      {i.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </aside>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</BaseLayout>

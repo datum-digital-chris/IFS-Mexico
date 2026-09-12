@@ -57,6 +57,10 @@ const EXPECTED = [
   // The Formidable honeypot label. The rebuilt Netlify form has the same
   // protection with a Spanish label ("Si es humano, deje este campo en blanco").
   "if you are human leave this field blank",
+  // A wpDataTables shortcode for a plugin that is not installed. The old site
+  // prints the literal "[wpdatatable id=2]" on the page; reproducing that would
+  // be reproducing a visible fault.
+  "wpdatatable id=2",
 ];
 
 const norm = (s) => s.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").replace(/\s+/g, " ").trim();

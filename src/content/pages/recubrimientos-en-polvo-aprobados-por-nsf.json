@@ -67,7 +67,7 @@
                   "kind": "richtext",
                   "id": "_rich_text-13-109",
                   "html": "<p>IFS Coatings tiene una amplia gama de recubrimientos en polvo aprobados por NSF/ANSI que están diseñados para satisfacer las demandas de varias especificaciones de NSF. Los polvos IFS NSF han sido probados por NSF, superan sus estrictas especificaciones de prueba y rendimiento, y cumplen plenamente sus requisitos.</p><p>Todos los productos aprobados por IFS Coatings NSF se pueden encontrar en el sitio web de NSF.</p>",
-                  "className": "border-b-[2px] border-b-brand",
+                  "className": "",
                   "isCard": false,
                   "wrapClassName": "",
                   "bg": null,

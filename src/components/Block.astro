@@ -12,6 +12,7 @@ import RichText from "./RichText.astro";
 import ContactForm from "./ContactForm.astro";
 import SideNav from "./SideNav.astro";
 import Tabs from "./Tabs.astro";
+import SpecTable from "./SpecTable.astro";
 
 interface Props {
   block: Block;
@@ -46,7 +47,7 @@ const Heading = `h${block.level ?? 2}` as "h1" | "h2" | "h3" | "h4" | "h5" | "h6
 
 {
   (block.kind === "columns" || block.kind === "div" || block.kind === "group") && (
-    <div id={block.id} class={cls()} style={bgAttrs.style}>
+    <div id={block.id} class={cls(block.kind === "columns" ? "ox-columns" : undefined)} style={bgAttrs.style}>
       {kids.map((child) => (
         <Astro.self block={child} />
       ))}
@@ -64,7 +65,7 @@ const Heading = `h${block.level ?? 2}` as "h1" | "h2" | "h3" | "h4" | "h5" | "h6
 
 {block.kind === "richtext" && <div id={block.id} class={cls("rich-text")}><RichText html={block.html} /></div>}
 
-{block.kind === "html" && <div id={block.id} class={cls()}><RichText html={block.html} /></div>}
+{block.kind === "html" && !block.unresolved && <div id={block.id} class={cls()}><RichText html={block.html} /></div>}
 
 {
   block.kind === "button" && (
@@ -110,5 +111,7 @@ const Heading = `h${block.level ?? 2}` as "h1" | "h2" | "h3" | "h4" | "h5" | "h6
 {block.kind === "navmenu" && <SideNav block={block} />}
 
 {block.kind === "tabs" && <Tabs block={block} />}
+
+{block.kind === "spectable" && block.table && <SpecTable name={block.table} />}
 
 {block.kind === "text" && block.value}

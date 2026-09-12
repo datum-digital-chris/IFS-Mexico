@@ -16,6 +16,7 @@ npm run inventory      # rebuild docs/url-ledger.csv and docs/asset-census.csv
 npm run extract        # regenerate src/content/ from wp-cache/
 npm run compare        # text fidelity: every sentence on the old page survives
 npm run verify:layout  # visual fidelity: every element's geometry, old vs new
+npm run import-images  # copy market photography in from the IFS Coatings US repo
 ```
 
 ## How this migration works
@@ -40,6 +41,10 @@ So the pipeline is:
    `scripts/lib/css-to-tw.mjs`.
 5. **`src/components/Block.astro`** - one recursive renderer for all 13 Oxygen
    component types.
+
+The home page has its own template (`src/pages/index.astro`) driven by
+`src/content/home.json`, because its content is a list and the old site rendered
+it as seven stacked slabs — see `docs/design-system.md`.
 
 `src/content/` is **generated**. Never hand-edit it: fix the templates or the
 extractor. See `docs/content-map.md`.

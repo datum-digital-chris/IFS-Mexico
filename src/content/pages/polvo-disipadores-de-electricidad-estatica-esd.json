@@ -79,7 +79,7 @@
                   "kind": "richtext",
                   "id": "_rich_text-13-119",
                   "html": "<p>Los recubrimientos en polvo disipadores de electricidad estática (ESD) de IFS están diseñados para disipar una carga estática que puede dañar los componentes eléctricos sensibles. Disponible en una gama de productos químicos y colores, el producto está formulado para proporcionar una resistividad superficial de 104 a 1011 ohmios.&nbsp;</p>",
-                  "className": "border-b-[2px] border-b-brand",
+                  "className": "",
                   "isCard": false,
                   "wrapClassName": "",
                   "bg": null,

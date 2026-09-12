@@ -91,6 +91,18 @@ stacked at 120px/110px/90px on mobile) but the internals differ.
 301s to `/`. `/trailers-2/` (a WordPress duplicate-slug suffix) 301s to
 `/trailers/`.
 
+## 8. Two swapped card images on the home page
+
+**Old:** on *Industriales Generales* and *Maquiladores* the card's background
+image and its foreground `<img>` disagree — `general-industrial-01.jpg` against
+`custom-workshop-01.jpg` and vice versa. The visible result was a workshop photo
+under "Industriales Generales".
+
+**New:** both read from the background image, which is correct on all seven
+cards.
+
+**Why:** the pairing was plainly a mistake, and the grid makes it obvious.
+
 ---
 
 ## Not a deviation: `[wpdatatable id=2]`

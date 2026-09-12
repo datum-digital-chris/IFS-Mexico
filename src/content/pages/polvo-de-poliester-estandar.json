@@ -67,7 +67,7 @@
                   "kind": "richtext",
                   "id": "_rich_text-8-72",
                   "html": "<p>Hay dos tipos de recubrimientos en polvo de poliéster estándar IFS:</p><ul><li>Poliéster estándar con TGIC*</li><li>Poliéster estándar sin TGIC</li></ul><p>*TGIC (isocianurato de triglicidilo)</p><p>Ambos tipos de polvos de poliéster estándar ofrecen un recubrimiento excelente para todo uso que se puede usar para aplicaciones interiores y exteriores. Cuando se usan en aplicaciones exteriores, los poliésteres estándares ofrecen lo que a menudo se denomina durabilidad estándar. Algunos poliésteres estándares cumplirán y superarán los requisitos de rendimiento de AAMA 2603.</p>",
-                  "className": "border-b-[2px] border-b-brand",
+                  "className": "",
                   "isCard": false,
                   "wrapClassName": "",
                   "bg": null,

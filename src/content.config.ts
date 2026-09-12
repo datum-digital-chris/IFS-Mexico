@@ -13,7 +13,7 @@ import { z } from "zod";
  */
 const block: z.ZodType<unknown> = z.lazy(() =>
   z.object({
-    kind: z.enum(["section", "columns", "div", "heading", "richtext", "button", "link", "image", "html", "group", "text", "form", "navmenu", "tabs"]),
+    kind: z.enum(["section", "columns", "div", "heading", "richtext", "button", "link", "image", "html", "group", "text", "form", "navmenu", "tabs", "spectable"]),
     id: z.string().optional(),
     className: z.string().optional(),
     isCard: z.boolean().optional(),
@@ -37,6 +37,8 @@ const block: z.ZodType<unknown> = z.lazy(() =>
     tag: z.string().optional(),
     heading: z.string().optional(),
     intro: z.string().optional(),
+    unresolved: z.boolean().optional(),
+    table: z.string().optional(),
     items: z
       .array(z.object({ label: z.string(), href: z.string().nullable(), current: z.boolean() }))
       .optional(),
@@ -58,6 +60,21 @@ const pages = defineCollection({
     description: z.string(),
     ogImage: z.string().nullable(),
     sections: z.array(block),
+    template: z.string().optional(),
+    market: z
+      .object({
+        title: z.string(),
+        heroImage: z.string().nullable(),
+        supportImage: z.string().nullable(),
+        body: z.array(block),
+        sidebar: z
+          .object({
+            heading: z.string().optional(),
+            items: z.array(z.object({ label: z.string(), href: z.string().nullable(), current: z.boolean() })),
+          })
+          .nullable(),
+      })
+      .optional(),
   }),
 });
 

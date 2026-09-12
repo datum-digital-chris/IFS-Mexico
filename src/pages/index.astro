@@ -1,0 +1,115 @@
+---
+/**
+ * Home page.
+ *
+ * The old site rendered the seven markets as seven full-width alternating
+ * slabs — about 3,000px to present what is really a seven-item list, with no
+ * way to compare the markets against each other. The content is a list, so it
+ * is presented as one here.
+ *
+ * Every string and image comes from `src/content/home.json`, derived from the
+ * extracted page by `scripts/extract-content.mjs`. Nothing is added, removed or
+ * reworded; `npm run compare` checks that.
+ */
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import home from "@/content/home.json";
+
+const { hero, intro, markets } = home;
+---
+
+<BaseLayout title="Home" description={intro.heading}>
+  {/* Hero. The three slogans become one headline plus supporting lines, so the
+      page opens with a hierarchy rather than a list of three equal claims. */}
+  <section class="relative isolate overflow-hidden bg-surface-dark">
+    {
+      hero.image && (
+        <img
+          src={hero.image}
+          alt=""
+          aria-hidden="true"
+          class="absolute inset-0 -z-10 h-full w-full object-cover"
+          fetchpriority="high"
+        />
+      )
+    }
+    {/* Scrim. Strong enough behind the copy, then clearing quickly so the
+        powder photograph — the best asset the brand has — still reads. The old
+        hero flattened it under an even overlay. */}
+    <div
+      class="absolute inset-0 -z-10 bg-gradient-to-r from-[#0b1522]/90 from-10% via-[#0b1522]/55 via-45% to-[#0b1522]/5"
+      aria-hidden="true"
+    >
+    </div>
+
+    <div class="container-ox py-16 md:py-24 lg:py-28">
+      <div class="max-w-2xl">
+        <h1 class="text-hero text-surface">{hero.headline}</h1>
+        {
+          hero.supporting.length > 0 && (
+            <p class="mt-5 max-w-xl text-[1.125rem] leading-relaxed text-surface/85 md:text-[1.25rem]">
+              {hero.supporting.join(" · ")}
+            </p>
+          )
+        }
+        {hero.button && <a href={hero.button.href} class="ox-btn mt-8">{hero.button.label}</a>}
+      </div>
+    </div>
+  </section>
+
+  {/* Section header. This copy was a photo band competing with the hero; it is
+      the heading for the markets below, so it is used as one. */}
+  <section class="bg-surface">
+    <div class="container-ox py-14 text-center md:py-20">
+      <p class="font-heading text-[0.8125rem] font-semibold uppercase tracking-[0.14em] text-brand-deep">
+        {intro.eyebrow}
+      </p>
+      <h2 class="ox-rule-center mx-auto mt-3 max-w-3xl text-balance">{intro.heading}</h2>
+    </div>
+  </section>
+
+  {/* Markets. Seven parallel choices, presented so they can be compared. */}
+  <section class="bg-surface-alt">
+    <div class="container-ox pb-20 pt-14 md:pb-28">
+      <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          markets.map((m) => (
+            <li class="ox-market group relative flex flex-col bg-surface">
+              <div class="aspect-[4/3] overflow-hidden">
+                {m.image && (
+                  <img
+                    src={m.image}
+                    alt={m.title}
+                    loading="lazy"
+                    decoding="async"
+                    class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                )}
+              </div>
+              <div class="flex flex-1 flex-col p-6">
+                <h3 class="text-[1.25rem]">
+                  {/* Stretched link: the whole card is the target, and the
+                      visible "conoce más" stays as the affordance. */}
+                  <a href={m.href} class="text-ink after:absolute after:inset-0 group-hover:text-brand-deep">
+                    {m.title}
+                  </a>
+                </h3>
+                {m.description && <p class="mt-2 flex-1 text-[1rem] leading-relaxed">{m.description}</p>}
+                <span class="mt-5 inline-flex items-center gap-1.5 font-heading text-[0.9375rem] font-semibold text-brand-deep">
+                  {m.label}
+                  <svg
+                    class="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1"
+                    viewBox="0 0 14 14"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path d="M1 7h11M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </span>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

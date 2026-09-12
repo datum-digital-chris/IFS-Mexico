@@ -223,6 +223,10 @@ const RESTYLE_DROP = {
   headline: ["font-family", "font-weight", { prop: "color", when: isDefaultHeadingColour }],
   // Buttons were grey-on-grey. The theme owns button colour entirely.
   link_button: ["color", "background-color", "border", "border-color", "border-width", "border-style", "background-image"],
+  // The old design drew a 2px brand rule under some text blocks as a section
+  // divider. The new design has its own rhythm, and these land arbitrarily.
+  _rich_text: ["border-bottom-width", "border-bottom-color", "border-bottom-style"],
+  text_block: ["border-bottom-width", "border-bottom-color", "border-bottom-style"],
   // Every tab carries the "active" class in the markup, so all three render
   // solid red and nothing shows which panel is open. The theme owns tab colour
   // so it can express a real selected state.
@@ -275,6 +279,8 @@ function mergeBuckets(...maps) {
   }
   return out;
 }
+
+const strip = (h) => String(h ?? "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
 
 const oxyType = (id) => id?.match(/^([a-z_]+)-\d+-\d+$/i)?.[1] ?? null;
 
@@ -531,8 +537,20 @@ function walk(el, parentType = null, parentId = null) {
         ...style,
       };
     }
-    if (/\[[a-z_-]+/i.test(html)) report.shortcodes.push({ id, html: html.slice(0, 160) });
-    return { kind: "html", id, html: innerHtml(el), ...style };
+    // A block whose entire content is a shortcode belongs to a plugin that is
+    // not installed. It does not render on the old site either — it prints the
+    // literal "[wpdatatable id=2]" — so it is marked unresolved and left out
+    // rather than reproduced as broken text.
+    const bare = strip(html);
+    const unresolved = /^\[[a-z_-]+[^\]]*\]$/i.test(bare);
+    if (/\[[a-z_-]+/i.test(html)) report.shortcodes.push({ id, html: html.slice(0, 160), unresolved });
+    if (unresolved) {
+      // Some of these have a real table authored for them.
+      const key = bare.replace(/^\[|\]$/g, "").trim();
+      const tableName = cfg.shortcodeTables?.[key];
+      if (tableName) return { kind: "spectable", id, table: tableName, ...style };
+    }
+    return { kind: "html", id, html: innerHtml(el), unresolved, ...style };
   }
 
   // Anything else: keep the children so no text is lost.
@@ -585,6 +603,181 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
   writeFileSync(P(cfg.outDir, `${slug}.json`), JSON.stringify(out, null, 2) + "\n");
   const words = JSON.stringify(tree).replace(/<[^>]+>/g, " ").split(/\s+/).length;
   results.push({ slug, sections: tree.length, words });
+}
+
+// ---- market pages -----------------------------------------------------------
+// The seven Mercados pages all share one shape: a bare photo band with no
+// title, then a two-column row of long-form article plus a "Mercados" sidebar.
+// This lifts the title out of the body and separates the sidebar so the market
+// template can give the page a real header and a readable measure.
+{
+  const collect = (node, kind, out = []) => {
+    if (node.kind === kind) out.push(node);
+    for (const c of node.children ?? []) collect(c, kind, out);
+    return out;
+  };
+  const strip = (h) => String(h ?? "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+
+  for (const slug of Object.keys(cfg.markets)) {
+    const file = P(cfg.outDir, `${slug}.json`);
+    let page;
+    try {
+      page = JSON.parse(readFileSync(file, "utf8"));
+    } catch {
+      console.warn(`  market: ${slug}.json not found`);
+      continue;
+    }
+
+    // The content row is the section that holds the sidebar navigation.
+    const contentSection = page.sections.find((sec) => collect(sec, "navmenu").length) ?? page.sections.at(-1);
+    const columns = collect(contentSection, "columns")[0];
+    const cols = columns?.children ?? [];
+    const sidebarCol = cols.find((c) => collect(c, "navmenu").length);
+    const mainCol = cols.find((c) => c !== sidebarCol) ?? contentSection;
+
+    // Title: the first heading of the main column, lifted into the page header.
+    const headings = collect(mainCol, "heading");
+    const titleNode = headings[0] ?? null;
+    const title = titleNode ? strip(titleNode.html) : page.title;
+
+    const prune = (node) => {
+      if (node === titleNode) return null;
+      const kids = (node.children ?? []).map(prune).filter(Boolean);
+      if (node.children) return { ...node, children: kids };
+      return node;
+    };
+    let body = (mainCol.children ?? []).map(prune).filter(Boolean);
+
+    // The page's h1 is the hero title now, so any h1 left in the body is a
+    // second top-level heading. Demote rather than delete.
+    const demote = (node) => {
+      const next = node.kind === "heading" && node.level === 1 ? { ...node, level: 2 } : node;
+      return next.children ? { ...next, children: next.children.map(demote) } : next;
+    };
+    body = body.map(demote);
+
+    // Drop a heading that repeats the text of the heading immediately before
+    // it. "Productos de polvo arquitectónico" appears twice in a row on the
+    // architectural page — a straightforward authoring slip.
+    const dedupe = (nodes) => {
+      const out = [];
+      let lastHeading = null;
+      for (const n of nodes) {
+        const node = n.children ? { ...n, children: dedupe(n.children) } : n;
+        if (node.kind === "heading") {
+          const text = strip(node.html).toLowerCase();
+          if (text && text === lastHeading) continue;
+          lastHeading = text;
+        } else if (node.kind !== "text") {
+          lastHeading = null;
+        }
+        out.push(node);
+      }
+      return out;
+    };
+    body = dedupe(body);
+
+    const nav = collect(sidebarCol ?? contentSection, "navmenu")[0] ?? null;
+    const navHeading = sidebarCol ? collect(sidebarCol, "heading").map((h) => strip(h.html))[0] : "";
+
+    const images = cfg.markets[slug];
+    page.template = "market";
+    page.market = {
+      title,
+      heroImage: images.hero ? `/uploads/markets/${slug}-hero${images.hero.slice(images.hero.lastIndexOf("."))}` : null,
+      supportImage: images.support ? `/uploads/markets/${slug}-support${images.support.slice(images.support.lastIndexOf("."))}` : null,
+      body,
+      sidebar: nav ? { heading: navHeading, items: nav.items ?? [] } : null,
+    };
+
+    if (!titleNode) console.warn(`  market ${slug}: no title heading found`);
+    if (!nav) console.warn(`  market ${slug}: no sidebar navigation found`);
+    writeFileSync(file, JSON.stringify(page, null, 2) + "\n");
+  }
+  console.log(`market pages  : ${Object.keys(cfg.markets).length}`);
+}
+
+// ---- home page model ---------------------------------------------------------
+// The home page is a hero, an intro band, and seven market cards that the old
+// site rendered as seven full-width alternating slabs. The content is a list;
+// the presentation was not. This derives a structured model so the home
+// template can present it as a grid, using exactly the same words and images.
+//
+// Nothing here invents content: every string is read out of the extracted tree.
+{
+  const page = JSON.parse(readFileSync(P(cfg.outDir, "home.json"), "utf8"));
+  const warn = (m) => console.warn(`  home model: ${m}`);
+
+  /** Depth-first collect of every node of a given kind. */
+  const collect = (node, kind, out = []) => {
+    if (node.kind === kind) out.push(node);
+    for (const c of node.children ?? []) collect(c, kind, out);
+    return out;
+  };
+  const firstBg = (node) => {
+    if (node.bg?.layers?.length) {
+      const u = node.bg.layers.find((l) => l.startsWith("url("));
+      if (u) return u.slice(5, -2);
+    }
+    for (const c of node.children ?? []) {
+      const hit = firstBg(c);
+      if (hit) return hit;
+    }
+    return null;
+  };
+  const strip = (h) => String(h ?? "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+
+  const [heroSection, introSection, ...cardSections] = page.sections;
+
+  const heroHeadings = collect(heroSection, "heading").map((h) => strip(h.html)).filter(Boolean);
+  const heroButton = collect(heroSection, "button")[0] ?? null;
+  const introHeadings = collect(introSection, "heading").map((h) => strip(h.html)).filter(Boolean);
+
+  const markets = cardSections
+    .map((section) => {
+      const heading = collect(section, "heading")[0];
+      const body = collect(section, "richtext")[0];
+      const button = collect(section, "button")[0];
+      if (!heading || !button) return null;
+      // The card's image: take the BACKGROUND, not the nested <img>. On two
+      // cards the old site has them swapped (a workshop photo tagged
+      // "Industriales Generales" and vice versa); the background is right on
+      // all seven.
+      const columns = collect(section, "columns")[0] ?? section;
+      const imageCol = (columns.children ?? []).find((c) => firstBg(c));
+      return {
+        title: strip(heading.html),
+        description: strip(body?.html),
+        href: button.href,
+        label: button.label,
+        image: imageCol ? firstBg(imageCol) : null,
+      };
+    })
+    .filter(Boolean);
+
+  if (heroHeadings.length < 2) warn(`expected several hero headings, found ${heroHeadings.length}`);
+  if (introHeadings.length < 2) warn(`expected an eyebrow and a heading in the intro band, found ${introHeadings.length}`);
+  if (markets.length !== cardSections.length) warn(`${cardSections.length} card sections but ${markets.length} parsed`);
+  for (const m of markets) if (!m.image) warn(`no image found for "${m.title}"`);
+
+  writeFileSync(
+    P("src/content/home.json"),
+    JSON.stringify(
+      {
+        hero: {
+          image: firstBg(heroSection),
+          headline: heroHeadings[0] ?? "",
+          supporting: heroHeadings.slice(1),
+          button: heroButton ? { label: heroButton.label, href: heroButton.href } : null,
+        },
+        intro: { eyebrow: introHeadings[0] ?? "", heading: introHeadings[1] ?? "", image: firstBg(introSection) },
+        markets,
+      },
+      null,
+      2,
+    ) + "\n",
+  );
+  console.log(`home model    : ${markets.length} markets, ${heroHeadings.length} hero lines`);
 }
 
 // ---- site chrome ------------------------------------------------------------
