@@ -207,10 +207,12 @@
       ]
     }
   ],
-  "template": "market",
-  "market": {
+  "template": "doc",
+  "doc": {
     "key": "aplicaciones-industriales-generales",
     "title": "Aplicaciones Industriales Generales",
+    "eyebrow": "Mercados",
+    "eyebrowHref": null,
     "heroImage": "/uploads/markets/aplicaciones-industriales-generales-hero.jpg",
     "supportImage": "/uploads/markets/aplicaciones-industriales-generales-support.jpg",
     "lead": {
@@ -268,7 +270,7 @@
         "items": []
       }
     ],
-    "sidebar": {
+    "nav": {
       "heading": "Mercados",
       "items": [
         {

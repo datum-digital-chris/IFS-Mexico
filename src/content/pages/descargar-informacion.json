@@ -41,5 +41,33 @@
         }
       ]
     }
-  ]
+  ],
+  "template": "doc",
+  "doc": {
+    "key": "descargar-informacion",
+    "title": "Descargar Información",
+    "eyebrow": "Recursos",
+    "eyebrowHref": null,
+    "heroImage": null,
+    "supportImage": null,
+    "lead": {
+      "headline": null,
+      "hero": "A continuación encontrará parte de nuestra información más popular para descargar.",
+      "body": [
+        {
+          "kind": "richtext",
+          "id": "_rich_text-40-845",
+          "html": "<p><a href=\"/uploads/2024/11/AM-Spanish.pdf\" target=\"_blank\" rel=\"noopener\">Revestimientos pulverizados antimicrobianos IFS</a></p><p><a href=\"/uploads/2024/11/IFS-Advance-Brochure-SPA.pdf\" target=\"_blank\" rel=\"noopener\">IFS Advance</a></p><p><a href=\"/uploads/2024/11/Pureclad-Coatings-Spanish-Brochure.pdf\" target=\"_blank\" rel=\"noopener\">IFS PureClad</a></p><p><a href=\"/uploads/2024/11/Spanish-AG-leaflet.pdf\">Elimine El Grafiti</a></p><p><a href=\"/uploads/2024/11/Spanish-Architectural.pdf\" target=\"_blank\" rel=\"noopener\">Revestimientos pulverizados IFS para aplicaciones arquitectónicas</a></p><p><a href=\"/uploads/2024/11/Spanish-High-Heat.pdf\" target=\"_blank\" rel=\"noopener\">Revestimientos termorresistentes IFS</a></p><p><a href=\"/uploads/2024/11/Spanish-IFS-colors.pdf\" target=\"_blank\" rel=\"noopener\">Miles de colores de IFS</a></p><p><a href=\"/uploads/2024/11/Spanish-Primers.pdf\" target=\"_blank\" rel=\"noopener\">Bases IFS</a></p><p><a href=\"/uploads/2024/11/Spanish-Purecoat.pdf\" target=\"_blank\" rel=\"noopener\">IFS Purecoat - Revestimientos pulverizados transparentes</a></p><p><a href=\"/uploads/2024/11/WolfRayet-Brochure_Spanish-version_LC_Feb-2024_final-med-res.pdf\" target=\"_blank\" rel=\"noopener\">Presentamos WolfRayet</a></p><p><a href=\"/uploads/2025/01/IFS-Trailer-Brochure-Spanish-Version-LR.pdf\" target=\"_blank\" rel=\"noopener\"><span data-olk-copy-source=\"MessageBody\">Recubrimientos para remolques y transporte</span></a></p>",
+          "className": "w-full",
+          "isCard": false,
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null
+        }
+      ]
+    },
+    "sections": [],
+    "nav": null
+  }
 }

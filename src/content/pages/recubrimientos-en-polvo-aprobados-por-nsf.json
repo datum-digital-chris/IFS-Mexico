@@ -249,5 +249,147 @@
         }
       ]
     }
-  ]
+  ],
+  "template": "doc",
+  "doc": {
+    "key": "recubrimientos-en-polvo-aprobados-por-nsf",
+    "title": "Recubrimientos en Polvo Aprobados por NSF",
+    "eyebrow": "Tipos de Polvo",
+    "eyebrowHref": null,
+    "heroImage": "/uploads/2023/04/hero-powders-NSF.jpg",
+    "supportImage": null,
+    "lead": {
+      "headline": null,
+      "hero": "IFS Coatings tiene una amplia gama de recubrimientos en polvo aprobados por NSF/ANSI que están diseñados para satisfacer las demandas de varias especificaciones de NSF. Los polvos IFS NSF han sido probados por NSF, superan sus estrictas especificaciones de prueba y rendimiento, y cumplen plenamente sus requisitos.",
+      "body": [
+        {
+          "kind": "richtext",
+          "id": "_rich_text-13-109",
+          "html": "<p>Todos los productos aprobados por IFS Coatings NSF se pueden encontrar en el sitio web de NSF.</p>",
+          "className": "",
+          "isCard": false,
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "nsf-51",
+        "headline": "NSF 51",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-15-109",
+            "html": "<p>La Norma 51 de NSF/ANSI establece los requisitos mínimos de salud pública y saneamiento para los materiales usados en la construcción de equipos comerciales para alimentos. Los requisitos de esta norma tienen por objeto garantizar que la composición y el acabado de la superficie de los materiales del equipo para alimentos sean tales que un material no adulterará los alimentos ni hará que el equipo para alimentos sea difícil de limpiar y desinfectar.</p><p>Hay una enorme selección de recubrimientos en polvo de IFS que han sido aprobados por NSF 51, tanto en epoxi como en productos químicos híbridos. ¡Hay muchos por mencionar aquí! Hay una lista completa en la página de aprobaciones del sitio web de NSF. Si desea obtener ayuda para elegir el producto adecuado para su aplicación, hable con su representante local de IFS o comuníquese con nosotros.</p>",
+            "className": "pb-0 mb-[20px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": []
+      },
+      {
+        "id": "nsf-61",
+        "headline": "NSF 61",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-17-109",
+            "html": "<p>La Norma 61 de NSF/ANSI se aplica a los materiales y recubrimientos usados en la fabricación de equipos que entran en contacto con agua potable o productos que respaldan la producción de agua potable.</p><p>Para aplicaciones de accesorios, bombas, tanques y válvulas, los siguientes productos de IFS cuentan con la aprobación NSF 61:</p><ul class=\"feature-list\"><li>Negro – ERSS11685</li><li>Azul – ERSS22993</li><li>Marrón – ERSS47676</li><li>Gris – ERSS75636</li><li>Verde – ERSS33254</li><li>Rojo – ERSS62900</li><li>Blanco – ERSS83401</li><li>Amarillo – ERSS51039</li></ul><p>Las hojas de datos técnicos están disponibles para cada producto.</p>",
+            "className": "mb-[20px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": []
+      },
+      {
+        "id": "elegir-su-color-nsf-61",
+        "headline": "Elegir su color NSF 61",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-25-109",
+            "html": "<p>IFS Coatings tiene muchos productos en polvo y colores diferentes aprobados por NSF. Los colores que hemos aprobado son genéricos, por ejemplo, “negro”, “verde”. “rojo”, etc. Las pruebas se han completado en estas fórmulas específicas y han sido aprobadas. Sin embargo, hay muchos tonos de “verde” y es posible que esté buscando un color muy específico. Nuestras formulaciones han sido aprobadas para producir varios tonos de cada color dentro de una cierta tolerancia. Si el tono que necesita no está dentro de esta tolerancia, es posible que no se apruebe. Para obtener más información o ayuda con sus requisitos de color específicos, hable con su representante local de IFS o comuníquese con nosotros.</p>",
+            "className": "mb-[20px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": []
+      }
+    ],
+    "nav": {
+      "heading": "Polvos",
+      "items": [
+        {
+          "label": "Polvo de Poliéster Estándar",
+          "href": "/polvo-de-poliester-estandar/",
+          "current": false
+        },
+        {
+          "label": "Polvos de Poliéster Superduraderos",
+          "href": "/polvos-de-poliester-superduraderos/",
+          "current": false
+        },
+        {
+          "label": "Polvo de Fluoropolímero (FEVE)",
+          "href": "/polvo-de-fluoropolimero-feve/",
+          "current": false
+        },
+        {
+          "label": "Polvo Epoxi",
+          "href": "/polvo-epoxi/",
+          "current": false
+        },
+        {
+          "label": "Polvo Híbrido",
+          "href": "/polvo-hibrido/",
+          "current": false
+        },
+        {
+          "label": "Polvo Antimicrobiano",
+          "href": "/polvo-antimicrobiano/",
+          "current": false
+        },
+        {
+          "label": "Polvo Antigrafiti",
+          "href": "/polvo-antigrafiti/",
+          "current": false
+        },
+        {
+          "label": "Imprimadores en Polvo",
+          "href": "/imprimadores-en-polvo/",
+          "current": false
+        },
+        {
+          "label": "Polvo Aprobados por NSF",
+          "href": "/recubrimientos-en-polvo-aprobados-por-nsf/",
+          "current": true
+        },
+        {
+          "label": "Polvo (ESD)",
+          "href": "/polvo-disipadores-de-electricidad-estatica-esd/",
+          "current": false
+        },
+        {
+          "label": "Polvos Termoplásticos IFS Puroplaz®",
+          "href": "/polvos-termoplasticos-ifs-puroplaz/",
+          "current": false
+        }
+      ]
+    }
+  }
 }

@@ -226,5 +226,125 @@
         }
       ]
     }
-  ]
+  ],
+  "template": "doc",
+  "doc": {
+    "key": "polvo-de-fluoropolimero-feve",
+    "title": "Polvo de Fluoropolímero (FEVE)",
+    "eyebrow": "Tipos de Polvo",
+    "eyebrowHref": null,
+    "heroImage": "/uploads/2023/04/hero-powders-feve.jpg",
+    "supportImage": null,
+    "lead": {
+      "headline": null,
+      "hero": "Los recubrimientos en polvo de fluoropolímero (FEVE) de IFS, de rendimiento superior, representan los sistemas de mayor durabilidad exterior disponibles. También ofrecen una huella de sostenibilidad superior en comparación con las pinturas líquidas equivalentes. Esta es la razón por la que se usan ampliamente en aplicaciones arquitectónicas exteriores.",
+      "body": [
+        {
+          "kind": "richtext",
+          "id": "_rich_text-9-82",
+          "html": "<p>La gama de fluoropolímeros de IFS se denomina <strong>IFS 500FP</strong> y cumplirá y superará los requisitos de rendimiento de <strong>AAMA 2605</strong>. La resina usada en IFS 500FP es Lumiflon, la mejor resina FEVE para recubrimientos en polvo disponible en la actualidad cuando se requiere una retención duradera del color y el brillo y protección contra la corrosión.</p><p>Los recubrimientos en polvo de fluoropolímero se usan casi exclusivamente en aplicaciones exteriores, en especial en el mercado arquitectónico ultraduradero en edificios comerciales, residenciales y monumentales, que incluyen:</p><ul class=\"feature-list\"><li>Muro cortina</li><li>Elementos de fachada</li><li>Ventanas/pared de ventana, puertas</li><li>Toldos</li><li>Paneles</li></ul>",
+          "className": "mb-[20px]",
+          "isCard": false,
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "beneficios-de-la-gama-ifs-500fp-de-recubrimiento",
+        "headline": "Beneficios de la gama IFS 500FP de recubrimientos en polvo",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-12-82",
+            "html": "<ul class=\"feature-list feature-list--wide\"><li>Resistencia superior a la intemperie</li><li>Retención superior de color y brillo</li><li>Excelente resistencia química</li><li>Excelente resistencia a la abrasión</li><li>Excelente resistencia a la corrosión</li><li>Excelente resistencia al impacto y dureza, en comparación con los recubrimientos líquidos</li><li>Flexibilidad de formulación, en efectos de estilo sólido, metálico y anódico</li></ul><p>Hay muy pocas desventajas en el uso de fluoropolímeros de alto rendimiento de IFS en los que la durabilidad exterior a largo plazo es importante.</p><p>Cuando especifique fluoropolímeros en polvo FEVE, consulte la página de Recursos Arquitectónicos para conocer las especificaciones o comuníquese con nosotros para obtener más información.</p>",
+            "className": "mb-[25px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": [
+          {
+            "headline": "Tenga en cuenta:",
+            "body": [
+              {
+                "kind": "richtext",
+                "id": "_rich_text-15-82",
+                "html": "<p>IFS 500FP solo está disponible para aplicadores registrados en IFS.</p><p>Puede obtener más información sobre IFS 500FP aquí.<br>La tarjeta de colores arquitectónicos de IFS presenta colores arquitectónicos estándares en formulaciones de fluoropolímeros. Los fluoropolímeros FEVE de rendimiento superior también pueden formularse a medida y combinarse regularmente con las paletas de los arquitectos.</p><p>Tenga en cuenta que estos representan pautas generales. Hable con el equipo de arquitectura de IFS para obtener una explicación más detallada y usos específicos.</p>",
+                "className": "",
+                "wrapClassName": "",
+                "bg": null
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "nav": {
+      "heading": "Polvos",
+      "items": [
+        {
+          "label": "Polvo de Poliéster Estándar",
+          "href": "/polvo-de-poliester-estandar/",
+          "current": false
+        },
+        {
+          "label": "Polvos de Poliéster Superduraderos",
+          "href": "/polvos-de-poliester-superduraderos/",
+          "current": false
+        },
+        {
+          "label": "Polvo de Fluoropolímero (FEVE)",
+          "href": "/polvo-de-fluoropolimero-feve/",
+          "current": true
+        },
+        {
+          "label": "Polvo Epoxi",
+          "href": "/polvo-epoxi/",
+          "current": false
+        },
+        {
+          "label": "Polvo Híbrido",
+          "href": "/polvo-hibrido/",
+          "current": false
+        },
+        {
+          "label": "Polvo Antimicrobiano",
+          "href": "/polvo-antimicrobiano/",
+          "current": false
+        },
+        {
+          "label": "Polvo Antigrafiti",
+          "href": "/polvo-antigrafiti/",
+          "current": false
+        },
+        {
+          "label": "Imprimadores en Polvo",
+          "href": "/imprimadores-en-polvo/",
+          "current": false
+        },
+        {
+          "label": "Polvo Aprobados por NSF",
+          "href": "/recubrimientos-en-polvo-aprobados-por-nsf/",
+          "current": false
+        },
+        {
+          "label": "Polvo (ESD)",
+          "href": "/polvo-disipadores-de-electricidad-estatica-esd/",
+          "current": false
+        },
+        {
+          "label": "Polvos Termoplásticos IFS Puroplaz®",
+          "href": "/polvos-termoplasticos-ifs-puroplaz/",
+          "current": false
+        }
+      ]
+    }
+  }
 }

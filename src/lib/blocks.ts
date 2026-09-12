@@ -95,27 +95,52 @@ export function isSafeHtml(html: string | undefined): boolean {
 }
 
 /**
- * A Mercados page, grouped by the extractor into the section rhythm the
- * template renders (see src/layouts/MarketLayout.astro). The content schema
- * types a block as `unknown` because the tree is recursive and deliberately
- * loose, so the route casts to this on the way into the template.
+ * Block kinds that are data or interaction rather than prose, and so break out
+ * of the text measure to the full width of their section: a spec table, the
+ * colour tabs, the contact form, a migrated TablePress table, a diagram.
  */
-export interface MarketSection {
+export const WIDE_KINDS = new Set<BlockKind>(["spectable", "tabs", "form", "html", "image"]);
+
+/**
+ * A page, grouped by the extractor into the shape the templates render: a
+ * header, a lead, then one section per h2 with its h3s as numbered items (see
+ * docs/design-system.md and src/layouts/PageLayout.astro).
+ *
+ * The content schema types a block as `unknown`, because the Oxygen tree is
+ * recursive and deliberately loose about which visual fields appear on which
+ * kind, so the route casts to this on the way into the template.
+ */
+export interface DocSection {
   id: string;
   headline: string;
   body: Block[];
   items: { headline: string; body: Block[] }[];
 }
 
-export interface Market {
+export interface Doc {
   key: string;
   title: string;
+  /** The site's own name for the section this page sits in. Never authored. */
+  eyebrow: string;
+  eyebrowHref: string | null;
   heroImage: string | null;
   supportImage: string | null;
   lead: { headline: string | null; hero: string; body: Block[] };
-  sections: MarketSection[];
-  sidebar: {
+  sections: DocSection[];
+  nav: {
     heading?: string;
     items: { label: string; href: string | null; current: boolean }[];
   } | null;
+}
+
+/** Split a body into runs, so each table or form gets the full width and each run of prose its measure. */
+export function runsOf(body: Block[]): { wide: boolean; blocks: Block[] }[] {
+  const runs: { wide: boolean; blocks: Block[] }[] = [];
+  for (const block of body) {
+    const wide = WIDE_KINDS.has(block.kind);
+    const last = runs.at(-1);
+    if (last && last.wide === wide) last.blocks.push(block);
+    else runs.push({ wide, blocks: [block] });
+  }
+  return runs;
 }

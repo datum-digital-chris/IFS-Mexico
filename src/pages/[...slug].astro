@@ -1,13 +1,13 @@
 ---
 /**
- * Every extracted WordPress page. One generic route: adding a page means
- * adding content, never editing this file.
+ * Every extracted WordPress page. One generic route and one template: adding a
+ * page means adding content, never editing this file.
  */
 import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import MarketLayout from "@/layouts/MarketLayout.astro";
+import PageLayout from "@/layouts/PageLayout.astro";
 import Block from "@/components/Block.astro";
-import type { Block as BlockType, Market } from "@/lib/blocks";
+import type { Block as BlockType, Doc } from "@/lib/blocks";
 
 export async function getStaticPaths() {
   // Home has its own template (src/pages/index.astro), which presents the same
@@ -20,13 +20,15 @@ export async function getStaticPaths() {
 }
 
 const { page } = Astro.props;
-const { title, description, ogImage, sections, template, market } = page.data;
+const { title, description, ogImage, sections, doc } = page.data;
 ---
 
 {
-  template === "market" && market ? (
-    <MarketLayout market={market as Market} description={description} />
+  doc ? (
+    <PageLayout doc={doc as Doc} description={description} />
   ) : (
+    /* A page the extractor could not group. It still renders, as the Oxygen
+       tree it came from, rather than disappearing from the site. */
     <BaseLayout title={title} description={description} ogImage={ogImage}>
       {(sections as BlockType[]).map((section) => (
         <Block block={section} />

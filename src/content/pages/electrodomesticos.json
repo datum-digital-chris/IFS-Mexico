@@ -161,10 +161,12 @@
       ]
     }
   ],
-  "template": "market",
-  "market": {
+  "template": "doc",
+  "doc": {
     "key": "electrodomesticos",
     "title": "Electrodomésticos",
+    "eyebrow": "Mercados",
+    "eyebrowHref": null,
     "heroImage": "/uploads/markets/electrodomesticos-hero.jpg",
     "supportImage": null,
     "lead": {
@@ -185,7 +187,7 @@
       ]
     },
     "sections": [],
-    "sidebar": {
+    "nav": {
       "heading": "Mercados",
       "items": [
         {

@@ -85,15 +85,17 @@ const pages = defineCollection({
     ogImage: z.string().nullable(),
     sections: z.array(block),
     template: z.string().optional(),
-    market: z
+    // Every page, grouped by the extractor into the shape the templates
+    // render: a header, a lead whose opening paragraph is the standfirst, then
+    // one section per h2 with its h3s as items.
+    doc: z
       .object({
         key: z.string(),
         title: z.string(),
+        eyebrow: z.string(),
+        eyebrowHref: z.string().nullable(),
         heroImage: z.string().nullable(),
         supportImage: z.string().nullable(),
-        // The flat prose run, grouped by the extractor into the section rhythm
-        // the US site's Markets pages use: a lead whose opening paragraph is
-        // the hero standfirst, then one section per h2 with its h3s as items.
         lead: z.object({
           headline: z.string().nullable(),
           hero: z.string(),
@@ -107,7 +109,7 @@ const pages = defineCollection({
             items: z.array(z.object({ headline: z.string(), body: z.array(block) })),
           }),
         ),
-        sidebar: z
+        nav: z
           .object({
             heading: z.string().optional(),
             items: z.array(

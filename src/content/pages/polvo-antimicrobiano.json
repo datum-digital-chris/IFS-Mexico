@@ -226,5 +226,129 @@
         }
       ]
     }
-  ]
+  ],
+  "template": "doc",
+  "doc": {
+    "key": "polvo-antimicrobiano",
+    "title": "Polvo Antimicrobiano",
+    "eyebrow": "Tipos de Polvo",
+    "eyebrowHref": null,
+    "heroImage": "/uploads/2023/04/hero-powders-antimicrobiano.jpg",
+    "supportImage": null,
+    "lead": {
+      "headline": null,
+      "hero": "La mayoría de los recubrimientos de pintura en polvo de IFS se pueden formular con capacidades antimicrobianas. Estos recubrimientos usan iones de plata para inhibir el crecimiento de hongos y microbios que causan deterioro en el recubrimiento en polvo.",
+      "body": [
+        {
+          "kind": "richtext",
+          "id": "_rich_text-13-98",
+          "html": "<p>Además, dado que la plata es un elemento natural, los iones de plata usados son ambientalmente responsables y se ha demostrado que ofrecen protección contra los microbios que causan olor, moho y deterioro del producto sin una alta toxicidad para los humanos y los animales.</p><p>Nuestros acabados de pintura antimicrobianos están diseñados para usarse en una amplia gama de aplicaciones, que incluyen:</p><ul class=\"feature-list\"><li>Laboratorios</li><li>Baños</li><li>Hospitales</li><li>Escuelas y guarderías</li><li>Transporte público, equipos de juego y pasamanos</li><li>Equipos de gimnasia y áreas de alto uso.</li></ul>",
+          "className": "mb-[20px]",
+          "isCard": false,
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "como-funciona-la-pintura-antimicrobiana",
+        "headline": "¿Cómo funciona la pintura antimicrobiana?",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-15-98",
+            "html": "<p>Los recubrimientos de IFS se tratan con iones de plata, los cuales inhiben el crecimiento de enzimas celulares en el recubrimiento en presencia de humedad.</p><p>La protección del producto antimicrobiano se puede agregar a la mayoría de las formulaciones de IFS, y el recubrimiento conservará su protección del producto antimicrobiano con el tiempo.</p>",
+            "className": "pb-0 mb-[20px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": []
+      },
+      {
+        "id": "purecoat-antimicrobiano",
+        "headline": "Purecoat antimicrobiano",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-17-98",
+            "html": "<p>IFS Purecoat es la gama de revestimientos transparentes de alta calidad de IFS. Los recubrimientos en polvo con tratamiento antimicrobiano de IFS se someten a estrictas pruebas de primer nivel y logran excelentes resultados en las mismas.</p><p>Los polvos antimicrobianos de IFS superan los estándares de prueba de eficacia ISO 22196 y JIS Z 2801.</p><p>El tratamiento del producto de acabado antimicrobiano del recubrimiento en polvo elimina con éxito los microbios que causan moho en el recubrimiento, según estudios de laboratorio. Los revestimientos antimicrobianos Purecoat de IFS también cuentan con una excelente resistencia a los rayos UV y cumplen con las especificaciones de BHMA.</p>",
+            "className": "mb-[20px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": []
+      }
+    ],
+    "nav": {
+      "heading": "Polvos",
+      "items": [
+        {
+          "label": "Polvo de Poliéster Estándar",
+          "href": "/polvo-de-poliester-estandar/",
+          "current": false
+        },
+        {
+          "label": "Polvos de Poliéster Superduraderos",
+          "href": "/polvos-de-poliester-superduraderos/",
+          "current": false
+        },
+        {
+          "label": "Polvo de Fluoropolímero (FEVE)",
+          "href": "/polvo-de-fluoropolimero-feve/",
+          "current": false
+        },
+        {
+          "label": "Polvo Epoxi",
+          "href": "/polvo-epoxi/",
+          "current": false
+        },
+        {
+          "label": "Polvo Híbrido",
+          "href": "/polvo-hibrido/",
+          "current": false
+        },
+        {
+          "label": "Polvo Antimicrobiano",
+          "href": "/polvo-antimicrobiano/",
+          "current": true
+        },
+        {
+          "label": "Polvo Antigrafiti",
+          "href": "/polvo-antigrafiti/",
+          "current": false
+        },
+        {
+          "label": "Imprimadores en Polvo",
+          "href": "/imprimadores-en-polvo/",
+          "current": false
+        },
+        {
+          "label": "Polvo Aprobados por NSF",
+          "href": "/recubrimientos-en-polvo-aprobados-por-nsf/",
+          "current": false
+        },
+        {
+          "label": "Polvo (ESD)",
+          "href": "/polvo-disipadores-de-electricidad-estatica-esd/",
+          "current": false
+        },
+        {
+          "label": "Polvos Termoplásticos IFS Puroplaz®",
+          "href": "/polvos-termoplasticos-ifs-puroplaz/",
+          "current": false
+        }
+      ]
+    }
+  }
 }

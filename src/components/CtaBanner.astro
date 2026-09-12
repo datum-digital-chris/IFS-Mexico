@@ -3,27 +3,32 @@
  * Closing call to action.
  *
  * The house style (.claude/rules/00-core/CLAUDE.core.md) is that every page ends
- * with a CTA banner; the old Mercados pages simply stopped after the last
- * paragraph. Copy is authored in src/content/market-cta.json — it is not
- * migrated content.
+ * with a CTA banner; the old pages simply stopped after the last paragraph.
+ * Copy is authored in src/content/cta.json — it is not migrated content. The
+ * seven markets name their market; every other page takes the default.
  *
  * The brand fill with a white button, terminal on the page: the US site's CTA
  * block, which is the one place the decorative accent covers a whole section
  * and the reason it is not spent anywhere else. The fill is the metallic sweep
  * (`.ox-brand-fill`), never a flat hex.
+ *
+ * Contáctenos is the one page the band would send back to itself, so it closes
+ * on the form instead.
  */
-import cta from "@/content/market-cta.json";
+import cta from "@/content/cta.json";
 
 interface Props {
-  market: string;
+  /** The page's key, for a market that has copy of its own. */
+  page: string;
 }
 
-const { market } = Astro.props;
-const copy = cta.markets[market as keyof typeof cta.markets];
+const { page } = Astro.props;
+const copy = cta.pages[page as keyof typeof cta.pages] ?? cta.default;
+const isTarget = Astro.url.pathname === cta.href;
 ---
 
 {
-  copy && (
+  copy && !isTarget && (
     <section class="ox-brand-fill">
       <div class="container-ox flex flex-col gap-8 py-14 md:flex-row md:items-center md:justify-between md:gap-12 md:py-16">
         <div class="max-w-2xl">

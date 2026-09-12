@@ -272,5 +272,165 @@
         }
       ]
     }
-  ]
+  ],
+  "template": "doc",
+  "doc": {
+    "key": "polvos-de-poliester-superduraderos",
+    "title": "Polvos de Poliéster Superduraderos",
+    "eyebrow": "Tipos de Polvo",
+    "eyebrowHref": null,
+    "heroImage": "/uploads/2023/04/hero-powders-superdurable-polyester.jpg",
+    "supportImage": null,
+    "lead": {
+      "headline": null,
+      "hero": "",
+      "body": [
+        {
+          "kind": "richtext",
+          "id": "_rich_text-5-77",
+          "html": "<p>Hay dos tipos de recubrimientos en polvo de poliéster superduraderos de IFS:</p><ul><li>Poliéster superresistente con TGIC*</li><li>Poliéster superduradero con TGIC y sin TGIC</li></ul><p>*TGIC (isocianurato de triglicidilo)</p><p>Ambos tipos de polvos de poliéster superduraderos ofrecen un recubrimiento excelente y completo. El poliéster superduradero está diseñado para proporcionar resistencia adicional a la intemperie exterior y a la sal y humedad en comparación con un poliéster estándar. Los polvos superduraderos de IFS se usan comúnmente para aplicaciones exteriores. También se pueden usar en algunas aplicaciones interiores en las que se requiere la solidez del color. Los poliésteres superduraderos también forman la columna vertebral de algunos recubrimientos en polvo arquitectónicos que cumplen y superan los requisitos de rendimiento de AAMA 2604.&nbsp;</p>",
+          "className": "mb-[20px] pl-0 pr-0 text-[16px] ml-0 mr-0 sm:pl-[25px] sm:pr-[25px] sm:text-[18px]",
+          "isCard": false,
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "beneficios-de-los-recubrimientos-en-polvo-de-pol",
+        "headline": "Beneficios de los recubrimientos en polvo de poliéster superduraderos en TGIC",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-8-77",
+            "html": "<p>Los sistemas de poliéster superduradero basados en TGIC ofrecen las siguientes ventajas:</p><ul class=\"feature-list feature-list--wide\"><li>Excelente durabilidad exterior</li><li>Excelente resistencia química</li><li>Alta resistencia a los impactos y flexibilidad</li><li>Excelente resistencia a la abrasión</li><li>Se puede formular en una amplia gama de colores, brillos y efectos especiales</li><li>Aplicaciones interiores y exteriores</li><li>Extremadamente rentable</li><li>A menudo cumplen y superan los requisitos de rendimiento de AAMA 2604</li></ul><p>Desventajas de los sistemas de poliéster superduradero basados en TGIC:</p><ul><li>Menos claridad y suavidad que los acrílicos GMA cuando se usan como revestimiento transparente</li></ul>",
+            "className": "mb-[20px] pl-0 pr-0 text-[16px] sm:pl-[25px] sm:pr-[25px] sm:text-[18px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": []
+      },
+      {
+        "id": "caracteristicas-del-polvo-de-poliester-superdura",
+        "headline": "Características del polvo de poliéster superduradero sin TGIC",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-10-77",
+            "html": "<p>Los polvos de poliéster superduraderos sin TGIC (isocianurato de triglicidilo) se pueden usar en aplicaciones en las que no se desea TGIC (en Europa el TGIC se considera peligroso).</p><p>El poliéster superresistente sin TGIC de IFS ofrece las mismas ventajas que un producto con TGIC, además de:</p><ul><li>Nada de TGIC</li><li>Mayor eficiencia de transferencia en el primer paso</li></ul><p>Las desventajas del poliéster superduradero sin TGIC pueden incluir:</p><ul class=\"feature-list feature-list--wide\"><li>Más sensible al exceso de espesor de la película</li><li>Rango de curado y brillo limitado</li><li>Menos horneado que los TGIC</li><li>Más propenso a problemas de corrosión si hay un pretratamiento deficiente</li></ul>",
+            "className": "mb-[20px] pl-0 pr-0 text-[16px] sm:pl-[25px] sm:pr-[25px] sm:text-[18px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": []
+      },
+      {
+        "id": "aplicaciones-de-recubrimientos-en-polvo-de-polie",
+        "headline": "Aplicaciones de recubrimientos en polvo de poliéster superduraderos",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-13-77",
+            "html": "<p>Los recubrimientos en polvo de poliéster superduraderos se usan en una amplia gama de aplicaciones, que incluyen:</p><ul class=\"feature-list feature-list--wide\"><li>Ventanas y puertas</li><li>Escaparate</li><li>Muro cortina y ventana de poca altura</li><li>Toldos</li><li>Aplicaciones interiores de gama alta, por ejemplo, parteluces</li><li>Muebles de exterior y vallas</li><li>Equipos de juegos y recreación</li><li>Asientos de estadio</li><li>Accesorios de iluminación exterior</li><li>Máquinas expendedoras exteriores</li><li>Partes automotrices y remolques</li><li>Equipo marino,</li><li>Equipos de césped y jardín</li><li>Maquinaria agrícola</li><li>Remolques</li><li>Tanques transformadores</li></ul>",
+            "className": "pb-0 mb-[20px] pl-0 pr-0 text-[16px] sm:pl-[25px] sm:pr-[25px] sm:text-[18px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": []
+      },
+      {
+        "id": "conclusion",
+        "headline": "Conclusión",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-16-77",
+            "html": "<p>En resumen, los recubrimientos en polvo de poliéster superduraderos son una opción versátil y duradera para aplicaciones interiores y exteriores. Ofrecen una mayor durabilidad en comparación con los polvos de poliéster estándar. Están disponibles en una amplia gama de colores y efectos y se pueden formular a la medida para exhibir una funcionalidad adicional si es necesario. Al elegir entre sistemas de poliéster superduradero basados en TGIC y sistemas de poliéster superduradero sin TGIC, es esencial considerar las ventajas y desventajas de cada opción con el fin de determinar cuál es la mejor para su aplicación específica.</p><p>Tenga en cuenta que estos representan pautas generales. Hable con el laboratorio de IFS o con un representante para obtener una explicación más detallada y usos específicos.</p>",
+            "className": "pl-0 pr-0 text-[16px] sm:pl-[25px] sm:pr-[25px] sm:text-[18px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": []
+      }
+    ],
+    "nav": {
+      "heading": "Polvos",
+      "items": [
+        {
+          "label": "Polvo de Poliéster Estándar",
+          "href": "/polvo-de-poliester-estandar/",
+          "current": false
+        },
+        {
+          "label": "Polvos de Poliéster Superduraderos",
+          "href": "/polvos-de-poliester-superduraderos/",
+          "current": true
+        },
+        {
+          "label": "Polvo de Fluoropolímero (FEVE)",
+          "href": "/polvo-de-fluoropolimero-feve/",
+          "current": false
+        },
+        {
+          "label": "Polvo Epoxi",
+          "href": "/polvo-epoxi/",
+          "current": false
+        },
+        {
+          "label": "Polvo Híbrido",
+          "href": "/polvo-hibrido/",
+          "current": false
+        },
+        {
+          "label": "Polvo Antimicrobiano",
+          "href": "/polvo-antimicrobiano/",
+          "current": false
+        },
+        {
+          "label": "Polvo Antigrafiti",
+          "href": "/polvo-antigrafiti/",
+          "current": false
+        },
+        {
+          "label": "Imprimadores en Polvo",
+          "href": "/imprimadores-en-polvo/",
+          "current": false
+        },
+        {
+          "label": "Polvo Aprobados por NSF",
+          "href": "/recubrimientos-en-polvo-aprobados-por-nsf/",
+          "current": false
+        },
+        {
+          "label": "Polvo (ESD)",
+          "href": "/polvo-disipadores-de-electricidad-estatica-esd/",
+          "current": false
+        },
+        {
+          "label": "Polvos Termoplásticos IFS Puroplaz®",
+          "href": "/polvos-termoplasticos-ifs-puroplaz/",
+          "current": false
+        }
+      ]
+    }
+  }
 }

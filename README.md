@@ -48,7 +48,7 @@ it as seven stacked slabs — see `docs/design-system.md`.
 
 Two files under `src/content/` are **authored, not generated** and are excluded
 from that rule: `tables/aama.json` (the AAMA specification figures) and
-`market-cta.json` (the Mercados call-to-action copy). Both carry a `_note`
+`cta.json` (the closing call-to-action copy). Both carry a `_note`
 explaining where they came from, and both want a review before launch.
 
 `src/content/` is otherwise **generated**. Never hand-edit it: fix the templates or the

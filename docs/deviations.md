@@ -77,10 +77,11 @@ stacked at 120px/110px/90px on mobile) but the internals differ.
 
 **Why:** a navigation that cannot open is a functional defect.
 
-The Mercados sidebar is also gone as a sidebar: its seven links are now a band
-across the foot of each market page, following the US site's Markets layout
-(`docs/design-system.md`). Every link and label survives except the self-link on
-the page you are already reading, which the breadcrumb replaces.
+The in-page sidebars are also gone as sidebars — "Mercados" on a market page,
+"Polvos" on a product page. Their links are now a band across the foot of the
+page, following the US site's layout (`docs/design-system.md`). Every link and
+label survives except the self-link on the page you are already reading, which
+the breadcrumb replaces.
 
 ## 6. A focus style exists
 

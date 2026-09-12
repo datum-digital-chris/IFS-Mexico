@@ -281,5 +281,162 @@
         }
       ]
     }
-  ]
+  ],
+  "template": "doc",
+  "doc": {
+    "key": "polvo-de-poliester-estandar",
+    "title": "Polvo de Poliéster Estándar",
+    "eyebrow": "Tipos de Polvo",
+    "eyebrowHref": null,
+    "heroImage": "/uploads/2023/04/hero-powders-standard-polyester.jpg",
+    "supportImage": null,
+    "lead": {
+      "headline": null,
+      "hero": "",
+      "body": [
+        {
+          "kind": "richtext",
+          "id": "_rich_text-8-72",
+          "html": "<p>Hay dos tipos de recubrimientos en polvo de poliéster estándar IFS:</p><ul><li>Poliéster estándar con TGIC*</li><li>Poliéster estándar sin TGIC</li></ul><p>*TGIC (isocianurato de triglicidilo)</p><p>Ambos tipos de polvos de poliéster estándar ofrecen un recubrimiento excelente para todo uso que se puede usar para aplicaciones interiores y exteriores. Cuando se usan en aplicaciones exteriores, los poliésteres estándares ofrecen lo que a menudo se denomina durabilidad estándar. Algunos poliésteres estándares cumplirán y superarán los requisitos de rendimiento de AAMA 2603.</p>",
+          "className": "",
+          "isCard": false,
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "beneficios-de-los-recubrimientos-en-polvo-de-pol",
+        "headline": "Beneficios de los recubrimientos en polvo de poliéster estándar con TGIC",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-11-72",
+            "html": "<p>Los sistemas de poliéster estándar basados en TGIC ofrecen las siguientes ventajas:</p><ul class=\"feature-list feature-list--wide\"><li>Excelente recubrimiento multiuso</li><li>Buena resistencia química</li><li>Altamente resistente a los impactos y flexible</li><li>Se puede formular en una amplia gama de colores, brillos y efectos especiales</li><li>Buena resistencia del sobrehorneado al amarillamiento</li><li>Buena durabilidad para aplicaciones exteriores</li><li>Puede cumplir o superar los requisitos de rendimiento de AAMA 2603</li><li>Económico</li><li>Se puede formular a medida para exhibir funcionalidad adicional si es necesario</li></ul><p>Desventajas de los sistemas de poliéster estándar basados en TGIC:</p><ul><li>Resistencia química inferior en comparación con los epoxis</li><li>Durabilidad exterior limitada</li></ul>",
+            "className": "pb-0 mt-[20px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": []
+      },
+      {
+        "id": "caracteristicas-del-polvo-de-poliester-estandar-",
+        "headline": "Características del polvo de poliéster estándar sin TGIC",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-24-72",
+            "html": "<p>Los sistemas de polvos de poliéster estándar sin TGIC (isocianurato de triglicidilo) ofrecen las mismas ventajas que los productos basados en TGIC, con el beneficio adicional de no contener TGIC. También ofrecen:</p><ul><li>Nada de TGIC</li><li>Mayor eficiencia de transferencia de primer paso</li></ul><p>Sin embargo, existen algunas desventajas en los sistemas de poliéster estándar sin TGIC:</p><ul class=\"feature-list feature-list--wide\"><li>Más sensible al exceso de espesor de la película</li><li>Rango de curado y brillo limitado</li><li>Menos resistencia al sobrehorneado que los TGIC</li><li>Más propenso a problemas de corrosión si hay un pretratamiento deficiente</li><li>Durabilidad exterior limitada</li></ul>",
+            "className": "mb-[20px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": []
+      },
+      {
+        "id": "aplicaciones-de-recubrimientos-en-polvo-de-polie",
+        "headline": "Aplicaciones de recubrimientos en polvo de poliéster estándar",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-26-72",
+            "html": "<p>Los recubrimientos en polvo de poliéster estándar se usan en una amplia gama de aplicaciones, que incluyen:</p><ul class=\"feature-list\"><li>Uso arquitectónico (AAMA 2603)</li><li>Interiores para venta minorista</li><li>Muebles</li><li>Instalaciones y accesorios</li><li>Vallas</li><li>Electrodomésticos de cocina</li><li>Aparatos de iluminación</li><li>Tela de alambre</li><li>Máquinas expendedoras</li><li>Piezas de automóviles</li><li>Piezas decorativas</li><li>Hombre, muchas más aplicaciones</li></ul>",
+            "className": "pb-0 mb-[20px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": []
+      },
+      {
+        "id": "conclusion",
+        "headline": "Conclusión",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-29-72",
+            "html": "<p>En resumen, los recubrimientos en polvo de poliéster estándar son una opción versátil y duradera para aplicaciones interiores y exteriores. Están disponibles en una amplia gama de colores y efectos y se pueden formular a la medida para exhibir una funcionalidad adicional si es necesario. Al elegir entre sistemas de poliéster estándar basados en TGIC y sistemas de poliéster estándar sin TGIC, es esencial considerar las ventajas y desventajas de cada opción con el fin de determinar cuál es la mejor para su aplicación específica.</p><p>Tenga en cuenta que estos representan pautas generales. Hable con el laboratorio de IFS o con un representante para obtener una explicación más detallada y usos específicos.</p>",
+            "className": "",
+            "wrapClassName": "",
+            "bg": null
+          }
+        ],
+        "items": []
+      }
+    ],
+    "nav": {
+      "heading": "Polvos",
+      "items": [
+        {
+          "label": "Polvo de Poliéster Estándar",
+          "href": "/polvo-de-poliester-estandar/",
+          "current": true
+        },
+        {
+          "label": "Polvos de Poliéster Superduraderos",
+          "href": "/polvos-de-poliester-superduraderos/",
+          "current": false
+        },
+        {
+          "label": "Polvo de Fluoropolímero (FEVE)",
+          "href": "/polvo-de-fluoropolimero-feve/",
+          "current": false
+        },
+        {
+          "label": "Polvo Epoxi",
+          "href": "/polvo-epoxi/",
+          "current": false
+        },
+        {
+          "label": "Polvo Híbrido",
+          "href": "/polvo-hibrido/",
+          "current": false
+        },
+        {
+          "label": "Polvo Antimicrobiano",
+          "href": "/polvo-antimicrobiano/",
+          "current": false
+        },
+        {
+          "label": "Polvo Antigrafiti",
+          "href": "/polvo-antigrafiti/",
+          "current": false
+        },
+        {
+          "label": "Imprimadores en Polvo",
+          "href": "/imprimadores-en-polvo/",
+          "current": false
+        },
+        {
+          "label": "Polvo Aprobados por NSF",
+          "href": "/recubrimientos-en-polvo-aprobados-por-nsf/",
+          "current": false
+        },
+        {
+          "label": "Polvo (ESD)",
+          "href": "/polvo-disipadores-de-electricidad-estatica-esd/",
+          "current": false
+        },
+        {
+          "label": "Polvos Termoplásticos IFS Puroplaz®",
+          "href": "/polvos-termoplasticos-ifs-puroplaz/",
+          "current": false
+        }
+      ]
+    }
+  }
 }

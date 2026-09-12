@@ -341,5 +341,207 @@
         }
       ]
     }
-  ]
+  ],
+  "template": "doc",
+  "doc": {
+    "key": "ifs-pureclad",
+    "title": "IFS PureClad",
+    "eyebrow": "Más Allá del Metal",
+    "eyebrowHref": null,
+    "heroImage": "/uploads/2023/05/hero-ifs-pureclad-01.jpg",
+    "supportImage": null,
+    "lead": {
+      "headline": null,
+      "hero": "IFS PureClad es una línea de revestimientos en polvo que cambia la industria y proporciona una solución de acabado de mayor calidad, más fuerte y más segura para productos sensibles al calor, como materiales de madera natural y de ingeniería, incluyendo MDF y OSB.",
+      "body": []
+    },
+    "sections": [
+      {
+        "id": "productos-pureclad",
+        "headline": "Productos PureClad",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-10-701",
+            "html": "<p>La gama IFS PureClad ofrece una amplia variedad de productos químicos en polvo de curado bajo que ofrecerán un rendimiento técnico excepcional.&nbsp;</p><p>Todos los polvos PureClad:</p><ul class=\"feature-list feature-list--wide\"><li>Ofrecen una protección resistente y duradera</li><li>Ofrecen infinitas opciones de personalización: colores, texturas y niveles de brillo</li><li>Son amigables con el medio ambiente y seguros para todos los involucrados</li><li>Tienen la capacidad de recubrir uniformemente formas complejas</li><li>Se pueden recubrir y curar con una huella de taller relativamente pequeña</li><li>Ofrecen la máxima eficiencia de producción con altas densidades de línea, aplicación rápida y curado</li><li>La mayoría de las aplicaciones solo requieren una capa</li><li>Ofrecen un proceso de acabado simple y repetible</li><li>Se pueden formular con funcionalidad adicional para agregar valor, como propiedades antimicrobianas</li><li>Vienen con soporte técnico y operativo completo<strong>&nbsp;</strong></li></ul>",
+            "className": "pb-0 mt-[20px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": []
+      },
+      {
+        "id": "pureclad-x",
+        "headline": "PureClad X",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-17-701",
+            "html": "<p>PureClad X cuenta con características de aplicación superiores y es una aplicación de una sola capa con gran capacidad de lijado, además de:</p><ul class=\"feature-list feature-list--wide\"><li>Resistencia a la intemperie: gran solidez del color y retención del brillo</li><li>No se pone amarillo</li><li>Excelente resistencia al agua</li><li>Excelente producto de limpieza y resistencia a las manchas</li><li>Mantiene la flexibilidad a lo largo del tiempo (sin fragilidad)</li><li>Buena estabilidad</li><li>Buena estabilidad al sobrehorneado</li><li>Buena estabilidad de almacenamiento (idealmente a 80 °F o 26 °C) durante unos 6 meses</li><li>Se aplica uniformemente con una excelente formación de película, sin bordes “grasos”</li><li>Buena tolerancia a la desgasificación de los bordes</li><li>Buena capacidad de revestimiento</li><li>Se cura a una temperatura de 240 °F (115 °C) durante unos 6 minutos</li><li>Adecuado para maderas duras (debido a la ventana de curado a baja temperatura)</li><li>Disponible en una gama de coloresUn acabado suave con brillo tan bajo como 25</li></ul>",
+            "className": "pb-0 mt-[20px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": []
+      },
+      {
+        "id": "imprimador-pureclad",
+        "headline": "Imprimador PureClad",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-21-701",
+            "html": "<p>El imprimador en polvo PureClad agrega rendimiento técnico a su acabado y puede aumentar el rendimiento y reducir la cantidad de operaciones de manipulación, lo que ahorra tiempo de fabricación.</p><p>Los imprimadores PureClad aceptarán una capa superior en polvo o líquida y brindarán una excelente resistencia al agua, resistencia química y resistencia a las manchas. Los imprimadores PureClad proporcionan:</p><ul class=\"feature-list feature-list--wide\"><li>Una solución de imprimación de una sola capa</li><li>Imprimación seguida de almacenamiento en espera de lijado, revestimiento o envío posterior</li><li>Buena capacidad de lijado: reduce la cantidad de lijado necesaria</li><li>Soluciones de lijado personalizadas</li><li>Capacidades superiores de llenado en superficies fresadas</li><li>Gran flexibilidad para adaptarse a la deformación a largo plazo de la madera&nbsp;</li><li>Facilidad de trabajar en combinación con resanador</li><li>Capacidad para aceptar una capa superior líquida o en polvo</li><li>Gran flujo y fácil aplicación</li><li>Buena capacidad de revestimiento</li></ul>",
+            "className": "pb-0 mt-[20px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": []
+      },
+      {
+        "id": "aplicaciones",
+        "headline": "Aplicaciones",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-23-701",
+            "html": "<p>Las aplicaciones típicas incluyen, entre otras:</p><ul class=\"feature-list\"><li>Gabinetes de cocina</li><li>Muebles de baño</li><li>Gabinetes de garaje</li><li>Muebles</li><li>Revestimiento residencial</li><li>Molduras</li><li>Puertas de madera/fibra de vidrio</li></ul>",
+            "className": "pb-0 mt-[20px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": []
+      },
+      {
+        "id": "eficiencia-de-la-aplicacion",
+        "headline": "Eficiencia de la aplicación",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-26-701",
+            "html": "<p>Los polvos PureClad ofrecen un procesamiento robusto y rentable con un curado rápido a baja temperatura y un desperdicio mínimo.</p><p>PureClad ofrece muchas ventajas de aplicación, incluyendo:</p><ul><li>Fácil aplicación</li><li>Excelente fluidez, lo que resulta en un excelente acabado</li><li>El curado toma tan solo 6 minutos en un horno de curado IR catalítico a gas. Obtenga más información sobre la tecnología de hornos catalíticos aquí</li><li>Temperatura del horno de 265 °F (130 °C): lo suficientemente baja para adaptarse al MDF estándar, así como a muchos materiales de madera natural</li><li>El revestimiento y el curado pueden demorar solo 10 minutos (mucho más rápido que las pinturas líquidas)</li><li>Excelente estabilidad de temperatura</li><li>Almacenado de forma segura a temperatura ambiente</li><li>Más seguro para las personas y el medio ambiente</li></ul><p>A diferencia de la química tradicional de bajo curado, con el polvo PureClad, usted no tiene que poner en riesgo la velocidad de producción, la eficiencia ni el rendimiento técnico.</p>",
+            "className": "pb-0 mt-[20px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": []
+      },
+      {
+        "id": "opciones-de-color",
+        "headline": "Opciones de color",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-29-701",
+            "html": "<p>IFS PureClad está disponible en una gama de colores, incluyendo varios RAL, tonos neutros y más brillantes. Los polvos PureClad se pueden formular para lograr diversas texturas, destellos y otros efectos. La combinación de colores personalizada también está disponible.</p>",
+            "className": "pb-0 mt-[20px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": []
+      },
+      {
+        "id": "la-eleccion-ambientalmente-responsable",
+        "headline": "La elección ambientalmente responsable",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-32-701",
+            "html": "<p>IFS PureClad es una solución de revestimiento ambientalmente responsable para sustratos sensibles al calor que no solo ofrece excelencia técnica sino también:</p><ul class=\"feature-list feature-list--wide\"><li>No contiene emisiones nocivas de COV</li><li>Tiene una huella de carbono impresionante</li><li>Se puede recuperar y reutilizar o reciclar</li><li>Cura a temperaturas más bajas, lo que reduce el consumo de energía</li><li>No se generan residuos peligrosos ni en la fabricación ni en la aplicación</li></ul>",
+            "className": "pb-0 mt-[20px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": []
+      }
+    ],
+    "nav": {
+      "heading": "Polvos",
+      "items": [
+        {
+          "label": "Polvo de Poliéster Estándar",
+          "href": "/polvo-de-poliester-estandar/",
+          "current": false
+        },
+        {
+          "label": "Polvos de Poliéster Superduraderos",
+          "href": "/polvos-de-poliester-superduraderos/",
+          "current": false
+        },
+        {
+          "label": "Polvo de Fluoropolímero (FEVE)",
+          "href": "/polvo-de-fluoropolimero-feve/",
+          "current": false
+        },
+        {
+          "label": "Polvo Epoxi",
+          "href": "/polvo-epoxi/",
+          "current": false
+        },
+        {
+          "label": "Polvo Híbrido",
+          "href": "/polvo-hibrido/",
+          "current": false
+        },
+        {
+          "label": "Polvo Antimicrobiano",
+          "href": "/polvo-antimicrobiano/",
+          "current": false
+        },
+        {
+          "label": "Polvo Antigrafiti",
+          "href": "/polvo-antigrafiti/",
+          "current": false
+        },
+        {
+          "label": "Imprimadores en Polvo",
+          "href": "/imprimadores-en-polvo/",
+          "current": false
+        },
+        {
+          "label": "Polvo Aprobados por NSF",
+          "href": "/recubrimientos-en-polvo-aprobados-por-nsf/",
+          "current": false
+        },
+        {
+          "label": "Polvo (ESD)",
+          "href": "/polvo-disipadores-de-electricidad-estatica-esd/",
+          "current": false
+        },
+        {
+          "label": "Polvos Termoplásticos IFS Puroplaz®",
+          "href": "/polvos-termoplasticos-ifs-puroplaz/",
+          "current": false
+        }
+      ]
+    }
+  }
 }

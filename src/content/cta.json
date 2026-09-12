@@ -1,8 +1,12 @@
 {
-  "_note": "AUTHORED CONTENT, not extracted. A closing call to action for each Mercados page, following the house rule that every page ends with a CTA banner. Tone and shape mirror the equivalent blocks on the IFS Coatings US site (content/markets/*.md, type: cta): an action heading naming the market, one line on what the representative can provide, and a button. The button label reuses the site's own existing term, Contáctenos. Written for this project and NOT migrated from the old site, so it needs a review before launch.",
+  "_note": "AUTHORED CONTENT, not extracted. The closing call to action every page ends on, following the house rule that every page ends with a CTA banner. Tone and shape mirror the equivalent blocks on the IFS Coatings US site (content/markets/*.md, type: cta): an action heading, one line on what the representative can provide, and a button. The button label reuses the site's own existing term, Contactenos. `default` carries every page that has no entry of its own - the product, resource and legal pages - and the named entries name their market. Written for this project and NOT migrated from the old site, so it needs a review before launch.",
   "label": "Contáctenos",
   "href": "/contactenos/",
-  "markets": {
+  "default": {
+    "heading": "¿No sabe cuál polvo necesita?",
+    "description": "Asesoría técnica, igualación de color, fichas técnicas y paneles de muestra. Hable con su representante de IFS."
+  },
+  "pages": {
     "mercado-arquitectonico": {
       "heading": "Especifique IFS para su próximo proyecto arquitectónico.",
       "description": "Cumplimiento AAMA, igualación de color, fichas técnicas y paneles de muestra. Su representante de arquitectura de IFS tiene lo que necesita."

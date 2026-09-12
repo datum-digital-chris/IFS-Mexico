@@ -1,0 +1,104 @@
+---
+/**
+ * Page header.
+ *
+ * The US site opens every page on a near-full-height photograph: a brand rule
+ * along the top edge, the eyebrow and display title bottom-aligned over a
+ * directional scrim, and the action immediately below the standfirst
+ * (~/GitHub/IFS-Coatings, src/components/blocks/HeroBlock.astro).
+ *
+ * That hero also carries a cluster of term/definition spec tiles. There is no
+ * counterpart in this copy — these pages have no spec pairs, and filling the
+ * column by lifting a bulleted list out of the body would separate the list
+ * from the sentence that introduces it. The column is left to the photograph.
+ *
+ * Eight of the 28 pages have no hero photograph of their own — the legal pages,
+ * the downloads list, Conócenos. Those get the same header on the flat dark
+ * surface, sized to its copy: a 68vh band of empty navy is not a header, it is
+ * a hole.
+ */
+interface Props {
+  title: string;
+  eyebrow: string;
+  /** Opening paragraph of the page, lifted by the extractor. */
+  lead: string;
+  image: string | null;
+  /** Omitted on the page the action itself points at. */
+  action: { label: string; href: string } | null;
+}
+
+const { title, eyebrow, lead, image, action } = Astro.props;
+---
+
+<section
+  class:list={[
+    "bg-surface-dark relative isolate flex flex-col justify-end overflow-hidden",
+    image && "min-h-[480px] md:min-h-[560px] lg:min-h-[68vh]",
+  ]}
+>
+  {
+    image && (
+      <img
+        src={image}
+        alt=""
+        aria-hidden="true"
+        class="absolute inset-0 -z-10 h-full w-full object-cover"
+        fetchpriority="high"
+      />
+    )
+  }
+  {
+    /* Directional scrim, then a second pass up from the foot: dense enough
+      behind the copy, clearing across the frame so the photograph still reads
+      on the open side. Neutral black rather than a tinted veil, as on the US
+      site - a tint of its own fights the photograph's colour.
+
+      It has to be dense, not subtle: half of these photographs are powder on a
+      white ground, and the eyebrow is small red text. */
+  }
+  {
+    image && (
+      <Fragment>
+        <div
+          class="absolute inset-0 -z-10 bg-gradient-to-r from-black/85 via-black/60 to-black/10"
+          aria-hidden="true"
+        />
+        <div
+          class="absolute inset-x-0 bottom-0 -z-10 h-2/3 bg-gradient-to-t from-black/40 to-transparent"
+          aria-hidden="true"
+        />
+      </Fragment>
+    )
+  }
+  {
+    /* The decorative accent is ink, which would vanish over a dark header, so
+      the rule takes the on-dark rung the palette sets aside for this. */
+  }
+  <div class="bg-brand-light absolute inset-x-0 top-0 h-1" aria-hidden="true"></div>
+
+  <div class:list={["container-ox", image ? "py-14 md:py-16" : "py-14 md:py-20"]}>
+    {eyebrow && <p class="eyebrow eyebrow--on-dark">{eyebrow}</p>}
+    <h1
+      class:list={[
+        "display text-surface max-w-3xl text-[clamp(2.25rem,1.35rem+3vw,3.75rem)]",
+        eyebrow && "mt-4",
+      ]}
+    >
+      {title}
+    </h1>
+    {
+      lead && (
+        <p class="text-surface/75 mt-6 max-w-xl text-[1.0625rem] leading-relaxed md:text-[1.125rem]">
+          {lead}
+        </p>
+      )
+    }
+    {
+      action && (
+        <a href={action.href} class="ox-btn mt-9">
+          {action.label}
+        </a>
+      )
+    }
+  </div>
+</section>

@@ -1,6 +1,6 @@
 ---
 /**
- * One section of a market page: an h2 from the old copy and everything under it.
+ * One section of a page: an h2 from the old copy and everything under it.
  *
  * Full-bleed, on its own surface, opening with the eyebrow-over-display-heading
  * pattern the US site uses for every section. Adjacent sections alternate
@@ -11,18 +11,11 @@
  * headline, then the passage, in a hairline-divided grid.
  */
 import Block from "@/components/Block.astro";
-import type { Block as BlockType } from "@/lib/blocks";
-
-interface Section {
-  id: string;
-  headline: string;
-  body: BlockType[];
-  items: { headline: string; body: BlockType[] }[];
-}
+import { runsOf, type DocSection } from "@/lib/blocks";
 
 interface Props {
-  section: Section;
-  /** Category label above the heading — the market this section belongs to. */
+  section: DocSection;
+  /** Category label above the heading — the page this section belongs to. */
   eyebrow: string;
   /** Alternate the surface against the section before it. */
   alt: boolean;
@@ -31,28 +24,29 @@ interface Props {
 const { section, eyebrow, alt } = Astro.props;
 const { id, headline, body, items } = section;
 
-// A specification table is a data grid, not prose: at the 72ch measure its four
+// A spec table or a form is a data grid, not prose: at the 72ch measure its
 // columns are cramped. Consecutive prose blocks are grouped so each run gets
 // one measured column, and each table sits between them at full section width.
-const runs: { wide: boolean; blocks: BlockType[] }[] = [];
-for (const b of body) {
-  const wide = b.kind === "spectable";
-  const last = runs.at(-1);
-  if (last && last.wide === wide) last.blocks.push(b);
-  else runs.push({ wide, blocks: [b] });
-}
+const runs = runsOf(body);
 ---
 
 <section id={id} class:list={["py-14 md:py-20", alt ? "bg-surface-warm" : "bg-surface"]}>
   <div class="container-ox">
     <div class="mb-9">
-      <p class="eyebrow">{eyebrow}</p>
-      <h2 class="display mt-3.5 max-w-3xl text-[clamp(1.75rem,1.4rem+1.4vw,2.5rem)]">{headline}</h2>
+      {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+      <h2
+        class:list={[
+          "display max-w-3xl text-[clamp(1.75rem,1.4rem+1.4vw,2.5rem)]",
+          eyebrow && "mt-3.5",
+        ]}
+      >
+        {headline}
+      </h2>
     </div>
 
     {
       runs.map((run) => (
-        <div class:list={[run.wide ? "my-8 overflow-x-auto" : "market-prose"]}>
+        <div class:list={[run.wide ? "my-8 overflow-x-auto" : "doc-prose"]}>
           {run.blocks.map((b) => (
             <Block block={b} />
           ))}
@@ -62,7 +56,7 @@ for (const b of body) {
 
     {
       items.length > 0 && (
-        <div class:list={["market-items", runs.length > 0 && "mt-12"]}>
+        <div class:list={["doc-items", runs.length > 0 && "mt-12"]}>
           {items.map((item, i) => (
             <div class="p-6 md:p-8">
               <span class="font-heading text-accent-text text-[0.875rem] font-bold tracking-[0.15em] tabular-nums">

@@ -203,5 +203,111 @@
         }
       ]
     }
-  ]
+  ],
+  "template": "doc",
+  "doc": {
+    "key": "polvos-termoplasticos-ifs-puroplaz",
+    "title": "Polvos Termoplásticos IFS Puroplaz®",
+    "eyebrow": "Tipos de Polvo",
+    "eyebrowHref": null,
+    "heroImage": "/uploads/2023/04/hero-powders-puroplaz.jpg",
+    "supportImage": null,
+    "lead": {
+      "headline": null,
+      "hero": "",
+      "body": [
+        {
+          "kind": "richtext",
+          "id": "_rich_text-13-123",
+          "html": "<p>IFS Puroplaz es la línea de productos de recubrimiento en polvo termoplásticos de clase mundial, fuerte, dura y extremadamente resistente de IFS Coatings. Los recubrimientos termoplásticos en polvo de IFS Puroplaz se han formulado cuidadosamente para adaptarse a todos los métodos de aplicación, incluyendo el rociado electrostático y el lecho fluidizado, y ofrecen un rendimiento mecánico, químico y resistente a la intemperie excepcional. Los polvos IFS Puroplaz también están disponibles en una amplia gama de colores estándares y especiales.&nbsp;</p><p>La familia de productos IFS Puroplaz incluye:</p><ul><li>Puroplaz PE, un polvo a base de polietileno que brinda una adhesión y flexibilidad increíbles</li><li>Puroplaz PA, un revestimiento a base de nailon que es resistente pero extremadamente suave.&nbsp;</li></ul>",
+          "className": "",
+          "isCard": false,
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "ventajas-y-aplicaciones-de-puroplaz",
+        "headline": "Ventajas y aplicaciones de Puroplaz®",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-15-123",
+            "html": "<p>Los polvos termoplásticos IFS Puroplaz® ofrecen un rendimiento superior y son fiables para:</p><ul class=\"feature-list feature-list--wide\"><li>Excelente capacidad de resistencia a la intemperie</li><li>Excelente protección contra la corrosión</li><li>Excelente resistencia química</li><li>Excelentes propiedades mecánicas que incluyen desconchado de clase mundial y resistencia al impacto</li><li>Amplia gama de colores</li><li>Tamaños de lote flexibles</li><li>Servicio incomparable</li></ul><p>Formulados para ofrecer una película resistente, funcional y protectora, los polvos termoplásticos IFS Puroplaz son adecuados para:</p><ul class=\"feature-list\"><li>Mueble para exteriores</li><li>Servicios del sitio</li><li>Vallas y pasamanos</li><li>Productos de alambre</li><li>Partes automotrices como estribos, clips y arneses</li><li>Tubería de agua y accesorios</li><li>Tubería de aceite y accesorios</li><li>Equipo médico</li><li>Barcos y naves</li><li>Cajas de batería</li><li>Bandejas eléctricas</li><li>Puroplaz PA es perfecto para cestas de lavavajillas</li></ul>",
+            "className": "pb-0 mt-[20px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": []
+      }
+    ],
+    "nav": {
+      "heading": "Polvos",
+      "items": [
+        {
+          "label": "Polvo de Poliéster Estándar",
+          "href": "/polvo-de-poliester-estandar/",
+          "current": false
+        },
+        {
+          "label": "Polvos de Poliéster Superduraderos",
+          "href": "/polvos-de-poliester-superduraderos/",
+          "current": false
+        },
+        {
+          "label": "Polvo de Fluoropolímero (FEVE)",
+          "href": "/polvo-de-fluoropolimero-feve/",
+          "current": false
+        },
+        {
+          "label": "Polvo Epoxi",
+          "href": "/polvo-epoxi/",
+          "current": false
+        },
+        {
+          "label": "Polvo Híbrido",
+          "href": "/polvo-hibrido/",
+          "current": false
+        },
+        {
+          "label": "Polvo Antimicrobiano",
+          "href": "/polvo-antimicrobiano/",
+          "current": false
+        },
+        {
+          "label": "Polvo Antigrafiti",
+          "href": "/polvo-antigrafiti/",
+          "current": false
+        },
+        {
+          "label": "Imprimadores en Polvo",
+          "href": "/imprimadores-en-polvo/",
+          "current": false
+        },
+        {
+          "label": "Polvo Aprobados por NSF",
+          "href": "/recubrimientos-en-polvo-aprobados-por-nsf/",
+          "current": false
+        },
+        {
+          "label": "Polvo (ESD)",
+          "href": "/polvo-disipadores-de-electricidad-estatica-esd/",
+          "current": false
+        },
+        {
+          "label": "Polvos Termoplásticos IFS Puroplaz®",
+          "href": "/polvos-termoplasticos-ifs-puroplaz/",
+          "current": true
+        }
+      ]
+    }
+  }
 }

@@ -203,5 +203,111 @@
         }
       ]
     }
-  ]
+  ],
+  "template": "doc",
+  "doc": {
+    "key": "polvo-hibrido",
+    "title": "Polvo Híbrido (Poliéster-Epoxi)",
+    "eyebrow": "Tipos de Polvo",
+    "eyebrowHref": null,
+    "heroImage": "/uploads/2023/04/hero-powders-hybrid.jpg",
+    "supportImage": null,
+    "lead": {
+      "headline": null,
+      "hero": "",
+      "body": [
+        {
+          "kind": "richtext",
+          "id": "_rich_text-7-93",
+          "html": "<p>Estos recubrimientos en polvo híbridos representan un equilibrio entre el rendimiento de los epoxis y los poliésteres. Se forman mezclando estos dos tipos de polímeros en diferentes proporciones según los requisitos del uso final. El rendimiento de polvo híbrido se puede resumir de la siguiente manera:</p><ul class=\"feature-list feature-list--wide\"><li>Mayor resistencia al sobrehorneado en comparación con el epoxi</li><li>Buena penetración de jaula de Faraday (más fácil de penetrar en los huecos que se encuentran en la parte que se va a recubrir)</li><li>Gama completa de brillo (10 a más de 95)</li><li>Películas finas y ultrasuaves (0.8 a 1.2 ml)</li><li>Económico</li></ul><p>Las desventajas de estos polvos híbridos son las siguientes:</p><ul><li>Mala resistencia a la intemperie al aire libre</li></ul>",
+          "className": "",
+          "isCard": false,
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "aplicaciones-de-recubrimiento-en-polvo-hibrido",
+        "headline": "Aplicaciones de recubrimiento en polvo híbrido",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-9-93",
+            "html": "<p>Los recubrimientos en polvo híbridos se encuentran por lo general en:</p><ul class=\"feature-list feature-list--wide\"><li>Muebles de oficina</li><li>Armarios metálicos</li><li>Estantería</li><li>Accesorios de iluminación interior</li><li>Herramientas eléctricas</li><li>Piezas de la parte inferior de la carrocería y del capó de automóviles</li></ul><p>Tenga en cuenta que estos representan pautas generales. Hable con el laboratorio de IFS o con un representante para obtener una explicación más detallada y usos específicos.</p>",
+            "className": "pb-0 mt-[20px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": []
+      }
+    ],
+    "nav": {
+      "heading": "Polvos",
+      "items": [
+        {
+          "label": "Polvo de Poliéster Estándar",
+          "href": "/polvo-de-poliester-estandar/",
+          "current": false
+        },
+        {
+          "label": "Polvos de Poliéster Superduraderos",
+          "href": "/polvos-de-poliester-superduraderos/",
+          "current": false
+        },
+        {
+          "label": "Polvo de Fluoropolímero (FEVE)",
+          "href": "/polvo-de-fluoropolimero-feve/",
+          "current": false
+        },
+        {
+          "label": "Polvo Epoxi",
+          "href": "/polvo-epoxi/",
+          "current": false
+        },
+        {
+          "label": "Polvo Híbrido",
+          "href": "/polvo-hibrido/",
+          "current": true
+        },
+        {
+          "label": "Polvo Antimicrobiano",
+          "href": "/polvo-antimicrobiano/",
+          "current": false
+        },
+        {
+          "label": "Polvo Antigrafiti",
+          "href": "/polvo-antigrafiti/",
+          "current": false
+        },
+        {
+          "label": "Imprimadores en Polvo",
+          "href": "/imprimadores-en-polvo/",
+          "current": false
+        },
+        {
+          "label": "Polvo Aprobados por NSF",
+          "href": "/recubrimientos-en-polvo-aprobados-por-nsf/",
+          "current": false
+        },
+        {
+          "label": "Polvo (ESD)",
+          "href": "/polvo-disipadores-de-electricidad-estatica-esd/",
+          "current": false
+        },
+        {
+          "label": "Polvos Termoplásticos IFS Puroplaz®",
+          "href": "/polvos-termoplasticos-ifs-puroplaz/",
+          "current": false
+        }
+      ]
+    }
+  }
 }

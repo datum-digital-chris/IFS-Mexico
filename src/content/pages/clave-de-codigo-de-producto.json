@@ -55,5 +55,47 @@
         }
       ]
     }
-  ]
+  ],
+  "template": "doc",
+  "doc": {
+    "key": "clave-de-codigo-de-producto",
+    "title": "Clave de Código de Producto",
+    "eyebrow": "Recursos",
+    "eyebrowHref": null,
+    "heroImage": null,
+    "supportImage": null,
+    "lead": {
+      "headline": null,
+      "hero": "",
+      "body": [
+        {
+          "kind": "image",
+          "id": "image-9-693",
+          "src": "/uploads/2024/05/Product_ID_table.png",
+          "alt": "product code table",
+          "width": null,
+          "height": null,
+          "className": "max-w-full mb-[36px]",
+          "isCard": false,
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null
+        },
+        {
+          "kind": "richtext",
+          "id": "text_block-4-693",
+          "html": "Todos nuestros productos tienen un código identificativo único. Encontrará este código en cada caja de polvo que producimos. El código define el tipo exacto de polvo.<br><br>A continuación, se muestra la clave de los códigos.<br>Si tiene alguna consulta sobre cualquiera de nuestros polvos que usted ya tenga, recuerde citar la clave del producto.<br>",
+          "className": "mb-[20px]",
+          "isCard": false,
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null
+        }
+      ]
+    },
+    "sections": [],
+    "nav": null
+  }
 }

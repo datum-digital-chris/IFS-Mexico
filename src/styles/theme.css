@@ -470,39 +470,39 @@
      their own right, so all this class carries is the measure. 72ch is inside
      the comfortable range at the body size and leaves the feature-list grids
      room to run two columns without the cells getting narrow. */
-  .market-prose {
+  .doc-prose {
     max-width: 72ch;
   }
-  .market-prose :is(h3, h4, h5, h6) {
+  .doc-prose :is(h3, h4, h5, h6) {
     margin-top: 2rem;
   }
-  .market-prose > :is(h3, h4, h5, h6):first-child {
+  .doc-prose > :is(h3, h4, h5, h6):first-child {
     margin-top: 0;
   }
 
   /* The numbered items under a section heading — the US site's "advantages"
      treatment, used here for the h3s the old copy nested under an h2. Two
      columns, hairlines on the cells for the same reason as the feature lists. */
-  .market-items {
+  .doc-items {
     display: grid;
     grid-template-columns: 1fr;
     background: var(--color-surface-alt);
     border: 1px solid var(--color-surface-edge);
   }
-  .market-items > * {
+  .doc-items > * {
     border-top: 1px solid var(--color-surface-edge);
   }
-  .market-items > *:first-child {
+  .doc-items > *:first-child {
     border-top: 0;
   }
   @media (min-width: 640px) {
-    .market-items {
+    .doc-items {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-    .market-items > *:nth-child(2) {
+    .doc-items > *:nth-child(2) {
       border-top: 0;
     }
-    .market-items > *:nth-child(even) {
+    .doc-items > *:nth-child(even) {
       border-left: 1px solid var(--color-surface-edge);
     }
   }
@@ -510,40 +510,40 @@
   /* The cross-link band that closes a market page. The same hairline-divided
      grid as the feature lists, on the dark surface, and drawn the same way -
      rules on the cells, so the grid holds at any item count. */
-  .market-nav {
+  .doc-nav {
     display: grid;
     grid-template-columns: 1fr;
     border: 1px solid var(--color-surface-edge-dark);
   }
-  .market-nav > li {
+  .doc-nav > li {
     border-top: 1px solid var(--color-surface-edge-dark);
   }
-  .market-nav > li:first-child {
+  .doc-nav > li:first-child {
     border-top: 0;
   }
   @media (min-width: 640px) {
-    .market-nav {
+    .doc-nav {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-    .market-nav > li:nth-child(2) {
+    .doc-nav > li:nth-child(2) {
       border-top: 0;
     }
-    .market-nav > li:nth-child(even) {
+    .doc-nav > li:nth-child(even) {
       border-left: 1px solid var(--color-surface-edge-dark);
     }
   }
   @media (min-width: 992px) {
-    .market-nav {
+    .doc-nav {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
-    .market-nav > li:nth-child(3) {
+    .doc-nav > li:nth-child(3) {
       border-top: 0;
     }
-    .market-nav > li:nth-child(even) {
+    .doc-nav > li:nth-child(even) {
       border-left: 0;
     }
     /* Anything that does not open a row carries the column rule. */
-    .market-nav > li:not(:nth-child(3n + 1)) {
+    .doc-nav > li:not(:nth-child(3n + 1)) {
       border-left: 1px solid var(--color-surface-edge-dark);
     }
   }
@@ -551,11 +551,11 @@
   /* The standfirst under a section heading, and the overview copy: one step up
      from body size, so the passage that introduces a section is distinguishable
      from the passage that develops it. */
-  .market-lead {
+  .doc-lead {
     font-size: 1.1875rem;
     line-height: 1.6;
   }
-  .market-lead > .rich-text:first-child > p:first-child {
+  .doc-lead > .rich-text:first-child > p:first-child {
     color: var(--color-ink);
   }
 

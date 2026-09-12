@@ -207,10 +207,12 @@
       ]
     }
   ],
-  "template": "market",
-  "market": {
+  "template": "doc",
+  "doc": {
     "key": "trailers-2",
     "title": "Tráilers",
+    "eyebrow": "Mercados",
+    "eyebrowHref": null,
     "heroImage": "/uploads/markets/trailers-2-hero.jpg",
     "supportImage": null,
     "lead": {
@@ -268,7 +270,7 @@
         "items": []
       }
     ],
-    "sidebar": {
+    "nav": {
       "heading": "Mercados",
       "items": [
         {

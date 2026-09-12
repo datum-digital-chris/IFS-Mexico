@@ -108,5 +108,67 @@
         }
       ]
     }
-  ]
+  ],
+  "template": "doc",
+  "doc": {
+    "key": "valores-de-la-mision",
+    "title": "Valores de la misión",
+    "eyebrow": "Recursos",
+    "eyebrowHref": null,
+    "heroImage": null,
+    "supportImage": null,
+    "lead": {
+      "headline": "Misión, valores y comportamientos de IFS",
+      "hero": "En IFS, nuestra misión es brindar un servicio y un producto incomparables a la industria a la vez que brindamos una opción ambientalmente responsable.",
+      "body": [
+        {
+          "kind": "richtext",
+          "id": "_rich_text-7-689",
+          "html": "<p>Estamos orgullosos de nuestro servicio, entonces, ¿cómo definimos el servicio? Los cuatro pilares del servicio incomparable de IFS son:</p><ol><li>Sensibilidad:&nbsp;Escuchamos, actuamos con rapidez y eficacia, cumplimos con precisión y nos comunicamos abiertamente.</li><li>Pericia:Nos enfocamos exclusivamente en revestimientos en polvo y formamos un equipo experimentado, bien informado y talentoso.</li><li>Personalización:&nbsp;Somos flexibles y ofrecemos soluciones personalizadas.</li><li>Confiabilidad:&nbsp;Somos confiables, profesionales y siempre estamos ahí cuando nos necesita.</li></ol><p>Trabajar en IFS es ser parte de la familia IFS. Nuestra cultura es lo que valoramos en un miembro de la familia IFS y cómo esperamos que un miembro de la familia IFS se comporte con los demás dentro y fuera de la empresa. Entonces, ¿cuáles son los valores y comportamientos de IFS?&nbsp;</p>",
+          "className": "mb-[20px]",
+          "isCard": false,
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "valores-de-ifs",
+        "headline": "Valores de IFS",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-9-689",
+            "html": "<ol><li>Integridad - Ser honesto y tenga principios morales.</li><li>Excelencia - Esforzarse por ser el mejor.</li><li>Adaptable - Ser abierto, dispuesto y capaz de cambiar.</li><li>Responsable - Asumir sus acciones y decisiones y justificarlas.</li><li>Apasionado - Tener fuertes sentimientos y creencias.</li></ol>",
+            "className": "pb-0 mb-[20px] text-left",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": []
+      },
+      {
+        "id": "comportamientos-de-ifs",
+        "headline": "Comportamientos de IFS",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-17-689",
+            "html": "<ol><li>Enfoque de equipo – Resolver problemas en colaboración con otros; el grupo es responsable.</li><li>Respeto – Tener consideración por los sentimientos, derechos, opiniones o tradiciones de los demás.</li><li>Lealtad - Apoyar a la empresa.</li><li>Transparencia - Ser claro y compartir información.</li><li>Profesionalismo - Ser cortés, autocontrolarse, dominarse y utilizar la prueba del periódico: ¿Cómo me sentiría si mi comportamiento estuviera en la portada de un periódico?</li></ol>",
+            "className": "",
+            "wrapClassName": "",
+            "bg": null
+          }
+        ],
+        "items": []
+      }
+    ],
+    "nav": null
+  }
 }

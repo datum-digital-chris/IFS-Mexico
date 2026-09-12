@@ -1,0 +1,113 @@
+---
+/**
+ * The breadcrumb, then the page's opening passage.
+ *
+ * Mirrors the US site's overview block — a panel with a brand rule across the
+ * top, breadcrumbed above it, splitting editorial copy against a second column
+ * (~/GitHub/IFS-Coatings, src/components/blocks/OverviewBlock.astro). There the
+ * second column holds authored "advantages"; here it holds the page's
+ * photograph, which is the one thing this content has to put beside the copy.
+ * Without a photograph the panel runs as a single capped column.
+ *
+ * A table, the colour tabs or the contact form is not prose and does not belong
+ * inside a measured panel, so those run full width below it.
+ */
+import Block from "@/components/Block.astro";
+import { runsOf, type Block as BlockType } from "@/lib/blocks";
+
+interface Props {
+  /** Page title, for the current crumb. */
+  title: string;
+  /** The site's own name for this page's section. */
+  category: string;
+  categoryHref: string | null;
+  /** A page-opening heading, where the copy has one. */
+  headline: string | null;
+  body: BlockType[];
+  image: string | null;
+}
+
+const { title, category, categoryHref, headline, body, image } = Astro.props;
+
+const runs = runsOf(body);
+const prose = runs.filter((r) => !r.wide);
+const wide = runs.filter((r) => r.wide);
+const hasPanel = prose.some((r) => r.blocks.length) || headline;
+---
+
+<section class="bg-surface-warm">
+  <div class="container-ox py-12 md:py-16">
+    <nav aria-label="Ruta de navegación" class:list={[hasPanel || wide.length ? "mb-8" : ""]}>
+      <ol class="text-ink-body flex flex-wrap items-center gap-2 text-[0.8125rem]">
+        <li><a href="/" class="hover:text-brand-hover">Inicio</a></li>
+        {
+          category && (
+            <Fragment>
+              <li aria-hidden="true">/</li>
+              <li>
+                {categoryHref ? (
+                  <a href={categoryHref} class="hover:text-brand-hover">
+                    {category}
+                  </a>
+                ) : (
+                  category
+                )}
+              </li>
+            </Fragment>
+          )
+        }
+        <li aria-hidden="true">/</li>
+        <li class="text-ink font-medium">{title}</li>
+      </ol>
+    </nav>
+
+    {
+      /* Without a photograph there is no second column, so the panel is capped
+        to the measure of its own copy rather than stretched across the
+        container with a void beside the text. */
+    }
+    {
+      hasPanel && (
+        <div class:list={["bg-surface", !image && "lg:max-w-[52rem]"]}>
+          <div class="bg-brand h-1" aria-hidden="true" />
+          <div class:list={["grid", image && "lg:grid-cols-[minmax(0,1fr)_minmax(0,0.72fr)]"]}>
+            <div class="p-6 md:p-10">
+              {headline && (
+                <h2 class="display mb-5 text-[clamp(1.75rem,1.4rem+1.2vw,2.375rem)]">{headline}</h2>
+              )}
+              <div class="doc-lead max-w-[64ch]">
+                {prose
+                  .flatMap((run) => run.blocks)
+                  .map((b) => (
+                    <Block block={b} />
+                  ))}
+              </div>
+            </div>
+            {image && (
+              <div class="relative min-h-[240px]">
+                <img
+                  src={image}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                  class="absolute inset-0 h-full w-full object-cover"
+                />
+              </div>
+            )}
+          </div>
+        </div>
+      )
+    }
+
+    {
+      wide.map((run) => (
+        <div class:list={["overflow-x-auto", hasPanel && "mt-10"]}>
+          {run.blocks.map((b) => (
+            <Block block={b} />
+          ))}
+        </div>
+      ))
+    }
+  </div>
+</section>

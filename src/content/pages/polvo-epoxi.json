@@ -226,5 +226,129 @@
         }
       ]
     }
-  ]
+  ],
+  "template": "doc",
+  "doc": {
+    "key": "polvo-epoxi",
+    "title": "Polvo Epoxi",
+    "eyebrow": "Tipos de Polvo",
+    "eyebrowHref": null,
+    "heroImage": "/uploads/2023/04/hero-powders-hybrid.jpg",
+    "supportImage": null,
+    "lead": {
+      "headline": null,
+      "hero": "",
+      "body": [
+        {
+          "kind": "richtext",
+          "id": "_rich_text-18-91",
+          "html": "<p>Los recubrimientos epoxi en polvo de IFS están hechos para aplicaciones que necesitan ser resistentes a los productos químicos y la corrosión y verse bien, pero en las que la durabilidad en el exterior no es importante. Los recubrimientos epoxi en polvo de IFS se usan normalmente en una amplia gama de aplicaciones, entre las que se incluyen:</p><ul class=\"feature-list feature-list--wide\"><li>Armarios metálicos</li><li>Material deportivo y recreativo</li><li>Muebles</li><li>Herramientas manuales y eléctricas</li><li>Accesorios de fontanería y ferretería de latón</li><li>Cajas de herramientas y artículos de alambre, revestimientos de tuberías</li><li>Barra de refuerzo</li><li>Piezas de la parte inferior de la carrocería y del capó de automóviles</li></ul>",
+          "className": "",
+          "isCard": false,
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null
+        }
+      ]
+    },
+    "sections": [
+      {
+        "id": "las-ventajas-del-polvo-epoxi-de-ifs-incluyen",
+        "headline": "Las ventajas del polvo epoxi de IFS incluyen:",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-20-91",
+            "html": "<ul class=\"feature-list\"><li>Excelente adherencia</li><li>Excelente resistencia química</li><li>Excelente resistencia a la corrosión</li><li>Excelente flexibilidad</li><li>Excelente dureza</li><li>Amplia gama de programas de curado</li><li>Posibilidad de baja temperatura</li><li>Gama completa de brillo</li></ul>",
+            "className": "pb-0 mt-[20px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": []
+      },
+      {
+        "id": "sus-desventajas-son-las-siguientes",
+        "headline": "Sus desventajas son las siguientes:",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-22-91",
+            "html": "<ul><li>Entizamiento con exposición exterior</li><li>Decoloración con el calor</li><li>La flexibilidad y el impacto pueden reducirse a medida que aumenta la dureza, la resistencia química/a la corrosión y disminuye el brillo.</li></ul><p>Los polvos epoxi de IFS también se pueden formular a medida.<br>Tenga en cuenta que estos representan pautas generales. Hable con el laboratorio de IFS o con un representante para obtener una explicación más detallada y usos específicos.</p>",
+            "className": "mb-[20px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": []
+      }
+    ],
+    "nav": {
+      "heading": "Polvos",
+      "items": [
+        {
+          "label": "Polvo de Poliéster Estándar",
+          "href": "/polvo-de-poliester-estandar/",
+          "current": false
+        },
+        {
+          "label": "Polvos de Poliéster Superduraderos",
+          "href": "/polvos-de-poliester-superduraderos/",
+          "current": false
+        },
+        {
+          "label": "Polvo de Fluoropolímero (FEVE)",
+          "href": "/polvo-de-fluoropolimero-feve/",
+          "current": false
+        },
+        {
+          "label": "Polvo Epoxi",
+          "href": "/polvo-epoxi/",
+          "current": true
+        },
+        {
+          "label": "Polvo Híbrido",
+          "href": "/polvo-hibrido/",
+          "current": false
+        },
+        {
+          "label": "Polvo Antimicrobiano",
+          "href": "/polvo-antimicrobiano/",
+          "current": false
+        },
+        {
+          "label": "Polvo Antigrafiti",
+          "href": "/polvo-antigrafiti/",
+          "current": false
+        },
+        {
+          "label": "Imprimadores en Polvo",
+          "href": "/imprimadores-en-polvo/",
+          "current": false
+        },
+        {
+          "label": "Polvo Aprobados por NSF",
+          "href": "/recubrimientos-en-polvo-aprobados-por-nsf/",
+          "current": false
+        },
+        {
+          "label": "Polvo (ESD)",
+          "href": "/polvo-disipadores-de-electricidad-estatica-esd/",
+          "current": false
+        },
+        {
+          "label": "Polvos Termoplásticos IFS Puroplaz®",
+          "href": "/polvos-termoplasticos-ifs-puroplaz/",
+          "current": false
+        }
+      ]
+    }
+  }
 }

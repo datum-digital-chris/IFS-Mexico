@@ -242,10 +242,12 @@
       ]
     }
   ],
-  "template": "market",
-  "market": {
+  "template": "doc",
+  "doc": {
     "key": "repintado-de-automoviles",
     "title": "Repintado de Automóviles",
+    "eyebrow": "Mercados",
+    "eyebrowHref": null,
     "heroImage": "/uploads/markets/repintado-de-automoviles-hero.jpg",
     "supportImage": null,
     "lead": {
@@ -321,7 +323,7 @@
         "items": []
       }
     ],
-    "sidebar": {
+    "nav": {
       "heading": "Mercados",
       "items": [
         {

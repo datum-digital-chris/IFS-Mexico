@@ -472,10 +472,12 @@
       ]
     }
   ],
-  "template": "market",
-  "market": {
+  "template": "doc",
+  "doc": {
     "key": "maquiladores",
     "title": "Maquiladores",
+    "eyebrow": "Mercados",
+    "eyebrowHref": null,
     "heroImage": "/uploads/markets/maquiladores-hero.jpg",
     "supportImage": "/uploads/markets/maquiladores-support.jpg",
     "lead": {
@@ -714,7 +716,7 @@
         ]
       }
     ],
-    "sidebar": {
+    "nav": {
       "heading": "Mercados",
       "items": [
         {

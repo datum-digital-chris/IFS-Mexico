@@ -660,196 +660,6 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
   results.push({ slug, sections: tree.length, words });
 }
 
-// ---- market pages -----------------------------------------------------------
-// The seven Mercados pages all share one shape: a bare photo band with no
-// title, then a two-column row of long-form article plus a "Mercados" sidebar.
-// This lifts the title out of the body and separates the sidebar so the market
-// template can give the page a real header and a readable measure.
-{
-  const collect = (node, kind, out = []) => {
-    if (node.kind === kind) out.push(node);
-    for (const c of node.children ?? []) collect(c, kind, out);
-    return out;
-  };
-  const strip = (h) => String(h ?? "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
-
-  for (const slug of Object.keys(cfg.markets)) {
-    const file = P(cfg.outDir, `${slug}.json`);
-    let page;
-    try {
-      page = JSON.parse(readFileSync(file, "utf8"));
-    } catch {
-      console.warn(`  market: ${slug}.json not found`);
-      continue;
-    }
-
-    // The content row is the section that holds the sidebar navigation.
-    const contentSection = page.sections.find((sec) => collect(sec, "navmenu").length) ?? page.sections.at(-1);
-    const columns = collect(contentSection, "columns")[0];
-    const cols = columns?.children ?? [];
-    const sidebarCol = cols.find((c) => collect(c, "navmenu").length);
-    const mainCol = cols.find((c) => c !== sidebarCol) ?? contentSection;
-
-    // Title: the first heading of the main column, lifted into the page header.
-    const headings = collect(mainCol, "heading");
-    const titleNode = headings[0] ?? null;
-    const title = titleNode ? strip(titleNode.html) : page.title;
-
-    const prune = (node) => {
-      if (node === titleNode) return null;
-      const kids = (node.children ?? []).map(prune).filter(Boolean);
-      if (node.children) return { ...node, children: kids };
-      return node;
-    };
-    let body = (mainCol.children ?? []).map(prune).filter(Boolean);
-
-    // The page's h1 is the hero title now, so any h1 left in the body is a
-    // second top-level heading. Demote rather than delete.
-    const demote = (node) => {
-      const next = node.kind === "heading" && node.level === 1 ? { ...node, level: 2 } : node;
-      return next.children ? { ...next, children: next.children.map(demote) } : next;
-    };
-    body = body.map(demote);
-
-    // Drop a heading that repeats the text of the heading immediately before
-    // it. "Productos de polvo arquitectónico" appears twice in a row on the
-    // architectural page — a straightforward authoring slip.
-    const dedupe = (nodes) => {
-      const out = [];
-      let lastHeading = null;
-      for (const n of nodes) {
-        const node = n.children ? { ...n, children: dedupe(n.children) } : n;
-        if (node.kind === "heading") {
-          const text = strip(node.html).toLowerCase();
-          if (text && text === lastHeading) continue;
-          lastHeading = text;
-        } else if (node.kind !== "text") {
-          lastHeading = null;
-        }
-        out.push(node);
-      }
-      return out;
-    };
-    body = dedupe(body);
-
-    // ---- the section rhythm -------------------------------------------------
-    // The US site builds a Markets page as a sequence of full-bleed sections —
-    // photo hero, overview, application grid, closing CTA — each opening with
-    // an eyebrow and a display heading, with no sidebar and no article panel
-    // (~/GitHub/IFS-Coatings, content/markets/*.md + src/components/blocks).
-    //
-    // These pages hold the same kind of content written as one flat run of
-    // prose, so the run is grouped here into the same shape rather than
-    // restated: a lead, then one section per h2, with each h3 inside a section
-    // becoming a numbered item. Grouping only moves nodes — the check below
-    // proves no text is lost on the way.
-    // Visible text of a block tree, reduced to letters and digits so the only
-    // thing compared is the copy itself.
-    const visible = (node) => {
-      if (Array.isArray(node)) return node.map(visible).join(" ");
-      if (!node || typeof node !== "object") return String(node ?? "");
-      const own = [node.html, node.value, node.label, node.alt].filter(Boolean).join(" ");
-      const items = (node.items ?? []).map((i) => i.label).join(" ");
-      return [strip(own), items, visible(node.children ?? [])].join(" ");
-    };
-    const letters = (s) => s.replace(/<[^>]+>/g, " ").replace(/[^\p{L}\p{N}]+/gu, "");
-    const before = letters(visible(body));
-
-    const isHeading = (n) => n.kind === "heading";
-    const anchor = (s) =>
-      s
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[̀-ͯ]/g, "")
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/^-|-$/g, "")
-        .slice(0, 48);
-
-    // Oxygen leaves empty layout divs behind; they group nothing.
-    const nodes = body.filter((n) => !(n.kind === "div" && !(n.children ?? []).length));
-
-    // A heading that opens the page titles the lead rather than a section of
-    // its own — varillas-de-refuerzo opens "IFS PureFlex FBE".
-    let leadHeadline = null;
-    if (nodes.length > 1 && isHeading(nodes[0]) && nodes[1].kind === "richtext") {
-      leadHeadline = strip(nodes[0].html);
-      nodes.shift();
-    }
-
-    // The opening paragraph carries the page, so it becomes the hero's
-    // standfirst — unless it ends in a colon, where it introduces the list
-    // immediately below it and cannot be separated from it (maquiladores).
-    let heroLead = "";
-    const li = nodes.findIndex((n) => n.kind === "richtext");
-    if (li >= 0) {
-      const first = /^\s*<p>([\s\S]*?)<\/p>/.exec(nodes[li].html ?? "");
-      if (first && !/:$/.test(strip(first[1]))) {
-        heroLead = strip(first[1]);
-        const rest = (nodes[li].html ?? "").slice(first[0].length).trim();
-        if (rest) nodes[li] = { ...nodes[li], html: rest };
-        else nodes.splice(li, 1);
-      }
-    }
-
-    const levels = nodes.filter(isHeading).map((n) => n.level ?? 2);
-    const topLevel = levels.length ? Math.min(...levels) : 0;
-    const leadBody = [];
-    const sections = [];
-    let section = null;
-    let item = null;
-    for (const node of nodes) {
-      if (isHeading(node) && (node.level ?? 2) === topLevel) {
-        const headline = strip(node.html);
-        section = { id: anchor(headline), headline, body: [], items: [] };
-        item = null;
-        sections.push(section);
-        continue;
-      }
-      if (section && isHeading(node) && (node.level ?? 2) > topLevel) {
-        item = { headline: strip(node.html), body: [] };
-        section.items.push(item);
-        continue;
-      }
-      (item ? item.body : (section ? section.body : leadBody)).push(node);
-    }
-
-    const lead = { headline: leadHeadline, hero: heroLead, body: leadBody };
-    // Grouping only moves nodes and lifts two runs of text out of them, so the
-    // copy that comes out has to be the copy that went in, character for
-    // character. This is the guard against a silent drop when a page's shape
-    // stops matching — the same role the home model's warnings play.
-    const after = letters(
-      [heroLead, leadHeadline ?? "", visible(lead.body), ...sections.flatMap((s) => [s.headline, visible(s.body), ...s.items.flatMap((i) => [i.headline, visible(i.body)])])].join(" "),
-    );
-    if (after.length !== before.length) {
-      console.warn(`  market ${slug}: grouping changed the copy (${before.length} chars in, ${after.length} out)`);
-    }
-
-    const nav = collect(sidebarCol ?? contentSection, "navmenu")[0] ?? null;
-    const navHeading = sidebarCol ? collect(sidebarCol, "heading").map((h) => strip(h.html))[0] : "";
-
-    const images = cfg.markets[slug];
-    page.template = "market";
-    page.market = {
-      // The config key, carried explicitly: the route cannot derive it, because
-      // trailers-2 publishes at /trailers/ and the ids diverge.
-      key: slug,
-      title,
-      heroImage: images.hero ? `/uploads/markets/${slug}-hero${images.hero.slice(images.hero.lastIndexOf("."))}` : null,
-      supportImage: images.support ? `/uploads/markets/${slug}-support${images.support.slice(images.support.lastIndexOf("."))}` : null,
-      lead,
-      sections,
-      sidebar: nav ? { heading: navHeading, items: nav.items ?? [] } : null,
-    };
-
-    if (!titleNode) console.warn(`  market ${slug}: no title heading found`);
-    if (!nav) console.warn(`  market ${slug}: no sidebar navigation found`);
-    if (!lead.body.length && !sections.length) console.warn(`  market ${slug}: grouping produced no body`);
-    writeFileSync(file, JSON.stringify(page, null, 2) + "\n");
-  }
-  console.log(`market pages  : ${Object.keys(cfg.markets).length}`);
-}
-
 // ---- home page model ---------------------------------------------------------
 // The home page is a hero, an intro band, and seven market cards that the old
 // site rendered as seven full-width alternating slabs. The content is a list;
@@ -992,6 +802,286 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
   writeFileSync(P("src/content/site.json"), JSON.stringify(site, null, 2) + "\n");
   console.log(`menu items    : ${site.menu.length} top level`);
 }
+
+// ---- the page model ---------------------------------------------------------
+// Oxygen hands every page over as a layout, not as a document: a bare photo
+// band carrying no title, then a row of long-form prose beside a floating
+// sidebar, with the page's own title buried as the first heading in the body.
+//
+// The US site builds a page the other way round - a header that says what the
+// page is, then a sequence of sections on alternating surfaces, ending on a
+// CTA (docs/design-system.md). This derives that model for every page: it
+// lifts the hero image, the title and the sidebar out of the Oxygen tree, then
+// groups the flat prose run into a lead plus one section per h2, with each h3
+// inside a section becoming a numbered item.
+//
+// Grouping only moves nodes. The check at the end reduces the tree to its
+// letters and digits before and after and warns if a single character differs,
+// so a page whose shape stops matching cannot silently lose a paragraph.
+//
+// Runs after the site chrome, because the eyebrow is the site's own name for
+// the section a page sits in and that comes from the extracted menu.
+{
+  const site = JSON.parse(readFileSync(P("src/content/site.json"), "utf8"));
+
+  const collect = (node, kind, out = []) => {
+    if (node.kind === kind) out.push(node);
+    for (const c of node.children ?? []) collect(c, kind, out);
+    return out;
+  };
+  const strip = (h) => String(h ?? "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+
+  const visible = (node) => {
+    if (Array.isArray(node)) return node.map(visible).join(" ");
+    if (!node || typeof node !== "object") return String(node ?? "");
+    const own = [node.html, node.value, node.label, node.alt].filter(Boolean).join(" ");
+    const items = (node.items ?? []).map((i) => i.label).join(" ");
+    const panels = (node.panels ?? []).map((p) => visible(p.children ?? [])).join(" ");
+    return [strip(own), items, panels, visible(node.children ?? [])].join(" ");
+  };
+  const letters = (s) => s.replace(/<[^>]+>/g, " ").replace(/[^\p{L}\p{N}]+/gu, "");
+
+  const anchor = (s) =>
+    s
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[̀-ͯ]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "")
+      .slice(0, 48);
+
+  /** The photograph under an Oxygen background: its last url() layer, below any gradient. */
+  const bgImage = (bg) => {
+    const urls = (bg?.layers ?? []).flatMap((layer) =>
+      [...String(layer).matchAll(/url\(["']?([^"')]+)["']?\)/g)].map((m) => m[1]),
+    );
+    return urls.at(-1) ?? null;
+  };
+
+  /**
+   * The site's own name for the section a page belongs to: its parent in the
+   * main menu, its own label where it is a top-level item, or its top-bar
+   * label. Never authored - a page in no menu (the legal pages) simply has no
+   * eyebrow.
+   *
+   * The href comes back too, for the breadcrumb, and is null unless the
+   * section has a page of its own to point at: most of these menu parents are
+   * pure dropdowns sitting on "/", and a crumb that goes to the home page or
+   * to the page you are already on is not a crumb.
+   */
+  const sectionFor = (path) => {
+    const found = (label, href) => ({ label, href: href && href !== "/" && href !== path ? href : null });
+    for (const top of site.menu ?? []) {
+      if ((top.children ?? []).some((c) => c.href === path)) return found(top.label, top.href);
+      if (top.href === path && !(top.children ?? []).length) return found(top.label, top.href);
+    }
+    for (const link of site.topBar?.links ?? []) if (link.href === path) return found(link.label, link.href);
+    return { label: "", href: null };
+  };
+
+  // Oxygen wrappers that only position their children. The page shell owns the
+  // layout now, so these are flattened away and their compiled widths and
+  // padding go with them; anything that paints - a background, a card - stays
+  // as a block in its own right.
+  const LAYOUT = new Set(["section", "columns", "div", "group"]);
+  const flatten = (nodes, skip, out = []) => {
+    for (const node of nodes) {
+      if (skip.has(node)) continue;
+      if (LAYOUT.has(node.kind) && !node.isCard && !node.bg) flatten(node.children ?? [], skip, out);
+      else out.push(node);
+    }
+    return out;
+  };
+
+  let built = 0;
+  for (const { slug } of results) {
+    // The home page has its own model and its own template.
+    if (slug === "home") continue;
+
+    const file = P(cfg.outDir, `${slug}.json`);
+    let page;
+    try {
+      page = JSON.parse(readFileSync(file, "utf8"));
+    } catch {
+      console.warn(`  page model: ${slug}.json not found`);
+      continue;
+    }
+
+    // The hero band: a top-level section that carries a background image and no
+    // copy at all. On this site that is only ever the page's hero photograph,
+    // and it is a band with nothing in it - which is why the old pages opened
+    // with a picture and no title.
+    const heroBand = page.sections.find((sec) => sec.bg && bgImage(sec.bg) && !letters(visible(sec)));
+
+    // The sidebar is a whole column of the content row, and its heading ("Polvos",
+    // "Mercados") belongs to the navigation rather than to the page. Excluding
+    // the column, not just the menu, is what keeps that heading from opening a
+    // section of its own.
+    const navColumn =
+      page.sections
+        .flatMap((sec) => collect(sec, "columns"))
+        .flatMap((c) => c.children ?? [])
+        .find((c) => collect(c, "navmenu").length) ?? null;
+    const nav = collect({ children: page.sections }, "navmenu")[0] ?? null;
+    const navHeading = navColumn ? (collect(navColumn, "heading").map((h) => strip(h.html))[0] ?? "") : "";
+
+    const skip = new Set([heroBand, navColumn, nav].filter(Boolean));
+    let nodes = flatten(page.sections, skip);
+
+    // A page whose title was written into the body copy rather than as its own
+    // heading (descargar-informacion) - split the leading h1 back out so the
+    // title lift below finds it.
+    const firstProse = nodes.findIndex((n) => n.kind === "richtext");
+    if (firstProse >= 0) {
+      const opening = /^\s*<h1[^>]*>([\s\S]*?)<\/h1>/.exec(nodes[firstProse].html ?? "");
+      if (opening) {
+        const rest = (nodes[firstProse].html ?? "").slice(opening[0].length).trim();
+        const heading = { kind: "heading", level: 1, html: opening[1] };
+        nodes.splice(firstProse, 1, heading, ...(rest ? [{ ...nodes[firstProse], html: rest }] : []));
+      }
+    }
+
+    // The title, lifted into the page header. It was the first heading of the
+    // body, which is where Oxygen left it.
+    const isHeading = (n) => n.kind === "heading";
+    const titleNode = nodes.find(isHeading) ?? null;
+    const title = titleNode ? strip(titleNode.html) : page.title;
+    nodes = nodes.filter((n) => n !== titleNode);
+
+    // The page has its own h1 now, so any h1 left in the body is a second
+    // top-level heading. Demote rather than delete.
+    nodes = nodes.map((n) => (isHeading(n) && n.level === 1 ? { ...n, level: 2 } : n));
+
+    // Drop a heading that repeats the text of the heading immediately before
+    // it. "Productos de polvo arquitectónico" appears twice in a row on the
+    // architectural page - a straightforward authoring slip.
+    nodes = (() => {
+      const out = [];
+      let last = null;
+      for (const node of nodes) {
+        if (isHeading(node)) {
+          const text = strip(node.html).toLowerCase();
+          if (text && text === last) continue;
+          last = text;
+        } else if (node.kind !== "text") {
+          last = null;
+        }
+        out.push(node);
+      }
+      return out;
+    })();
+
+    // Everything above rewrites the body: the title comes out, an h1 is
+    // demoted, a repeated heading is dropped. Everything below only *moves*
+    // nodes, so this is the point to measure from - the copy that goes into the
+    // grouping has to be the copy that comes out of it, character for
+    // character.
+    const before = letters(visible(nodes));
+
+    // A heading that opens the page titles the lead rather than a section of
+    // its own - varillas-de-refuerzo opens "IFS PureFlex FBE".
+    let leadHeadline = null;
+    if (nodes.length > 1 && isHeading(nodes[0]) && nodes[1].kind === "richtext") {
+      leadHeadline = strip(nodes[0].html);
+      nodes.shift();
+    }
+
+    // The opening paragraph carries the page, so it becomes the header's
+    // standfirst - unless it ends in a colon, where it introduces the list
+    // immediately below it and cannot be separated from it (maquiladores).
+    let heroLead = "";
+    const leadIndex = nodes.findIndex((n) => n.kind === "richtext");
+    if (leadIndex >= 0) {
+      const first = /^\s*<p>([\s\S]*?)<\/p>/.exec(nodes[leadIndex].html ?? "");
+      // Two conditions on lifting it. It must not end in a colon, where it
+      // introduces the list immediately below it and cannot be separated from
+      // it (maquiladores); and it has to be short enough to read as a
+      // standfirst - the privacy policy opens with 1,200 characters.
+      if (first && !/:$/.test(strip(first[1])) && strip(first[1]).length <= 450) {
+        heroLead = strip(first[1]);
+        const rest = (nodes[leadIndex].html ?? "").slice(first[0].length).trim();
+        if (rest) nodes[leadIndex] = { ...nodes[leadIndex], html: rest };
+        else nodes.splice(leadIndex, 1);
+      }
+    }
+
+    // Group: everything before the first top-level heading is the lead, each
+    // top-level heading opens a section, each heading below it becomes an item.
+    const levels = nodes.filter(isHeading).map((n) => n.level ?? 2);
+    const topLevel = levels.length ? Math.min(...levels) : 0;
+    const leadBody = [];
+    const sections = [];
+    let section = null;
+    let item = null;
+    for (const node of nodes) {
+      if (isHeading(node) && (node.level ?? 2) === topLevel) {
+        const headline = strip(node.html);
+        section = { id: anchor(headline), headline, body: [], items: [] };
+        item = null;
+        sections.push(section);
+        continue;
+      }
+      if (section && isHeading(node) && (node.level ?? 2) > topLevel) {
+        item = { headline: strip(node.html), body: [] };
+        section.items.push(item);
+        continue;
+      }
+      (item ? item.body : section ? section.body : leadBody).push(node);
+    }
+
+    const lead = { headline: leadHeadline, hero: heroLead, body: leadBody };
+
+    // Market photography was imported from the US library because the Mexican
+    // site had none; every other page uses the hero band it already had.
+    const images = cfg.markets[slug];
+    const ext = (f) => f.slice(f.lastIndexOf("."));
+    const heroImage = images?.hero
+      ? `/uploads/markets/${slug}-hero${ext(images.hero)}`
+      : heroBand
+        ? bgImage(heroBand.bg)
+        : null;
+    const supportImage = images?.support ? `/uploads/markets/${slug}-support${ext(images.support)}` : null;
+
+    const section_ = sectionFor(page.path);
+    page.template = "doc";
+    page.doc = {
+      // The config key, carried explicitly: the route cannot derive it, because
+      // trailers-2 publishes at /trailers/ and the ids diverge.
+      key: slug,
+      title,
+      eyebrow: section_.label,
+      eyebrowHref: section_.href,
+      heroImage,
+      supportImage,
+      lead,
+      sections,
+      nav: nav ? { heading: navHeading, items: nav.items ?? [] } : null,
+    };
+
+    const after = letters(
+      [
+        heroLead,
+        leadHeadline ?? "",
+        visible(lead.body),
+        ...sections.flatMap((s) => [
+          s.headline,
+          visible(s.body),
+          ...s.items.flatMap((i) => [i.headline, visible(i.body)]),
+        ]),
+      ].join(" "),
+    );
+    if (after.length !== before.length) {
+      console.warn(`  page ${slug}: grouping changed the copy (${before.length} chars in, ${after.length} out)`);
+    }
+    if (!titleNode) console.warn(`  page ${slug}: no title heading in the body, using the <title>`);
+    if (!lead.body.length && !sections.length) console.warn(`  page ${slug}: grouping produced no body`);
+
+    writeFileSync(file, JSON.stringify(page, null, 2) + "\n");
+    built++;
+  }
+  console.log(`page models   : ${built}`);
+}
+
 
 // ---- report -----------------------------------------------------------------
 const lines = ["# Extraction report", "", "Generated by `scripts/extract-content.mjs`. Re-run after any change.", ""];

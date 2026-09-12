@@ -1,0 +1,70 @@
+---
+/**
+ * Every page on the site.
+ *
+ * Built to the design philosophy the US site uses (~/GitHub/IFS-Coatings,
+ * content rendered through src/components/blocks/): a page is a sequence of
+ * full-bleed sections on alternating surfaces, each opening with an eyebrow
+ * over a heavy display heading, ending on the brand CTA band. No sidebar, no
+ * article panel, lists rendered as separator grids rather than bullets.
+ *
+ *   photo header → breadcrumb + overview panel → one band per section
+ *   → the rest of the section → CTA
+ *
+ * Oxygen handed these pages over as layouts, not documents: a bare photo band
+ * carrying no title, then prose beside a floating sidebar, with the page's own
+ * title buried as the first heading in the body. All copy still comes from that
+ * extracted page — `scripts/extract-content.mjs` groups the flat run into these
+ * sections and checks, character for character, that grouping moved every word
+ * and dropped none. Only the market photography is new.
+ */
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import CtaBanner from "@/components/CtaBanner.astro";
+import PageHero from "@/components/page/PageHero.astro";
+import PageOverview from "@/components/page/PageOverview.astro";
+import PageSection from "@/components/page/PageSection.astro";
+import PageNav from "@/components/page/PageNav.astro";
+import cta from "@/content/cta.json";
+import type { Doc } from "@/lib/blocks";
+
+interface Props {
+  doc: Doc;
+  description?: string;
+}
+
+const { doc, description = "" } = Astro.props;
+const { key, title, eyebrow, eyebrowHref, heroImage, supportImage, lead, sections, nav } = doc;
+
+// Both the header action and the closing band point at Contáctenos, so on that
+// page they would send you back to where you already are. It keeps the form.
+const isContact = Astro.url.pathname === cta.href;
+---
+
+<BaseLayout title={title} description={description} ogImage={heroImage}>
+  <PageHero
+    title={title}
+    eyebrow={eyebrow}
+    lead={lead.hero}
+    image={heroImage}
+    action={isContact ? null : { label: cta.label, href: cta.href }}
+  />
+
+  <PageOverview
+    title={title}
+    category={eyebrow}
+    categoryHref={eyebrowHref}
+    headline={lead.headline}
+    body={lead.body}
+    image={supportImage}
+  />
+
+  {
+    sections.map((section, i) => (
+      <PageSection section={section} eyebrow={title} alt={i % 2 === 1} />
+    ))
+  }
+
+  {nav && <PageNav heading={nav.heading ?? ""} items={nav.items} />}
+
+  <CtaBanner page={key} />
+</BaseLayout>

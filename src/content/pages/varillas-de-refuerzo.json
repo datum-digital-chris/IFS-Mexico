@@ -173,10 +173,12 @@
       ]
     }
   ],
-  "template": "market",
-  "market": {
+  "template": "doc",
+  "doc": {
     "key": "varillas-de-refuerzo",
     "title": "Varillas de Refuerzo",
+    "eyebrow": "Mercados",
+    "eyebrowHref": null,
     "heroImage": "/uploads/markets/varillas-de-refuerzo-hero.jpg",
     "supportImage": "/uploads/markets/varillas-de-refuerzo-support.jpg",
     "lead": {
@@ -197,7 +199,7 @@
       ]
     },
     "sections": [],
-    "sidebar": {
+    "nav": {
       "heading": "Mercados",
       "items": [
         {

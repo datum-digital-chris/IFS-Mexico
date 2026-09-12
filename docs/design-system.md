@@ -119,13 +119,19 @@ Generales" and a factory photo captioned "Maquiladores". The background was
 correct on all seven cards, so the grid reads from the background and the
 pairing is right.
 
-## The Mercados pages
+## Every page
 
-All seven markets shared one shape: a bare photo band carrying **no title**,
-then 140–750 words of unbroken prose beside a floating sidebar, with **zero**
-images in the body. The first restyle gave that shape a header and a readable
-measure. It is now rebuilt instead to the design philosophy the US site uses
-for _Markets We Serve_, which is a different idea about what the page is.
+Oxygen handed each page over as a **layout**, not as a document: a bare photo
+band carrying **no title**, then unbroken prose beside a floating sidebar, with
+the page's own title buried as the first heading in the body. The first restyle
+repainted that shape. Every page is now rebuilt instead to the design
+philosophy the US site uses, which is a different idea about what a page is.
+
+It landed in two passes: the seven Mercados pages first, then the other 22 —
+the 13 product pages, the colour page, the downloads list, Conócenos, the
+contact page and the legal pages. They share one derivation and one template,
+because a site where one part of it follows a different design is not a design,
+it is two.
 
 The reference is `~/GitHub/IFS-Coatings`: `content/markets/*.md` rendered
 through `src/components/blocks/`, and the principles written up in its
@@ -133,48 +139,70 @@ through `src/components/blocks/`, and the principles written up in its
 
 - **A page is a sequence of full-bleed sections on alternating surfaces**, not
   one article in a column. Adjacent sections always contrast, and the sequence
-  ends on the red CTA band — the only place red fills a section, which is why
-  red is not spent anywhere else.
-- **Every section opens with a red eyebrow over a heavy display heading.** The
-  eyebrow identifies in two or three words; the heading is `font-weight: 800`
-  with negative tracking, a long way clear of the body text.
+  ends on the brand CTA band — the only place the decorative accent fills a
+  section, which is why it is not spent anywhere else.
+- **Every section opens with an eyebrow over a heavy display heading.** The
+  eyebrow identifies in two or three words — on this site it is the page's own
+  section of the menu, so it is never authored; the heading is
+  `font-weight: 800` with negative tracking, a long way clear of the body
+  text.
 - **Data-forward layouts.** Lists of applications, benefits and standards are
   first-class design elements, rendered as hairline-divided grids rather than
   bullets. Information density is a feature.
-- **No sidebar.** Cross-links to the other markets go in a band ahead of the
-  CTA, and the breadcrumb says where you are.
+- **No sidebar.** Cross-links to the rest of the section go in a band ahead of
+  the CTA, and the breadcrumb says where you are.
 
-So the page is now:
+So a page is now:
 
 ```
-photo hero  →  breadcrumb + overview panel  →  one band per section
-            →  the other markets  →  CTA
+photo header  →  breadcrumb + overview panel  →  one band per section
+              →  the rest of the section  →  CTA
 ```
+
+`src/layouts/PageLayout.astro` renders that for all 28 pages, and
+`src/pages/[...slug].astro` stays one generic route with one template — adding
+a page is still only adding content.
 
 ### Grouping the copy into sections
 
 The US pages are authored into that shape — `type: hero`, `type: overview`,
-`type: applications`, `type: cta`, each with its own fields. These pages are one
-flat run of extracted prose, so the run is **grouped** into the same shape by
-`scripts/extract-content.mjs` rather than restated:
+`type: applications`, `type: cta`, each with its own fields. These pages are an
+Oxygen layout wrapped around one flat run of prose, so the run is **derived**
+into the same shape by `scripts/extract-content.mjs` rather than restated:
 
-| Derived                                          | From                                              |
-| ------------------------------------------------ | ------------------------------------------------- |
-| `lead.hero` — the hero standfirst                | the opening `<p>` of the first prose block        |
-| `lead.headline` — the overview's display heading | a heading that opens the page, where there is one |
-| `lead.body` — the overview copy                  | whatever is left before the first `h2`            |
-| `sections[]` — one band each                     | every `h2` and the blocks under it                |
-| `sections[].items[]` — numbered items            | every `h3` nested inside an `h2`                  |
+| Derived                                          | From                                                     |
+| ------------------------------------------------ | -------------------------------------------------------- |
+| `heroImage`                                      | the page's opening band — a background image and no copy |
+| `title`                                          | the first heading of the body, lifted out of it          |
+| `eyebrow`                                        | the page's own section of the menu                       |
+| `nav`                                            | the sidebar column, menu and heading together            |
+| `lead.hero` — the standfirst                     | the opening `<p>` of the first prose block               |
+| `lead.headline` — the overview's display heading | a heading that opens the page, where there is one        |
+| `lead.body` — the overview copy                  | whatever is left before the first `h2`                   |
+| `sections[]` — one band each                     | every `h2` and the blocks under it                       |
+| `sections[].items[]` — numbered items            | every `h3` nested inside an `h2`                         |
 
-Two details decide whether this reads as content or as rearranged content:
+Oxygen's own wrappers — the sections, column rows and positioning divs, with
+the widths and padding compiled onto them — are **flattened away**, because the
+page shell owns the layout now. Anything that paints, a background or a card,
+stays as a block in its own right.
+
+Four details decide whether this reads as content or as rearranged content:
 
 - **The opening paragraph is not lifted if it ends in a colon.** On
   _Maquiladores_ it introduces the list immediately below it, and the two cannot
-  be separated. That page's hero carries the title alone.
+  be separated. That page's header carries the title alone.
+- **Nor is it lifted if it runs past 450 characters.** A standfirst is a line or
+  two; the privacy policy opens with 1,200 characters, which is a page.
+- **The sidebar goes as a whole column, not just its menu.** Its heading
+  ("Polvos", "Mercados") belongs to the navigation, and leaving it behind gave
+  every product page a phantom section called "Polvos".
 - **Grouping is checked, not trusted.** The extractor reduces the block tree to
   its letters and digits before and after grouping and warns if the two differ
   by a single character. Moving copy around a page is safe; losing a paragraph
-  in the move would not be, and this is what distinguishes them.
+  in the move would not be, and this is what distinguishes them. The window it
+  measures starts after the deliberate edits (the title lift, the h1 demotion,
+  the duplicate-heading drop) and covers only the grouping itself.
 
 The `h2`/`h3` mapping turns out to fit the source closely. _Repintado_ has three
 `h2` sections of 270–550 characters each — a band apiece. _Maquiladores_ nests
@@ -183,25 +211,38 @@ site's numbered advantage grid, and renders as one.
 
 ### The sections
 
-- **Hero.** 480px on a phone, 68vh on a desktop, bottom-aligned, with a brand
-  rule along the top edge and a directional scrim so the photograph still reads
-  on the open side. The US hero also carries a cluster of term/definition spec
-  tiles; there is no counterpart in this copy, and filling the column by
-  hoisting a bulleted list out of the body would separate the list from the
-  sentence that introduces it. The column is left to the photograph.
+- **Header.** 480px on a phone, 68vh on a desktop, bottom-aligned, with a
+  brand rule along the top edge and a directional scrim so the photograph still
+  reads on the open side. The scrim is dense rather than subtle: half of these
+  photographs are powder on a white ground and the eyebrow is small red text.
+  Eight pages have no photograph of their own — the legal pages, the downloads
+  list, Conócenos — and take the same header on the flat dark surface, sized to
+  its copy: 68vh of empty navy is not a header, it is a hole.
+
+  The US header also carries a cluster of term/definition spec tiles; there is
+  no counterpart in this copy, and filling the column by hoisting a bulleted
+  list out of the body would separate the list from the sentence that
+  introduces it. The column is left to the photograph.
+
 - **Overview.** Breadcrumb, then a white panel with a brand rule across the top:
-  the opening passage at one step above body size against the market
+  the opening passage at one step above body size against the page's
   photograph. Where there is no photograph the panel is capped to the measure of
   its own copy rather than stretched across the container with a void beside the
   text.
-- **Section bands.** Eyebrow (the market), display heading, prose at a 72ch
-  measure. A spec table breaks out of that measure to the full section width —
-  four columns of AAMA data at 72ch are cramped.
+- **Section bands.** Eyebrow (the page), display heading, prose at a 72ch
+  measure.
 - **Numbered items.** Index, heavy headline, passage; two columns, hairline
   divided.
-- **The other markets.** The old sidebar, as a dark band of six: the market you
-  are on is left out, because the breadcrumb already says so and six fills the
-  grid exactly.
+- **What is not prose runs full width.** A spec table, the 190 colour swatches
+  and their tab strip, the contact form, a migrated TablePress table, the
+  product-code diagram: `WIDE_KINDS` in `src/lib/blocks.ts` splits a body into
+  runs so each of those breaks out of the 72ch measure and each run of prose
+  keeps it. Four columns of AAMA data at 72ch are cramped, and a colour chart in
+  a measured panel is absurd.
+- **The rest of the section.** The old sidebar, as a dark band: "Mercados" on a
+  market page, "Polvos" on a product page. The page you are on is left out,
+  because the breadcrumb already says so and a link to the page you are reading
+  is not a link worth having.
 
 ### Hairlines on the cells, not gaps over a parent
 
@@ -210,7 +251,7 @@ is a bordered block of cells divided by hairlines. The US site draws those with
 `gap-px` over a coloured parent, which is shorter, and wrong here: most of these
 lists have an odd number of items, so the last slot is empty and the parent
 colour shows through it as a stray filled tile. The rules are drawn on the cells
-instead (`.feature-list`, `.market-items`, `.market-nav` in `theme.css`), which
+instead (`.feature-list`, `.doc-items`, `.doc-nav` in `theme.css`), which
 holds at any item count. The cells take the card tint (`#fafafa`) so a grid
 reads as cells on either of the two light section surfaces.
 
@@ -227,15 +268,22 @@ looks like a mistake.
 
 ### The closing CTA
 
-Every Mercados page ends with a call-to-action band — the house rule in
-`.claude/rules/00-core/CLAUDE.core.md` is that every page ends with one, and
-these previously just stopped after the last paragraph.
+Every page ends with a call-to-action band — the house rule in
+`.claude/rules/00-core/CLAUDE.core.md` — and every one of them previously just
+stopped after the last paragraph.
 
-Copy is **authored**, in `src/content/market-cta.json`: an action heading naming
-the market, one line on what the representative provides, and a button. Shape
-and tone follow the equivalent blocks on the US site (`content/markets/*.md`,
-`type: cta`); the button reuses the site's own existing term, _Contáctenos_, and
-links to `/contactenos/`.
+Copy is **authored**, in `src/content/cta.json`: an action heading, one line on
+what the representative provides, and a button. Shape and tone follow the
+equivalent blocks on the US site (`content/markets/*.md`, `type: cta`); the
+button reuses the site's own existing term, _Contáctenos_, and links to
+`/contactenos/`.
+
+The seven markets each name their market. Everything else — the product,
+resource and legal pages — takes the one `default` entry rather than twenty-two
+authored variations of the same sentence: a generic band that is right is better
+than twenty-two specific ones nobody has reviewed. Both the band and the
+header's action are suppressed on `/contactenos/` itself, which they would
+otherwise send you back to.
 
 It is a brand-filled band with a white button, terminal on the page, as it is on
 the US site — the one place the decorative accent covers a whole section, which
@@ -243,10 +291,10 @@ is the reason it is not spent anywhere else. The decorative seed is ink, so the
 band is the metallic slate sweep (`.ox-brand-fill`) rather than a red one, and
 it is a gradient rather than a flat hex.
 
-One implementation note: the market key is carried on the content model
-(`market.key`) rather than derived from the route, because `trailers-2`
-publishes at `/trailers/` and the two identifiers diverge — deriving it silently
-dropped the CTA from that one page.
+One implementation note: the page key is carried on the content model
+(`doc.key`) rather than derived from the route, because `trailers-2` publishes
+at `/trailers/` and the two identifiers diverge — deriving it silently dropped
+the CTA from that one page.
 
 ### Imagery
 
