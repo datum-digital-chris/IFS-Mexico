@@ -107,7 +107,11 @@ structure:
   sections are visible at a glance. The opening paragraph is set larger.
 - A supporting photograph placed after the opening passage — never directly
   after a heading, which would separate it from its own text.
-- A sticky "Mercados" card listing all seven with the current one marked.
+- A sticky "Mercados" card listing all seven with the current one marked. The
+  sticky element is nested **inside** the grid item rather than being the item:
+  `align-self: start` collapses a grid item to its content height, which leaves
+  the sticky element nothing to travel within, so it never moves. The item
+  stretches and the inner wrapper sticks.
 
 ### Giving them presence
 
@@ -143,10 +147,10 @@ and tone follow the equivalent blocks on the US site (`content/markets/*.md`,
 `type: cta`); the button reuses the site's own existing term, *Contáctenos*, and
 links to `/contactenos/`.
 
-The band is brand red rather than the footer's charcoal, because it has to
-separate a light page above from a dark footer below — in charcoal it would
-merge into the footer and disappear. All three colour pairs pass AA (6.37 / 4.81
-/ 6.37).
+The band is deliberately quiet: a white surface with a brand rule across the
+top, a compact heading and the standard button. It closes the page without
+competing with the hero, and still separates the tinted page above from the dark
+footer below.
 
 One implementation note: the market key is carried on the content model
 (`market.key`) rather than derived from the route, because `trailers-2`

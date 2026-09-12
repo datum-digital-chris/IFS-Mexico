@@ -73,7 +73,7 @@ const rest = body.slice(splitAt);
       {/* Sized to the content rather than the container: a 68ch measure beside
           a 300px sidebar is ~1000px, and stretching that across the full 1120px
           container just opens a gap between the two. */}
-      <div class="grid gap-10 lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-12">
+      <div class="grid gap-10 lg:grid-cols-[minmax(0,1fr)_216px] lg:gap-12">
         <article class="market-prose min-w-0 border border-surface-edge bg-surface p-7 md:p-10">
           {opening.map((b) => <Block block={b} />)}
 
@@ -96,30 +96,32 @@ const rest = body.slice(splitAt);
 
         {
           sidebar && (
-            <aside class="lg:sticky lg:top-28 lg:self-start">
-              {sidebar.heading && (
-                <h2 class="mb-3 font-heading text-[0.8125rem] font-semibold uppercase tracking-[0.14em] text-ink-body">
-                  {sidebar.heading}
-                </h2>
-              )}
-              <ul class="divide-y divide-surface-edge border border-surface-edge bg-surface">
-                {sidebar.items.map((i) => (
-                  <li>
-                    <a
-                      href={i.href}
-                      class:list={[
-                        "block border-l-2 px-4 py-2.5 text-[15px] leading-snug transition-colors",
-                        i.current
-                          ? "border-brand bg-surface-alt font-medium text-brand-deep"
-                          : "border-transparent text-ink-body hover:border-surface-edge hover:bg-surface-alt hover:text-brand-deep",
-                      ]}
-                      aria-current={i.current ? "page" : undefined}
-                    >
-                      {i.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+            <aside>
+              <div class="lg:sticky lg:top-28">
+                {sidebar.heading && (
+                  <h2 class="mb-3 font-heading text-[0.75rem] font-semibold uppercase tracking-[0.14em] text-ink-body">
+                    {sidebar.heading}
+                  </h2>
+                )}
+                <ul class="divide-y divide-surface-edge border border-surface-edge bg-surface">
+                  {sidebar.items.map((i) => (
+                    <li>
+                      <a
+                        href={i.href}
+                        class:list={[
+                          "block border-l-2 px-3 py-2 text-[14px] leading-snug transition-colors",
+                          i.current
+                            ? "border-brand bg-surface-alt font-medium text-brand-deep"
+                            : "border-transparent text-ink-body hover:border-surface-edge hover:bg-surface-alt hover:text-brand-deep",
+                        ]}
+                        aria-current={i.current ? "page" : undefined}
+                      >
+                        {i.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </aside>
           )
         }
