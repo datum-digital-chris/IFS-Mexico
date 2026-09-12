@@ -31,7 +31,7 @@ const isTarget = Astro.url.pathname === cta.href;
   copy && !isTarget && (
     <section class="ox-brand-fill">
       <div class="container-ox flex flex-col gap-8 py-14 md:flex-row md:items-center md:justify-between md:gap-12 md:py-16">
-        <div class="max-w-2xl">
+        <div class="max-w-measure">
           <h2 class="display text-surface text-[clamp(1.625rem,1.35rem+1.1vw,2.25rem)]">
             {copy.heading}
           </h2>

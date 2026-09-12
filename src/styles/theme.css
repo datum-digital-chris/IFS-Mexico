@@ -146,6 +146,16 @@
      files meant a change to one silently misaligned 22 pages against the
      masthead, so it has one source and this is it. */
   --spacing-container: 1280px;
+
+  /* One measure, for every run of text on every page: the header's title, the
+     lead, a section's prose, a numbered item, the closing band. Landing them
+     all on it is what stops a page reading as six columns of different widths
+     stacked down the left edge.
+
+     Held in rem rather than ch on purpose. `ch` resolves against the element's
+     OWN font size, so a 72ch cap on a 60px display heading is 2,600px - which
+     is no cap at all. 46rem is 72ch at the 18px body size. */
+  --container-measure: 46rem;
   --spacing-section: 75px;
 
   /* Square corners, per the house style. */
@@ -471,7 +481,7 @@
      the comfortable range at the body size and leaves the feature-list grids
      room to run two columns without the cells getting narrow. */
   .doc-prose {
-    max-width: 72ch;
+    max-width: var(--container-measure);
   }
   .doc-prose :is(h3, h4, h5, h6) {
     margin-top: 2rem;
@@ -552,6 +562,7 @@
      from body size, so the passage that introduces a section is distinguishable
      from the passage that develops it. */
   .doc-lead {
+    max-width: var(--container-measure);
     font-size: 1.1875rem;
     line-height: 1.6;
   }

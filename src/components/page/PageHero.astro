@@ -80,7 +80,7 @@ const { title, eyebrow, lead, image, action } = Astro.props;
     {eyebrow && <p class="eyebrow eyebrow--on-dark">{eyebrow}</p>}
     <h1
       class:list={[
-        "display text-surface max-w-3xl text-[clamp(2.25rem,1.35rem+3vw,3.75rem)]",
+        "display text-surface max-w-measure text-[clamp(2.25rem,1.35rem+3vw,3.75rem)]",
         eyebrow && "mt-4",
       ]}
     >
@@ -88,7 +88,7 @@ const { title, eyebrow, lead, image, action } = Astro.props;
     </h1>
     {
       lead && (
-        <p class="text-surface/75 mt-6 max-w-xl text-[1.0625rem] leading-relaxed md:text-[1.125rem]">
+        <p class="text-surface/75 max-w-measure mt-6 text-[1.0625rem] leading-relaxed md:text-[1.125rem]">
           {lead}
         </p>
       )

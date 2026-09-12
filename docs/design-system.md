@@ -155,7 +155,7 @@ through `src/components/blocks/`, and the principles written up in its
 So a page is now:
 
 ```
-photo header  →  breadcrumb + overview panel  →  one band per section
+photo header  →  breadcrumb + the lead  →  one band per section
               →  the rest of the section  →  CTA
 ```
 
@@ -224,25 +224,60 @@ site's numbered advantage grid, and renders as one.
   list out of the body would separate the list from the sentence that
   introduces it. The column is left to the photograph.
 
-- **Overview.** Breadcrumb, then a white panel with a brand rule across the top:
-  the opening passage at one step above body size against the page's
-  photograph. Where there is no photograph the panel is capped to the measure of
-  its own copy rather than stretched across the container with a void beside the
-  text.
-- **Section bands.** Eyebrow (the page), display heading, prose at a 72ch
+- **The lead.** Breadcrumb, a brand bar, then the opening passage at one step
+  above body size, with the page's photograph filling the rest of the row beside
+  it. This was a bordered panel, following the US overview block, and the panel
+  had to go: see _One measure_ below.
+- **Section bands.** Eyebrow (the page), display heading, prose at the
   measure.
 - **Numbered items.** Index, heavy headline, passage; two columns, hairline
   divided.
 - **What is not prose runs full width.** A spec table, the 190 colour swatches
   and their tab strip, the contact form, a migrated TablePress table, the
   product-code diagram: `WIDE_KINDS` in `src/lib/blocks.ts` splits a body into
-  runs so each of those breaks out of the 72ch measure and each run of prose
-  keeps it. Four columns of AAMA data at 72ch are cramped, and a colour chart in
-  a measured panel is absurd.
+  runs so each of those breaks out of the measure and each run of prose keeps
+  it. Four columns of AAMA data at 46rem are cramped, and a colour chart at a
+  reading measure is absurd.
 - **The rest of the section.** The old sidebar, as a dark band: "Mercados" on a
   market page, "Polvos" on a product page. The page you are on is left out,
   because the breadcrumb already says so and a link to the page you are reading
   is not a link worth having.
+
+### One measure
+
+Every run of text on every page lands on the same width. The container had been
+consistent all along — 1280px, the same on every band — but the content inside
+it was not, and that is what reads as a wobble down the page. Measured on
+_Repintado_, one page had six different right edges:
+
+| element                              | right edge |
+| ------------------------------------ | ---------- |
+| CTA heading (`max-w-2xl`)            | 772        |
+| the lead's copy (64ch, inside p-10)  | 823        |
+| section prose (72ch)                 | 828        |
+| section and header headings (`3xl`)  | 868        |
+| the overview panel with no photo     | 932        |
+| the nav band, and the panel with one | 1340       |
+
+Worse, the overview panel was 832px on _Repintado_ and the full 1240px on
+_Varillas_, because one page has a support photograph and the other does not —
+the same component at two widths on sibling pages.
+
+So there is now one token, `--container-measure`, and three widths on a page:
+the container, the measure, and full-bleed for the things that are grids rather
+than prose (the numbered items, the cross-link band, a table, the colour
+chart). Headings take the measure too, so a band has one right edge instead of
+two.
+
+Two consequences worth recording:
+
+- **The measure is in `rem`, not `ch`.** `ch` resolves against the element's own
+  font size, so a 72ch cap on a 60px display heading is 2,600px — which is no
+  cap at all. `46rem` is 72ch at the 18px body size and holds for a heading.
+- **The overview panel had to go.** A bordered panel cannot line up with
+  unpadded prose below it: its padding pushed the copy 40px in from every other
+  text block on the page. It is now a section like any other — brand bar,
+  heading, copy at the measure, photograph beside it.
 
 ### Hairlines on the cells, not gaps over a parent
 
