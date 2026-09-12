@@ -11,7 +11,7 @@
       "id": "section-2-845",
       "className": "w-full block text-left",
       "isCard": false,
-      "wrapClassName": "flex flex-col items-center max-w-[1200px] pt-[75px] pr-[20px] pb-[75px] pl-[20px]",
+      "wrapClassName": "flex flex-col items-center max-w-[1280px] pt-[75px] pr-[20px] pb-[75px] pl-[20px]",
       "bg": null,
       "bgSize": "cover",
       "bgPosition": null,

@@ -13,7 +13,23 @@ import { z } from "zod";
  */
 const block: z.ZodType<unknown> = z.lazy(() =>
   z.object({
-    kind: z.enum(["section", "columns", "div", "heading", "richtext", "button", "link", "image", "html", "group", "text", "form", "navmenu", "tabs", "spectable"]),
+    kind: z.enum([
+      "section",
+      "columns",
+      "div",
+      "heading",
+      "richtext",
+      "button",
+      "link",
+      "image",
+      "html",
+      "group",
+      "text",
+      "form",
+      "navmenu",
+      "tabs",
+      "spectable",
+    ]),
     id: z.string().optional(),
     className: z.string().optional(),
     isCard: z.boolean().optional(),
@@ -43,7 +59,15 @@ const block: z.ZodType<unknown> = z.lazy(() =>
       .array(z.object({ label: z.string(), href: z.string().nullable(), current: z.boolean() }))
       .optional(),
     tabs: z
-      .array(z.object({ id: z.string(), label: z.string(), className: z.string().optional(), innerId: z.string().optional(), innerClassName: z.string().optional() }))
+      .array(
+        z.object({
+          id: z.string(),
+          label: z.string(),
+          className: z.string().optional(),
+          innerId: z.string().optional(),
+          innerClassName: z.string().optional(),
+        }),
+      )
       .optional(),
     panels: z.array(z.object({ id: z.string(), children: z.array(block) })).optional(),
     children: z.array(block).optional(),
@@ -67,11 +91,28 @@ const pages = defineCollection({
         title: z.string(),
         heroImage: z.string().nullable(),
         supportImage: z.string().nullable(),
-        body: z.array(block),
+        // The flat prose run, grouped by the extractor into the section rhythm
+        // the US site's Markets pages use: a lead whose opening paragraph is
+        // the hero standfirst, then one section per h2 with its h3s as items.
+        lead: z.object({
+          headline: z.string().nullable(),
+          hero: z.string(),
+          body: z.array(block),
+        }),
+        sections: z.array(
+          z.object({
+            id: z.string(),
+            headline: z.string(),
+            body: z.array(block),
+            items: z.array(z.object({ headline: z.string(), body: z.array(block) })),
+          }),
+        ),
         sidebar: z
           .object({
             heading: z.string().optional(),
-            items: z.array(z.object({ label: z.string(), href: z.string().nullable(), current: z.boolean() })),
+            items: z.array(
+              z.object({ label: z.string(), href: z.string().nullable(), current: z.boolean() }),
+            ),
           })
           .nullable(),
       })

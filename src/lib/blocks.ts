@@ -52,7 +52,13 @@ export interface Block {
   /** Name of an authored table in src/content/tables/. */
   table?: string;
   items?: { label: string; href: string | null; current: boolean }[];
-  tabs?: { id: string; label: string; className?: string; innerId?: string; innerClassName?: string }[];
+  tabs?: {
+    id: string;
+    label: string;
+    className?: string;
+    innerId?: string;
+    innerClassName?: string;
+  }[];
   panels?: { id: string; children: Block[] }[];
   children?: Block[];
 }
@@ -86,4 +92,30 @@ const UNSAFE = [
 
 export function isSafeHtml(html: string | undefined): boolean {
   return !!html && !UNSAFE.some((re) => re.test(html));
+}
+
+/**
+ * A Mercados page, grouped by the extractor into the section rhythm the
+ * template renders (see src/layouts/MarketLayout.astro). The content schema
+ * types a block as `unknown` because the tree is recursive and deliberately
+ * loose, so the route casts to this on the way into the template.
+ */
+export interface MarketSection {
+  id: string;
+  headline: string;
+  body: Block[];
+  items: { headline: string; body: Block[] }[];
+}
+
+export interface Market {
+  key: string;
+  title: string;
+  heroImage: string | null;
+  supportImage: string | null;
+  lead: { headline: string | null; hero: string; body: Block[] };
+  sections: MarketSection[];
+  sidebar: {
+    heading?: string;
+    items: { label: string; href: string | null; current: boolean }[];
+  } | null;
 }

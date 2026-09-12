@@ -2,8 +2,8 @@
 
 > **Superseded in part (September 2026).** The brief changed: the site is now
 > deliberately restyled to look contemporary, with no content change. See
-> `docs/design-system.md`. The items below still record every *content* and
-> *behaviour* difference, which remains the thing that must not drift.
+> `docs/design-system.md`. The items below still record every _content_ and
+> _behaviour_ difference, which remains the thing that must not drift.
 
 The original brief was "look exactly like the old one". Everything below is a place the
 rebuild does **not** match the original, with the reason. Nothing here is
@@ -77,6 +77,11 @@ stacked at 120px/110px/90px on mobile) but the internals differ.
 
 **Why:** a navigation that cannot open is a functional defect.
 
+The Mercados sidebar is also gone as a sidebar: its seven links are now a band
+across the foot of each market page, following the US site's Markets layout
+(`docs/design-system.md`). Every link and label survives except the self-link on
+the page you are already reading, which the breadcrumb replaces.
+
 ## 6. A focus style exists
 
 **Old:** no visible focus indicator anywhere.
@@ -93,7 +98,7 @@ stacked at 120px/110px/90px on mobile) but the internals differ.
 
 ## 8. Two swapped card images on the home page
 
-**Old:** on *Industriales Generales* and *Maquiladores* the card's background
+**Old:** on _Industriales Generales_ and _Maquiladores_ the card's background
 image and its foreground `<img>` disagree — `general-industrial-01.jpg` against
 `custom-workshop-01.jpg` and vice versa. The visible result was a workshop photo
 under "Industriales Generales".
@@ -105,11 +110,11 @@ cards.
 
 ## 9. The fluoropolymer product code is corrected to IFS 500FP
 
-**Old:** the site used both forms. Its own fluoropolymer page says *IFS 500FP*
-four times and *IFS 500P* once; the architectural page says *IFS 500P* once and
+**Old:** the site used both forms. Its own fluoropolymer page says _IFS 500FP_
+four times and _IFS 500P_ once; the architectural page says _IFS 500P_ once and
 500FP never.
 
-**New:** *IFS 500FP* throughout, applied by `cfg.textCorrections` in the
+**New:** _IFS 500FP_ throughout, applied by `cfg.textCorrections` in the
 extractor so the fix survives re-extraction, and matched in
 `src/content/tables/aama.json`.
 
@@ -120,6 +125,28 @@ into a construction document, so it is worth being right.
 
 `compare-content.mjs` flags the one sentence this changes; it is listed in that
 script's `EXPECTED`.
+
+## 10. The colour scheme is the US site's, and so is the red
+
+**Old:** `#fc0004` as the identity red, applied to every heading and every
+link, over the Oxygen neutrals `#eee` / `#e5e5e5` / `#c9c9c9`.
+
+**New:** the scheme `ifscoatings.com` runs — two seeds split by role
+(`#e21e24` red for anything interactive, `#1f2937` ink for anything
+decorative), each deriving its own ramp, over that site's structural neutrals.
+Full detail in `docs/design-system.md`.
+
+**Why:** it is the same company and the .com is the canonical brand site, so
+the two should not be two different reds. `#fc0004` and `#e21e24` are both "IFS
+red"; the Mexican WordPress carried the more saturated approximation.
+
+**Consequences worth knowing:** red no longer appears as a decorative accent —
+eyebrows, rules and the closing CTA fill are ink, and red means "you can click
+this". Brand fills are the metallic gradient, not a flat colour. `#e21e24` is
+the value to change if the client wants their own red back; it is one line
+(`--seed-action` in `src/styles/theme.css`) and the whole ramp follows.
+
+**Revertible:** the two seed values are the only hand-written colours.
 
 ---
 

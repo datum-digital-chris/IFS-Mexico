@@ -1,0 +1,77 @@
+---
+/**
+ * Market page hero.
+ *
+ * The US site opens every Markets page on a near-full-height photograph: a
+ * brand rule along the top edge, the eyebrow and display title bottom-aligned
+ * over a directional scrim, and the action immediately below the standfirst
+ * (~/GitHub/IFS-Coatings, src/components/blocks/HeroBlock.astro).
+ *
+ * That hero also carries a cluster of term/definition spec tiles. There is no
+ * counterpart in this copy — the Mexican pages have no spec pairs, and filling
+ * the column by lifting a bulleted list out of the body would separate the list
+ * from the sentence that introduces it. The column is left to the photograph.
+ */
+interface Props {
+  title: string;
+  eyebrow: string;
+  /** Opening paragraph of the page, lifted by the extractor. */
+  lead: string;
+  image: string | null;
+  action: { label: string; href: string };
+}
+
+const { title, eyebrow, lead, image, action } = Astro.props;
+---
+
+<section
+  class="bg-surface-dark relative isolate flex min-h-[480px] flex-col justify-end overflow-hidden md:min-h-[560px] lg:min-h-[68vh]"
+>
+  {
+    image && (
+      <img
+        src={image}
+        alt=""
+        aria-hidden="true"
+        class="absolute inset-0 -z-10 h-full w-full object-cover"
+        fetchpriority="high"
+      />
+    )
+  }
+  {
+    /* Directional scrim, then a second pass up from the foot: dense enough
+      behind the copy, clearing across the frame so the photograph still reads
+      on the open side. Neutral black rather than a tinted veil, as on the US
+      site - a tint of its own fights the photograph's colour. */
+  }
+  <div
+    class="absolute inset-0 -z-10 bg-gradient-to-r from-black/70 via-black/50 to-black/15"
+    aria-hidden="true"
+  >
+  </div>
+  <div
+    class="absolute inset-x-0 bottom-0 -z-10 h-2/3 bg-gradient-to-t from-black/40 to-transparent"
+    aria-hidden="true"
+  >
+  </div>
+  {
+    /* The decorative accent is ink, which would vanish over a dark hero, so
+      the rule takes the on-dark rung the palette sets aside for this. */
+  }
+  <div class="bg-brand-light absolute inset-x-0 top-0 h-1" aria-hidden="true"></div>
+
+  <div class="container-ox py-14 md:py-16">
+    <p class="eyebrow eyebrow--on-dark">{eyebrow}</p>
+    <h1 class="display text-surface mt-4 max-w-3xl text-[clamp(2.25rem,1.35rem+3vw,3.75rem)]">
+      {title}
+    </h1>
+    {
+      lead && (
+        <p class="text-surface/75 mt-6 max-w-xl text-[1.0625rem] leading-relaxed md:text-[1.125rem]">
+          {lead}
+        </p>
+      )
+    }
+    <a href={action.href} class="ox-btn mt-9">{action.label}</a>
+  </div>
+</section>

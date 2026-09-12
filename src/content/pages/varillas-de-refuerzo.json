@@ -11,7 +11,7 @@
       "id": "section-2-734",
       "className": "w-full h-[300px]",
       "isCard": false,
-      "wrapClassName": "flex flex-col items-start max-w-[1200px] pt-[75px] pr-[20px] pb-[75px] pl-[20px]",
+      "wrapClassName": "flex flex-col items-start max-w-[1280px] pt-[75px] pr-[20px] pb-[75px] pl-[20px]",
       "bg": {
         "layers": [
           "url(\"/uploads/2023/04/hero-rebar-powder.jpg\")"
@@ -26,7 +26,7 @@
       "id": "section-4-734",
       "className": "w-full",
       "isCard": false,
-      "wrapClassName": "flex flex-col items-start max-w-[1200px] pt-[24px] pr-[20px] pb-[75px] pl-[20px]",
+      "wrapClassName": "flex flex-col items-start max-w-[1280px] pt-[24px] pr-[20px] pb-[75px] pl-[20px]",
       "bg": null,
       "bgSize": "cover",
       "bgPosition": null,
@@ -179,31 +179,24 @@
     "title": "Varillas de Refuerzo",
     "heroImage": "/uploads/markets/varillas-de-refuerzo-hero.jpg",
     "supportImage": "/uploads/markets/varillas-de-refuerzo-support.jpg",
-    "body": [
-      {
-        "kind": "heading",
-        "id": "headline-17-734",
-        "level": 2,
-        "html": "IFS PureFlex FBE<br>",
-        "className": "mb-[20px]",
-        "isCard": false,
-        "wrapClassName": "",
-        "bg": null,
-        "bgSize": null,
-        "bgPosition": null
-      },
-      {
-        "kind": "richtext",
-        "id": "_rich_text-8-734",
-        "html": "<p>IFS PureFlex FBE es un revestimiento en polvo termoendurecible, flexible, resistente a la corrosión, de curado rápido, de una sola capa, diseñado para prolongar la vida útil de las barras de refuerzo de acero, barras de pasador y accesorios relacionados, como acopladores y soportes.</p><p>PureFlex FBE, epoxi adherido por fusión, es:</p><ul><li>Extremadamente reactivo</li><li>Excelente protección contra la corrosión</li><li>Excelente flexibilidad</li><li>Excelentes propiedades de adherencia</li><li>Rápido de curar y forma una película uniforme y consistente</li><li>Económico y fácil de aplicar para recubridores</li><li>Diseñado para cumplir y superar los siguientes estándares:<ul class=\"feature-list\"><li>ASTM 775</li><li>ASTM 1078</li><li>AASHTO M284</li><li>AASHTO M254</li></ul></li><li>Control de calidad detallado de IFS para reducir las “vacaciones” o los pequeños agujeros</li></ul><p>El epoxi adherido por fusión ha estado en uso durante más de 40 años. Las barras de refuerzo de acero recubiertas de epoxi (varillas de refuerzo) se pueden usar en cualquier concreto sujeto a condiciones corrosivas, incluyendo los expuestos a sales de deshielo o aguas marinas.</p><p>Como resultado, las barras de refuerzo recubiertas con epoxi unidas por fusión se utilizan en una amplia gama de aplicaciones de construcción. El producto brinda confianza a especificadores, ingenieros, arquitectos, fabricantes y usuarios finales en la construcción de pavimentos, estructuras marinas y de estacionamiento y puentes.</p>",
-        "className": "mb-[20px]",
-        "isCard": false,
-        "wrapClassName": "",
-        "bg": null,
-        "bgSize": null,
-        "bgPosition": null
-      }
-    ],
+    "lead": {
+      "headline": "IFS PureFlex FBE",
+      "hero": "IFS PureFlex FBE es un revestimiento en polvo termoendurecible, flexible, resistente a la corrosión, de curado rápido, de una sola capa, diseñado para prolongar la vida útil de las barras de refuerzo de acero, barras de pasador y accesorios relacionados, como acopladores y soportes.",
+      "body": [
+        {
+          "kind": "richtext",
+          "id": "_rich_text-8-734",
+          "html": "<p>PureFlex FBE, epoxi adherido por fusión, es:</p><ul><li>Extremadamente reactivo</li><li>Excelente protección contra la corrosión</li><li>Excelente flexibilidad</li><li>Excelentes propiedades de adherencia</li><li>Rápido de curar y forma una película uniforme y consistente</li><li>Económico y fácil de aplicar para recubridores</li><li>Diseñado para cumplir y superar los siguientes estándares:<ul class=\"feature-list\"><li>ASTM 775</li><li>ASTM 1078</li><li>AASHTO M284</li><li>AASHTO M254</li></ul></li><li>Control de calidad detallado de IFS para reducir las “vacaciones” o los pequeños agujeros</li></ul><p>El epoxi adherido por fusión ha estado en uso durante más de 40 años. Las barras de refuerzo de acero recubiertas de epoxi (varillas de refuerzo) se pueden usar en cualquier concreto sujeto a condiciones corrosivas, incluyendo los expuestos a sales de deshielo o aguas marinas.</p><p>Como resultado, las barras de refuerzo recubiertas con epoxi unidas por fusión se utilizan en una amplia gama de aplicaciones de construcción. El producto brinda confianza a especificadores, ingenieros, arquitectos, fabricantes y usuarios finales en la construcción de pavimentos, estructuras marinas y de estacionamiento y puentes.</p>",
+          "className": "mb-[20px]",
+          "isCard": false,
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null
+        }
+      ]
+    },
+    "sections": [],
     "sidebar": {
       "heading": "Mercados",
       "items": [

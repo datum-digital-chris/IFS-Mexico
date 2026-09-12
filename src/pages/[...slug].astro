@@ -7,7 +7,7 @@ import { getCollection } from "astro:content";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import MarketLayout from "@/layouts/MarketLayout.astro";
 import Block from "@/components/Block.astro";
-import type { Block as BlockType } from "@/lib/blocks";
+import type { Block as BlockType, Market } from "@/lib/blocks";
 
 export async function getStaticPaths() {
   // Home has its own template (src/pages/index.astro), which presents the same
@@ -25,7 +25,7 @@ const { title, description, ogImage, sections, template, market } = page.data;
 
 {
   template === "market" && market ? (
-    <MarketLayout market={market} description={description} />
+    <MarketLayout market={market as Market} description={description} />
   ) : (
     <BaseLayout title={title} description={description} ogImage={ogImage}>
       {(sections as BlockType[]).map((section) => (

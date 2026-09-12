@@ -11,7 +11,7 @@
       "id": "section-2-718",
       "className": "w-full h-[300px]",
       "isCard": false,
-      "wrapClassName": "flex flex-col items-start max-w-[1200px] pt-[75px] pr-[20px] pb-[75px] pl-[20px]",
+      "wrapClassName": "flex flex-col items-start max-w-[1280px] pt-[75px] pr-[20px] pb-[75px] pl-[20px]",
       "bg": {
         "layers": [
           "url(\"/uploads/2023/05/hero-close-up-car-and-wheel.jpg\")"
@@ -26,7 +26,7 @@
       "id": "section-4-718",
       "className": "w-full",
       "isCard": false,
-      "wrapClassName": "flex flex-col items-start max-w-[1200px] pt-[24px] pr-[20px] pb-[75px] pl-[20px]",
+      "wrapClassName": "flex flex-col items-start max-w-[1280px] pt-[24px] pr-[20px] pb-[75px] pl-[20px]",
       "bg": null,
       "bgSize": "cover",
       "bgPosition": null,
@@ -248,86 +248,77 @@
     "title": "Repintado de Automóviles",
     "heroImage": "/uploads/markets/repintado-de-automoviles-hero.jpg",
     "supportImage": null,
-    "body": [
+    "lead": {
+      "headline": null,
+      "hero": "Todos amamos de verdad a nuestros automóviles; son esenciales para nuestra vida diaria. Los revestimientos en polvo utilizados para pintarlos son igualmente importantes para IFS. La resistencia al rayado y la abrasión, la durabilidad y la resistencia a la intemperie, los excelentes colores y acabados e incluso la flexibilidad son funciones importantes a tener en cuenta al escoger un revestimiento en polvo IFS de calidad.",
+      "body": [
+        {
+          "kind": "richtext",
+          "id": "_rich_text-8-718",
+          "html": "<p>Los polvos IFS para el repintado de automóviles se utilizan en:</p><ul class=\"feature-list\"><li>Ruedas</li><li>Tapicería</li><li>Partes debajo del cofre</li><li>Partes de la parte inferior de la carrocería</li><li>Bicicletas</li><li>Kits de autos</li><li>Autos de carreras</li></ul>",
+          "className": "mb-[20px]",
+          "isCard": false,
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null
+        }
+      ]
+    },
+    "sections": [
       {
-        "kind": "richtext",
-        "id": "_rich_text-8-718",
-        "html": "<p>Todos amamos de verdad a nuestros automóviles; son esenciales para nuestra vida diaria. Los revestimientos en polvo utilizados para pintarlos son igualmente importantes para IFS. La resistencia al rayado y la abrasión, la durabilidad y la resistencia a la intemperie, los excelentes colores y acabados e incluso la flexibilidad son funciones importantes a tener en cuenta al escoger un revestimiento en polvo IFS de calidad.</p><p>Los polvos IFS para el repintado de automóviles se utilizan en:</p><ul class=\"feature-list\"><li>Ruedas</li><li>Tapicería</li><li>Partes debajo del cofre</li><li>Partes de la parte inferior de la carrocería</li><li>Bicicletas</li><li>Kits de autos</li><li>Autos de carreras</li></ul>",
-        "className": "mb-[20px]",
-        "isCard": false,
-        "wrapClassName": "",
-        "bg": null,
-        "bgSize": null,
-        "bgPosition": null
+        "id": "excelente-proteccion",
+        "headline": "Excelente protección",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-15-718",
+            "html": "<p>La protección de sus ruedas es importante, considerando algunas de las condiciones a las que está sujeto su vehículo:</p><ul class=\"feature-list\"><li>Grava y rocas</li><li>Hielo y nieve</li><li>Sal y humedad</li><li>Altos niveles de UV del sol</li><li>Limpiadores químicos</li></ul><p>Los polvos IFS se han formulado cuidadosamente para ofrecer una excelente durabilidad en todas las condiciones mencionadas anteriormente. Nuestros productos incorporan resistencia a rayones, productos químicos y astillas. Todo esto mientras ofrece una apariencia estética superior, una transparencia cristalina y una suavidad de primer nivel.</p>",
+            "className": "mb-[20px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": []
       },
       {
-        "kind": "heading",
-        "id": "headline-13-718",
-        "level": 2,
-        "html": "Excelente protección<br>",
-        "className": "mb-[20px]",
-        "isCard": false,
-        "wrapClassName": "",
-        "bg": null,
-        "bgSize": null,
-        "bgPosition": null
+        "id": "excelente-producto-y-eleccion-de-color",
+        "headline": "Excelente producto y elección de color",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-18-718",
+            "html": "<p>Sin importar qué rendimiento necesite, tenemos el producto para lograrlo. Los imprimadores en polvo, los superduraderos y los epoxis figuran entre los muchos productos químicos disponibles para cumplir con sus requisitos de rendimiento.</p><p>IFS Purecoat, nuestros barnices transparentes en polvo, proporcionarán un acabado protector sin añadir color. Ya sea que esté buscando brillos o negros, translúcidos o texturados, mates o metálicos, le podemos ayudar.</p>",
+            "className": "mb-[20px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": []
       },
       {
-        "kind": "richtext",
-        "id": "_rich_text-15-718",
-        "html": "<p>La protección de sus ruedas es importante, considerando algunas de las condiciones a las que está sujeto su vehículo:</p><ul class=\"feature-list\"><li>Grava y rocas</li><li>Hielo y nieve</li><li>Sal y humedad</li><li>Altos niveles de UV del sol</li><li>Limpiadores químicos</li></ul><p>Los polvos IFS se han formulado cuidadosamente para ofrecer una excelente durabilidad en todas las condiciones mencionadas anteriormente. Nuestros productos incorporan resistencia a rayones, productos químicos y astillas. Todo esto mientras ofrece una apariencia estética superior, una transparencia cristalina y una suavidad de primer nivel.</p>",
-        "className": "mb-[20px]",
-        "isCard": false,
-        "wrapClassName": "",
-        "bg": null,
-        "bgSize": null,
-        "bgPosition": null
-      },
-      {
-        "kind": "heading",
-        "id": "headline-17-718",
-        "level": 2,
-        "html": "Excelente producto y elección de color<br>",
-        "className": "mb-[20px]",
-        "isCard": false,
-        "wrapClassName": "",
-        "bg": null,
-        "bgSize": null,
-        "bgPosition": null
-      },
-      {
-        "kind": "richtext",
-        "id": "_rich_text-18-718",
-        "html": "<p>Sin importar qué rendimiento necesite, tenemos el producto para lograrlo. Los imprimadores en polvo, los superduraderos y los epoxis figuran entre los muchos productos químicos disponibles para cumplir con sus requisitos de rendimiento.</p><p>IFS Purecoat, nuestros barnices transparentes en polvo, proporcionarán un acabado protector sin añadir color. Ya sea que esté buscando brillos o negros, translúcidos o texturados, mates o metálicos, le podemos ayudar.</p>",
-        "className": "mb-[20px]",
-        "isCard": false,
-        "wrapClassName": "",
-        "bg": null,
-        "bgSize": null,
-        "bgPosition": null
-      },
-      {
-        "kind": "heading",
-        "id": "headline-20-718",
-        "level": 2,
-        "html": "Aplicación fácil<br>",
-        "className": "mb-[20px]",
-        "isCard": false,
-        "wrapClassName": "",
-        "bg": null,
-        "bgSize": null,
-        "bgPosition": null
-      },
-      {
-        "kind": "richtext",
-        "id": "_rich_text-21-718",
-        "html": "<p>Entendemos la necesidad de revestimientos en polvo de alta calidad con parámetros de aplicación simples y facilidad de aplicación. Los polvos IFS están diseñados para una alta eficiencia de transferencia y brindan una opción de revestimiento extremadamente competitiva.</p>",
-        "className": "mb-[20px]",
-        "isCard": false,
-        "wrapClassName": "",
-        "bg": null,
-        "bgSize": null,
-        "bgPosition": null
+        "id": "aplicacion-facil",
+        "headline": "Aplicación fácil",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-21-718",
+            "html": "<p>Entendemos la necesidad de revestimientos en polvo de alta calidad con parámetros de aplicación simples y facilidad de aplicación. Los polvos IFS están diseñados para una alta eficiencia de transferencia y brindan una opción de revestimiento extremadamente competitiva.</p>",
+            "className": "mb-[20px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": []
       }
     ],
     "sidebar": {

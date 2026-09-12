@@ -11,7 +11,7 @@
       "id": "section-2-707",
       "className": "w-full h-[300px]",
       "isCard": false,
-      "wrapClassName": "flex flex-col items-start max-w-[1200px] pt-[75px] pr-[20px] pb-[75px] pl-[20px]",
+      "wrapClassName": "flex flex-col items-start max-w-[1280px] pt-[75px] pr-[20px] pb-[75px] pl-[20px]",
       "bg": {
         "layers": [
           "url(\"/uploads/2024/11/hero-markets-appliances.jpg\")"
@@ -26,7 +26,7 @@
       "id": "section-4-707",
       "className": "w-full",
       "isCard": false,
-      "wrapClassName": "flex flex-col items-start max-w-[1200px] pt-[24px] pr-[20px] pb-[75px] pl-[20px]",
+      "wrapClassName": "flex flex-col items-start max-w-[1280px] pt-[24px] pr-[20px] pb-[75px] pl-[20px]",
       "bg": null,
       "bgSize": "cover",
       "bgPosition": null,
@@ -167,19 +167,24 @@
     "title": "Electrodomésticos",
     "heroImage": "/uploads/markets/electrodomesticos-hero.jpg",
     "supportImage": null,
-    "body": [
-      {
-        "kind": "richtext",
-        "id": "_rich_text-8-707",
-        "html": "<p>Las lavadoras, secadoras, refrigeradores, hornos, microondas y la mayoría de los electrodomésticos son atacados regularmente por dedos pegajosos, limpiadores de cocina, agua, calor, frío y golpes.</p><p>Ya sea para uso doméstico, comercial o industrial, IFS tiene una amplia gama de formulaciones en polvo diseñadas específicamente para electrodomésticos para ofrecer un rendimiento técnico de primera clase, que incluye:</p><ul class=\"feature-list\"><li>Resistencia química</li><li>Resistencia a las manchas</li><li>Dureza</li><li>Resistencia al rayado</li><li>Resistencia a la corrosión</li><li>Tratamiento antimicrobiano</li></ul><p>Con formulaciones inteligentes para cumplir con sus requisitos técnicos y parámetros de aplicación, también entendemos que estos electrodomésticos deben tener un aspecto increíble. Nuestros polvos ofrecen:</p><ul class=\"feature-list feature-list--wide\"><li>Un acabado suave y hermoso</li><li>Enorme gama de colores impresionantes</li><li>Rango de niveles de brillo</li><li>Hermosos efectos metálicos y de mica</li><li>Desarrollo y combinación de colores personalizados disponibles</li></ul><p>Hable con su representante de IFS sobre el mejor polvo para su aplicación.</p>",
-        "className": "",
-        "isCard": false,
-        "wrapClassName": "",
-        "bg": null,
-        "bgSize": null,
-        "bgPosition": null
-      }
-    ],
+    "lead": {
+      "headline": null,
+      "hero": "Las lavadoras, secadoras, refrigeradores, hornos, microondas y la mayoría de los electrodomésticos son atacados regularmente por dedos pegajosos, limpiadores de cocina, agua, calor, frío y golpes.",
+      "body": [
+        {
+          "kind": "richtext",
+          "id": "_rich_text-8-707",
+          "html": "<p>Ya sea para uso doméstico, comercial o industrial, IFS tiene una amplia gama de formulaciones en polvo diseñadas específicamente para electrodomésticos para ofrecer un rendimiento técnico de primera clase, que incluye:</p><ul class=\"feature-list\"><li>Resistencia química</li><li>Resistencia a las manchas</li><li>Dureza</li><li>Resistencia al rayado</li><li>Resistencia a la corrosión</li><li>Tratamiento antimicrobiano</li></ul><p>Con formulaciones inteligentes para cumplir con sus requisitos técnicos y parámetros de aplicación, también entendemos que estos electrodomésticos deben tener un aspecto increíble. Nuestros polvos ofrecen:</p><ul class=\"feature-list feature-list--wide\"><li>Un acabado suave y hermoso</li><li>Enorme gama de colores impresionantes</li><li>Rango de niveles de brillo</li><li>Hermosos efectos metálicos y de mica</li><li>Desarrollo y combinación de colores personalizados disponibles</li></ul><p>Hable con su representante de IFS sobre el mejor polvo para su aplicación.</p>",
+          "className": "",
+          "isCard": false,
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null
+        }
+      ]
+    },
+    "sections": [],
     "sidebar": {
       "heading": "Mercados",
       "items": [

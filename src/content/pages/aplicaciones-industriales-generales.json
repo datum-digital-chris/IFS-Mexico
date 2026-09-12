@@ -11,7 +11,7 @@
       "id": "section-2-727",
       "className": "w-full h-[300px]",
       "isCard": false,
-      "wrapClassName": "flex flex-col items-start max-w-[1200px] pt-[75px] pr-[20px] pb-[75px] pl-[20px]",
+      "wrapClassName": "flex flex-col items-start max-w-[1280px] pt-[75px] pr-[20px] pb-[75px] pl-[20px]",
       "bg": {
         "layers": [
           "url(\"/uploads/2023/04/General-metals.jpg\")"
@@ -26,7 +26,7 @@
       "id": "section-4-727",
       "className": "w-full",
       "isCard": false,
-      "wrapClassName": "flex flex-col items-start max-w-[1200px] pt-[24px] pr-[20px] pb-[75px] pl-[20px]",
+      "wrapClassName": "flex flex-col items-start max-w-[1280px] pt-[24px] pr-[20px] pb-[75px] pl-[20px]",
       "bg": null,
       "bgSize": "cover",
       "bgPosition": null,
@@ -213,63 +213,59 @@
     "title": "Aplicaciones Industriales Generales",
     "heroImage": "/uploads/markets/aplicaciones-industriales-generales-hero.jpg",
     "supportImage": "/uploads/markets/aplicaciones-industriales-generales-support.jpg",
-    "body": [
+    "lead": {
+      "headline": null,
+      "hero": "Los marcos de metal, los tanques de propano, los transformadores eléctricos, las estanterías, las torres de cerveza, los aparatos, las torres de agua y mucho, mucho más, se benefician de la protección de los revestimientos en polvo duraderos.",
+      "body": [
+        {
+          "kind": "richtext",
+          "id": "_rich_text-8-727",
+          "html": "<p>Los revestimientos en polvo de IFS tienen una amplia gama de productos químicos y colores diseñados para muchas aplicaciones de metales industriales diferentes.</p><p>Elija entre productos que brindarán beneficios técnicos que incluyen:</p><ul class=\"feature-list\"><li>Resistencia a la corrosión</li><li>Resistencia química</li><li>Resistencia al rayado</li><li>Resistencia al desgaste</li><li>Resistencia al impacto</li><li>Resistencia a la intemperie exterior</li></ul>",
+          "className": "mb-[20px]",
+          "isCard": false,
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null
+        }
+      ]
+    },
+    "sections": [
       {
-        "kind": "richtext",
-        "id": "_rich_text-8-727",
-        "html": "<p>Los marcos de metal, los tanques de propano, los transformadores eléctricos, las estanterías, las torres de cerveza, los aparatos, las torres de agua y mucho, mucho más, se benefician de la protección de los revestimientos en polvo duraderos.</p><p>Los revestimientos en polvo de IFS tienen una amplia gama de productos químicos y colores diseñados para muchas aplicaciones de metales industriales diferentes.</p><p>Elija entre productos que brindarán beneficios técnicos que incluyen:</p><ul class=\"feature-list\"><li>Resistencia a la corrosión</li><li>Resistencia química</li><li>Resistencia al rayado</li><li>Resistencia al desgaste</li><li>Resistencia al impacto</li><li>Resistencia a la intemperie exterior</li></ul>",
-        "className": "mb-[20px]",
-        "isCard": false,
-        "wrapClassName": "",
-        "bg": null,
-        "bgSize": null,
-        "bgPosition": null
+        "id": "imprimadores-ifs",
+        "headline": "Imprimadores IFS",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-13-727",
+            "html": "<p>Los imprimadores en polvo de IFS son la capa base protectora perfecta para añadir una capa adicional de rendimiento a su sustrato metálico. Los imprimadores de revestimiento en polvo de IFS incluyen:</p><ul><li>Imprimador KW: a base de resina epoxi y modificada para ofrecer una buena corrosión. Solo para aplicaciones interiores.</li><li>Imprimador epoxi: excelente resistencia a la corrosión y longevidad exterior.</li><li>Imprimador rico en zinc: con zinc adicional extruido por lo que ofrece una excelente corrosión para aplicaciones exteriores.</li><li>Imprimador OGF: facilita la desgasificación en piezas como piezas fundidas o galvanizadas. Es a base de epoxi, por lo que se adapta mejor a las aplicaciones de interiores.</li><li>Imprimador conductivo: proporciona resistencia superficial y buena resistencia química y a la corrosión.</li><li>Imprimador conductor rico en zinc: excelente corrosión para aplicaciones exteriores más resistencia superficial adicional.</li></ul>",
+            "className": "mb-[20px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": []
       },
       {
-        "kind": "heading",
-        "id": "headline-14-727",
-        "level": 2,
-        "html": "Imprimadores IFS<br>",
-        "className": "mb-[20px]",
-        "isCard": false,
-        "wrapClassName": "",
-        "bg": null,
-        "bgSize": null,
-        "bgPosition": null
-      },
-      {
-        "kind": "richtext",
-        "id": "_rich_text-13-727",
-        "html": "<p>Los imprimadores en polvo de IFS son la capa base protectora perfecta para añadir una capa adicional de rendimiento a su sustrato metálico. Los imprimadores de revestimiento en polvo de IFS incluyen:</p><ul><li>Imprimador KW: a base de resina epoxi y modificada para ofrecer una buena corrosión. Solo para aplicaciones interiores.</li><li>Imprimador epoxi: excelente resistencia a la corrosión y longevidad exterior.</li><li>Imprimador rico en zinc: con zinc adicional extruido por lo que ofrece una excelente corrosión para aplicaciones exteriores.</li><li>Imprimador OGF: facilita la desgasificación en piezas como piezas fundidas o galvanizadas. Es a base de epoxi, por lo que se adapta mejor a las aplicaciones de interiores.</li><li>Imprimador conductivo: proporciona resistencia superficial y buena resistencia química y a la corrosión.</li><li>Imprimador conductor rico en zinc: excelente corrosión para aplicaciones exteriores más resistencia superficial adicional.</li></ul>",
-        "className": "mb-[20px]",
-        "isCard": false,
-        "wrapClassName": "",
-        "bg": null,
-        "bgSize": null,
-        "bgPosition": null
-      },
-      {
-        "kind": "heading",
-        "id": "headline-18-727",
-        "level": 2,
-        "html": "Productos especializados de IFS<br>",
-        "className": "mb-[20px]",
-        "isCard": false,
-        "wrapClassName": "",
-        "bg": null,
-        "bgSize": null,
-        "bgPosition": null
-      },
-      {
-        "kind": "richtext",
-        "id": "_rich_text-17-727",
-        "html": "<p>Además de nuestra amplia gama de productos químicos, también fabricamos productos especializados diseñados para combatir problemas específicos. Estos incluyen:</p><ul class=\"feature-list feature-list--wide\"><li>Polvos antigrafiti</li><li>Polvos disipadores electrostáticos</li><li>Polvos dieléctricos</li><li>Polvos resistentes al calor</li><li>Polvos termoplásticos para mejorar la resistencia al impacto y lograr una sensación más suave</li><li>IFS Co-Cure: formulaciones secas sobre secas</li></ul><p>Ya sea que necesite una solución rentable, un nivel específico de rendimiento de su polvo, un imprimador protector en polvo o un hermoso color, lo tenemos cubierto.</p><p>Hable con su representante de IFS sobre las necesidades específicas de su producto.</p>",
-        "className": "",
-        "isCard": false,
-        "wrapClassName": "",
-        "bg": null,
-        "bgSize": null,
-        "bgPosition": null
+        "id": "productos-especializados-de-ifs",
+        "headline": "Productos especializados de IFS",
+        "body": [
+          {
+            "kind": "richtext",
+            "id": "_rich_text-17-727",
+            "html": "<p>Además de nuestra amplia gama de productos químicos, también fabricamos productos especializados diseñados para combatir problemas específicos. Estos incluyen:</p><ul class=\"feature-list feature-list--wide\"><li>Polvos antigrafiti</li><li>Polvos disipadores electrostáticos</li><li>Polvos dieléctricos</li><li>Polvos resistentes al calor</li><li>Polvos termoplásticos para mejorar la resistencia al impacto y lograr una sensación más suave</li><li>IFS Co-Cure: formulaciones secas sobre secas</li></ul><p>Ya sea que necesite una solución rentable, un nivel específico de rendimiento de su polvo, un imprimador protector en polvo o un hermoso color, lo tenemos cubierto.</p><p>Hable con su representante de IFS sobre las necesidades específicas de su producto.</p>",
+            "className": "",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ],
+        "items": []
       }
     ],
     "sidebar": {

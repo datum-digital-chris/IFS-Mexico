@@ -1,46 +1,122 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------------------
-   Theme tokens, mined from the old site's Oxygen CSS.
+   Theme tokens.
 
    Oxygen had no token layer: the design lived as ~1,000 ID-based one-off
    declarations (see docs/design-tokens.md for the census that produced these).
-   The recurring values are promoted to tokens here; the long tail of
-   single-use colours in that census came from unused plugin defaults and is
-   deliberately not carried over.
+   Type, spacing and breakpoints are mined from that census; the colour scheme
+   is not, and comes from the US site instead (see the palette below).
 
    Breakpoints mirror Oxygen's four max-width tiers (479/767/991/1120) as
    Tailwind min-width tiers, so an Oxygen `@media (max-width:991px)` rule
    becomes the base style with an `lg:` override.
 --------------------------------------------------------------------------- */
-@theme {
+/* ---------------------------------------------------------------------------
+   Palette seeds - the only colours written by hand.
+
+   This is the scheme the US site runs (~/GitHub/IFS-Coatings,
+   src/styles/global.css). Two seeds, each with a derived ramp, split by role:
+
+     --seed-action   INTERACTIVE  links, buttons, focus
+     --seed-accent   DECORATIVE   eyebrows, rules, checks, the CTA fill
+
+   The split is the point. A colour used for everything says nothing about what
+   is clickable, which is what the old site did with red. Change a seed and its
+   whole ramp moves with it.
+--------------------------------------------------------------------------- */
+:root {
+  --seed-action: #e21e24;
+  --seed-accent: #1f2937;
+
+  /* Steps are mixed in sRGB so a swapped seed keeps its hue: oklab desaturates
+     reds and oklch swings them towards orange. */
+  --action-sheen: color-mix(in srgb, var(--seed-action) 88%, white);
+  --action-light: color-mix(in srgb, var(--seed-action) 78%, white);
+  --action-base: var(--seed-action);
+  --action-dark: color-mix(in srgb, var(--seed-action) 82%, black);
+  --action-deep: color-mix(in srgb, var(--seed-action) 66%, black);
+  --action-shade: color-mix(in srgb, var(--seed-action) 92%, black);
+
+  --accent-sheen: color-mix(in srgb, var(--seed-accent) 88%, white);
+  --accent-base: var(--seed-accent);
+  --accent-dark: color-mix(in srgb, var(--seed-accent) 82%, black);
+  --accent-shade: color-mix(in srgb, var(--seed-accent) 92%, black);
+
+  /* The metallic sweep - light travelling across a powder-coated surface -
+     written once. It is what makes a brand fill read as a finish rather than
+     as flat colour, so a brand fill is never a flat hex. */
+  --gradient-accent: linear-gradient(
+    155deg,
+    var(--accent-sheen) 0%,
+    var(--accent-base) 30%,
+    var(--accent-dark) 68%,
+    var(--accent-shade) 100%
+  );
+  --gradient-action: linear-gradient(
+    155deg,
+    var(--action-sheen) 0%,
+    var(--action-base) 30%,
+    var(--action-dark) 68%,
+    var(--action-shade) 100%
+  );
+  /* 3px of light along the top edge: the "polished surface" cue. */
+  --gradient-glint: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.07) 0px,
+    rgba(255, 255, 255, 0) 3px
+  );
+}
+
+@theme static {
   /* ---------------------------------------------------------------------
-     Brand. IFS red is the identity colour and is unchanged - but it is now
-     an accent, not the default for every heading and every link. Used for:
-     links, buttons, the active navigation state, and rules.
+     INTERACTIVE. Links, buttons, focus. Each carries rest, hover and focus
+     states; colour is never the only affordance.
+
+     --color-brand-deep is the dark rung at 6.5:1 on white, so it is what
+     carries text. --color-brand-light is the light rung at 4.8:1 on the dark
+     surface, for an action or a label over dark.
   --------------------------------------------------------------------- */
-  /* Two reds, on purpose. IFS red is 4.08:1 on white, which fails WCAG AA for
-     normal-size text, so anything that CARRIES TEXT (links, buttons, the active
-     nav item) uses the deeper tone at 6.37:1. The vivid brand red is kept for
-     graphic accents - rules, underlines - where the 3:1 large/graphic
-     threshold applies. They are near-indistinguishable side by side. */
-  --color-brand: #fc0004; /* graphic accent */
-  --color-brand-deep: #c20009; /* text and buttons - AA compliant */
-  --color-brand-hover: #9c0007; /* pressed */
+  --color-action: var(--action-base);
+  --color-brand-deep: var(--action-dark);
+  --color-brand-hover: var(--action-deep);
+  --color-brand-light: var(--action-light);
 
-  /* Text. Headings move from brand red to near-black so that size and weight
-     carry hierarchy and red can mean something again. */
-  --color-ink: #16181d; /* headings */
-  --color-ink-body: #3f4650; /* body copy */
-  --color-ink-muted: #3f4650; /* secondary copy (token kept: compiled classes use it) */
+  /* ---------------------------------------------------------------------
+     DECORATIVE. Rules, checks, stripes, the CTA fill. Never on anything that
+     responds to a pointer.
 
-  /* Surfaces. The old neutrals (#eee / #e5e5e5 / #c9c9c9) sat too close
-     together to build structure; these separate cleanly. */
+     The accent seed is ink, not red, and a dark seed has no legible light
+     rung - lightened far enough to clear AA on a dark ground it is just grey.
+     So on dark surfaces only, a decorative accent borrows the action ramp's
+     light rung (--color-brand-light), as it does on the US site.
+
+     The token is still called `brand`: ~200 classes compiled into
+     src/content reference it, and renaming it would mean re-extracting to
+     rename a colour.
+  --------------------------------------------------------------------- */
+  --color-brand: var(--accent-base);
+  --color-accent-text: var(--accent-dark); /* eyebrows and indices on light */
+
+  /* ---------------------------------------------------------------------
+     STRUCTURAL. Type and rules. Nothing lighter than --color-ink-muted ever
+     carries text.
+  --------------------------------------------------------------------- */
+  --color-ink: #111827; /* headings */
+  --color-ink-body: #4b5563; /* body copy */
+  --color-ink-muted: #6b7280; /* secondary copy - the legibility floor */
+
+  /* Surfaces. Adjacent sections have to contrast, so the two light surfaces
+     that alternate are `surface` and `surface-warm`; `surface-alt` is the
+     faint card tint, too close to white to carry a section break of its own. */
   --color-surface: #ffffff;
-  --color-surface-alt: #f5f6f8; /* the default section background */
-  --color-surface-sunken: #eaedf0;
-  --color-surface-edge: #dde1e6; /* hairlines and borders */
-  --color-surface-dark: #23272c; /* top bar, footer */
+  --color-surface-alt: #fafafa; /* cards, grid cells */
+  --color-surface-warm: #ebebeb; /* the alternating light section */
+  --color-surface-sunken: #ebebeb; /* (token kept: compiled classes use it) */
+  --color-surface-edge: #e5e7eb; /* hairlines and borders */
+  --color-surface-edge-strong: #d1d5db;
+  --color-surface-dark: #111827; /* top bar, footer, dark sections */
+  --color-surface-edge-dark: #29303c; /* hairlines on the dark surface */
 
   /* Type. Archivo is a contemporary industrial grotesk and replaces Noto Sans
      JP, a Japanese face that was setting Latin headings. Roboto stays for body
@@ -60,10 +136,16 @@
   --text-lead: 1.25rem;
   --text-hero: clamp(2rem, 1.2rem + 2.6vw, 3.25rem);
 
-  /* Widened from Oxygen's 1120 so the market article can reach a full 80ch
-     measure beside its sidebar. Extracted pages keep their own compiled 1120
-     inner wraps, so their content sits slightly inside the masthead. */
-  --spacing-container: 1200px;
+  /* The container, at the width the US site uses (`max-w-7xl`). Full width was
+     tried and reverted: with no cap the bands run edge to edge while the copy
+     inside them keeps its measure, so every section reads as text pushed
+     against the left of an empty field.
+
+     Read by `cfg.containerWidth`, which rewrites the `max-width: 1120px`
+     Oxygen compiled onto every section inner wrap. Holding the number in two
+     files meant a change to one silently misaligned 22 pages against the
+     masthead, so it has one source and this is it. */
+  --spacing-container: 1280px;
   --spacing-section: 75px;
 
   /* Square corners, per the house style. */
@@ -154,12 +236,44 @@
 
   /* The old site had no focus indicator at all. */
   :focus-visible {
-    outline: 2px solid var(--color-brand);
+    outline: 2px solid var(--color-action);
     outline-offset: 2px;
   }
 }
 
 @layer components {
+  /* ---------------------------------------------------------------------
+     Section furniture.
+
+     Carried over from the US site's section pattern (see docs/design-system.md,
+     "The Mercados pages"): every section opens with a small red category label
+     above a heavy display heading. The label is what makes the pattern read -
+     it identifies the section in two or three words, and it is always the
+     brand colour.
+  --------------------------------------------------------------------- */
+  .eyebrow {
+    font-family: var(--font-heading);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.3;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-accent-text);
+  }
+  .eyebrow--on-dark {
+    color: var(--color-brand-light);
+  }
+
+  /* Display type: heavier and tighter than the heading default, for the
+     section headings that have to carry a full-bleed band. */
+  .display {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+
   /* The centred column shared by the header and the footer. Section inner
      wraps carry their own compiled max-width and padding, so this only
      applies where no Oxygen rule does. */
@@ -184,17 +298,24 @@
   }
   .ox-card:hover,
   .ox-card:focus-within {
-    border-color: var(--color-brand);
+    border-color: var(--color-action);
   }
 
-  /* Buttons. The old pair was grey-on-grey and failed contrast; solid brand
-     with white text is legible and gives the page a single clear action
-     colour. Square, per the house style. */
+  /* The brand fill: the metallic sweep, never a flat hex. The closing CTA band
+     is the one place it covers a whole section, which is why the decorative
+     accent is not spent anywhere else on the page. */
+  .ox-brand-fill {
+    background: var(--gradient-glint), var(--gradient-accent);
+  }
+
+  /* Buttons. The old pair was grey-on-grey and failed contrast. This is the
+     action ramp under the same metallic sweep, darkened by an overlay on the
+     way down so hover and press stay in step with whatever the seed is. */
   .ox-btn {
     display: inline-block;
-    background-color: var(--color-brand-deep);
+    background: var(--gradient-glint), var(--gradient-action);
     color: #fff;
-    border: 1px solid var(--color-brand-deep);
+    border: 1px solid transparent;
     padding: 0.7em 1.4em;
     font-family: var(--font-heading);
     font-weight: 600;
@@ -204,14 +325,29 @@
     text-align: center;
     text-decoration: none;
     transition:
-      background-color 0.18s ease,
+      background 0.18s ease,
       border-color 0.18s ease,
       color 0.18s ease;
   }
   .ox-btn:hover {
-    background-color: var(--color-brand-hover);
-    border-color: var(--color-brand-hover);
+    background: linear-gradient(rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.18)), var(--gradient-action);
     color: #fff;
+  }
+  .ox-btn:active {
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), var(--gradient-action);
+  }
+
+  /* On the CTA band the primary action inverts: nothing else on the band can be
+     white and solid, so the button is the only thing that reads as one. */
+  .ox-btn--white {
+    background: var(--color-surface);
+    border-color: var(--color-surface);
+    color: var(--color-brand-deep);
+  }
+  .ox-btn--white:hover {
+    background: var(--color-surface-alt);
+    border-color: var(--color-surface-alt);
+    color: var(--color-brand-hover);
   }
 
   /* Tab strip on the colours page. The originals were three identical red
@@ -259,35 +395,62 @@
   }
 
   /* Feature lists. These pages are mostly lists of applications and benefits;
-     as plain bullets they read as one undifferentiated block. Two columns and a
-     brand check turn each into something scannable. Tagged at extraction
-     (tagFeatureLists) so only short, flat lists qualify. */
+     as plain bullets they read as one undifferentiated block. Tagged at
+     extraction (tagFeatureLists) so only short, flat lists qualify.
+
+     Rendered as the US site's grid-separator pattern: a bordered block of
+     cells divided by hairlines, the data-forward treatment those pages use for
+     any list of uniform items.
+
+     The separators are drawn on the cells, not as a 1px gap over a coloured
+     parent. The gap trick is shorter, but an odd number of items leaves the
+     last slot empty and the parent colour shows through it as a stray filled
+     tile — and most of these lists are odd. */
   ul.feature-list,
   .rich-text ul.feature-list {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 0.5rem 1.75rem;
-    margin-block: 1.25rem;
+    background: var(--color-surface-alt);
+    border: 1px solid var(--color-surface-edge);
+    margin-block: 1.75rem;
     padding: 0;
     list-style: none;
+  }
+  ul.feature-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.7rem;
+    padding: 0.7rem 0.9rem;
+    border-top: 1px solid var(--color-surface-edge);
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+  ul.feature-list li:first-child {
+    border-top: 0;
   }
   @media (min-width: 640px) {
     ul.feature-list,
     .rich-text ul.feature-list {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+    /* Two columns: the second cell is also on the top row, and every cell in
+       the right-hand column carries the column rule. */
+    ul.feature-list li:nth-child(2) {
+      border-top: 0;
+    }
+    ul.feature-list li:nth-child(even) {
+      border-left: 1px solid var(--color-surface-edge);
+    }
     ul.feature-list--wide,
     .rich-text ul.feature-list--wide {
       grid-template-columns: 1fr;
     }
-  }
-  ul.feature-list li {
-    display: flex;
-    align-items: baseline;
-    gap: 0.7rem;
-    padding-block: 0.4rem;
-    border-top: 1px solid var(--color-surface-edge);
-    line-height: 1.45;
+    ul.feature-list--wide li:nth-child(2) {
+      border-top: 1px solid var(--color-surface-edge);
+    }
+    ul.feature-list--wide li:nth-child(even) {
+      border-left: 0;
+    }
   }
   /* A check drawn in CSS rather than a glyph, so it is identical in every font. */
   ul.feature-list li::before {
@@ -301,61 +464,99 @@
   }
 
   /* Long-form market copy. The old pages ran 140-750 words with no measure and
-     no rhythm between headings and body, so everything read as one block. */
-  /* 80ch is the upper bound of comfortable measure, and it has to apply to the
-     TEXT. The panel is border-box, so a plain `max-width: 80ch` caps the panel
-     including its padding and the line ends up ~73ch. Padding is declared here
-     rather than as utilities so the cap can add it back. */
+     no rhythm, so everything read as one block.
+
+     The headings that used to sit inside this prose are now section headings in
+     their own right, so all this class carries is the measure. 72ch is inside
+     the comfortable range at the body size and leaves the feature-list grids
+     room to run two columns without the cells getting narrow. */
   .market-prose {
-    --prose-pad: 1.5rem;
-    padding: var(--prose-pad);
-    max-width: calc(80ch + 2 * var(--prose-pad));
+    max-width: 72ch;
   }
-  @media (min-width: 768px) {
-    .market-prose {
-      --prose-pad: 2rem;
-    }
+  .market-prose :is(h3, h4, h5, h6) {
+    margin-top: 2rem;
   }
-  .market-prose :is(h2, h3, h4, h5, h6) {
-    margin-top: 2.25rem;
-  }
-  /* A section opener, not just a bigger line of text: a short brand bar over
-     the heading gives each section a visible start. */
-  .market-prose h2 {
-    margin-top: 3rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--color-surface-edge);
-    position: relative;
-    font-size: clamp(1.625rem, 1.3rem + 1vw, 2.125rem);
-  }
-  .market-prose h2::before {
-    content: "";
-    position: absolute;
-    top: -2px;
-    left: 0;
-    width: 3.5rem;
-    height: 3px;
-    background: var(--color-brand);
-  }
-  /* The divider is a separator between sections, so the opening heading must
-     not carry one — otherwise the article starts with a stray rule. */
-  .market-prose > :is(h2, h3, h4, h5, h6):first-child,
-  .market-prose > :first-child :is(h2, h3, h4, h5, h6):first-child {
+  .market-prose > :is(h3, h4, h5, h6):first-child {
     margin-top: 0;
-    padding-top: 0;
+  }
+
+  /* The numbered items under a section heading — the US site's "advantages"
+     treatment, used here for the h3s the old copy nested under an h2. Two
+     columns, hairlines on the cells for the same reason as the feature lists. */
+  .market-items {
+    display: grid;
+    grid-template-columns: 1fr;
+    background: var(--color-surface-alt);
+    border: 1px solid var(--color-surface-edge);
+  }
+  .market-items > * {
+    border-top: 1px solid var(--color-surface-edge);
+  }
+  .market-items > *:first-child {
     border-top: 0;
   }
-  .market-prose > :is(h2):first-child::before {
-    display: none;
+  @media (min-width: 640px) {
+    .market-items {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .market-items > *:nth-child(2) {
+      border-top: 0;
+    }
+    .market-items > *:nth-child(even) {
+      border-left: 1px solid var(--color-surface-edge);
+    }
   }
-  /* The opening paragraph carries the page: give it more presence. */
-  .market-prose > .rich-text:first-child > p:first-child {
+
+  /* The cross-link band that closes a market page. The same hairline-divided
+     grid as the feature lists, on the dark surface, and drawn the same way -
+     rules on the cells, so the grid holds at any item count. */
+  .market-nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    border: 1px solid var(--color-surface-edge-dark);
+  }
+  .market-nav > li {
+    border-top: 1px solid var(--color-surface-edge-dark);
+  }
+  .market-nav > li:first-child {
+    border-top: 0;
+  }
+  @media (min-width: 640px) {
+    .market-nav {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .market-nav > li:nth-child(2) {
+      border-top: 0;
+    }
+    .market-nav > li:nth-child(even) {
+      border-left: 1px solid var(--color-surface-edge-dark);
+    }
+  }
+  @media (min-width: 992px) {
+    .market-nav {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .market-nav > li:nth-child(3) {
+      border-top: 0;
+    }
+    .market-nav > li:nth-child(even) {
+      border-left: 0;
+    }
+    /* Anything that does not open a row carries the column rule. */
+    .market-nav > li:not(:nth-child(3n + 1)) {
+      border-left: 1px solid var(--color-surface-edge-dark);
+    }
+  }
+
+  /* The standfirst under a section heading, and the overview copy: one step up
+     from body size, so the passage that introduces a section is distinguishable
+     from the passage that develops it. */
+  .market-lead {
     font-size: 1.1875rem;
     line-height: 1.6;
-    color: var(--color-ink);
   }
-  .market-prose figure img {
-    display: block;
+  .market-lead > .rich-text:first-child > p:first-child {
+    color: var(--color-ink);
   }
 
   /* Specification tables. Dense technical data, so the styling stays quiet:
@@ -372,8 +573,8 @@
     font-size: 0.875rem;
     font-weight: 600;
     color: var(--color-ink);
-    background: var(--color-surface-alt);
-    border-bottom: 2px solid var(--color-surface-edge);
+    background: var(--color-surface-warm);
+    border-bottom: 2px solid var(--color-surface-edge-strong);
     white-space: nowrap;
   }
   .spec-table tbody th {
@@ -385,7 +586,7 @@
   }
   /* The closing row names the product, so it reads as a conclusion. */
   .spec-table tbody tr:last-child {
-    background: var(--color-surface-alt);
+    background: var(--color-surface-warm);
   }
   .spec-table tbody tr:last-child :is(th, td) {
     font-weight: 600;
@@ -427,7 +628,7 @@
   }
   .ox-market:hover,
   .ox-market:focus-within {
-    border-color: var(--color-brand);
+    border-color: var(--color-action);
   }
 
   /* A short brand rule under a section's opening heading, replacing the

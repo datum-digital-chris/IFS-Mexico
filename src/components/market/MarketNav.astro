@@ -1,0 +1,49 @@
+---
+/**
+ * The other markets, as the last section before the closing CTA.
+ *
+ * This is the old page's "Mercados" sidebar. It was a sticky card floating
+ * beside the article, which is what forced the whole page into one narrow
+ * column; the US site has no sidebar at all and puts its cross-links in a
+ * full-bleed band ahead of the CTA. Same links, same labels, same order.
+ *
+ * The market you are already on is left out — the breadcrumb above says where
+ * you are, and dropping it leaves six, which fills the grid exactly.
+ */
+interface Props {
+  heading: string;
+  items: { label: string; href: string | null; current: boolean }[];
+}
+
+const { heading, items } = Astro.props;
+const others = items.filter((item) => !item.current);
+---
+
+<section class="bg-surface-dark">
+  <div class="container-ox py-12 md:py-16">
+    {heading && <p class="eyebrow eyebrow--on-dark">{heading}</p>}
+    <ul class="market-nav mt-6">
+      {
+        others.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="font-heading text-surface/80 hover:border-action hover:text-surface flex h-full items-center justify-between gap-4 border-l-2 border-transparent px-5 py-4 text-[0.9375rem] font-semibold transition-colors hover:bg-white/5"
+            >
+              {item.label}
+              <svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path
+                  d="M1 7h11M8 3l4 4-4 4"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

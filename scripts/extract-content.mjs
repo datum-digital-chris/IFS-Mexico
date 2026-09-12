@@ -732,6 +732,99 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
     };
     body = dedupe(body);
 
+    // ---- the section rhythm -------------------------------------------------
+    // The US site builds a Markets page as a sequence of full-bleed sections —
+    // photo hero, overview, application grid, closing CTA — each opening with
+    // an eyebrow and a display heading, with no sidebar and no article panel
+    // (~/GitHub/IFS-Coatings, content/markets/*.md + src/components/blocks).
+    //
+    // These pages hold the same kind of content written as one flat run of
+    // prose, so the run is grouped here into the same shape rather than
+    // restated: a lead, then one section per h2, with each h3 inside a section
+    // becoming a numbered item. Grouping only moves nodes — the check below
+    // proves no text is lost on the way.
+    // Visible text of a block tree, reduced to letters and digits so the only
+    // thing compared is the copy itself.
+    const visible = (node) => {
+      if (Array.isArray(node)) return node.map(visible).join(" ");
+      if (!node || typeof node !== "object") return String(node ?? "");
+      const own = [node.html, node.value, node.label, node.alt].filter(Boolean).join(" ");
+      const items = (node.items ?? []).map((i) => i.label).join(" ");
+      return [strip(own), items, visible(node.children ?? [])].join(" ");
+    };
+    const letters = (s) => s.replace(/<[^>]+>/g, " ").replace(/[^\p{L}\p{N}]+/gu, "");
+    const before = letters(visible(body));
+
+    const isHeading = (n) => n.kind === "heading";
+    const anchor = (s) =>
+      s
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[̀-ͯ]/g, "")
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, "")
+        .slice(0, 48);
+
+    // Oxygen leaves empty layout divs behind; they group nothing.
+    const nodes = body.filter((n) => !(n.kind === "div" && !(n.children ?? []).length));
+
+    // A heading that opens the page titles the lead rather than a section of
+    // its own — varillas-de-refuerzo opens "IFS PureFlex FBE".
+    let leadHeadline = null;
+    if (nodes.length > 1 && isHeading(nodes[0]) && nodes[1].kind === "richtext") {
+      leadHeadline = strip(nodes[0].html);
+      nodes.shift();
+    }
+
+    // The opening paragraph carries the page, so it becomes the hero's
+    // standfirst — unless it ends in a colon, where it introduces the list
+    // immediately below it and cannot be separated from it (maquiladores).
+    let heroLead = "";
+    const li = nodes.findIndex((n) => n.kind === "richtext");
+    if (li >= 0) {
+      const first = /^\s*<p>([\s\S]*?)<\/p>/.exec(nodes[li].html ?? "");
+      if (first && !/:$/.test(strip(first[1]))) {
+        heroLead = strip(first[1]);
+        const rest = (nodes[li].html ?? "").slice(first[0].length).trim();
+        if (rest) nodes[li] = { ...nodes[li], html: rest };
+        else nodes.splice(li, 1);
+      }
+    }
+
+    const levels = nodes.filter(isHeading).map((n) => n.level ?? 2);
+    const topLevel = levels.length ? Math.min(...levels) : 0;
+    const leadBody = [];
+    const sections = [];
+    let section = null;
+    let item = null;
+    for (const node of nodes) {
+      if (isHeading(node) && (node.level ?? 2) === topLevel) {
+        const headline = strip(node.html);
+        section = { id: anchor(headline), headline, body: [], items: [] };
+        item = null;
+        sections.push(section);
+        continue;
+      }
+      if (section && isHeading(node) && (node.level ?? 2) > topLevel) {
+        item = { headline: strip(node.html), body: [] };
+        section.items.push(item);
+        continue;
+      }
+      (item ? item.body : (section ? section.body : leadBody)).push(node);
+    }
+
+    const lead = { headline: leadHeadline, hero: heroLead, body: leadBody };
+    // Grouping only moves nodes and lifts two runs of text out of them, so the
+    // copy that comes out has to be the copy that went in, character for
+    // character. This is the guard against a silent drop when a page's shape
+    // stops matching — the same role the home model's warnings play.
+    const after = letters(
+      [heroLead, leadHeadline ?? "", visible(lead.body), ...sections.flatMap((s) => [s.headline, visible(s.body), ...s.items.flatMap((i) => [i.headline, visible(i.body)])])].join(" "),
+    );
+    if (after.length !== before.length) {
+      console.warn(`  market ${slug}: grouping changed the copy (${before.length} chars in, ${after.length} out)`);
+    }
+
     const nav = collect(sidebarCol ?? contentSection, "navmenu")[0] ?? null;
     const navHeading = sidebarCol ? collect(sidebarCol, "heading").map((h) => strip(h.html))[0] : "";
 
@@ -744,12 +837,14 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
       title,
       heroImage: images.hero ? `/uploads/markets/${slug}-hero${images.hero.slice(images.hero.lastIndexOf("."))}` : null,
       supportImage: images.support ? `/uploads/markets/${slug}-support${images.support.slice(images.support.lastIndexOf("."))}` : null,
-      body,
+      lead,
+      sections,
       sidebar: nav ? { heading: navHeading, items: nav.items ?? [] } : null,
     };
 
     if (!titleNode) console.warn(`  market ${slug}: no title heading found`);
     if (!nav) console.warn(`  market ${slug}: no sidebar navigation found`);
+    if (!lead.body.length && !sections.length) console.warn(`  market ${slug}: grouping produced no body`);
     writeFileSync(file, JSON.stringify(page, null, 2) + "\n");
   }
   console.log(`market pages  : ${Object.keys(cfg.markets).length}`);

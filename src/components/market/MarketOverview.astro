@@ -1,0 +1,81 @@
+---
+/**
+ * Overview: the breadcrumb, then the page's opening passage.
+ *
+ * Mirrors the US site's overview block — a panel with a brand rule across the
+ * top, breadcrumbed above it, splitting editorial copy against a second column
+ * (~/GitHub/IFS-Coatings, src/components/blocks/OverviewBlock.astro). There the
+ * second column holds authored "advantages"; here it holds the market
+ * photograph, which is the one thing this content has to put beside the copy.
+ * Without a photograph the panel runs as a single capped column.
+ */
+import Block from "@/components/Block.astro";
+import type { Block as BlockType } from "@/lib/blocks";
+
+interface Props {
+  /** Market title, for the current crumb. */
+  title: string;
+  /** The markets category, from the old site's own sidebar heading. */
+  category: string;
+  categoryHref: string;
+  /** A page-opening heading, where the copy has one. */
+  headline: string | null;
+  body: BlockType[];
+  image: string | null;
+}
+
+const { title, category, categoryHref, headline, body, image } = Astro.props;
+---
+
+<section class="bg-surface-warm">
+  <div class="container-ox py-12 md:py-16">
+    <nav aria-label="Ruta de navegación" class="mb-8">
+      <ol class="text-ink-body flex flex-wrap items-center gap-2 text-[0.8125rem]">
+        <li><a href="/" class="hover:text-brand-hover">Inicio</a></li>
+        <li aria-hidden="true">/</li>
+        <li><a href={categoryHref} class="hover:text-brand-hover">{category}</a></li>
+        <li aria-hidden="true">/</li>
+        <li class="text-ink font-medium">{title}</li>
+      </ol>
+    </nav>
+
+    {
+      /* Without a photograph there is no second column, so the panel is capped
+        to the measure of its own copy rather than stretched across the
+        container with a void beside the text. */
+    }
+    <div class:list={["bg-surface", !image && "lg:max-w-[720px]"]}>
+      <div class="bg-brand h-1" aria-hidden="true"></div>
+      <div class:list={["grid", image && "lg:grid-cols-[minmax(0,1fr)_minmax(0,0.72fr)]"]}>
+        <div class="p-6 md:p-10">
+          {
+            headline && (
+              <h2 class="display mb-5 text-[clamp(1.75rem,1.4rem+1.2vw,2.375rem)]">{headline}</h2>
+            )
+          }
+          <div class="market-lead max-w-[64ch]">
+            {body.map((b) => <Block block={b} />)}
+          </div>
+        </div>
+        {
+          /* The photograph is taken out of flow so its own proportions cannot
+             set the row height — several of these are portrait, and in flow
+             they stretch the panel and leave a void under the copy. The copy
+             sets the height; the cell has a floor for the stacked layout. */
+          image && (
+            <div class="relative min-h-[240px]">
+              <img
+                src={image}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+                class="absolute inset-0 h-full w-full object-cover"
+              />
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>
