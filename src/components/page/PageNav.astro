@@ -23,9 +23,9 @@ const others = items.filter((item) => !item.current);
 {
   others.length > 0 && (
     <section class="bg-surface-dark">
-      <div class="container-ox py-12 md:py-16">
-        {heading && <p class="eyebrow eyebrow--on-dark">{heading}</p>}
-        <ul class:list={["doc-nav", heading && "mt-6"]}>
+      <div class="container-ox band">
+        {heading && <p class="eyebrow eyebrow--on-dark mb-6">{heading}</p>}
+        <ul class="doc-nav">
           {others.map((item) => (
             <li>
               <a

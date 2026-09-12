@@ -152,11 +152,25 @@
      all on it is what stops a page reading as six columns of different widths
      stacked down the left edge.
 
+     42rem is `max-w-2xl`, the widest the US style guide allows a paragraph to
+     run ("Do: max-w-xl / max-w-2xl on body paragraphs. Don't: full-width text
+     lines"), and 66ch at the 18px body size.
+
      Held in rem rather than ch on purpose. `ch` resolves against the element's
-     OWN font size, so a 72ch cap on a 60px display heading is 2,600px - which
-     is no cap at all. 46rem is 72ch at the 18px body size. */
-  --container-measure: 46rem;
+     OWN font size, so a 66ch cap on a 60px display heading is 2,400px - which
+     is no cap at all. */
+  --container-measure: 42rem;
   --spacing-section: 75px;
+
+  /* Section padding, from the US style guide's one standard: py-20 sm:py-28.
+     The guide is explicit that py-12 and py-16 are not section padding, and
+     tighter bands than this are most of what made these pages read as a
+     different site. */
+  --spacing-band: 5rem;
+  --spacing-band-lg: 7rem;
+  /* The container gutter: px-4 sm:px-6. */
+  --spacing-gutter: 1rem;
+  --spacing-gutter-lg: 1.5rem;
 
   /* Square corners, per the house style. */
   --radius-button: 0px;
@@ -263,25 +277,33 @@
   --------------------------------------------------------------------- */
   .eyebrow {
     font-family: var(--font-heading);
-    font-size: 0.8125rem;
-    font-weight: 600;
+    font-size: 0.875rem;
+    font-weight: 700;
     line-height: 1.3;
     text-transform: uppercase;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.1em;
     color: var(--color-accent-text);
   }
   .eyebrow--on-dark {
     color: var(--color-brand-light);
   }
 
-  /* Display type: heavier and tighter than the heading default, for the
-     section headings that have to carry a full-bleed band. */
+  /* Display type, for the headings that carry a full-bleed band.
+
+     The weights are the US site's living style guide (src/pages/styles.astro):
+     "H1 is font-black, H2/H3 font-extrabold, all headings tracking-tight."
+     800 is the default here because most display headings on this site are h2;
+     `.display--black` is the h1. */
   .display {
     font-family: var(--font-heading);
     font-weight: 800;
-    line-height: 1.05;
+    line-height: 1.1;
     letter-spacing: -0.025em;
     text-wrap: balance;
+  }
+  .display--black {
+    font-weight: 900;
+    line-height: 1.05;
   }
 
   /* The centred column shared by the header and the footer. Section inner
@@ -291,7 +313,22 @@
     width: 100%;
     max-width: var(--spacing-container);
     margin-inline: auto;
-    padding-inline: 20px;
+    padding-inline: var(--spacing-gutter);
+  }
+  @media (min-width: 640px) {
+    .container-ox {
+      padding-inline: var(--spacing-gutter-lg);
+    }
+  }
+
+  /* A full-bleed band: one standard vertical rhythm for every section. */
+  .band {
+    padding-block: var(--spacing-band);
+  }
+  @media (min-width: 640px) {
+    .band {
+      padding-block: var(--spacing-band-lg);
+    }
   }
 
   /* A block the old site lifted with a hard offset drop shadow
@@ -326,11 +363,11 @@
     background: var(--gradient-glint), var(--gradient-action);
     color: #fff;
     border: 1px solid transparent;
-    padding: 0.7em 1.4em;
+    padding: 0.875rem 1.75rem;
     font-family: var(--font-heading);
-    font-weight: 600;
-    font-size: 1rem;
-    line-height: 1.2;
+    font-weight: 700;
+    font-size: 0.875rem;
+    line-height: 1;
     letter-spacing: 0.01em;
     text-align: center;
     text-decoration: none;
@@ -345,6 +382,12 @@
   }
   .ox-btn:active {
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), var(--gradient-action);
+  }
+
+  /* The section-CTA size. */
+  .ox-btn--lg {
+    padding: 1rem 2rem;
+    font-size: 1rem;
   }
 
   /* On the CTA band the primary action inverts: nothing else on the band can be
@@ -563,8 +606,8 @@
      from the passage that develops it. */
   .doc-lead {
     max-width: var(--container-measure);
-    font-size: 1.1875rem;
-    line-height: 1.6;
+    font-size: 1.25rem;
+    line-height: 1.625;
   }
   .doc-lead > .rich-text:first-child > p:first-child {
     color: var(--color-ink);

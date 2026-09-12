@@ -33,7 +33,7 @@ const { title, eyebrow, lead, image, action } = Astro.props;
 <section
   class:list={[
     "bg-surface-dark relative isolate flex flex-col justify-end overflow-hidden",
-    image && "min-h-[480px] md:min-h-[560px] lg:min-h-[68vh]",
+    image && "min-h-[75vh]",
   ]}
 >
   {
@@ -60,42 +60,31 @@ const { title, eyebrow, lead, image, action } = Astro.props;
     image && (
       <Fragment>
         <div
-          class="absolute inset-0 -z-10 bg-gradient-to-r from-black/85 via-black/60 to-black/10"
+          class="absolute inset-0 -z-10 bg-gradient-to-r from-black/85 via-black/70 to-black/55"
           aria-hidden="true"
         />
         <div
-          class="absolute inset-x-0 bottom-0 -z-10 h-2/3 bg-gradient-to-t from-black/40 to-transparent"
+          class="absolute inset-x-0 bottom-0 -z-10 h-2/3 bg-gradient-to-t from-black/60 to-transparent"
           aria-hidden="true"
         />
       </Fragment>
     )
   }
   {
-    /* The decorative accent is ink, which would vanish over a dark header, so
-      the rule takes the on-dark rung the palette sets aside for this. */
+    /* Mandatory on a photo header, per the style guide: it bridges the white
+      masthead into the dark overlay. */
   }
-  <div class="bg-brand-light absolute inset-x-0 top-0 h-1" aria-hidden="true"></div>
+  <div class="bg-brand absolute inset-x-0 top-0 h-1" aria-hidden="true"></div>
 
-  <div class:list={["container-ox", image ? "py-14 md:py-16" : "py-14 md:py-20"]}>
-    {eyebrow && <p class="eyebrow eyebrow--on-dark">{eyebrow}</p>}
-    <h1
-      class:list={[
-        "display text-surface max-w-measure text-[clamp(2.25rem,1.35rem+3vw,3.75rem)]",
-        eyebrow && "mt-4",
-      ]}
-    >
+  <div class:list={["container-ox", image ? "pt-16 pb-20" : "band"]}>
+    {eyebrow && <p class="eyebrow eyebrow--on-dark mb-4">{eyebrow}</p>}
+    <h1 class="display display--black text-surface max-w-measure text-5xl sm:text-6xl">
       {title}
     </h1>
-    {
-      lead && (
-        <p class="text-surface/75 max-w-measure mt-6 text-[1.0625rem] leading-relaxed md:text-[1.125rem]">
-          {lead}
-        </p>
-      )
-    }
+    {lead && <p class="text-surface/60 max-w-measure mt-6 text-lg leading-relaxed">{lead}</p>}
     {
       action && (
-        <a href={action.href} class="ox-btn mt-9">
+        <a href={action.href} class="ox-btn ox-btn--lg mt-8">
           {action.label}
         </a>
       )

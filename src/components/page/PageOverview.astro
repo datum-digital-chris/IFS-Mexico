@@ -40,8 +40,8 @@ const hasLead = prose.length > 0 || headline;
 ---
 
 <section class="bg-surface-warm">
-  <div class="container-ox py-12 md:py-16">
-    <nav aria-label="Ruta de navegación" class:list={[hasLead || wide.length ? "mb-9" : ""]}>
+  <div class="container-ox band">
+    <nav aria-label="Ruta de navegación" class:list={[hasLead || wide.length ? "mb-10" : ""]}>
       <ol class="text-ink-body flex flex-wrap items-center gap-2 text-[0.8125rem]">
         <li><a href="/" class="hover:text-brand-hover">Inicio</a></li>
         {
@@ -76,9 +76,7 @@ const hasLead = prose.length > 0 || headline;
           <div>
             <span class="bg-brand mb-6 block h-[3px] w-14" aria-hidden="true" />
             {headline && (
-              <h2 class="display max-w-measure mb-5 text-[clamp(1.75rem,1.4rem+1.2vw,2.375rem)]">
-                {headline}
-              </h2>
+              <h2 class="display max-w-measure mb-6 text-3xl sm:text-4xl">{headline}</h2>
             )}
             <div class="doc-lead">
               {prose.map((b) => (
@@ -104,7 +102,7 @@ const hasLead = prose.length > 0 || headline;
 
     {
       wide.map((run) => (
-        <div class:list={["overflow-x-auto", hasLead && "mt-12"]}>
+        <div class:list={["overflow-x-auto", hasLead && "mt-14"]}>
           {run.blocks.map((b) => (
             <Block block={b} />
           ))}

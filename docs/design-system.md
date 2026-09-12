@@ -243,6 +243,51 @@ site's numbered advantage grid, and renders as one.
   because the breadcrumb already says so and a link to the page you are reading
   is not a link worth having.
 
+### Conformance with the US style guide
+
+The reference site ships a style guide in two parts, and they do not agree:
+`docs/style-guide.md`, and a living component library at `src/pages/styles.astro`
+that is newer. Where they differ the living one wins — it is what the site
+actually renders. Between them they specify the things that were making these
+pages read as a different site even once the palette matched:
+
+|                        | Guide                           | Was                         |
+| ---------------------- | ------------------------------- | --------------------------- |
+| Container gutter       | `px-4 sm:px-6`                  | 20px                        |
+| Section padding        | `py-20 sm:py-28`                | `py-14 md:py-20`            |
+| CTA band               | `py-20 sm:py-24`                | `py-14 md:py-16`            |
+| Header block → content | `mb-14`                         | `mb-9`                      |
+| Eyebrow → heading      | `mb-4`                          | `mt-3.5`                    |
+| Hero h1                | `text-5xl sm:text-6xl`, 900     | fluid 36→60px, 800          |
+| Section h2             | `text-3xl sm:text-4xl`, 800     | fluid 28→40px, 800          |
+| Item headline          | `text-2xl`, 900                 | 21px, 800                   |
+| Item index             | `text-base`, 900, `.15em`       | 14px, 700                   |
+| Lead copy              | `text-xl leading-relaxed`       | 19px                        |
+| Eyebrow                | 14px / 700 / `0.1em`            | 13px / 600 / `0.14em`       |
+| Body measure           | `max-w-2xl`                     | 46rem                       |
+| Photo hero             | `min-h-[75vh] pt-16 pb-20`      | 480/560/68vh                |
+| Hero scrim             | `/85 /70 /55`, bottom `/60`     | `/85 /60 /10`, bottom `/40` |
+| Button                 | `text-sm px-7 py-3.5`, `btn-lg` | 1rem, `0.7em 1.4em`         |
+
+The section padding was the biggest of these by some distance: the guide is
+explicit that `py-12` and `py-16` are not section padding, and the whole site
+was running a tier below the standard. `.band` in `theme.css` now carries it, so
+there is one rhythm and one place to change it.
+
+Two departures stand, and they are deliberate:
+
+- **No panel hover shadow.** The house style in
+  `.claude/rules/00-core/CLAUDE.core.md` is a border-colour change on hover and
+  never a shadow. It outranks the reference site here.
+- **No dark band mid-page.** The guide's surface sequence puts the applications
+  grid on `bg-neutral-900` between the light sections and the CTA. These pages
+  alternate white and warm, then go dark once for the cross-link band. Worth
+  revisiting when a page has enough sections to carry it.
+
+Type is Archivo, not Inter, which is a decision of this site's own (see **The
+system** above). The guide's _scale_ and _weights_ are followed; its typeface is
+not.
+
 ### One measure
 
 Every run of text on every page lands on the same width. The container had been

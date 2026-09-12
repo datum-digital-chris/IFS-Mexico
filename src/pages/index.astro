@@ -45,9 +45,11 @@ const { hero, intro, markets } = home;
     >
     </div>
 
-    <div class="container-ox py-16 md:py-24 lg:py-28">
+    <div class="container-ox py-24 sm:py-32 lg:py-40">
       <div class="max-w-2xl">
-        <h1 class="text-hero text-surface">{hero.headline}</h1>
+        <h1 class="display display--black text-surface max-w-measure text-5xl sm:text-6xl">
+          {hero.headline}
+        </h1>
         {
           hero.supporting.length > 0 && (
             <p class="text-surface/85 mt-5 max-w-xl text-[1.125rem] leading-relaxed md:text-[1.25rem]">
@@ -67,19 +69,21 @@ const { hero, intro, markets } = home;
   </section>
 
   {
-    /* Section header. This copy was a photo band competing with the hero; it is
-      the heading for the markets below, so it is used as one. */
-  }
-  <section id="mercados" class="bg-surface">
-    <div class="container-ox py-14 text-center md:py-20">
-      <p class="eyebrow">{intro.eyebrow}</p>
-      <h2 class="ox-rule-center mx-auto mt-3 max-w-3xl text-balance">{intro.heading}</h2>
-    </div>
-  </section>
+    /* Markets. Seven parallel choices, presented so they can be compared.
 
-  {/* Markets. Seven parallel choices, presented so they can be compared. */}
-  <section class="bg-surface-warm">
-    <div class="container-ox pt-14 pb-20 md:pb-28">
+      The heading was a photo band competing with the hero; it is the heading
+      for the markets, so it is the section header block of their band -
+      eyebrow, heading, then `mb-14` to the grid, as the style guide has it.
+      Two bands for a header and its own content is a split, not a rhythm. */
+  }
+  <section id="mercados" class="bg-surface-warm band">
+    <div class="container-ox">
+      <div class="mb-14 text-center">
+        <p class="eyebrow mb-4">{intro.eyebrow}</p>
+        <h2 class="display ox-rule-center mx-auto max-w-3xl text-3xl text-balance sm:text-4xl">
+          {intro.heading}
+        </h2>
+      </div>
       <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {
           markets.map((m) => (
@@ -96,7 +100,7 @@ const { hero, intro, markets } = home;
                 )}
               </div>
               <div class="flex flex-1 flex-col p-6">
-                <h3 class="text-[1.25rem]">
+                <h3 class="display text-xl">
                   {/* Stretched link: the whole card is the target, and the
                       visible "conoce más" stays as the affordance. */}
                   <a
