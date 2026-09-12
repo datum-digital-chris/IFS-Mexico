@@ -12,25 +12,27 @@ const here = Astro.url.pathname;
 const isCurrent = (href: string | null) => !!href && href !== "/" && here.startsWith(href);
 ---
 
-<!-- Top bar. The old site stacks these into a column below 992px (120px tall)
-     and lays them out in a 34px row above it. -->
+<!-- Top bar: a quiet utility strip. Smaller than the old 18px so it reads as
+     secondary to the masthead rather than competing with it. -->
 <div class="bg-surface-dark text-surface">
-  <div class="container-ox flex flex-col items-center gap-x-6 pb-[5px] text-[18px] lg:h-[34px] lg:flex-row lg:justify-start lg:pb-0">
+  <div class="container-ox flex flex-wrap items-center justify-center gap-x-5 gap-y-0.5 py-1.5 text-[14px] lg:h-[38px] lg:flex-nowrap lg:justify-end lg:gap-x-7 lg:py-0 lg:text-[15px]">
     {topBar.links.map((l) => (
-      <a href={l.href} class="text-surface hover:text-surface-edge">{l.label}</a>
+      <a href={l.href} class="text-surface/80 transition-colors hover:text-surface">{l.label}</a>
     ))}
     {/* The flag sits on its own 29px row on mobile, inline with the phone above 992px. */}
-    {topBar.flag && <img src={topBar.flag.src} alt={topBar.flag.alt} width="24" height="16" class="h-[29px] w-auto object-contain lg:h-4" />}
-    <a href={topBar.phone.href} class="text-surface hover:text-surface-edge">{topBar.phone.label}</a>
+    {topBar.flag && <img src={topBar.flag.src} alt={topBar.flag.alt} width="24" height="16" class="h-[18px] w-auto object-contain lg:h-4" />}
+    <a href={topBar.phone.href} class="font-medium text-surface transition-colors hover:text-brand">{topBar.phone.label}</a>
   </div>
 </div>
 
-<!-- Masthead: 80px tall, painted with the old site's white-to-grey gradient. -->
-<header class="bg-linear-to-b from-surface to-[#89898e]">
-  <div class="container-ox flex h-[110px] items-center justify-between gap-4 xl:h-[80px]">
+<!-- Masthead. The old white-to-grey gradient is the single most dated element
+     on the page; a flat surface with one hairline rule replaces it. Sticky, so
+     navigation stays reachable on these long product pages. -->
+<header class="sticky top-0 z-30 border-b border-surface-edge bg-surface/95 backdrop-blur-sm">
+  <div class="container-ox flex h-[84px] items-center justify-between gap-4 xl:h-[88px]">
     {logo && (
       <a href={logo.href} class="shrink-0">
-        <img src={logo.src} alt={logo.alt} class="h-[90px] w-[90px] object-contain xl:h-[80px] xl:w-[80px]" width="90" height="90" />
+        <img src={logo.src} alt={logo.alt} class="h-[64px] w-[64px] object-contain xl:h-[72px] xl:w-[72px]" width="72" height="72" />
       </a>
     )}
 
@@ -66,18 +68,22 @@ const isCurrent = (href: string | null) => !!href && href !== "/" && here.starts
           <li class="group relative">
             <a
               href={item.href}
-              class="inline-block py-2 text-[16px] font-medium text-ink hover:text-brand"
+              class:list={[
+                "relative inline-block py-2 text-[15px] font-heading font-medium tracking-tight text-ink transition-colors hover:text-brand",
+                "after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[2px] after:origin-left after:scale-x-0 after:bg-brand after:transition-transform hover:after:scale-x-100",
+                isCurrent(item.href) && "text-brand-deep after:scale-x-100",
+              ]}
               aria-current={isCurrent(item.href) ? "page" : undefined}
             >
               {item.label}
             </a>
             {item.children.length > 0 && (
-              <ul class="invisible absolute left-0 top-full z-20 min-w-64 bg-surface opacity-0 shadow-lg transition-opacity group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+              <ul class="invisible absolute left-0 top-full z-20 min-w-72 border border-surface-edge bg-surface opacity-0 transition-opacity group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
                 {item.children.map((c) => (
                   <li>
                     <a
                       href={c.href}
-                      class="block px-4 py-2 text-[15px] text-ink hover:bg-surface-alt hover:text-brand"
+                      class="block border-l-2 border-transparent px-4 py-2.5 text-[15px] text-ink-body transition-colors hover:border-brand hover:bg-surface-alt hover:text-brand-deep"
                       aria-current={isCurrent(c.href) ? "page" : undefined}
                     >
                       {c.label}

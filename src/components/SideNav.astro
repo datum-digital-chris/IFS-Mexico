@@ -14,8 +14,12 @@ interface Props {
 
 const { block } = Astro.props;
 const items = block.items ?? [];
-const link = "block px-[10px] py-[10px] text-[16px] font-medium text-ink hover:bg-surface-alt";
-const current = "bg-surface-edge text-brand";
+// The old active state was a flat grey block. A brand left-rule marks position
+// without shouting, and every item gets a hairline separator so the list reads
+// as one object rather than floating text.
+const link =
+  "block border-l-2 border-transparent px-4 py-2.5 text-[15px] leading-snug text-ink-body transition-colors hover:border-surface-edge hover:bg-surface-alt hover:text-brand-deep";
+const current = "border-brand! bg-surface-alt font-medium text-brand-deep";
 ---
 
 <!-- Sized to content, not stretched: the original collapses to a 40px
@@ -23,7 +27,7 @@ const current = "bg-surface-edge text-brand";
      wide ones. -->
 <nav id={block.id} class:list={["w-fit", block.className]} aria-label="Tipos de polvo">
   <!-- Wide: the list itself. -->
-  <ul class="hidden xl:block">
+  <ul class="hidden border border-surface-edge bg-surface divide-y divide-surface-edge xl:block">
     {
       items.map((i) => (
         <li>
@@ -38,11 +42,11 @@ const current = "bg-surface-edge text-brand";
   <!-- Narrow: the hamburger the original used. -->
   <details class="xl:hidden">
     <summary class="my-[10px] flex h-[40px] w-[40px] cursor-pointer list-none flex-col justify-center gap-[4px]" aria-label="Abrir menú de polvos">
-      <span class="block h-[6px] w-[40px] bg-ink-muted"></span>
-      <span class="block h-[6px] w-[40px] bg-ink-muted"></span>
-      <span class="block h-[6px] w-[40px] bg-ink-muted"></span>
+      <span class="block h-[3px] w-[28px] bg-ink"></span>
+      <span class="block h-[3px] w-[28px] bg-ink"></span>
+      <span class="block h-[3px] w-[28px] bg-ink"></span>
     </summary>
-    <ul class="bg-surface-alt">
+    <ul class="border border-surface-edge bg-surface divide-y divide-surface-edge">
       {
         items.map((i) => (
           <li>

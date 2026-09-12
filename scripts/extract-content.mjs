@@ -194,6 +194,70 @@ const wrapDefaults = (() => {
   return out;
 })();
 
+/**
+ * Restyle layer.
+ *
+ * The compiled utilities carry the old site's decoration as well as its layout,
+ * and decoration compiled onto the element always beats a rule in the theme.
+ * So the properties that constitute the *old look* are dropped here and left to
+ * the design system, while everything that constitutes the *layout* is kept.
+ *
+ * This is presentation only. No text, image, link or block is added, removed or
+ * reordered - `npm run compare` proves that.
+ */
+/**
+ * The two colours the old site used as its *default* heading colour: brand red
+ * and the mid grey. Both are dropped so the theme can set heading colour once.
+ * Any other value - white over a hero, for instance - is a deliberate choice
+ * for that context and is kept, or the heading vanishes into its background.
+ */
+const isDefaultHeadingColour = (v) =>
+  /^(#fc0004|rgb\(\s*252\s*,\s*0\s*,\s*4\s*\)|#52565a|rgb\(\s*82\s*,\s*86\s*,\s*90\s*\))$/i.test(String(v).trim());
+
+const RESTYLE_DROP = {
+  // Headings: the old site painted every one brand red in a Japanese typeface
+  // at a flat weight. Type family and weight now come from the theme, and so
+  // does colour - but ONLY where the colour was the brand red. A heading set
+  // white sits on a dark hero or a photograph, and dropping that colour makes
+  // it invisible.
+  headline: ["font-family", "font-weight", { prop: "color", when: isDefaultHeadingColour }],
+  // Buttons were grey-on-grey. The theme owns button colour entirely.
+  link_button: ["color", "background-color", "border", "border-color", "border-width", "border-style", "background-image"],
+  // Every tab carries the "active" class in the markup, so all three render
+  // solid red and nothing shows which panel is open. The theme owns tab colour
+  // so it can express a real selected state.
+  _tab: ["color", "background-color", "border", "border-color"],
+};
+
+/** Dropped on every element, whatever its type. */
+const RESTYLE_DROP_ALL = ["box-shadow"];
+
+/**
+ * The header and footer are rebuilt components, so their own surface and text
+ * colours come from the theme. Without this the footer section keeps painting
+ * the old light-grey band over the new dark one.
+ */
+const RESTYLE_DROP_CHROME = ["color", "background-color", "background-image", "font-family"];
+let extractingChrome = false;
+
+function restyle(type, buckets) {
+  const rules = [
+    ...(RESTYLE_DROP[type] ?? []),
+    ...RESTYLE_DROP_ALL,
+    ...(extractingChrome ? RESTYLE_DROP_CHROME : []),
+  ].map((r) => (typeof r === "string" ? { prop: r, when: null } : r));
+  if (!rules.length) return buckets;
+
+  const dropped = (prop, value) => rules.some((r) => r.prop === prop && (!r.when || r.when(value)));
+
+  return Object.fromEntries(
+    Object.entries(buckets).map(([bucket, decls]) => [
+      bucket,
+      Object.fromEntries(Object.entries(decls).filter(([prop, value]) => !dropped(prop, value))),
+    ]),
+  );
+}
+
 /** Declarations Oxygen applies to a child because of its parent. */
 const CONTEXTUAL = {
   // `.ct-new-columns > .ct-div-block { padding: 20px }` - the inset on every
@@ -297,14 +361,23 @@ function classesFor(id, classNames = "", parentType = null, parentId = null) {
     }
   }
 
-  const { className, unhandled } = elementToTw(buckets, defaults, ruleOrders);
+  // A block the old site lifted with a drop shadow is a card. The shadow is
+  // dropped; the renderer marks it so the theme can give it a hairline border
+  // instead (house style: border, not shadow).
+  const isCard = Object.values(buckets).some((d) => d["box-shadow"] && d["box-shadow"] !== "none");
+
+  // Restyle first, then read the background from the result: computing it from
+  // the raw buckets would keep painting a gradient the restyle just dropped.
+  const styled = restyle(type, buckets);
+  const { className, unhandled } = elementToTw(styled, defaults, ruleOrders);
   const wrapCompiled = type === "section" ? elementToTw(mergeBuckets(wrapDefaults, viewportOnly(wrap)), {}) : null;
   for (const [k, v] of Object.entries({ ...unhandled, ...(wrapCompiled?.unhandled ?? {}) })) {
     (report.unhandledCss[k] ??= new Set()).add(v);
   }
-  const bgDecl = buckets.base?.["background-image"];
+  const bgDecl = styled.base?.["background-image"];
   return {
     className,
+    isCard,
     wrapClassName: wrapCompiled?.className ?? "",
     bg: bgImage(bgDecl),
     bgSize: buckets?.base?.["background-size"] ?? null,
@@ -520,6 +593,7 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
 {
   const doc = createWindow(readFileSync(P(cfg.cache.html, "home.html"), "utf8")).document;
   const byId = (id) => doc.getElementById(id);
+  extractingChrome = true;
 
   // domino's HTMLCollection is not iterable and it has no :scope support, so
   // direct children are found by walking childNodes.
@@ -568,6 +642,7 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
     })(),
   };
 
+  extractingChrome = false;
   writeFileSync(P("src/content/site.json"), JSON.stringify(site, null, 2) + "\n");
   console.log(`menu items    : ${site.menu.length} top level`);
 }

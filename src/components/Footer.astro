@@ -10,6 +10,9 @@ import type { Block as BlockType } from "@/lib/blocks";
 const footer = site.footer as BlockType | null;
 ---
 
-<footer>
+<!-- The old footer repeated the masthead's grey gradient. A single solid dark
+     surface closes the page instead and gives the last section something to
+     contrast against. -->
+<footer class="ox-footer bg-surface-dark text-surface">
   {footer && <Block block={footer} />}
 </footer>

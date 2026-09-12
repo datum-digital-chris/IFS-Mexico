@@ -1,6 +1,11 @@
 # Deliberate differences from the old site
 
-The brief was "look exactly like the old one". Everything below is a place the
+> **Superseded in part (September 2026).** The brief changed: the site is now
+> deliberately restyled to look contemporary, with no content change. See
+> `docs/design-system.md`. The items below still record every *content* and
+> *behaviour* difference, which remains the thing that must not drift.
+
+The original brief was "look exactly like the old one". Everything below is a place the
 rebuild does **not** match the original, with the reason. Nothing here is
 accidental drift; accidental drift is what `npm run verify:layout` measures.
 

@@ -11,8 +11,9 @@
  * otherwise entirely Spanish site. They are translated here - see
  * docs/deviations.md, which lists this as a deliberate change.
  */
-const field = "w-full border border-surface-edge bg-surface px-3 py-2 text-ink focus:border-brand";
-const label = "mb-1 block font-medium text-ink-muted";
+const field =
+  "w-full border border-surface-edge bg-surface px-3.5 py-2.5 text-ink transition-colors placeholder:text-ink-body/50 focus:border-brand focus:outline-none";
+const label = "mb-1.5 block font-heading text-[15px] font-medium text-ink";
 ---
 
 <form
@@ -56,7 +57,7 @@ const label = "mb-1 block font-medium text-ink-muted";
 
   <button
     type="submit"
-    class="mt-5 inline-block rounded-button border border-surface-sunken bg-surface-sunken px-5 py-2 font-medium text-ink-muted transition-all hover:bg-surface-dark hover:text-surface"
+    class="ox-btn mt-6"
   >
     Enviar
   </button>

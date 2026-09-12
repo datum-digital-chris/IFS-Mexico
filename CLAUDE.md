@@ -1,8 +1,13 @@
 # IFS Coatings Mexico
 
 WordPress (Oxygen) → Astro static migration of https://ifscoatings.mx/.
-**The new site must look exactly like the old one.** This is a pixel-for-pixel
-port, not a redesign. The site is in **Spanish (es-MX)**.
+The site is in **Spanish (es-MX)**.
+
+The migration was a pixel-for-pixel port; as of September 2026 the site is
+**deliberately restyled** to look contemporary, with **no content change**.
+Read `docs/design-system.md` before touching styling. `npm run compare` is the
+gate that proves no copy moved; `npm run verify:layout` compares against the old
+design and is expected to fail.
 
 Read `README.md` and `docs/content-map.md` first: they explain where content
 comes from and why the styling is compiled rather than hand-written. Then

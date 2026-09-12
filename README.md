@@ -1,8 +1,9 @@
 # IFS Coatings Mexico
 
 WordPress (Oxygen) → Astro migration of https://ifscoatings.mx/.
-Spanish, 29 pages. **The brief is visual fidelity: the new site must look like
-the old one.**
+Spanish, 29 pages. Migrated as a pixel-for-pixel port, then **deliberately
+restyled** (September 2026) to look contemporary with no content change — see
+`docs/design-system.md`.
 
 ## Commands
 
@@ -51,7 +52,7 @@ Three gates, because each catches something the others cannot:
 |---|---|---|
 | `npm run build` | pages render; every referenced asset exists | 30 pages, 2,770 refs, 0 missing |
 | `npm run compare` | every sentence of old copy survives | 924 runs, 0 missing |
-| `npm run verify:layout` | every element's geometry and computed style | 91.2% exact at ±2px; 7 pages perfect |
+| `npm run verify:layout` | every element's geometry vs the OLD design | expected to fail since the restyle; kept as a record |
 
 `verify:layout` writes `docs/layout-diff.csv`. Because the rebuild keeps
 Oxygen's element ids, every element can be matched one-to-one against the old

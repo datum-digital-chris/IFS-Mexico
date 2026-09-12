@@ -27,7 +27,8 @@ const bgAttrs = bg
   ? { class: "has-bg", style: `--bg-image:${bg}; --bg-size:${block.bgSize ?? "cover"}; --bg-position:${block.bgPosition ?? "50% 50%"}` }
   : {};
 
-const cls = (extra?: string) => [block.className, extra, bgAttrs.class].filter(Boolean).join(" ");
+const cls = (extra?: string) =>
+  [block.className, extra, block.isCard && "ox-card", bgAttrs.class].filter(Boolean).join(" ");
 const Heading = `h${block.level ?? 2}` as "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 ---
 
@@ -67,7 +68,7 @@ const Heading = `h${block.level ?? 2}` as "h1" | "h2" | "h3" | "h4" | "h5" | "h6
 
 {
   block.kind === "button" && (
-    <a id={block.id} href={block.href ?? "#"} class={cls()}>
+    <a id={block.id} href={block.href ?? "#"} class={cls("ox-btn")}>
       {block.label}
     </a>
   )

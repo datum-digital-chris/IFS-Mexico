@@ -16,6 +16,7 @@ const block: z.ZodType<unknown> = z.lazy(() =>
     kind: z.enum(["section", "columns", "div", "heading", "richtext", "button", "link", "image", "html", "group", "text", "form", "navmenu", "tabs"]),
     id: z.string().optional(),
     className: z.string().optional(),
+    isCard: z.boolean().optional(),
     wrapClassName: z.string().optional(),
     bg: z
       .object({ layers: z.array(z.string()) })

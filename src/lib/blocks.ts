@@ -28,6 +28,8 @@ export interface Block {
   kind: BlockKind;
   id?: string;
   className?: string;
+  /** The old site lifted this block with a drop shadow; styled as a card. */
+  isCard?: boolean;
   wrapClassName?: string;
   bg?: Background | null;
   bgSize?: string | null;

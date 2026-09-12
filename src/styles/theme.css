@@ -14,40 +14,57 @@
    becomes the base style with an `lg:` override.
 --------------------------------------------------------------------------- */
 @theme {
-  /* Brand. Red is the identity colour: headings, links, accents. */
-  --color-brand: #fc0004;
-  --color-brand-hover: #777474;
+  /* ---------------------------------------------------------------------
+     Brand. IFS red is the identity colour and is unchanged - but it is now
+     an accent, not the default for every heading and every link. Used for:
+     links, buttons, the active navigation state, and rules.
+  --------------------------------------------------------------------- */
+  /* Two reds, on purpose. IFS red is 4.08:1 on white, which fails WCAG AA for
+     normal-size text, so anything that CARRIES TEXT (links, buttons, the active
+     nav item) uses the deeper tone at 6.37:1. The vivid brand red is kept for
+     graphic accents - rules, underlines - where the 3:1 large/graphic
+     threshold applies. They are near-indistinguishable side by side. */
+  --color-brand: #fc0004; /* graphic accent */
+  --color-brand-deep: #c20009; /* text and buttons - AA compliant */
+  --color-brand-hover: #9c0007; /* pressed */
 
-  /* Text. */
-  --color-ink: #404040; /* body copy */
-  --color-ink-muted: #52565a; /* secondary copy, card text, dark surfaces */
+  /* Text. Headings move from brand red to near-black so that size and weight
+     carry hierarchy and red can mean something again. */
+  --color-ink: #16181d; /* headings */
+  --color-ink-body: #3f4650; /* body copy */
+  --color-ink-muted: #3f4650; /* secondary copy (token kept: compiled classes use it) */
 
-  /* Surfaces, lightest to darkest. */
+  /* Surfaces. The old neutrals (#eee / #e5e5e5 / #c9c9c9) sat too close
+     together to build structure; these separate cleanly. */
   --color-surface: #ffffff;
-  --color-surface-alt: #eeeeee; /* the default section background */
-  --color-surface-sunken: #e5e5e5;
-  --color-surface-edge: #c9c9c9;
-  --color-surface-dark: #52565a;
+  --color-surface-alt: #f5f6f8; /* the default section background */
+  --color-surface-sunken: #eaedf0;
+  --color-surface-edge: #dde1e6; /* hairlines and borders */
+  --color-surface-dark: #23272c; /* top bar, footer */
 
-  /* Type. Roboto carries body copy, Noto Sans JP the headings, and Nunito
-     Sans appears only on the home page's overlay headings. */
+  /* Type. Archivo is a contemporary industrial grotesk and replaces Noto Sans
+     JP, a Japanese face that was setting Latin headings. Roboto stays for body
+     copy: it is neutral and already reads well at 18px. */
   --font-body: "Roboto", "Helvetica Neue", Arial, sans-serif;
-  --font-heading: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
-  --font-accent: "Nunito Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-heading: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --font-accent: "Archivo", "Helvetica Neue", Arial, sans-serif;
 
-  --text-h1: 32px;
-  --text-h2: 24px;
-  --text-h4: 20px;
-  --text-h5: 18px;
-  --text-h6: 16px;
-  --text-lead: 22px; /* the card/intro size used across product pages */
-  --text-hero: 38px; /* home hero headings */
+  /* A scale with real contrast, so a page title cannot be mistaken for a
+     subhead. h1 scales with the viewport. */
+  --text-h1: clamp(2rem, 1.35rem + 2.1vw, 3rem);
+  --text-h2: clamp(1.5rem, 1.25rem + 0.8vw, 1.875rem);
+  --text-h3: 1.375rem;
+  --text-h4: 1.1875rem;
+  --text-h5: 1.0625rem;
+  --text-h6: 1rem;
+  --text-lead: 1.25rem;
+  --text-hero: clamp(2rem, 1.2rem + 2.6vw, 3.25rem);
 
-  /* Layout. 1120px is Oxygen's container width; 75px its section rhythm. */
   --spacing-container: 1120px;
   --spacing-section: 75px;
 
-  --radius-button: 3px;
+  /* Square corners, per the house style. */
+  --radius-button: 0px;
 
   --breakpoint-sm: 480px;
   --breakpoint-md: 768px;
@@ -60,11 +77,15 @@
     font-family: var(--font-body);
     font-size: 18px;
     font-weight: 400;
-    line-height: 1.6;
-    color: var(--color-ink);
+    line-height: 1.65;
+    color: var(--color-ink-body);
     background-color: var(--color-surface);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
+  /* Headings: near-black, tightened tracking, and a scale that separates
+     levels. Red is no longer the default heading colour. */
   h1,
   h2,
   h3,
@@ -73,36 +94,62 @@
   h6 {
     font-family: var(--font-heading);
     font-weight: 700;
-    color: var(--color-brand);
+    color: var(--color-ink);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
   }
 
   h1 {
     font-size: var(--text-h1);
   }
-  h2,
-  h3 {
+  h2 {
     font-size: var(--text-h2);
+  }
+  h3 {
+    font-size: var(--text-h3);
+    letter-spacing: -0.01em;
   }
   h4 {
     font-size: var(--text-h4);
+    letter-spacing: -0.01em;
   }
   h5 {
     font-size: var(--text-h5);
+    letter-spacing: 0;
   }
   h6 {
     font-size: var(--text-h6);
+    letter-spacing: 0;
   }
 
   a {
-    color: var(--color-brand);
+    color: var(--color-brand-deep);
     text-decoration: none;
+    transition: color 0.15s ease;
   }
   a:hover {
     color: var(--color-brand-hover);
   }
 
-  /* The old site set no focus style at all. Accessibility rules require one;
-     it is drawn in the brand colour so it reads as part of the design. */
+  /* Body links earn an underline; navigation and buttons opt out. */
+  .rich-text a,
+  .prose a {
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+    text-decoration-thickness: 1px;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  ::selection {
+    background: var(--color-brand-deep);
+    color: #fff;
+  }
+
+  /* The old site had no focus indicator at all. */
   :focus-visible {
     outline: 2px solid var(--color-brand);
     outline-offset: 2px;
@@ -118,6 +165,105 @@
     max-width: var(--spacing-container);
     margin-inline: auto;
     padding-inline: 20px;
+  }
+
+  /* A block the old site lifted with a hard offset drop shadow
+     (`2px 2px 4px 2px #52565a`). House style is a hairline border that picks up
+     the brand colour on hover, never a shadow. */
+  .ox-card {
+    border: 1px solid var(--color-surface-edge);
+    /* The old cards were separated only by the shadow they cast. With the
+       shadow gone they need real space, or they read as one striped block. */
+    margin-block: 8px;
+    transition:
+      border-color 0.18s ease,
+      transform 0.18s ease;
+  }
+  .ox-card:hover,
+  .ox-card:focus-within {
+    border-color: var(--color-brand);
+  }
+
+  /* Buttons. The old pair was grey-on-grey and failed contrast; solid brand
+     with white text is legible and gives the page a single clear action
+     colour. Square, per the house style. */
+  .ox-btn {
+    display: inline-block;
+    background-color: var(--color-brand-deep);
+    color: #fff;
+    border: 1px solid var(--color-brand-deep);
+    padding: 0.7em 1.4em;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    text-align: center;
+    text-decoration: none;
+    transition:
+      background-color 0.18s ease,
+      border-color 0.18s ease,
+      color 0.18s ease;
+  }
+  .ox-btn:hover {
+    background-color: var(--color-brand-hover);
+    border-color: var(--color-brand-hover);
+    color: #fff;
+  }
+
+  /* Tab strip on the colours page. The originals were three identical red
+     buttons with no selected state; the palette is kept and selection is shown
+     by weight and a brand underline instead. */
+  .ox-tab {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    letter-spacing: 0.01em;
+    padding: 0.65em 1.25em;
+    background: var(--color-surface);
+    color: var(--color-ink);
+    border: 1px solid var(--color-surface-edge);
+    border-bottom-color: transparent;
+    cursor: pointer;
+    transition:
+      background-color 0.15s ease,
+      color 0.15s ease,
+      border-color 0.15s ease;
+  }
+  .ox-tab:hover {
+    color: var(--color-brand-deep);
+    border-color: var(--color-brand-deep);
+  }
+  .ox-tab--active {
+    background: var(--color-brand-deep);
+    border-color: var(--color-brand-deep);
+    color: #fff;
+  }
+
+  /* Footer. Its content is rendered through the same block renderer as the
+     page, so the inverted palette is set once here rather than per element. */
+  .ox-footer {
+    font-size: 0.9375rem;
+  }
+  .ox-footer :is(h1, h2, h3, h4, h5, h6) {
+    color: #fff;
+  }
+  .ox-footer a {
+    color: rgba(255, 255, 255, 0.85);
+  }
+  .ox-footer a:hover {
+    color: #fff;
+  }
+
+  /* A short brand rule under a section's opening heading, replacing the
+     all-red heading as the way a section announces itself. */
+  .ox-rule::after {
+    content: "";
+    display: block;
+    width: 3.5rem;
+    height: 3px;
+    margin-top: 0.75rem;
+    background: var(--color-brand);
   }
 
   /* Background images come from content, so the URL arrives as a custom

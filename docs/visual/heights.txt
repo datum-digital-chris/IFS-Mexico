@@ -1,2 +1,0 @@
-colors                               desktop  old   1000px  new   6504px  +550%
-colors                               mobile   old   1238px  new  28623px  +2212%

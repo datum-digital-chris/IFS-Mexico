@@ -31,7 +31,7 @@ const scope = `#${block.id}`;
 const rules = tabs
   .map(
     (_, i) => `${scope} > input:nth-of-type(${i + 1}):checked ~ .tab-panels > .tab-panel:nth-child(${i + 1}){display:block}
-${scope} > input:nth-of-type(${i + 1}):checked ~ [role="tablist"] > label:nth-of-type(${i + 1}){opacity:1}`,
+${scope} > input:nth-of-type(${i + 1}):checked ~ [role="tablist"] > label:nth-of-type(${i + 1}){background:var(--color-brand-deep);border-color:var(--color-brand-deep);color:#fff}`,
   )
   .join("\n");
 ---
@@ -43,13 +43,13 @@ ${scope} > input:nth-of-type(${i + 1}):checked ~ [role="tablist"] > label:nth-of
     ))
   }
 
-  <div class="flex flex-wrap gap-1" role="tablist">
+  <div class="flex flex-wrap gap-1.5" role="tablist">
     {
       tabs.map((tab, i) => (
         <label
           id={tab.id}
           for={`${name}-${i}`}
-          class:list={["cursor-pointer opacity-60 transition-opacity hover:opacity-90", tab.className]}
+          class:list={["ox-tab", tab.className]}
         >
           <span id={tab.innerId || undefined} class={tab.innerClassName}>{tab.label}</span>
         </label>
