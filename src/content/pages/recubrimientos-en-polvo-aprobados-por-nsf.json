@@ -1,0 +1,238 @@
+{
+  "slug": "recubrimientos-en-polvo-aprobados-por-nsf",
+  "wpId": 109,
+  "path": "/recubrimientos-en-polvo-aprobados-por-nsf/",
+  "title": "Recubrimientos en Polvo Aprobados por NSF",
+  "description": "",
+  "ogImage": null,
+  "sections": [
+    {
+      "kind": "section",
+      "id": "section-3-109",
+      "className": "w-full h-[300px]",
+      "wrapClassName": "flex flex-col items-start max-w-[1120px] pt-[75px] pr-[20px] pb-[75px] pl-[20px]",
+      "bg": {
+        "layers": [
+          "url(\"/uploads/2023/04/hero-powders-NSF.jpg\")"
+        ]
+      },
+      "bgSize": "cover",
+      "bgPosition": "50% 50%",
+      "children": []
+    },
+    {
+      "kind": "section",
+      "id": "section-9-109",
+      "className": "w-full",
+      "wrapClassName": "flex flex-col items-start max-w-[1120px] pt-[24px] pr-[20px] pb-[75px] pl-[20px]",
+      "bg": null,
+      "bgSize": "cover",
+      "bgPosition": null,
+      "children": [
+        {
+          "kind": "columns",
+          "id": "new_columns-10-109",
+          "className": "flex w-full flex-col-reverse items-start justify-center flex-wrap lg:flex-row",
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null,
+          "children": [
+            {
+              "kind": "div",
+              "id": "div_block-11-109",
+              "className": "flex flex-nowrap flex-col items-start pt-[20px] pr-[25px] pb-[20px] pl-[25px] w-full! lg:w-[75.00%]!",
+              "wrapClassName": "",
+              "bg": null,
+              "bgSize": null,
+              "bgPosition": null,
+              "children": [
+                {
+                  "kind": "heading",
+                  "id": "headline-12-109",
+                  "level": 1,
+                  "html": "Recubrimientos en Polvo Aprobados por NSF",
+                  "className": "mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "richtext",
+                  "id": "_rich_text-13-109",
+                  "html": "<p>IFS Coatings tiene una amplia gama de recubrimientos en polvo aprobados por NSF/ANSI que están diseñados para satisfacer las demandas de varias especificaciones de NSF. Los polvos IFS NSF han sido probados por NSF, superan sus estrictas especificaciones de prueba y rendimiento, y cumplen plenamente sus requisitos.</p><p>Todos los productos aprobados por IFS Coatings NSF se pueden encontrar en el sitio web de NSF.</p>",
+                  "className": "border-b-[2px] border-b-brand",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "heading",
+                  "id": "headline-14-109",
+                  "level": 2,
+                  "html": "NSF 51",
+                  "className": "mt-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "richtext",
+                  "id": "_rich_text-15-109",
+                  "html": "<p>La Norma 51 de NSF/ANSI establece los requisitos mínimos de salud pública y saneamiento para los materiales usados en la construcción de equipos comerciales para alimentos. Los requisitos de esta norma tienen por objeto garantizar que la composición y el acabado de la superficie de los materiales del equipo para alimentos sean tales que un material no adulterará los alimentos ni hará que el equipo para alimentos sea difícil de limpiar y desinfectar.</p><p>Hay una enorme selección de recubrimientos en polvo de IFS que han sido aprobados por NSF 51, tanto en epoxi como en productos químicos híbridos. ¡Hay muchos por mencionar aquí! Hay una lista completa en la página de aprobaciones del sitio web de NSF. Si desea obtener ayuda para elegir el producto adecuado para su aplicación, hable con su representante local de IFS o comuníquese con nosotros.</p>",
+                  "className": "pb-0 mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "heading",
+                  "id": "headline-16-109",
+                  "level": 2,
+                  "html": "NSF 61",
+                  "className": "mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "richtext",
+                  "id": "_rich_text-17-109",
+                  "html": "<p>La Norma 61 de NSF/ANSI se aplica a los materiales y recubrimientos usados en la fabricación de equipos que entran en contacto con agua potable o productos que respaldan la producción de agua potable.</p><p>Para aplicaciones de accesorios, bombas, tanques y válvulas, los siguientes productos de IFS cuentan con la aprobación NSF 61:</p><ul><li>Negro – ERSS11685</li><li>Azul – ERSS22993</li><li>Marrón – ERSS47676</li><li>Gris – ERSS75636</li><li>Verde – ERSS33254</li><li>Rojo – ERSS62900</li><li>Blanco – ERSS83401</li><li>Amarillo – ERSS51039</li></ul><p>Las hojas de datos técnicos están disponibles para cada producto.</p>",
+                  "className": "mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "heading",
+                  "id": "headline-23-109",
+                  "level": 2,
+                  "html": "Elegir su color NSF 61",
+                  "className": "mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "richtext",
+                  "id": "_rich_text-25-109",
+                  "html": "<p>IFS Coatings tiene muchos productos en polvo y colores diferentes aprobados por NSF. Los colores que hemos aprobado son genéricos, por ejemplo, “negro”, “verde”. “rojo”, etc. Las pruebas se han completado en estas fórmulas específicas y han sido aprobadas. Sin embargo, hay muchos tonos de “verde” y es posible que esté buscando un color muy específico. Nuestras formulaciones han sido aprobadas para producir varios tonos de cada color dentro de una cierta tolerancia. Si el tono que necesita no está dentro de esta tolerancia, es posible que no se apruebe. Para obtener más información o ayuda con sus requisitos de color específicos, hable con su representante local de IFS o comuníquese con nosotros.</p>",
+                  "className": "mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                }
+              ]
+            },
+            {
+              "kind": "div",
+              "id": "div_block-18-109",
+              "className": "flex flex-nowrap flex-col items-start pt-[20px] pr-[20px] pb-[20px] pl-[20px] w-full! text-[31px] text-[#000000] lg:w-[25%]!",
+              "wrapClassName": "",
+              "bg": null,
+              "bgSize": null,
+              "bgPosition": null,
+              "children": [
+                {
+                  "kind": "div",
+                  "id": "div_block-27-109",
+                  "className": "flex flex-nowrap flex-col items-center text-left lg:items-start",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null,
+                  "children": [
+                    {
+                      "kind": "heading",
+                      "id": "headline-28-109",
+                      "level": 2,
+                      "html": "Polvos<br>",
+                      "className": "ml-[10px]",
+                      "wrapClassName": "",
+                      "bg": null,
+                      "bgSize": null,
+                      "bgPosition": null
+                    },
+                    {
+                      "kind": "navmenu",
+                      "id": "_nav_menu-29-109",
+                      "items": [
+                        {
+                          "label": "Polvo de Poliéster Estándar",
+                          "href": "/polvo-de-poliester-estandar/",
+                          "current": false
+                        },
+                        {
+                          "label": "Polvos de Poliéster Superduraderos",
+                          "href": "/polvos-de-poliester-superduraderos/",
+                          "current": false
+                        },
+                        {
+                          "label": "Polvo de Fluoropolímero (FEVE)",
+                          "href": "/polvo-de-fluoropolimero-feve/",
+                          "current": false
+                        },
+                        {
+                          "label": "Polvo Epoxi",
+                          "href": "/polvo-epoxi/",
+                          "current": false
+                        },
+                        {
+                          "label": "Polvo Híbrido",
+                          "href": "/polvo-hibrido/",
+                          "current": false
+                        },
+                        {
+                          "label": "Polvo Antimicrobiano",
+                          "href": "/polvo-antimicrobiano/",
+                          "current": false
+                        },
+                        {
+                          "label": "Polvo Antigrafiti",
+                          "href": "/polvo-antigrafiti/",
+                          "current": false
+                        },
+                        {
+                          "label": "Imprimadores en Polvo",
+                          "href": "/imprimadores-en-polvo/",
+                          "current": false
+                        },
+                        {
+                          "label": "Polvo Aprobados por NSF",
+                          "href": "/recubrimientos-en-polvo-aprobados-por-nsf/",
+                          "current": true
+                        },
+                        {
+                          "label": "Polvo (ESD)",
+                          "href": "/polvo-disipadores-de-electricidad-estatica-esd/",
+                          "current": false
+                        },
+                        {
+                          "label": "Polvos Termoplásticos IFS Puroplaz®",
+                          "href": "/polvos-termoplasticos-ifs-puroplaz/",
+                          "current": false
+                        }
+                      ],
+                      "className": "",
+                      "wrapClassName": "",
+                      "bg": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

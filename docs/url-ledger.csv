@@ -1,0 +1,31 @@
+path,wpId,slug,title,words,images,forms,tables,owners,indexed,canonical,disposition,target,reason
+/aplicaciones-industriales-generales/,727,aplicaciones-industriales-generales,Aplicaciones Industriales Generales,745,3,,,6 727,yes,/aplicaciones-industriales-generales/,keep,/aplicaciones-industriales-generales/,same URL on the new site
+/clave-de-codigo-de-producto/,693,clave-de-codigo-de-producto,Clave de Código de Producto,468,4,,,6 693,yes,/clave-de-codigo-de-producto/,keep,/clave-de-codigo-de-producto/,same URL on the new site
+/colors/,51,colors,Colors,1575,192,,,6 51,yes,/colors/,keep,/colors/,same URL on the new site
+/condiciones-de-uso/,747,condiciones-de-uso,Condiciones de Uso,2678,3,,,6 747,yes,/condiciones-de-uso/,keep,/condiciones-de-uso/,same URL on the new site
+/conocenos/,804,conocenos,Conocenos,931,3,,,6 804,yes,/conocenos/,keep,/conocenos/,same URL on the new site
+/contactenos/,751,contactenos,Contáctenos,499,3,yes,,6 751,yes,/contactenos/,keep,/contactenos/,same URL on the new site
+/descargar-informacion/,845,descargar-informacion,Descargar Información,462,3,,,6 845,yes,/descargar-informacion/,keep,/descargar-informacion/,same URL on the new site
+/electrodomesticos/,707,electrodomesticos,Electrodomésticos,564,3,,,6 707,yes,/electrodomesticos/,keep,/electrodomesticos/,same URL on the new site
+/hello-world/,,hello-world,Hello world!,424,3,,,6,yes,/hello-world/,retire,/,"WordPress default sample post, not linked from the site"
+/,47,home,Home,537,10,,,6 47,yes,/,keep,/,home page
+/ifs-pureclad/,701,ifs-pureclad,IFS Pureclad,1204,3,,,6 701,yes,/ifs-pureclad/,keep,/ifs-pureclad/,same URL on the new site
+/imprimadores-en-polvo/,103,imprimadores-en-polvo,Imprimadores en Polvo,790,3,,,6 103,yes,/imprimadores-en-polvo/,keep,/imprimadores-en-polvo/,same URL on the new site
+/maquiladores/,771,maquiladores,Maquiladores,1216,3,,,6 771,yes,/maquiladores/,keep,/maquiladores/,same URL on the new site
+/mercado-arquitectonico/,711,mercado-arquitectonico,Mercado Arquitectónico,877,3,,,6 711,yes,/mercado-arquitectonico/,keep,/mercado-arquitectonico/,same URL on the new site
+/politica-de-privacidad/,740,politica-de-privacidad,Politica de Privacidad,4519,3,,yes,6 740,yes,/politica-de-privacidad/,keep,/politica-de-privacidad/,same URL on the new site
+/polvo-antigrafiti/,101,polvo-antigrafiti,Polvo Antigrafiti,660,3,,,6 101,yes,/polvo-antigrafiti/,keep,/polvo-antigrafiti/,same URL on the new site
+/polvo-antimicrobiano/,98,polvo-antimicrobiano,Polvo Antimicrobiano,731,3,,,6 98,yes,/polvo-antimicrobiano/,keep,/polvo-antimicrobiano/,same URL on the new site
+/polvo-de-fluoropolimero-feve/,82,polvo-de-fluoropolimero-feve,Polvo de Fluoropolímero (FEVE),779,3,,,6 82,yes,/polvo-de-fluoropolimero-feve/,keep,/polvo-de-fluoropolimero-feve/,same URL on the new site
+/polvo-de-poliester-estandar/,72,polvo-de-poliester-estandar,Polvo de Poliéster Estándar,899,3,,,6 72,yes,/polvo-de-poliester-estandar/,keep,/polvo-de-poliester-estandar/,same URL on the new site
+/polvo-disipadores-de-electricidad-estatica-esd/,119,polvo-disipadores-de-electricidad-estatica-esd,Polvo Disipadores de Electricidad Estática (ESD),858,3,,,6 119,yes,/polvo-disipadores-de-electricidad-estatica-esd/,keep,/polvo-disipadores-de-electricidad-estatica-esd/,same URL on the new site
+/polvo-epoxi/,91,polvo-epoxi,Polvo Epoxi,656,3,,,6 91,yes,/polvo-epoxi/,keep,/polvo-epoxi/,same URL on the new site
+/polvo-hibrido/,93,polvo-hibrido,Polvo Híbrido,629,3,,,6 93,yes,/polvo-hibrido/,keep,/polvo-hibrido/,same URL on the new site
+/polvos-de-poliester-superduraderos/,77,polvos-de-poliester-superduraderos,Polvos de poliéster superduraderos,973,3,,,6 77,yes,/polvos-de-poliester-superduraderos/,keep,/polvos-de-poliester-superduraderos/,same URL on the new site
+/polvos-termoplasticos-ifs-puroplaz/,123,polvos-termoplasticos-ifs-puroplaz,Polvos Termoplásticos IFS Puroplaz®,682,3,,,6 123,yes,/polvos-termoplasticos-ifs-puroplaz/,keep,/polvos-termoplasticos-ifs-puroplaz/,same URL on the new site
+/recubrimientos-en-polvo-aprobados-por-nsf/,109,recubrimientos-en-polvo-aprobados-por-nsf,Recubrimientos en Polvo Aprobados por NSF,862,3,,,6 109,yes,/recubrimientos-en-polvo-aprobados-por-nsf/,keep,/recubrimientos-en-polvo-aprobados-por-nsf/,same URL on the new site
+/repintado-de-automoviles/,718,repintado-de-automoviles,Repintado de Automóviles,716,3,,,6 718,yes,/repintado-de-automoviles/,keep,/repintado-de-automoviles/,same URL on the new site
+/trailers-2/,732,trailers-2,Tráilers,643,3,,,6 732,yes,/trailers-2/,move,/trailers/,WP duplicate-slug suffix; clean slug on the new site
+/ul-polvo/,820,ul-polvo,UL Polvo,871,3,,,6 820,yes,/ul-polvo/,keep,/ul-polvo/,same URL on the new site
+/valores-de-la-mision/,689,valores-de-la-mision,Valores de la Misión,675,3,,,6 689,yes,/valores-de-la-mision/,keep,/valores-de-la-mision/,same URL on the new site
+/varillas-de-refuerzo/,734,varillas-de-refuerzo,Varillas de Refuerzo,632,3,,,6 734,yes,/varillas-de-refuerzo/,keep,/varillas-de-refuerzo/,same URL on the new site

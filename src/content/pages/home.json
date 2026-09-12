@@ -1,0 +1,795 @@
+{
+  "slug": "",
+  "wpId": 47,
+  "path": "/",
+  "title": "Home",
+  "description": "",
+  "ogImage": null,
+  "sections": [
+    {
+      "kind": "section",
+      "id": "section-138-47",
+      "className": "w-full block text-center",
+      "wrapClassName": "flex flex-col items-center max-w-[1120px] pt-[31px] pr-[20px] pb-[26px] pl-[20px]",
+      "bg": {
+        "layers": [
+          "linear-gradient(rgba(23,45,86,0.49),rgba(23,45,86,0.49))",
+          "url(\"/uploads/2023/05/hero-homepage-01.jpg\")"
+        ]
+      },
+      "bgSize": "auto,cover",
+      "bgPosition": "50% 50%",
+      "children": [
+        {
+          "kind": "div",
+          "id": "div_block-146-47",
+          "className": "flex flex-nowrap flex-col items-start w-[75%] mt-0",
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null,
+          "children": [
+            {
+              "kind": "div",
+              "id": "div_block-152-47",
+              "className": "flex flex-nowrap flex-col items-start w-full mt-[10px] sm:mt-0 md:w-[75%] xl:w-[60%]",
+              "wrapClassName": "",
+              "bg": null,
+              "bgSize": null,
+              "bgPosition": null,
+              "children": [
+                {
+                  "kind": "heading",
+                  "id": "headline-139-47",
+                  "level": 1,
+                  "html": "Elija el polvo de rendimiento adecuado",
+                  "className": "font-heading text-surface text-[21px] font-normal leading-[1.1] mb-[30px] ml-[20px] mr-[20px] text-left sm:text-[24px] lg:text-[38px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "heading",
+                  "id": "headline-143-47",
+                  "level": 1,
+                  "html": "<font style=\"vertical-align: inherit;\"><font style=\"vertical-align: inherit;\">Cientos de colores</font></font>",
+                  "className": "font-heading text-surface text-[21px] font-normal leading-[1.1] mb-[30px] ml-[20px] mr-[20px] text-center sm:text-[24px] sm:text-left lg:text-[38px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "heading",
+                  "id": "headline-144-47",
+                  "level": 1,
+                  "html": "Haga la elección de un revestimiento sostenible",
+                  "className": "font-heading text-surface text-[21px] font-normal leading-[1.1] mb-[30px] ml-[20px] mr-[20px] text-left sm:text-[24px] lg:text-[38px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "button",
+          "id": "link_button-264-47",
+          "href": "/colors/",
+          "label": "Ver Colores",
+          "className": "inline-block text-center rounded-[3px] no-underline bg-surface-sunken border border-surface-sunken text-ink-muted p-[10px_16px] mt-[9px] font-medium",
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null
+        }
+      ]
+    },
+    {
+      "kind": "section",
+      "id": "section-164-47",
+      "className": "w-full block text-brand text-center bg-surface-sunken lg:text-left",
+      "wrapClassName": "flex flex-col items-center max-w-[1120px] pt-[20px] pr-[20px] pb-[10px] pl-[20px]",
+      "bg": {
+        "layers": [
+          "linear-gradient(rgba(232,111,16,0),rgba(232,111,16,0))"
+        ]
+      },
+      "bgSize": "cover",
+      "bgPosition": null,
+      "children": [
+        {
+          "kind": "div",
+          "id": "div_block-266-47",
+          "className": "flex flex-nowrap flex-col items-center text-left pl-[15px] pt-[15px] pr-[15px] pb-[15px] w-full shadow-[2px_2px_4px_2px_#52565a]",
+          "wrapClassName": "",
+          "bg": {
+            "layers": [
+              "url(\"/uploads/2023/05/hero-general-industrial.jpg\")"
+            ]
+          },
+          "bgSize": null,
+          "bgPosition": null,
+          "children": [
+            {
+              "kind": "heading",
+              "id": "headline-172-47",
+              "level": 1,
+              "html": "IFS Coatings Internacional<br>",
+              "className": "font-accent mb-[20px] text-surface mt-[44px] text-center sm:text-left",
+              "wrapClassName": "",
+              "bg": null,
+              "bgSize": null,
+              "bgPosition": null
+            },
+            {
+              "kind": "heading",
+              "id": "headline-175-47",
+              "level": 2,
+              "html": "Encuentra los Revestimientos en Polvo Adecuados para su Mercado...<br>",
+              "className": "font-accent mb-[48px] text-surface text-center sm:text-left",
+              "wrapClassName": "",
+              "bg": null,
+              "bgSize": null,
+              "bgPosition": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "section",
+      "id": "section-183-47",
+      "className": "w-full min-h-[200px] bg-surface-sunken",
+      "wrapClassName": "flex flex-col items-start max-w-[1120px] pt-[10px] pr-[20px] pb-[10px] pl-[20px]",
+      "bg": null,
+      "bgSize": "cover",
+      "bgPosition": null,
+      "children": [
+        {
+          "kind": "columns",
+          "id": "new_columns-184-47",
+          "className": "flex w-full flex-row items-stretch justify-center flex-wrap bg-surface shadow-[2px_2px_4px_2px_#52565a]",
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null,
+          "children": [
+            {
+              "kind": "div",
+              "id": "div_block-185-47",
+              "className": "flex flex-nowrap flex-col items-start pt-0 pr-0 pb-[48px] pl-0 w-full! bg-surface min-h-[300px] lg:pb-0 lg:w-[50%]!",
+              "wrapClassName": "",
+              "bg": {
+                "layers": [
+                  "url(\"/uploads/2023/05/architecture-01.jpg\")"
+                ]
+              },
+              "bgSize": null,
+              "bgPosition": null,
+              "children": [
+                {
+                  "kind": "image",
+                  "id": "image-265-47",
+                  "src": "/uploads/2023/05/architecture-01.jpg",
+                  "alt": "",
+                  "width": null,
+                  "height": null,
+                  "className": "max-w-full w-full",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                }
+              ]
+            },
+            {
+              "kind": "div",
+              "id": "div_block-186-47",
+              "className": "flex flex-nowrap flex-col items-center pt-[20px] pr-[20px] pb-[20px] pl-[20px] w-full! text-left justify-center lg:items-start lg:w-[50%]!",
+              "wrapClassName": "",
+              "bg": null,
+              "bgSize": null,
+              "bgPosition": null,
+              "children": [
+                {
+                  "kind": "heading",
+                  "id": "headline-188-47",
+                  "level": 1,
+                  "html": "Arquitectónico<br>",
+                  "className": "text-ink-muted mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "richtext",
+                  "id": "text_block-190-47",
+                  "html": "Descubra soluciones de revemiento sostenibles para sus edificios<br>",
+                  "className": "text-ink-muted text-[22px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "button",
+                  "id": "link_button-191-47",
+                  "href": "/mercado-arquitectonico/",
+                  "label": "conoce más",
+                  "className": "inline-block text-center rounded-[3px] no-underline bg-surface-sunken border border-surface-sunken text-ink-muted p-[8px_12.8px] mt-[9px] font-medium",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "section",
+      "id": "section-283-47",
+      "className": "w-full min-h-[200px] bg-surface-sunken",
+      "wrapClassName": "flex flex-col items-start max-w-[1120px] pt-[10px] pr-[20px] pb-[10px] pl-[20px]",
+      "bg": null,
+      "bgSize": "cover",
+      "bgPosition": null,
+      "children": [
+        {
+          "kind": "columns",
+          "id": "new_columns-284-47",
+          "className": "flex w-full flex-col-reverse items-stretch justify-center flex-wrap bg-surface shadow-[2px_2px_4px_2px_#52565a] lg:flex-row",
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null,
+          "children": [
+            {
+              "kind": "div",
+              "id": "div_block-285-47",
+              "className": "flex flex-nowrap flex-col items-center pt-[20px] pr-[20px] pb-[20px] pl-[20px] w-full! text-center justify-center sm:text-right lg:items-end lg:w-[50%]! lg:text-left",
+              "wrapClassName": "",
+              "bg": null,
+              "bgSize": null,
+              "bgPosition": null,
+              "children": [
+                {
+                  "kind": "heading",
+                  "id": "headline-286-47",
+                  "level": 1,
+                  "html": "Industriales Generales<br>",
+                  "className": "text-ink-muted mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "richtext",
+                  "id": "text_block-287-47",
+                  "html": "Recubrimientos de alta dureza y resistentes para aplicaciones industriales",
+                  "className": "text-ink-muted text-center text-[22px] lg:text-right",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "button",
+                  "id": "link_button-288-47",
+                  "href": "/aplicaciones-industriales-generales/",
+                  "label": "conoce más",
+                  "className": "inline-block text-center rounded-[3px] no-underline bg-surface-sunken border border-surface-sunken text-ink-muted p-[8px_12.8px] mt-[9px] font-medium",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                }
+              ]
+            },
+            {
+              "kind": "div",
+              "id": "div_block-289-47",
+              "className": "flex flex-nowrap flex-col items-start pt-0 pr-0 pb-0 pl-0 w-full! bg-surface min-h-[300px] lg:w-[50%]!",
+              "wrapClassName": "",
+              "bg": {
+                "layers": [
+                  "url(\"/uploads/2023/05/general-industrial-01.jpg\")"
+                ]
+              },
+              "bgSize": null,
+              "bgPosition": null,
+              "children": [
+                {
+                  "kind": "image",
+                  "id": "image-290-47",
+                  "src": "/uploads/2023/05/custom-workshop-01.jpg",
+                  "alt": "custom workshop",
+                  "width": null,
+                  "height": null,
+                  "className": "max-w-full",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "section",
+      "id": "section-315-47",
+      "className": "w-full bg-surface-sunken",
+      "wrapClassName": "flex flex-col items-start max-w-[1120px] pt-[10px] pr-[20px] pb-[10px] pl-[20px]",
+      "bg": null,
+      "bgSize": "cover",
+      "bgPosition": null,
+      "children": [
+        {
+          "kind": "columns",
+          "id": "new_columns-317-47",
+          "className": "flex w-full flex-row items-stretch justify-center flex-wrap bg-surface shadow-[2px_2px_4px_2px_#52565a]",
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null,
+          "children": [
+            {
+              "kind": "div",
+              "id": "div_block-318-47",
+              "className": "flex flex-nowrap flex-col items-start pt-0 pr-0 pb-0 pl-0 w-full! bg-surface min-h-[300px] lg:w-[50%]!",
+              "wrapClassName": "",
+              "bg": {
+                "layers": [
+                  "url(\"/uploads/2023/05/electrodomesticos-02.jpg\")"
+                ]
+              },
+              "bgSize": null,
+              "bgPosition": "50% 50%",
+              "children": [
+                {
+                  "kind": "image",
+                  "id": "image-319-47",
+                  "src": "/uploads/2023/05/electrodomesticos-02.jpg",
+                  "alt": "electrodomesticos",
+                  "width": null,
+                  "height": null,
+                  "className": "max-w-full",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                }
+              ]
+            },
+            {
+              "kind": "div",
+              "id": "div_block-320-47",
+              "className": "flex flex-nowrap flex-col items-center pt-[20px] pr-[20px] pb-[20px] pl-[20px] w-full! text-center justify-center sm:text-left lg:items-start lg:w-[50%]!",
+              "wrapClassName": "",
+              "bg": null,
+              "bgSize": null,
+              "bgPosition": null,
+              "children": [
+                {
+                  "kind": "heading",
+                  "id": "headline-321-47",
+                  "level": 1,
+                  "html": "Electrodomésticos<br>",
+                  "className": "text-ink-muted mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "richtext",
+                  "id": "text_block-322-47",
+                  "html": "Hermosos acabados protectores para el mercado de electrodomésticos",
+                  "className": "text-ink-muted text-[22px] text-center lg:text-left",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "button",
+                  "id": "link_button-323-47",
+                  "href": "/electrodomesticos/",
+                  "label": "conoce más",
+                  "className": "inline-block text-center rounded-[3px] no-underline bg-surface-sunken border border-surface-sunken text-ink-muted p-[8px_12.8px] mt-[9px] font-medium",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "section",
+      "id": "section-214-47",
+      "className": "w-full min-h-[200px] bg-surface-sunken",
+      "wrapClassName": "flex flex-col items-start max-w-[1120px] pt-[10px] pr-[20px] pb-[10px] pl-[20px]",
+      "bg": null,
+      "bgSize": "cover",
+      "bgPosition": null,
+      "children": [
+        {
+          "kind": "columns",
+          "id": "new_columns-215-47",
+          "className": "flex w-full flex-col-reverse items-stretch justify-center flex-wrap bg-surface shadow-[2px_2px_4px_2px_#52565a] lg:flex-row",
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null,
+          "children": [
+            {
+              "kind": "div",
+              "id": "div_block-216-47",
+              "className": "flex flex-nowrap flex-col items-center pt-[20px] pr-[20px] pb-[20px] pl-[20px] w-full! text-center justify-center sm:text-right lg:items-end lg:w-[50%]! lg:text-left",
+              "wrapClassName": "",
+              "bg": null,
+              "bgSize": null,
+              "bgPosition": null,
+              "children": [
+                {
+                  "kind": "heading",
+                  "id": "headline-217-47",
+                  "level": 1,
+                  "html": "Repintado de Automóviles<br>",
+                  "className": "text-ink-muted mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "richtext",
+                  "id": "text_block-218-47",
+                  "html": "Increíbles colores y desempeño para aplicaciones automotrices",
+                  "className": "text-ink-muted text-center text-[22px] sm:text-right",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "button",
+                  "id": "link_button-228-47",
+                  "href": "/repintado-de-automoviles/",
+                  "label": "conoce más",
+                  "className": "inline-block text-center rounded-[3px] no-underline bg-surface-sunken border border-surface-sunken text-ink-muted p-[8px_12.8px] mt-[9px] font-medium",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                }
+              ]
+            },
+            {
+              "kind": "div",
+              "id": "div_block-220-47",
+              "className": "flex flex-nowrap flex-col items-start pt-0 pr-0 pb-0 pl-0 w-full! bg-surface min-h-[300px] lg:w-[50%]!",
+              "wrapClassName": "",
+              "bg": {
+                "layers": [
+                  "url(\"/uploads/2023/05/automoviles-01.jpg\")"
+                ]
+              },
+              "bgSize": null,
+              "bgPosition": null,
+              "children": [
+                {
+                  "kind": "image",
+                  "id": "image-271-47",
+                  "src": "/uploads/2023/05/automoviles-01.jpg",
+                  "alt": "automoviles-01",
+                  "width": null,
+                  "height": null,
+                  "className": "max-w-full",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "section",
+      "id": "section-239-47",
+      "className": "w-full min-h-[200px] bg-surface-sunken",
+      "wrapClassName": "flex flex-col items-start max-w-[1120px] pt-[10px] pr-[20px] pb-[10px] pl-[20px]",
+      "bg": null,
+      "bgSize": "cover",
+      "bgPosition": null,
+      "children": [
+        {
+          "kind": "columns",
+          "id": "new_columns-240-47",
+          "className": "flex w-full flex-row items-stretch justify-center flex-wrap bg-surface shadow-[2px_2px_4px_2px_#52565a]",
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null,
+          "children": [
+            {
+              "kind": "div",
+              "id": "div_block-241-47",
+              "className": "flex flex-nowrap flex-col items-start pt-0 pr-0 pb-0 pl-0 w-full! bg-surface min-h-[300px] lg:w-[50%]!",
+              "wrapClassName": "",
+              "bg": {
+                "layers": [
+                  "url(\"/uploads/2023/05/custom-workshop-01.jpg\")"
+                ]
+              },
+              "bgSize": null,
+              "bgPosition": "50% 50%",
+              "children": [
+                {
+                  "kind": "image",
+                  "id": "image-272-47",
+                  "src": "/uploads/2023/05/general-industrial-01.jpg",
+                  "alt": "general industrial",
+                  "width": null,
+                  "height": null,
+                  "className": "max-w-full",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                }
+              ]
+            },
+            {
+              "kind": "div",
+              "id": "div_block-242-47",
+              "className": "flex flex-nowrap flex-col items-center pt-[20px] pr-[20px] pb-[20px] pl-[20px] w-full! text-left justify-center lg:items-start lg:w-[50%]!",
+              "wrapClassName": "",
+              "bg": null,
+              "bgSize": null,
+              "bgPosition": null,
+              "children": [
+                {
+                  "kind": "heading",
+                  "id": "headline-243-47",
+                  "level": 1,
+                  "html": "Maquiladores<br>",
+                  "className": "text-ink-muted mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "richtext",
+                  "id": "text_block-244-47",
+                  "html": "Miles de colores, efectos y formulaciones químicas de productos para usted y sus clientes",
+                  "className": "text-ink-muted text-[22px] text-center lg:text-left",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "button",
+                  "id": "link_button-245-47",
+                  "href": "/maquiladores/",
+                  "label": "conoce más",
+                  "className": "inline-block text-center rounded-[3px] no-underline bg-surface-sunken border border-surface-sunken text-ink-muted p-[8px_12.8px] mt-[9px] font-medium",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "section",
+      "id": "section-247-47",
+      "className": "w-full min-h-[200px] bg-surface-sunken",
+      "wrapClassName": "flex flex-col items-start max-w-[1120px] pt-[10px] pr-[20px] pb-[10px] pl-[20px]",
+      "bg": null,
+      "bgSize": "cover",
+      "bgPosition": null,
+      "children": [
+        {
+          "kind": "columns",
+          "id": "new_columns-248-47",
+          "className": "flex w-full flex-col-reverse items-stretch justify-center flex-wrap bg-surface shadow-[2px_2px_4px_2px_#52565a] lg:flex-row",
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null,
+          "children": [
+            {
+              "kind": "div",
+              "id": "div_block-249-47",
+              "className": "flex flex-nowrap flex-col items-center pt-[20px] pr-[20px] pb-[20px] pl-[20px] w-full! text-center justify-center sm:text-right lg:items-end lg:w-[50%]! lg:text-left",
+              "wrapClassName": "",
+              "bg": null,
+              "bgSize": null,
+              "bgPosition": null,
+              "children": [
+                {
+                  "kind": "heading",
+                  "id": "headline-250-47",
+                  "level": 1,
+                  "html": "Tráilers<br>",
+                  "className": "text-ink-muted mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "richtext",
+                  "id": "text_block-251-47",
+                  "html": "Soluciones de recubrimiento en polvo resistentes diseñadas para el mercado de remolques",
+                  "className": "text-ink-muted text-[22px] text-center lg:text-right",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "button",
+                  "id": "link_button-252-47",
+                  "href": "/trailers/",
+                  "label": "conoce más",
+                  "className": "inline-block text-center rounded-[3px] no-underline bg-surface-sunken border border-surface-sunken text-ink-muted p-[8px_12.8px] mt-[9px] font-medium",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                }
+              ]
+            },
+            {
+              "kind": "div",
+              "id": "div_block-253-47",
+              "className": "flex flex-nowrap flex-col items-start pt-0 pr-0 pb-0 pl-0 w-full! bg-surface min-h-[300px] lg:w-[50%]!",
+              "wrapClassName": "",
+              "bg": {
+                "layers": [
+                  "url(\"/uploads/2023/05/trailer-01.jpg\")"
+                ]
+              },
+              "bgSize": null,
+              "bgPosition": null,
+              "children": [
+                {
+                  "kind": "image",
+                  "id": "image-273-47",
+                  "src": "/uploads/2023/05/trailer-01.jpg",
+                  "alt": "trailer",
+                  "width": null,
+                  "height": null,
+                  "className": "max-w-full",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "section",
+      "id": "section-255-47",
+      "className": "w-full min-h-[200px] bg-surface-sunken",
+      "wrapClassName": "flex flex-col items-start max-w-[1120px] pt-[10px] pr-[20px] pb-[20px] pl-[20px]",
+      "bg": null,
+      "bgSize": "cover",
+      "bgPosition": null,
+      "children": [
+        {
+          "kind": "columns",
+          "id": "new_columns-256-47",
+          "className": "flex w-full flex-row items-stretch justify-center flex-wrap bg-surface shadow-[2px_2px_4px_2px_#52565a]",
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null,
+          "children": [
+            {
+              "kind": "div",
+              "id": "div_block-257-47",
+              "className": "flex flex-nowrap flex-col items-start pt-0 pr-0 pb-0 pl-0 w-full! bg-surface min-h-[300px] lg:w-[50%]!",
+              "wrapClassName": "",
+              "bg": {
+                "layers": [
+                  "url(\"/uploads/2023/05/rebar-01.jpg\")"
+                ]
+              },
+              "bgSize": null,
+              "bgPosition": "50% 50%",
+              "children": [
+                {
+                  "kind": "image",
+                  "id": "image-274-47",
+                  "src": "/uploads/2023/05/rebar-01.jpg",
+                  "alt": "rebar",
+                  "width": null,
+                  "height": null,
+                  "className": "max-w-full",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                }
+              ]
+            },
+            {
+              "kind": "div",
+              "id": "div_block-258-47",
+              "className": "flex flex-nowrap flex-col items-center pt-[20px] pr-[20px] pb-[20px] pl-[20px] w-full! text-left justify-center lg:items-start lg:w-[50%]!",
+              "wrapClassName": "",
+              "bg": null,
+              "bgSize": null,
+              "bgPosition": null,
+              "children": [
+                {
+                  "kind": "heading",
+                  "id": "headline-259-47",
+                  "level": 1,
+                  "html": "Varillas de Refuerzo<br>",
+                  "className": "text-ink-muted mb-[20px] text-center sm:text-left",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "richtext",
+                  "id": "text_block-260-47",
+                  "html": "Lo último en protección de varilla de refuerzo según las normas ASTM y AASHTO",
+                  "className": "text-ink-muted text-[22px] text-center lg:text-left",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "button",
+                  "id": "link_button-261-47",
+                  "href": "/varillas-de-refuerzo/",
+                  "label": "conoce más",
+                  "className": "inline-block text-center rounded-[3px] no-underline bg-surface-sunken border border-surface-sunken text-ink-muted p-[8px_12.8px] mt-[9px] font-medium",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

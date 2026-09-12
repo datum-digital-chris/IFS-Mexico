@@ -1,0 +1,97 @@
+{
+  "slug": "contactenos",
+  "wpId": 751,
+  "path": "/contactenos/",
+  "title": "Contáctenos",
+  "description": "",
+  "ogImage": null,
+  "sections": [
+    {
+      "kind": "section",
+      "id": "section-2-751",
+      "className": "w-full",
+      "wrapClassName": "flex flex-col items-start max-w-[1120px] pt-[25px] pr-[20px] pb-[0] pl-[20px]",
+      "bg": null,
+      "bgSize": "cover",
+      "bgPosition": null,
+      "children": [
+        {
+          "kind": "columns",
+          "id": "new_columns-3-751",
+          "className": "flex w-full flex-row items-stretch justify-center flex-wrap",
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null,
+          "children": [
+            {
+              "kind": "div",
+              "id": "div_block-4-751",
+              "className": "flex flex-nowrap flex-col items-start pt-[20px] pr-[20px] pb-[20px] pl-[20px] w-full! lg:w-[100.00%]!",
+              "wrapClassName": "",
+              "bg": null,
+              "bgSize": null,
+              "bgPosition": null,
+              "children": [
+                {
+                  "kind": "heading",
+                  "id": "headline-6-751",
+                  "level": 1,
+                  "html": "Contáctenos<br>",
+                  "className": "mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "richtext",
+                  "id": "_rich_text-7-751",
+                  "html": "<p>Gracias por su interés en IFS Coatings</p><p>Llámenos: +52 554 166 2665</p><p>Envíe un correo electrónico a <a href=\"mailto:revestimientosinfo@ifscoatings.com\">revestimientosinfo@ifscoatings.com</a> si desea:</p><ul><li>Solicite folletos, tarjetas de colores y volantes</li><li>Solicite paneles de muestra</li><li>Obtenga soporte técnico</li><li>hablar con un representante</li><li>Envíanos una pregunta o comentario</li></ul>",
+                  "className": "mb-0",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "section",
+      "id": "section-12-751",
+      "className": "w-full block text-center md:text-left lg:text-center xl:text-left",
+      "wrapClassName": "flex flex-col items-center max-w-[1120px] pt-[0] pr-[20px] pb-[11px] pl-[20px]",
+      "bg": null,
+      "bgSize": "cover",
+      "bgPosition": null,
+      "children": [
+        {
+          "kind": "div",
+          "id": "div_block-16-751",
+          "className": "flex flex-nowrap flex-col items-center w-[85%] text-left",
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null,
+          "children": [
+            {
+              "kind": "form",
+              "id": "nestable_shortcode-14-751",
+              "heading": "Contáctenos",
+              "intro": "<p>Nos gustaría saber de usted. Envíenos un mensaje completando el formulario a continuación y nos pondremos en contacto con usted en breve.</p>",
+              "className": "flex flex-nowrap flex-col items-start w-full text-center lg:text-left",
+              "wrapClassName": "",
+              "bg": null,
+              "bgSize": null,
+              "bgPosition": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+---
+/**
+ * Confirmation page for the contact form. Kept out of the sitemap and search
+ * results: it is meaningless arrived at cold.
+ */
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Gracias">
+  <meta slot="head" name="robots" content="noindex, follow" />
+  <section class="bg-surface-alt">
+    <div class="container-ox py-[75px]">
+      <h1>Gracias por comunicarse con nosotros</h1>
+      <p class="mt-4 text-lead text-ink-muted">
+        Hemos recibido su mensaje y le responderemos a la brevedad.
+      </p>
+      <a
+        href="/"
+        class="mt-6 inline-block rounded-button border border-surface-sunken bg-surface-sunken px-5 py-2 font-medium text-ink-muted transition-all hover:bg-surface-dark hover:text-surface"
+        >Volver al inicio</a
+      >
+    </div>
+  </section>
+</BaseLayout>

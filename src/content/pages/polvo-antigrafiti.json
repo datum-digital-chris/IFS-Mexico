@@ -1,0 +1,217 @@
+{
+  "slug": "polvo-antigrafiti",
+  "wpId": 101,
+  "path": "/polvo-antigrafiti/",
+  "title": "Polvo Antigrafiti",
+  "description": "",
+  "ogImage": null,
+  "sections": [
+    {
+      "kind": "section",
+      "id": "section-3-101",
+      "className": "w-full h-[300px]",
+      "wrapClassName": "flex flex-col items-start max-w-[1120px] pt-[75px] pr-[20px] pb-[75px] pl-[20px]",
+      "bg": {
+        "layers": [
+          "url(\"/uploads/2023/04/Hero-anti-graffiti-powder.jpg\")"
+        ]
+      },
+      "bgSize": "cover",
+      "bgPosition": "50% 50%",
+      "children": []
+    },
+    {
+      "kind": "section",
+      "id": "section-9-101",
+      "className": "w-full",
+      "wrapClassName": "flex flex-col items-start max-w-[1120px] pt-[24px] pr-[20px] pb-[75px] pl-[20px]",
+      "bg": null,
+      "bgSize": "cover",
+      "bgPosition": null,
+      "children": [
+        {
+          "kind": "columns",
+          "id": "new_columns-10-101",
+          "className": "flex w-full flex-col-reverse items-start justify-center flex-wrap lg:flex-row",
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null,
+          "children": [
+            {
+              "kind": "div",
+              "id": "div_block-11-101",
+              "className": "flex flex-nowrap flex-col items-start pt-[20px] pr-[25px] pb-[20px] pl-[25px] w-full! lg:w-[75.00%]!",
+              "wrapClassName": "",
+              "bg": null,
+              "bgSize": null,
+              "bgPosition": null,
+              "children": [
+                {
+                  "kind": "heading",
+                  "id": "headline-12-101",
+                  "level": 1,
+                  "html": "Polvo Antigrafiti",
+                  "className": "mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "richtext",
+                  "id": "_rich_text-13-101",
+                  "html": "<p>Eliminar los grafitis no deseados es un desafío, requiere mucho tiempo y es costoso, a menos que utilice nuestros recubrimientos en polvo antigrafiti. Los recubrimientos en polvo de IFS se pueden formular con capacidades antigrafiti, lo que ayuda a eliminar los grafitis no deseados de las superficies metálicas. El equipo de I+D de IFS ha formulado recubrimientos en polvo antigrafiti para facilitar la eliminación de grafitis con disolventes comunes. Está disponible en una gama de colores y productos químicos de polvo.</p>",
+                  "className": "border-b-[2px] border-b-brand",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "heading",
+                  "id": "headline-14-101",
+                  "level": 2,
+                  "html": "Elección de productos químicos antigrafiti",
+                  "className": "mt-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "richtext",
+                  "id": "_rich_text-15-101",
+                  "html": "<p>Nuestros productos químicos antigrafiti están disponibles en diversos productos químicos en polvo, que incluyen:</p><ul><li><a href=\"https://ifscoatings.kecommerce.net/Ecom/epoxy-powder?securitycontext=2&amp;cmsv=863\">Epoxi</a></li><li>Poliésteres: estándares y superduraderos</li><li>Fluoropolímeros</li></ul><p>Estos revestimientos no solo tienen propiedades antigrafiti de primera clase, sino que se benefician de:</p><ul><li>Buena resistencia química y a las manchas</li><li>Gran durabilidad</li></ul><p>Son adecuados para aplicaciones interiores y exteriores, incluyendo:</p><ul><li>Transporte público y áreas de tránsito público</li><li>Señalización, juegos infantiles y equipos recreativos</li><li>Taquillas y buzones</li><li>Puertas y equipos de juego</li><li>Estructuras de baños</li><li>Rejas y puertas enrollables</li></ul>",
+                  "className": "pb-0 mt-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "heading",
+                  "id": "headline-16-101",
+                  "level": 2,
+                  "html": "Miles de colores con capacidad antigrafiti",
+                  "className": "mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "richtext",
+                  "id": "_rich_text-17-101",
+                  "html": "<p>Elija agregar propiedades antigrafiti a cualquiera de los miles de colores en polvo de IFS y también está disponible la combinación de colores personalizada. El poder de los recubrimientos antigrafiti de IFS también está disponible como revestimiento transparente a través de IFS Purecoat.</p>",
+                  "className": "mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                }
+              ]
+            },
+            {
+              "kind": "div",
+              "id": "div_block-18-101",
+              "className": "flex flex-nowrap flex-col items-center pt-[20px] pr-[20px] pb-[20px] pl-[20px] w-full! text-[31px] text-[#000000] text-left lg:items-start lg:w-[25%]!",
+              "wrapClassName": "",
+              "bg": null,
+              "bgSize": null,
+              "bgPosition": null,
+              "children": [
+                {
+                  "kind": "div",
+                  "id": "div_block-23-101",
+                  "className": "flex flex-nowrap flex-col items-center text-left lg:items-start",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null,
+                  "children": [
+                    {
+                      "kind": "heading",
+                      "id": "headline-24-101",
+                      "level": 2,
+                      "html": "Polvos<br>",
+                      "className": "ml-[10px]",
+                      "wrapClassName": "",
+                      "bg": null,
+                      "bgSize": null,
+                      "bgPosition": null
+                    },
+                    {
+                      "kind": "navmenu",
+                      "id": "_nav_menu-25-101",
+                      "items": [
+                        {
+                          "label": "Polvo de Poliéster Estándar",
+                          "href": "/polvo-de-poliester-estandar/",
+                          "current": false
+                        },
+                        {
+                          "label": "Polvos de Poliéster Superduraderos",
+                          "href": "/polvos-de-poliester-superduraderos/",
+                          "current": false
+                        },
+                        {
+                          "label": "Polvo de Fluoropolímero (FEVE)",
+                          "href": "/polvo-de-fluoropolimero-feve/",
+                          "current": false
+                        },
+                        {
+                          "label": "Polvo Epoxi",
+                          "href": "/polvo-epoxi/",
+                          "current": false
+                        },
+                        {
+                          "label": "Polvo Híbrido",
+                          "href": "/polvo-hibrido/",
+                          "current": false
+                        },
+                        {
+                          "label": "Polvo Antimicrobiano",
+                          "href": "/polvo-antimicrobiano/",
+                          "current": false
+                        },
+                        {
+                          "label": "Polvo Antigrafiti",
+                          "href": "/polvo-antigrafiti/",
+                          "current": true
+                        },
+                        {
+                          "label": "Imprimadores en Polvo",
+                          "href": "/imprimadores-en-polvo/",
+                          "current": false
+                        },
+                        {
+                          "label": "Polvo Aprobados por NSF",
+                          "href": "/recubrimientos-en-polvo-aprobados-por-nsf/",
+                          "current": false
+                        },
+                        {
+                          "label": "Polvo (ESD)",
+                          "href": "/polvo-disipadores-de-electricidad-estatica-esd/",
+                          "current": false
+                        },
+                        {
+                          "label": "Polvos Termoplásticos IFS Puroplaz®",
+                          "href": "/polvos-termoplasticos-ifs-puroplaz/",
+                          "current": false
+                        }
+                      ],
+                      "className": "",
+                      "wrapClassName": "",
+                      "bg": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+---
+/**
+ * The in-page product navigation Oxygen renders on the powder-type pages.
+ *
+ * Vertical list on wide screens; below 1121px the original collapsed it behind
+ * a hamburger, which is reproduced here with a native <details> so it works
+ * without JavaScript.
+ */
+import type { Block } from "@/lib/blocks";
+
+interface Props {
+  block: Block;
+}
+
+const { block } = Astro.props;
+const items = block.items ?? [];
+const link = "block px-[10px] py-[10px] text-[16px] font-medium text-ink hover:bg-surface-alt";
+const current = "bg-surface-edge text-brand";
+---
+
+<!-- Sized to content, not stretched: the original collapses to a 40px
+     hamburger on narrow screens and is only as wide as its longest item on
+     wide ones. -->
+<nav id={block.id} class:list={["w-fit", block.className]} aria-label="Tipos de polvo">
+  <!-- Wide: the list itself. -->
+  <ul class="hidden xl:block">
+    {
+      items.map((i) => (
+        <li>
+          <a href={i.href} class:list={[link, i.current && current]} aria-current={i.current ? "page" : undefined}>
+            {i.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <!-- Narrow: the hamburger the original used. -->
+  <details class="xl:hidden">
+    <summary class="my-[10px] flex h-[40px] w-[40px] cursor-pointer list-none flex-col justify-center gap-[4px]" aria-label="Abrir menú de polvos">
+      <span class="block h-[6px] w-[40px] bg-ink-muted"></span>
+      <span class="block h-[6px] w-[40px] bg-ink-muted"></span>
+      <span class="block h-[6px] w-[40px] bg-ink-muted"></span>
+    </summary>
+    <ul class="bg-surface-alt">
+      {
+        items.map((i) => (
+          <li>
+            <a href={i.href} class:list={[link, i.current && current]} aria-current={i.current ? "page" : undefined}>
+              {i.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </details>
+</nav>

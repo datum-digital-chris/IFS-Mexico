@@ -1,0 +1,25 @@
+---
+/**
+ * Every extracted WordPress page. One generic route: adding a page means
+ * adding content, never editing this file.
+ */
+import { getCollection } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Block from "@/components/Block.astro";
+import type { Block as BlockType } from "@/lib/blocks";
+
+export async function getStaticPaths() {
+  const pages = await getCollection("pages");
+  return pages.map((page) => ({
+    params: { slug: page.data.slug || undefined },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props;
+const { title, description, ogImage, sections } = page.data;
+---
+
+<BaseLayout title={title} description={description} ogImage={ogImage}>
+  {(sections as BlockType[]).map((section) => <Block block={section} />)}
+</BaseLayout>

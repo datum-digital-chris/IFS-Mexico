@@ -1,0 +1,104 @@
+{
+  "slug": "valores-de-la-mision",
+  "wpId": 689,
+  "path": "/valores-de-la-mision/",
+  "title": "Valores de la Misión",
+  "description": "",
+  "ogImage": null,
+  "sections": [
+    {
+      "kind": "section",
+      "id": "section-18-689",
+      "className": "w-full block text-left",
+      "wrapClassName": "flex flex-col items-center max-w-[1120px] pt-[20px] pr-[20px] pb-[75px] pl-[20px] sm:pr-[15px] sm:pl-[15px] md:pr-[75px] md:pl-[75px]",
+      "bg": null,
+      "bgSize": "cover",
+      "bgPosition": null,
+      "children": [
+        {
+          "kind": "heading",
+          "id": "headline-6-689",
+          "level": 1,
+          "html": "Valores de la misión",
+          "className": "mb-[20px] mt-[10px] text-[19px] sm:mt-[2px] sm:text-[32px] lg:mt-0",
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null
+        },
+        {
+          "kind": "heading",
+          "id": "headline-14-689",
+          "level": 2,
+          "html": "Misión, valores y comportamientos de IFS",
+          "className": "mb-[20px] text-[14px] text-center sm:text-[20px] sm:text-left md:text-[24px]",
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null
+        },
+        {
+          "kind": "richtext",
+          "id": "_rich_text-7-689",
+          "html": "<p>En IFS, nuestra misión es brindar un servicio y un producto incomparables a la industria a la vez que brindamos una opción ambientalmente responsable.</p><p>Estamos orgullosos de nuestro servicio, entonces, ¿cómo definimos el servicio? Los cuatro pilares del servicio incomparable de IFS son:</p><ol><li>Sensibilidad:&nbsp;Escuchamos, actuamos con rapidez y eficacia, cumplimos con precisión y nos comunicamos abiertamente.</li><li>Pericia:Nos enfocamos exclusivamente en revestimientos en polvo y formamos un equipo experimentado, bien informado y talentoso.</li><li>Personalización:&nbsp;Somos flexibles y ofrecemos soluciones personalizadas.</li><li>Confiabilidad:&nbsp;Somos confiables, profesionales y siempre estamos ahí cuando nos necesita.</li></ol><p>Trabajar en IFS es ser parte de la familia IFS. Nuestra cultura es lo que valoramos en un miembro de la familia IFS y cómo esperamos que un miembro de la familia IFS se comporte con los demás dentro y fuera de la empresa. Entonces, ¿cuáles son los valores y comportamientos de IFS?&nbsp;</p>",
+          "className": "border-b-[2px] border-b-brand mb-[20px]",
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null
+        },
+        {
+          "kind": "div",
+          "id": "div_block-26-689",
+          "className": "flex flex-nowrap flex-col items-start",
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null,
+          "children": [
+            {
+              "kind": "heading",
+              "id": "headline-8-689",
+              "level": 2,
+              "html": "Valores de IFS",
+              "className": "mt-[20px]",
+              "wrapClassName": "",
+              "bg": null,
+              "bgSize": null,
+              "bgPosition": null
+            },
+            {
+              "kind": "richtext",
+              "id": "_rich_text-9-689",
+              "html": "<ol><li>Integridad - Ser honesto y tenga principios morales.</li><li>Excelencia - Esforzarse por ser el mejor.</li><li>Adaptable - Ser abierto, dispuesto y capaz de cambiar.</li><li>Responsable - Asumir sus acciones y decisiones y justificarlas.</li><li>Apasionado - Tener fuertes sentimientos y creencias.</li></ol>",
+              "className": "pb-0 mb-[20px] text-left",
+              "wrapClassName": "",
+              "bg": null,
+              "bgSize": null,
+              "bgPosition": null
+            },
+            {
+              "kind": "heading",
+              "id": "headline-16-689",
+              "level": 2,
+              "html": "Comportamientos de IFS",
+              "className": "mb-[20px]",
+              "wrapClassName": "",
+              "bg": null,
+              "bgSize": null,
+              "bgPosition": null
+            },
+            {
+              "kind": "richtext",
+              "id": "_rich_text-17-689",
+              "html": "<ol><li>Enfoque de equipo – Resolver problemas en colaboración con otros; el grupo es responsable.</li><li>Respeto – Tener consideración por los sentimientos, derechos, opiniones o tradiciones de los demás.</li><li>Lealtad - Apoyar a la empresa.</li><li>Transparencia - Ser claro y compartir información.</li><li>Profesionalismo - Ser cortés, autocontrolarse, dominarse y utilizar la prueba del periódico: ¿Cómo me sentiría si mi comportamiento estuviera en la portada de un periódico?</li></ol>",
+              "className": "",
+              "wrapClassName": "",
+              "bg": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

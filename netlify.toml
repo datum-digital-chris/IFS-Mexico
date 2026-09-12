@@ -1,0 +1,29 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Redirect rules are generated into dist/_redirects by
+# scripts/generate-redirects.mjs from docs/url-ledger.csv, so the ledger stays
+# the single source of truth for every URL decision (M-REDIRECT-WIRED).
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Fingerprinted build output is safe to cache forever; the uploads directory
+# keeps the WordPress filenames, so it is cached for a day instead.
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/uploads/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"

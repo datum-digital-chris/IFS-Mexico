@@ -1,0 +1,113 @@
+---
+/**
+ * Recursive renderer for one extracted Oxygen block.
+ *
+ * Every block already carries the Tailwind classes compiled from the old
+ * site's CSS (scripts/lib/css-to-tw.mjs), so this component decides structure
+ * and semantics only - it never invents styling.
+ */
+import type { Block } from "@/lib/blocks";
+import { backgroundValue } from "@/lib/blocks";
+import RichText from "./RichText.astro";
+import ContactForm from "./ContactForm.astro";
+import SideNav from "./SideNav.astro";
+import Tabs from "./Tabs.astro";
+
+interface Props {
+  block: Block;
+}
+
+const { block } = Astro.props;
+const kids = block.children ?? [];
+
+// Background images come from content, so they are bound through a custom
+// property; the background-* declarations themselves live in theme.css.
+const bg = backgroundValue(block.bg);
+const bgAttrs = bg
+  ? { class: "has-bg", style: `--bg-image:${bg}; --bg-size:${block.bgSize ?? "cover"}; --bg-position:${block.bgPosition ?? "50% 50%"}` }
+  : {};
+
+const cls = (extra?: string) => [block.className, extra, bgAttrs.class].filter(Boolean).join(" ");
+const Heading = `h${block.level ?? 2}` as "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+---
+
+{
+  block.kind === "section" && (
+    <section id={block.id} class={cls()} style={bgAttrs.style}>
+      <div class:list={["mx-auto", block.wrapClassName]}>
+        {kids.map((child) => (
+          <Astro.self block={child} />
+        ))}
+      </div>
+    </section>
+  )
+}
+
+{
+  (block.kind === "columns" || block.kind === "div" || block.kind === "group") && (
+    <div id={block.id} class={cls()} style={bgAttrs.style}>
+      {kids.map((child) => (
+        <Astro.self block={child} />
+      ))}
+    </div>
+  )
+}
+
+{
+  block.kind === "heading" && (
+    <Heading id={block.id} class={cls()}>
+      <RichText html={block.html} />
+    </Heading>
+  )
+}
+
+{block.kind === "richtext" && <div id={block.id} class={cls("rich-text")}><RichText html={block.html} /></div>}
+
+{block.kind === "html" && <div id={block.id} class={cls()}><RichText html={block.html} /></div>}
+
+{
+  block.kind === "button" && (
+    <a id={block.id} href={block.href ?? "#"} class={cls()}>
+      {block.label}
+    </a>
+  )
+}
+
+{
+  block.kind === "link" && (
+    <a id={block.id} href={block.href ?? "#"} class={cls()}>
+      {block.children?.length ? kids.map((child) => <Astro.self block={child} />) : <RichText html={block.html} />}
+    </a>
+  )
+}
+
+{
+  block.kind === "image" && block.src && (
+    <img
+      id={block.id}
+      src={block.src}
+      alt={block.alt ?? ""}
+      width={block.width ?? undefined}
+      height={block.height ?? undefined}
+      loading="lazy"
+      decoding="async"
+      class={cls()}
+    />
+  )
+}
+
+{
+  block.kind === "form" && (
+    <div id={block.id} class={cls()}>
+      {block.heading && <h3>{block.heading}</h3>}
+      {block.intro && <div class="rich-text mt-2 mb-5"><RichText html={block.intro} /></div>}
+      <ContactForm />
+    </div>
+  )
+}
+
+{block.kind === "navmenu" && <SideNav block={block} />}
+
+{block.kind === "tabs" && <Tabs block={block} />}
+
+{block.kind === "text" && block.value}

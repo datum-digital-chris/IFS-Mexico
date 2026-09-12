@@ -1,0 +1,238 @@
+{
+  "slug": "polvo-disipadores-de-electricidad-estatica-esd",
+  "wpId": 119,
+  "path": "/polvo-disipadores-de-electricidad-estatica-esd/",
+  "title": "Polvo Disipadores de Electricidad Estática (ESD)",
+  "description": "",
+  "ogImage": null,
+  "sections": [
+    {
+      "kind": "section",
+      "id": "section-3-119",
+      "className": "w-full h-[300px]",
+      "wrapClassName": "flex flex-col items-start max-w-[1120px] pt-[75px] pr-[20px] pb-[75px] pl-[20px]",
+      "bg": {
+        "layers": [
+          "url(\"/uploads/2023/04/hero-esd-powder.jpg\")"
+        ]
+      },
+      "bgSize": "cover",
+      "bgPosition": "50% 50%",
+      "children": []
+    },
+    {
+      "kind": "section",
+      "id": "section-9-119",
+      "className": "w-full",
+      "wrapClassName": "flex flex-col items-start max-w-[1120px] pt-[24px] pr-[20px] pb-[75px] pl-[20px]",
+      "bg": null,
+      "bgSize": "cover",
+      "bgPosition": null,
+      "children": [
+        {
+          "kind": "columns",
+          "id": "new_columns-10-119",
+          "className": "flex w-full flex-col-reverse items-start justify-center flex-wrap lg:flex-row",
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null,
+          "children": [
+            {
+              "kind": "div",
+              "id": "div_block-11-119",
+              "className": "flex flex-nowrap flex-col items-start pt-[20px] pr-[25px] pb-[20px] pl-[25px] w-full! lg:w-[75.00%]!",
+              "wrapClassName": "",
+              "bg": null,
+              "bgSize": null,
+              "bgPosition": null,
+              "children": [
+                {
+                  "kind": "heading",
+                  "id": "headline-12-119",
+                  "level": 1,
+                  "html": "Recubrimientos en Polvo Disipadores de Electricidad Estática (ESD)",
+                  "className": "mb-[20px] text-[18px] sm:text-[32px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "heading",
+                  "id": "headline-23-119",
+                  "level": 2,
+                  "html": "¿Qué son los recubrimientos en polvo disipadores de electricidad estática?",
+                  "className": "mb-[20px] text-[18px] sm:text-[24px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "richtext",
+                  "id": "_rich_text-13-119",
+                  "html": "<p>Los recubrimientos en polvo disipadores de electricidad estática (ESD) de IFS están diseñados para disipar una carga estática que puede dañar los componentes eléctricos sensibles. Disponible en una gama de productos químicos y colores, el producto está formulado para proporcionar una resistividad superficial de 104 a 1011 ohmios.&nbsp;</p>",
+                  "className": "border-b-[2px] border-b-brand",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "heading",
+                  "id": "headline-14-119",
+                  "level": 2,
+                  "html": "Rendimiento del recubrimiento en polvo disipador de electricidad estática (ESD) de IFS",
+                  "className": "mt-[20px] text-[18px] sm:text-[24px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "richtext",
+                  "id": "_rich_text-15-119",
+                  "html": "<p>Creados pensando en un rendimiento interior superior, los recubrimientos en polvo disipadores de electricidad estática (ESD) de IFS exhiben las siguientes propiedades en aplicaciones interiores:</p><ul><li>Excelente resistividad superficial (en el rango de 104 a 1011 ohmios)</li><li>Excelente dureza</li><li>Excelente flexibilidad</li><li>Excelente adherencia</li><li>Excelente resistencia al impacto</li><li>Buena resistencia a la niebla salina</li><li>Los recubrimientos en polvo disipadores de electricidad estática (ESD) de IFS ofrecen:</li><li>Excelente funcionalidad</li><li>Amplia gama de aplicaciones</li><li>No se requiere equipo especial para aplicar</li><li>Excelente rendimiento mecánico</li><li>Amplia gama de colores y acabados</li><li>Rango de brillo de 5 a 90</li></ul>",
+                  "className": "pb-0 mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "heading",
+                  "id": "headline-16-119",
+                  "level": 2,
+                  "html": "¿Dónde se usan los recubrimientos en polvo disipadores de electricidad estática (ESD) de IFS?",
+                  "className": "mb-[20px] text-[18px] sm:text-[24px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "richtext",
+                  "id": "_rich_text-17-119",
+                  "html": "<p>Los problemas causados por las descargas electrostáticas suelen encontrarse en la industria electrónica, en la que los productos pueden sufrir daños si se someten a una carga electrostática. Tan solo 100 voltios son suficientes para dañar un componente electrónico, por lo que usar recubrimientos en polvo disipadores de electricidad puede ayudar a agregar una película protectora. En general se usan para productos de interior, como gabinetes electrónicos, gabinetes, estaciones de trabajo de computadoras, carcasas de servidores, estanterías, componentes de robots y más. Con tanta dependencia de los elementos eléctricos en sí, es esencial garantizar el rendimiento seguro, continuo y confiable de los equipos electrónicos. Los recubrimientos en polvo disipadores de electricidad estática (ESD) de IFS pueden ofrecer una solución rentable.</p>",
+                  "className": "mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "heading",
+                  "id": "headline-26-119",
+                  "level": 2,
+                  "html": "¿Qué es la descarga electroestática?",
+                  "className": "mb-[20px] text-[18px] sm:text-[24px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "richtext",
+                  "id": "_rich_text-27-119",
+                  "html": "<p>A menudo llamada simplemente ESD (por sus siglas en inglés), la descarga electrostática es una corriente eléctrica abrupta y generalmente breve que se crea entre dos objetos con diferentes capacidades eléctricas. Si bien pueden ser pequeñas, las corrientes eléctricas no deseadas pueden dañar los equipos eléctricos. La electricidad estática es a menudo el principal culpable. Así como algo tan simple como frotarse un globo en el cabello crea electricidad estática, y el evento ESD creado es cuando el cabello se eriza, la fricción entre los objetos se produce fácilmente. Suele ser breve, pero la descarga puede ser significativa y afectar negativamente a los equipos electrónicos.</p>",
+                  "className": "mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                }
+              ]
+            },
+            {
+              "kind": "div",
+              "id": "div_block-18-119",
+              "className": "flex flex-nowrap flex-col items-center pt-[20px] pr-[20px] pb-[20px] pl-[20px] w-full! text-[31px] text-[#000000] text-left lg:items-start lg:w-[25%]!",
+              "wrapClassName": "",
+              "bg": null,
+              "bgSize": null,
+              "bgPosition": null,
+              "children": [
+                {
+                  "kind": "heading",
+                  "id": "headline-32-119",
+                  "level": 1,
+                  "html": "Polvos<br>",
+                  "className": "text-[24px] pl-[8px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "navmenu",
+                  "id": "_nav_menu-31-119",
+                  "items": [
+                    {
+                      "label": "Polvo de Poliéster Estándar",
+                      "href": "/polvo-de-poliester-estandar/",
+                      "current": false
+                    },
+                    {
+                      "label": "Polvos de Poliéster Superduraderos",
+                      "href": "/polvos-de-poliester-superduraderos/",
+                      "current": false
+                    },
+                    {
+                      "label": "Polvo de Fluoropolímero (FEVE)",
+                      "href": "/polvo-de-fluoropolimero-feve/",
+                      "current": false
+                    },
+                    {
+                      "label": "Polvo Epoxi",
+                      "href": "/polvo-epoxi/",
+                      "current": false
+                    },
+                    {
+                      "label": "Polvo Híbrido",
+                      "href": "/polvo-hibrido/",
+                      "current": false
+                    },
+                    {
+                      "label": "Polvo Antimicrobiano",
+                      "href": "/polvo-antimicrobiano/",
+                      "current": false
+                    },
+                    {
+                      "label": "Polvo Antigrafiti",
+                      "href": "/polvo-antigrafiti/",
+                      "current": false
+                    },
+                    {
+                      "label": "Imprimadores en Polvo",
+                      "href": "/imprimadores-en-polvo/",
+                      "current": false
+                    },
+                    {
+                      "label": "Polvo Aprobados por NSF",
+                      "href": "/recubrimientos-en-polvo-aprobados-por-nsf/",
+                      "current": false
+                    },
+                    {
+                      "label": "Polvo (ESD)",
+                      "href": "/polvo-disipadores-de-electricidad-estatica-esd/",
+                      "current": true
+                    },
+                    {
+                      "label": "Polvos Termoplásticos IFS Puroplaz®",
+                      "href": "/polvos-termoplasticos-ifs-puroplaz/",
+                      "current": false
+                    }
+                  ],
+                  "className": "",
+                  "wrapClassName": "",
+                  "bg": null
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   Theme tokens, mined from the old site's Oxygen CSS.
+
+   Oxygen had no token layer: the design lived as ~1,000 ID-based one-off
+   declarations (see docs/design-tokens.md for the census that produced these).
+   The recurring values are promoted to tokens here; the long tail of
+   single-use colours in that census came from unused plugin defaults and is
+   deliberately not carried over.
+
+   Breakpoints mirror Oxygen's four max-width tiers (479/767/991/1120) as
+   Tailwind min-width tiers, so an Oxygen `@media (max-width:991px)` rule
+   becomes the base style with an `lg:` override.
+--------------------------------------------------------------------------- */
+@theme {
+  /* Brand. Red is the identity colour: headings, links, accents. */
+  --color-brand: #fc0004;
+  --color-brand-hover: #777474;
+
+  /* Text. */
+  --color-ink: #404040; /* body copy */
+  --color-ink-muted: #52565a; /* secondary copy, card text, dark surfaces */
+
+  /* Surfaces, lightest to darkest. */
+  --color-surface: #ffffff;
+  --color-surface-alt: #eeeeee; /* the default section background */
+  --color-surface-sunken: #e5e5e5;
+  --color-surface-edge: #c9c9c9;
+  --color-surface-dark: #52565a;
+
+  /* Type. Roboto carries body copy, Noto Sans JP the headings, and Nunito
+     Sans appears only on the home page's overlay headings. */
+  --font-body: "Roboto", "Helvetica Neue", Arial, sans-serif;
+  --font-heading: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+  --font-accent: "Nunito Sans", "Helvetica Neue", Arial, sans-serif;
+
+  --text-h1: 32px;
+  --text-h2: 24px;
+  --text-h4: 20px;
+  --text-h5: 18px;
+  --text-h6: 16px;
+  --text-lead: 22px; /* the card/intro size used across product pages */
+  --text-hero: 38px; /* home hero headings */
+
+  /* Layout. 1120px is Oxygen's container width; 75px its section rhythm. */
+  --spacing-container: 1120px;
+  --spacing-section: 75px;
+
+  --radius-button: 3px;
+
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1121px;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-body);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--color-ink);
+    background-color: var(--color-surface);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--color-brand);
+  }
+
+  h1 {
+    font-size: var(--text-h1);
+  }
+  h2,
+  h3 {
+    font-size: var(--text-h2);
+  }
+  h4 {
+    font-size: var(--text-h4);
+  }
+  h5 {
+    font-size: var(--text-h5);
+  }
+  h6 {
+    font-size: var(--text-h6);
+  }
+
+  a {
+    color: var(--color-brand);
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--color-brand-hover);
+  }
+
+  /* The old site set no focus style at all. Accessibility rules require one;
+     it is drawn in the brand colour so it reads as part of the design. */
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* The centred column shared by the header and the footer. Section inner
+     wraps carry their own compiled max-width and padding, so this only
+     applies where no Oxygen rule does. */
+  .container-ox {
+    width: 100%;
+    max-width: var(--spacing-container);
+    margin-inline: auto;
+    padding-inline: 20px;
+  }
+
+  /* Background images come from content, so the URL arrives as a custom
+     property while the declarations that use it stay here (no inline styles
+     for static visual properties). */
+  .has-bg {
+    background-image: var(--bg-image);
+    background-size: var(--bg-size, cover);
+    background-position: var(--bg-position, 50% 50%);
+    background-repeat: no-repeat;
+  }
+
+  /* Rich text converted from Oxygen text blocks.
+
+     The old site styled none of this: it relied entirely on the browser's
+     default margins and list indentation. Tailwind's preflight removes those,
+     so they are restored here to the UA values rather than replaced with a
+     scale of our own - inventing one shifts every list and paragraph a few
+     pixels and compounds down the page. */
+  .rich-text p,
+  .rich-text ul,
+  .rich-text ol {
+    margin-block: 1em;
+  }
+  /* The old site trims the leading margin of any first child, but only trims
+     the trailing margin when the block ends in a paragraph - a trailing list
+     keeps its 18px. Measured, not assumed: getting this symmetric either way
+     leaves every text block ~16-36px out, and the error accumulates down the
+     page. */
+  .rich-text > *:first-child {
+    margin-block-start: 0;
+  }
+  .rich-text > p:last-child {
+    margin-block-end: 0;
+  }
+
+  .rich-text ul,
+  .rich-text ol {
+    padding-inline-start: 40px;
+  }
+  .rich-text ul {
+    list-style: disc;
+  }
+  .rich-text ol {
+    list-style: decimal;
+  }
+  .rich-text li {
+    display: list-item;
+  }
+  .rich-text strong,
+  .rich-text b {
+    font-weight: 700;
+  }
+  .rich-text em,
+  .rich-text i {
+    font-style: italic;
+  }
+  /* TablePress tables. The plugin cannot come across to a static build, but its
+     markup does, so its default presentation is reproduced here - otherwise the
+     privacy-policy table renders as bare unpadded cells. Values measured from
+     the live site, not guessed. */
+  .tablepress {
+    width: 100%;
+    border-collapse: collapse;
+    margin-block: 1em;
+  }
+  .tablepress th,
+  .tablepress td {
+    padding: 8px;
+    text-align: left;
+  }
+  .tablepress th {
+    background-color: #d9edf7;
+    font-weight: 700;
+    vertical-align: middle;
+  }
+  .tablepress td {
+    vertical-align: top;
+  }
+
+  .rich-text h1,
+  .rich-text h2,
+  .rich-text h3,
+  .rich-text h4,
+  .rich-text h5,
+  .rich-text h6 {
+    margin-block: 0.67em;
+  }
+}

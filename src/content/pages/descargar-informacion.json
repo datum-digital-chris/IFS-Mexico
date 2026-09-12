@@ -1,0 +1,42 @@
+{
+  "slug": "descargar-informacion",
+  "wpId": 845,
+  "path": "/descargar-informacion/",
+  "title": "Descargar Información",
+  "description": "",
+  "ogImage": null,
+  "sections": [
+    {
+      "kind": "section",
+      "id": "section-2-845",
+      "className": "w-full block text-left",
+      "wrapClassName": "flex flex-col items-center max-w-[1120px] pt-[75px] pr-[20px] pb-[75px] pl-[20px]",
+      "bg": null,
+      "bgSize": "cover",
+      "bgPosition": null,
+      "children": [
+        {
+          "kind": "div",
+          "id": "div_block-3-845",
+          "className": "flex flex-nowrap flex-col items-start w-[80%]",
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null,
+          "children": [
+            {
+              "kind": "richtext",
+              "id": "_rich_text-40-845",
+              "html": "<h1>Descargar Información</h1><p>A continuación encontrará parte de nuestra información más popular para descargar.</p><p><a href=\"/uploads/2024/11/AM-Spanish.pdf\" target=\"_blank\" rel=\"noopener\">Revestimientos pulverizados antimicrobianos IFS</a></p><p><a href=\"/uploads/2024/11/IFS-Advance-Brochure-SPA.pdf\" target=\"_blank\" rel=\"noopener\">IFS Advance</a></p><p><a href=\"/uploads/2024/11/Pureclad-Coatings-Spanish-Brochure.pdf\" target=\"_blank\" rel=\"noopener\">IFS PureClad</a></p><p><a href=\"/uploads/2024/11/Spanish-AG-leaflet.pdf\">Elimine El Grafiti</a></p><p><a href=\"/uploads/2024/11/Spanish-Architectural.pdf\" target=\"_blank\" rel=\"noopener\">Revestimientos pulverizados IFS para aplicaciones arquitectónicas</a></p><p><a href=\"/uploads/2024/11/Spanish-High-Heat.pdf\" target=\"_blank\" rel=\"noopener\">Revestimientos termorresistentes IFS</a></p><p><a href=\"/uploads/2024/11/Spanish-IFS-colors.pdf\" target=\"_blank\" rel=\"noopener\">Miles de colores de IFS</a></p><p><a href=\"/uploads/2024/11/Spanish-Primers.pdf\" target=\"_blank\" rel=\"noopener\">Bases IFS</a></p><p><a href=\"/uploads/2024/11/Spanish-Purecoat.pdf\" target=\"_blank\" rel=\"noopener\">IFS Purecoat - Revestimientos pulverizados transparentes</a></p><p><a href=\"/uploads/2024/11/WolfRayet-Brochure_Spanish-version_LC_Feb-2024_final-med-res.pdf\" target=\"_blank\" rel=\"noopener\">Presentamos WolfRayet</a></p><p><a href=\"/uploads/2025/01/IFS-Trailer-Brochure-Spanish-Version-LR.pdf\" target=\"_blank\" rel=\"noopener\"><span data-olk-copy-source=\"MessageBody\">Recubrimientos para remolques y transporte</span></a></p>",
+              "className": "w-full",
+              "wrapClassName": "",
+              "bg": null,
+              "bgSize": null,
+              "bgPosition": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

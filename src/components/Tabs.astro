@@ -1,0 +1,79 @@
+---
+/**
+ * Oxygen tabs (the RAL colour groups on /colors/).
+ *
+ * Switching is a radio group plus sibling selectors, not JavaScript, so the
+ * panels still work with scripts disabled. Only the checked panel displays,
+ * which is what stops the page rendering all three sets of ~63 colour cards at
+ * once.
+ *
+ * The radios are direct children of the wrapper so `:checked ~ .tab-panels`
+ * can reach the panels, and the rules are emitted per index because the panels
+ * are rendered by a child component and so lie outside Astro's style scoping.
+ */
+import type { Block as BlockType } from "@/lib/blocks";
+import Block from "./Block.astro";
+
+interface Props {
+  block: BlockType;
+}
+
+const { block } = Astro.props;
+const tabs = block.tabs ?? [];
+const panels = block.panels ?? [];
+const name = `tabs-${block.id ?? "x"}`;
+const scope = `#${block.id}`;
+
+// The original marks every tab "active", so all three are red with white text
+// and nothing indicates which panel is showing. The colours are kept; the
+// selected tab is distinguished by opacity instead, which adds the missing
+// affordance without changing the palette.
+const rules = tabs
+  .map(
+    (_, i) => `${scope} > input:nth-of-type(${i + 1}):checked ~ .tab-panels > .tab-panel:nth-child(${i + 1}){display:block}
+${scope} > input:nth-of-type(${i + 1}):checked ~ [role="tablist"] > label:nth-of-type(${i + 1}){opacity:1}`,
+  )
+  .join("\n");
+---
+
+<div id={block.id} class:list={["w-full", block.className]}>
+  {
+    tabs.map((_, i) => (
+      <input type="radio" name={name} id={`${name}-${i}`} class="sr-only" checked={i === 0} />
+    ))
+  }
+
+  <div class="flex flex-wrap gap-1" role="tablist">
+    {
+      tabs.map((tab, i) => (
+        <label
+          id={tab.id}
+          for={`${name}-${i}`}
+          class:list={["cursor-pointer opacity-60 transition-opacity hover:opacity-90", tab.className]}
+        >
+          <span id={tab.innerId || undefined} class={tab.innerClassName}>{tab.label}</span>
+        </label>
+      ))
+    }
+  </div>
+
+  <div class="tab-panels mt-4">
+    {
+      panels.map((panel) => (
+        <div id={panel.id} class="tab-panel">
+          {panel.children.map((child) => (
+            <Block block={child} />
+          ))}
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style is:global>
+  .tab-panel {
+    display: none;
+  }
+</style>
+
+<style is:global set:html={rules}></style>

@@ -1,0 +1,15 @@
+---
+/**
+ * Footer, extracted from Oxygen template post 6 and rendered through the same
+ * recursive block renderer as page content.
+ */
+import site from "@/content/site.json";
+import Block from "./Block.astro";
+import type { Block as BlockType } from "@/lib/blocks";
+
+const footer = site.footer as BlockType | null;
+---
+
+<footer>
+  {footer && <Block block={footer} />}
+</footer>

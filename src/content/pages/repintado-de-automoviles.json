@@ -1,0 +1,229 @@
+{
+  "slug": "repintado-de-automoviles",
+  "wpId": 718,
+  "path": "/repintado-de-automoviles/",
+  "title": "Repintado de Automóviles",
+  "description": "",
+  "ogImage": null,
+  "sections": [
+    {
+      "kind": "section",
+      "id": "section-2-718",
+      "className": "w-full h-[300px]",
+      "wrapClassName": "flex flex-col items-start max-w-[1120px] pt-[75px] pr-[20px] pb-[75px] pl-[20px]",
+      "bg": {
+        "layers": [
+          "url(\"/uploads/2023/05/hero-close-up-car-and-wheel.jpg\")"
+        ]
+      },
+      "bgSize": "cover",
+      "bgPosition": null,
+      "children": []
+    },
+    {
+      "kind": "section",
+      "id": "section-4-718",
+      "className": "w-full",
+      "wrapClassName": "flex flex-col items-start max-w-[1120px] pt-[24px] pr-[20px] pb-[75px] pl-[20px]",
+      "bg": null,
+      "bgSize": "cover",
+      "bgPosition": null,
+      "children": [
+        {
+          "kind": "columns",
+          "id": "new_columns-5-718",
+          "className": "flex w-full flex-col-reverse items-start justify-center flex-wrap lg:flex-row",
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null,
+          "children": [
+            {
+              "kind": "div",
+              "id": "div_block-6-718",
+              "className": "flex flex-nowrap flex-col items-start pt-[20px] pr-[25px] pb-[20px] pl-[25px] w-full! lg:w-[75.00%]!",
+              "wrapClassName": "",
+              "bg": null,
+              "bgSize": null,
+              "bgPosition": null,
+              "children": [
+                {
+                  "kind": "heading",
+                  "id": "headline-7-718",
+                  "level": 1,
+                  "html": "Repintado de Automóviles<br>",
+                  "className": "mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "richtext",
+                  "id": "_rich_text-8-718",
+                  "html": "<p>Todos amamos de verdad a nuestros automóviles; son esenciales para nuestra vida diaria. Los revestimientos en polvo utilizados para pintarlos son igualmente importantes para IFS. La resistencia al rayado y la abrasión, la durabilidad y la resistencia a la intemperie, los excelentes colores y acabados e incluso la flexibilidad son funciones importantes a tener en cuenta al escoger un revestimiento en polvo IFS de calidad.</p><p>Los polvos IFS para el repintado de automóviles se utilizan en:</p><ul><li>Ruedas</li><li>Tapicería</li><li>Partes debajo del cofre</li><li>Partes de la parte inferior de la carrocería</li><li>Bicicletas</li><li>Kits de autos</li><li>Autos de carreras</li></ul>",
+                  "className": "border-b-[2px] border-b-brand mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "heading",
+                  "id": "headline-13-718",
+                  "level": 2,
+                  "html": "Excelente protección<br>",
+                  "className": "mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "richtext",
+                  "id": "_rich_text-15-718",
+                  "html": "<p>La protección de sus ruedas es importante, considerando algunas de las condiciones a las que está sujeto su vehículo:</p><ul><li>Grava y rocas</li><li>Hielo y nieve</li><li>Sal y humedad</li><li>Altos niveles de UV del sol</li><li>Limpiadores químicos</li></ul><p>Los polvos IFS se han formulado cuidadosamente para ofrecer una excelente durabilidad en todas las condiciones mencionadas anteriormente. Nuestros productos incorporan resistencia a rayones, productos químicos y astillas. Todo esto mientras ofrece una apariencia estética superior, una transparencia cristalina y una suavidad de primer nivel.</p>",
+                  "className": "border-b-[2px] border-b-brand mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "heading",
+                  "id": "headline-17-718",
+                  "level": 2,
+                  "html": "Excelente producto y elección de color<br>",
+                  "className": "mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "richtext",
+                  "id": "_rich_text-18-718",
+                  "html": "<p>Sin importar qué rendimiento necesite, tenemos el producto para lograrlo. Los imprimadores en polvo, los superduraderos y los epoxis figuran entre los muchos productos químicos disponibles para cumplir con sus requisitos de rendimiento.</p><p>IFS Purecoat, nuestros barnices transparentes en polvo, proporcionarán un acabado protector sin añadir color. Ya sea que esté buscando brillos o negros, translúcidos o texturados, mates o metálicos, le podemos ayudar.</p>",
+                  "className": "border-b-[2px] border-b-brand mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "heading",
+                  "id": "headline-20-718",
+                  "level": 2,
+                  "html": "Aplicación fácil<br>",
+                  "className": "mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "richtext",
+                  "id": "_rich_text-21-718",
+                  "html": "<p>Entendemos la necesidad de revestimientos en polvo de alta calidad con parámetros de aplicación simples y facilidad de aplicación. Los polvos IFS están diseñados para una alta eficiencia de transferencia y brindan una opción de revestimiento extremadamente competitiva.</p>",
+                  "className": "border-b-[2px] border-b-brand mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                }
+              ]
+            },
+            {
+              "kind": "div",
+              "id": "div_block-9-718",
+              "className": "flex flex-nowrap flex-col items-center pt-[20px] pr-[20px] pb-[20px] pl-[20px] w-full! text-[31px] text-[#000000] text-left lg:items-start lg:w-[25%]!",
+              "wrapClassName": "",
+              "bg": null,
+              "bgSize": null,
+              "bgPosition": null,
+              "children": [
+                {
+                  "kind": "div",
+                  "id": "div_block-10-718",
+                  "className": "flex flex-nowrap flex-col items-center text-center lg:text-left",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null,
+                  "children": [
+                    {
+                      "kind": "div",
+                      "id": "div_block-23-718",
+                      "className": "flex flex-nowrap flex-col items-center text-left ml-[1px] lg:items-start",
+                      "wrapClassName": "",
+                      "bg": null,
+                      "bgSize": null,
+                      "bgPosition": null,
+                      "children": [
+                        {
+                          "kind": "heading",
+                          "id": "headline-24-718",
+                          "level": 2,
+                          "html": "Mercados<br>",
+                          "className": "ml-[10px] text-center lg:text-left",
+                          "wrapClassName": "",
+                          "bg": null,
+                          "bgSize": null,
+                          "bgPosition": null
+                        },
+                        {
+                          "kind": "navmenu",
+                          "id": "_nav_menu-25-718",
+                          "items": [
+                            {
+                              "label": "Mercado Arquitectónico",
+                              "href": "/mercado-arquitectonico/",
+                              "current": false
+                            },
+                            {
+                              "label": "Electrodomésticos",
+                              "href": "/electrodomesticos/",
+                              "current": false
+                            },
+                            {
+                              "label": "Repintado de Automóviles",
+                              "href": "/repintado-de-automoviles/",
+                              "current": true
+                            },
+                            {
+                              "label": "Maquiladores",
+                              "href": "/maquiladores/",
+                              "current": false
+                            },
+                            {
+                              "label": "Aplicaciones Industriales",
+                              "href": "/aplicaciones-industriales-generales/",
+                              "current": false
+                            },
+                            {
+                              "label": "Varillas de Refuerzo",
+                              "href": "/varillas-de-refuerzo/",
+                              "current": false
+                            },
+                            {
+                              "label": "Tráilers",
+                              "href": "/trailers/",
+                              "current": false
+                            }
+                          ],
+                          "className": "",
+                          "wrapClassName": "",
+                          "bg": null
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,379 @@
+{
+  "topBar": {
+    "links": [
+      {
+        "label": "Conocenos",
+        "href": "/conocenos/",
+        "className": "inline-block text-surface no-underline ml-0 mr-0 lg:ml-[10px] lg:mr-[34px]",
+        "wrapClassName": "",
+        "bg": null,
+        "bgSize": null,
+        "bgPosition": null
+      },
+      {
+        "label": "Contáctenos",
+        "href": "/contactenos/",
+        "className": "inline-block text-surface no-underline",
+        "wrapClassName": "",
+        "bg": null,
+        "bgSize": null,
+        "bgPosition": null
+      }
+    ],
+    "flag": {
+      "src": "/uploads/2023/04/mexico-flag.png",
+      "alt": "mexico flag"
+    },
+    "phone": {
+      "label": "+52 55 4166 2665",
+      "href": "tel:+525541662665"
+    }
+  },
+  "logo": {
+    "src": "/uploads/2023/04/logo-semi-circle-blur.png",
+    "alt": "IFS Coatings logo",
+    "href": "/"
+  },
+  "menu": [
+    {
+      "label": "Mercados",
+      "href": "/",
+      "children": [
+        {
+          "label": "Mercado Arquitectónico",
+          "href": "/mercado-arquitectonico/",
+          "children": []
+        },
+        {
+          "label": "Electrodomésticos",
+          "href": "/electrodomesticos/",
+          "children": []
+        },
+        {
+          "label": "Repintado de Automóviles",
+          "href": "/repintado-de-automoviles/",
+          "children": []
+        },
+        {
+          "label": "Maquiladores",
+          "href": "/maquiladores/",
+          "children": []
+        },
+        {
+          "label": "Aplicaciones Industriales",
+          "href": "/aplicaciones-industriales-generales/",
+          "children": []
+        },
+        {
+          "label": "Varillas de Refuerzo",
+          "href": "/varillas-de-refuerzo/",
+          "children": []
+        },
+        {
+          "label": "Tráilers",
+          "href": "/trailers/",
+          "children": []
+        }
+      ]
+    },
+    {
+      "label": "Colores",
+      "href": "/colors/",
+      "children": []
+    },
+    {
+      "label": "Tipos de Polvo",
+      "href": "/",
+      "children": [
+        {
+          "label": "Polvo de Poliéster Estándar",
+          "href": "/polvo-de-poliester-estandar/",
+          "children": []
+        },
+        {
+          "label": "Polvos de Poliéster Superduraderos",
+          "href": "/polvos-de-poliester-superduraderos/",
+          "children": []
+        },
+        {
+          "label": "Polvo de Fluoropolímero (FEVE)",
+          "href": "/polvo-de-fluoropolimero-feve/",
+          "children": []
+        },
+        {
+          "label": "Polvo Epoxi",
+          "href": "/polvo-epoxi/",
+          "children": []
+        },
+        {
+          "label": "Polvo Híbrido",
+          "href": "/polvo-hibrido/",
+          "children": []
+        },
+        {
+          "label": "Polvo Antimicrobiano",
+          "href": "/polvo-antimicrobiano/",
+          "children": []
+        },
+        {
+          "label": "Polvo Antigrafiti",
+          "href": "/polvo-antigrafiti/",
+          "children": []
+        },
+        {
+          "label": "Imprimadores en Polvo",
+          "href": "/imprimadores-en-polvo/",
+          "children": []
+        },
+        {
+          "label": "Polvo Aprobados por NSF",
+          "href": "/recubrimientos-en-polvo-aprobados-por-nsf/",
+          "children": []
+        },
+        {
+          "label": "Polvo (ESD)",
+          "href": "/polvo-disipadores-de-electricidad-estatica-esd/",
+          "children": []
+        },
+        {
+          "label": "Polvos Termoplásticos IFS Puroplaz®",
+          "href": "/polvos-termoplasticos-ifs-puroplaz/",
+          "children": []
+        },
+        {
+          "label": "UL Polvo",
+          "href": "/ul-polvo/",
+          "children": []
+        }
+      ]
+    },
+    {
+      "label": "Más Allá del Metal",
+      "href": "/",
+      "children": [
+        {
+          "label": "IFS Pureclad",
+          "href": "/ifs-pureclad/",
+          "children": []
+        }
+      ]
+    },
+    {
+      "label": "Recursos",
+      "href": "/",
+      "children": [
+        {
+          "label": "Clave de Código de Producto",
+          "href": "/clave-de-codigo-de-producto/",
+          "children": []
+        },
+        {
+          "label": "Descargar Información",
+          "href": "/descargar-informacion/",
+          "children": []
+        },
+        {
+          "label": "Conocenos",
+          "href": "/conocenos/",
+          "children": []
+        },
+        {
+          "label": "Valores de la Misión",
+          "href": "/valores-de-la-mision/",
+          "children": []
+        },
+        {
+          "label": "Contáctenos",
+          "href": "/contactenos/",
+          "children": []
+        }
+      ]
+    },
+    {
+      "label": "Contáctenos",
+      "href": "/contactenos/",
+      "children": []
+    }
+  ],
+  "footer": {
+    "kind": "section",
+    "id": "section-82-6",
+    "className": "w-full block bg-surface-edge text-left",
+    "wrapClassName": "flex flex-col items-center max-w-[1120px] pt-[0] pr-[20px] pb-[0] pl-[20px]",
+    "bg": {
+      "layers": [
+        "linear-gradient(#c9c9c9,#52565a)"
+      ]
+    },
+    "bgSize": "cover",
+    "bgPosition": null,
+    "children": [
+      {
+        "kind": "div",
+        "id": "div_block-166-6",
+        "className": "flex flex-nowrap flex-col items-center w-[80%] text-left",
+        "wrapClassName": "",
+        "bg": null,
+        "bgSize": null,
+        "bgPosition": null,
+        "children": [
+          {
+            "kind": "richtext",
+            "id": "text_block-164-6",
+            "html": "Nuestra misión es brindar un servicio y un producto incomparables a la industria a la vez que brindamos una opción ambientalmente responsable.",
+            "className": "text-center text-[#000000] mt-[15px]",
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ]
+      },
+      {
+        "kind": "columns",
+        "id": "new_columns-168-6",
+        "className": "flex w-full flex-row items-stretch justify-center flex-wrap",
+        "wrapClassName": "",
+        "bg": null,
+        "bgSize": null,
+        "bgPosition": null,
+        "children": [
+          {
+            "kind": "div",
+            "id": "div_block-169-6",
+            "className": "flex flex-nowrap flex-col items-end pt-[20px] pr-[20px] pb-[20px] pl-[20px] w-full! text-left lg:w-[50%]!",
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null,
+            "children": [
+              {
+                "kind": "link",
+                "id": "link-48-6",
+                "href": "/",
+                "className": "flex flex-wrap text-center no-underline flex-col items-center justify-center mb-[12px]",
+                "wrapClassName": "",
+                "bg": null,
+                "bgSize": null,
+                "bgPosition": null,
+                "children": [
+                  {
+                    "kind": "image",
+                    "id": "image-49-6",
+                    "src": "/uploads/2023/04/logo-semi-circle-blur.png",
+                    "alt": "IFS Coatings logo",
+                    "width": null,
+                    "height": null,
+                    "className": "max-w-full w-[100px]",
+                    "wrapClassName": "",
+                    "bg": null,
+                    "bgSize": null,
+                    "bgPosition": null
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "div",
+            "id": "div_block-170-6",
+            "className": "flex flex-nowrap flex-col items-start pt-[20px] pr-[20px] pb-[20px] pl-[20px] w-full! text-left lg:w-[50%]!",
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null,
+            "children": [
+              {
+                "kind": "link",
+                "id": "link_text-52-6",
+                "href": "/conocenos/",
+                "html": "Contáctenos",
+                "className": "inline-block text-surface no-underline text-[18px] mb-[5px] tracking-[.15em] duration-[0.5s] ease-in-out transition-all",
+                "wrapClassName": "",
+                "bg": null,
+                "bgSize": null,
+                "bgPosition": null
+              },
+              {
+                "kind": "link",
+                "id": "link-198-6",
+                "href": "mailto:revestimientosinfo@ifscoatings.com",
+                "className": "flex flex-wrap text-center no-underline flex-col items-center justify-center",
+                "wrapClassName": "",
+                "bg": null,
+                "bgSize": null,
+                "bgPosition": null,
+                "children": [
+                  {
+                    "kind": "richtext",
+                    "id": "text_block-124-6",
+                    "html": "revestimientosinfo@ifscoatings.com<br>",
+                    "className": "mb-[5px] mt-[5px] mr-[10px] ml-0 text-surface",
+                    "wrapClassName": "",
+                    "bg": null,
+                    "bgSize": null,
+                    "bgPosition": null
+                  }
+                ]
+              },
+              {
+                "kind": "div",
+                "id": "div_block-161-6",
+                "className": "flex flex-nowrap flex-col items-center",
+                "wrapClassName": "",
+                "bg": null,
+                "bgSize": null,
+                "bgPosition": null,
+                "children": [
+                  {
+                    "kind": "link",
+                    "id": "link-196-6",
+                    "href": "tel:+525541662665",
+                    "className": "flex flex-wrap text-center no-underline flex-col items-center justify-center",
+                    "wrapClassName": "",
+                    "bg": null,
+                    "bgSize": null,
+                    "bgPosition": null,
+                    "children": [
+                      {
+                        "kind": "richtext",
+                        "id": "text_block-197-6",
+                        "html": "+52 55 4166 2665",
+                        "className": "text-surface",
+                        "wrapClassName": "",
+                        "bg": null,
+                        "bgSize": null,
+                        "bgPosition": null
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "kind": "div",
+        "id": "div_block-47-6",
+        "className": "flex flex-nowrap flex-col items-center w-[100.00%] text-center justify-center pt-[5px] pr-[5px] pb-[5px] pl-[5px]",
+        "wrapClassName": "",
+        "bg": null,
+        "bgSize": null,
+        "bgPosition": null,
+        "children": [
+          {
+            "kind": "html",
+            "id": "code_block-78-6",
+            "html": "Copyright ©  2026 IFS Coatings Internacional",
+            "className": "text-surface",
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          }
+        ]
+      }
+    ]
+  }
+}

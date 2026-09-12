@@ -1,0 +1,217 @@
+{
+  "slug": "polvo-epoxi",
+  "wpId": 91,
+  "path": "/polvo-epoxi/",
+  "title": "Polvo Epoxi",
+  "description": "",
+  "ogImage": null,
+  "sections": [
+    {
+      "kind": "section",
+      "id": "section-2-91",
+      "className": "w-full h-[300px]",
+      "wrapClassName": "flex flex-col items-start max-w-[1120px] pt-[75px] pr-[20px] pb-[75px] pl-[20px]",
+      "bg": {
+        "layers": [
+          "url(\"/uploads/2023/04/hero-powders-hybrid.jpg\")"
+        ]
+      },
+      "bgSize": "cover",
+      "bgPosition": "50% 50%",
+      "children": []
+    },
+    {
+      "kind": "section",
+      "id": "section-14-91",
+      "className": "w-full",
+      "wrapClassName": "flex flex-col items-start max-w-[1120px] pt-[24px] pr-[20px] pb-[75px] pl-[20px]",
+      "bg": null,
+      "bgSize": "cover",
+      "bgPosition": null,
+      "children": [
+        {
+          "kind": "columns",
+          "id": "new_columns-15-91",
+          "className": "flex w-full flex-col-reverse items-start justify-center flex-wrap lg:flex-row",
+          "wrapClassName": "",
+          "bg": null,
+          "bgSize": null,
+          "bgPosition": null,
+          "children": [
+            {
+              "kind": "div",
+              "id": "div_block-16-91",
+              "className": "flex flex-nowrap flex-col items-start pt-[20px] pr-[25px] pb-[20px] pl-[25px] w-full! lg:w-[75.00%]!",
+              "wrapClassName": "",
+              "bg": null,
+              "bgSize": null,
+              "bgPosition": null,
+              "children": [
+                {
+                  "kind": "heading",
+                  "id": "headline-17-91",
+                  "level": 1,
+                  "html": "Polvo Epoxi",
+                  "className": "mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "richtext",
+                  "id": "_rich_text-18-91",
+                  "html": "<p>Los recubrimientos epoxi en polvo de IFS están hechos para aplicaciones que necesitan ser resistentes a los productos químicos y la corrosión y verse bien, pero en las que la durabilidad en el exterior no es importante. Los recubrimientos epoxi en polvo de IFS se usan normalmente en una amplia gama de aplicaciones, entre las que se incluyen:</p><ul><li>Armarios metálicos</li><li>Material deportivo y recreativo</li><li>Muebles</li><li>Herramientas manuales y eléctricas</li><li>Accesorios de fontanería y ferretería de latón</li><li>Cajas de herramientas y artículos de alambre, revestimientos de tuberías</li><li>Barra de refuerzo</li><li>Piezas de la parte inferior de la carrocería y del capó de automóviles</li></ul>",
+                  "className": "border-b-[2px] border-b-brand",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "heading",
+                  "id": "headline-19-91",
+                  "level": 2,
+                  "html": "Las ventajas del polvo epoxi de IFS incluyen:",
+                  "className": "mt-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "richtext",
+                  "id": "_rich_text-20-91",
+                  "html": "<ul><li>Excelente adherencia</li><li>Excelente resistencia química</li><li>Excelente resistencia a la corrosión</li><li>Excelente flexibilidad</li><li>Excelente dureza</li><li>Amplia gama de programas de curado</li><li>Posibilidad de baja temperatura</li><li>Gama completa de brillo</li></ul>",
+                  "className": "pb-0 mt-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "heading",
+                  "id": "headline-21-91",
+                  "level": 2,
+                  "html": "Sus desventajas son las siguientes:",
+                  "className": "mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                },
+                {
+                  "kind": "richtext",
+                  "id": "_rich_text-22-91",
+                  "html": "<ul><li>Entizamiento con exposición exterior</li><li>Decoloración con el calor</li><li>La flexibilidad y el impacto pueden reducirse a medida que aumenta la dureza, la resistencia química/a la corrosión y disminuye el brillo.</li></ul><p>Los polvos epoxi de IFS también se pueden formular a medida.<br>Tenga en cuenta que estos representan pautas generales. Hable con el laboratorio de IFS o con un representante para obtener una explicación más detallada y usos específicos.</p>",
+                  "className": "mb-[20px]",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null
+                }
+              ]
+            },
+            {
+              "kind": "div",
+              "id": "div_block-27-91",
+              "className": "flex flex-nowrap flex-col items-start pt-[20px] pr-[20px] pb-[20px] pl-[20px] w-full! text-[31px] text-[#000000] lg:w-[25%]!",
+              "wrapClassName": "",
+              "bg": null,
+              "bgSize": null,
+              "bgPosition": null,
+              "children": [
+                {
+                  "kind": "div",
+                  "id": "div_block-32-91",
+                  "className": "flex flex-nowrap flex-col items-center text-left lg:items-start",
+                  "wrapClassName": "",
+                  "bg": null,
+                  "bgSize": null,
+                  "bgPosition": null,
+                  "children": [
+                    {
+                      "kind": "heading",
+                      "id": "headline-33-91",
+                      "level": 2,
+                      "html": "Polvos<br>",
+                      "className": "ml-[10px]",
+                      "wrapClassName": "",
+                      "bg": null,
+                      "bgSize": null,
+                      "bgPosition": null
+                    },
+                    {
+                      "kind": "navmenu",
+                      "id": "_nav_menu-34-91",
+                      "items": [
+                        {
+                          "label": "Polvo de Poliéster Estándar",
+                          "href": "/polvo-de-poliester-estandar/",
+                          "current": false
+                        },
+                        {
+                          "label": "Polvos de Poliéster Superduraderos",
+                          "href": "/polvos-de-poliester-superduraderos/",
+                          "current": false
+                        },
+                        {
+                          "label": "Polvo de Fluoropolímero (FEVE)",
+                          "href": "/polvo-de-fluoropolimero-feve/",
+                          "current": false
+                        },
+                        {
+                          "label": "Polvo Epoxi",
+                          "href": "/polvo-epoxi/",
+                          "current": true
+                        },
+                        {
+                          "label": "Polvo Híbrido",
+                          "href": "/polvo-hibrido/",
+                          "current": false
+                        },
+                        {
+                          "label": "Polvo Antimicrobiano",
+                          "href": "/polvo-antimicrobiano/",
+                          "current": false
+                        },
+                        {
+                          "label": "Polvo Antigrafiti",
+                          "href": "/polvo-antigrafiti/",
+                          "current": false
+                        },
+                        {
+                          "label": "Imprimadores en Polvo",
+                          "href": "/imprimadores-en-polvo/",
+                          "current": false
+                        },
+                        {
+                          "label": "Polvo Aprobados por NSF",
+                          "href": "/recubrimientos-en-polvo-aprobados-por-nsf/",
+                          "current": false
+                        },
+                        {
+                          "label": "Polvo (ESD)",
+                          "href": "/polvo-disipadores-de-electricidad-estatica-esd/",
+                          "current": false
+                        },
+                        {
+                          "label": "Polvos Termoplásticos IFS Puroplaz®",
+                          "href": "/polvos-termoplasticos-ifs-puroplaz/",
+                          "current": false
+                        }
+                      ],
+                      "className": "",
+                      "wrapClassName": "",
+                      "bg": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

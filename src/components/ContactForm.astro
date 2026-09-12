@@ -1,0 +1,63 @@
+---
+/**
+ * Contact form, rebuilt as a Netlify Form.
+ *
+ * The old site used Formidable Forms, which needs PHP and cannot survive a
+ * static build. Netlify captures submissions from the data-netlify attribute
+ * at deploy time; the hidden form-name input is what pairs a submission with
+ * this form.
+ *
+ * The original labels were in English ("Name", "Last", "Subject") on an
+ * otherwise entirely Spanish site. They are translated here - see
+ * docs/deviations.md, which lists this as a deliberate change.
+ */
+const field = "w-full border border-surface-edge bg-surface px-3 py-2 text-ink focus:border-brand";
+const label = "mb-1 block font-medium text-ink-muted";
+---
+
+<form
+  name="contacto"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  action="/gracias/"
+  class="w-full max-w-2xl"
+>
+  <input type="hidden" name="form-name" value="contacto" />
+  <p class="hidden">
+    <label>Si es humano, deje este campo en blanco: <input name="bot-field" /></label>
+  </p>
+
+  <div class="grid gap-4 sm:grid-cols-2">
+    <div>
+      <label class={label} for="nombre">Nombre <span aria-hidden="true">*</span></label>
+      <input class={field} type="text" id="nombre" name="nombre" required autocomplete="given-name" />
+    </div>
+    <div>
+      <label class={label} for="apellido">Apellido <span aria-hidden="true">*</span></label>
+      <input class={field} type="text" id="apellido" name="apellido" required autocomplete="family-name" />
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <label class={label} for="email">Correo electrónico <span aria-hidden="true">*</span></label>
+    <input class={field} type="email" id="email" name="email" required autocomplete="email" />
+  </div>
+
+  <div class="mt-4">
+    <label class={label} for="asunto">Asunto <span aria-hidden="true">*</span></label>
+    <input class={field} type="text" id="asunto" name="asunto" required />
+  </div>
+
+  <div class="mt-4">
+    <label class={label} for="mensaje">Mensaje <span aria-hidden="true">*</span></label>
+    <textarea class={field} id="mensaje" name="mensaje" rows="6" required></textarea>
+  </div>
+
+  <button
+    type="submit"
+    class="mt-5 inline-block rounded-button border border-surface-sunken bg-surface-sunken px-5 py-2 font-medium text-ink-muted transition-all hover:bg-surface-dark hover:text-surface"
+  >
+    Enviar
+  </button>
+</form>

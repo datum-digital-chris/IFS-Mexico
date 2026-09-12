@@ -1,0 +1,66 @@
+---
+/**
+ * HTML shell: head, SEO metadata, header and footer.
+ *
+ * The old WordPress served lang="en-US" and og:locale=en_US on a site written
+ * entirely in Spanish. That is corrected here rather than reproduced - it is a
+ * bug, not part of the design.
+ */
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import "@/styles/theme.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string | null;
+}
+
+const { title, description = "", ogImage } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const fullTitle = title ? `${title} - IFS Coatings Mexico` : "IFS Coatings Mexico";
+const image = ogImage ? new URL(ogImage, Astro.site).href : undefined;
+---
+
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:site_name" content="IFS Coatings Mexico" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:url" content={canonical} />
+    {description && <meta property="og:description" content={description} />}
+    {image && <meta property="og:image" content={image} />}
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="/uploads/2023/05/cropped-favicon-03-32x32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/uploads/2023/05/cropped-favicon-03-180x180.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Noto+Sans+JP:wght@400;500;700;900&family=Nunito+Sans:wght@400;500;700&display=swap"
+    />
+    <slot name="head" />
+  </head>
+  <body>
+    <a
+      href="#contenido"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:bg-surface focus:px-4 focus:py-2"
+      >Saltar al contenido</a
+    >
+    <Header />
+    <main id="contenido">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

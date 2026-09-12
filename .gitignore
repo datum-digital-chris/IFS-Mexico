@@ -1,0 +1,16 @@
+# Cached copy of the old WordPress site (HTML, CSS, media). Regenerable from
+# the live site until cutover; too large and too transient for git.
+wp-cache/
+
+node_modules/
+dist/
+.astro/
+.netlify/
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log
+npm-debug.log*
+.vscode/
+.idea/

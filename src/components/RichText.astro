@@ -1,0 +1,24 @@
+---
+/**
+ * Render inline HTML carried over from WordPress.
+ *
+ * The corpus was extracted from the old site's own output, so it contains only
+ * formatting markup - links, lists, emphasis, tables. `isSafeHtml` is a guard
+ * against that assumption silently breaking on a re-extraction, not a
+ * sanitiser: anything that trips it is a bug in the extractor to fix there.
+ */
+import { isSafeHtml } from "@/lib/blocks";
+
+interface Props {
+  html: string | undefined;
+}
+
+const { html } = Astro.props;
+const safe = isSafeHtml(html);
+
+if (html && !safe) {
+  console.warn(`[RichText] dropped markup containing script/iframe/handlers: ${html.slice(0, 120)}`);
+}
+---
+
+{safe && <Fragment set:html={html} />}

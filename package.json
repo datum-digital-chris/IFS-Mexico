@@ -1,0 +1,62 @@
+{
+  "name": "ifs-mexico",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && node scripts/generate-redirects.mjs && node scripts/check-assets.mjs",
+    "preview": "astro preview",
+    "typecheck": "astro check && tsc --noEmit",
+    "lint": "eslint . --max-warnings=0",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "verify": "npm run typecheck && npm run lint",
+    "clean": "rm -rf dist .astro",
+    "inventory": "node scripts/inventory.mjs",
+    "extract": "node scripts/extract-content.mjs",
+    "compare": "node scripts/compare-content.mjs",
+    "verify:layout": "node scripts/verify-layout.mjs",
+    "probe": "node scripts/probe-styles.mjs",
+    "analyze": "node scripts/analyze-oxygen-css.mjs",
+    "shots": "node scripts/screenshot-compare.mjs",
+    "prune": "node scripts/prune-uploads.mjs",
+    "optimize": "node scripts/optimize-images.mjs"
+  },
+  "dependencies": {
+    "@astrojs/check": "0.9.10",
+    "@astrojs/markdown-remark": "7.3.0",
+    "@astrojs/sitemap": "3.7.4",
+    "@tailwindcss/vite": "4.3.3",
+    "astro": "7.3.1",
+    "rehype-raw": "7.0.0",
+    "rehype-sanitize": "6.0.0",
+    "rehype-stringify": "10.0.1",
+    "remark-gfm": "4.0.1",
+    "remark-parse": "11.0.0",
+    "remark-rehype": "11.1.2",
+    "tailwindcss": "4.3.3",
+    "typescript": "5.9.3",
+    "unified": "11.0.5",
+    "zod": "4.6.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.5",
+    "@mixmark-io/domino": "2.2.0",
+    "eslint": "9.39.4",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-astro": "1.7.0",
+    "eslint-plugin-jsx-a11y": "6.10.2",
+    "globals": "17.11.0",
+    "js-yaml": "4.3.1",
+    "prettier": "3.9.6",
+    "prettier-plugin-astro": "0.14.1",
+    "prettier-plugin-tailwindcss": "0.8.1",
+    "turndown": "7.2.4",
+    "turndown-plugin-gfm": "1.0.2",
+    "typescript-eslint": "8.68.0"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}
