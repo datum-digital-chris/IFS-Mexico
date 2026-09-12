@@ -79,6 +79,14 @@ images are capped at twice their displayed size (`npm run optimize`). That is
 WordPress `srcset` variants nothing links to, and the RAL swatches were
 1181px PNGs displayed at 219px. `wp-cache/uploads/` keeps every original.
 
+## Container width
+
+The site container is **1200px**, set in two places that must stay in step:
+`--spacing-container` in `src/styles/theme.css`, and `cfg.containerWidth` in
+`scripts/site.config.mjs` (which rewrites the `max-width: 1120px` Oxygen
+compiles onto every extracted section wrap). Change one without the other and
+the masthead stops lining up with the page.
+
 ## Deploy
 
 Netlify. `netlify.toml` builds with `npm run build` and publishes `dist/`.

@@ -11,7 +11,7 @@
       "id": "section-2-91",
       "className": "w-full h-[300px]",
       "isCard": false,
-      "wrapClassName": "flex flex-col items-start max-w-[1120px] pt-[75px] pr-[20px] pb-[75px] pl-[20px]",
+      "wrapClassName": "flex flex-col items-start max-w-[1200px] pt-[75px] pr-[20px] pb-[75px] pl-[20px]",
       "bg": {
         "layers": [
           "url(\"/uploads/2023/04/hero-powders-hybrid.jpg\")"
@@ -26,7 +26,7 @@
       "id": "section-14-91",
       "className": "w-full",
       "isCard": false,
-      "wrapClassName": "flex flex-col items-start max-w-[1120px] pt-[24px] pr-[20px] pb-[75px] pl-[20px]",
+      "wrapClassName": "flex flex-col items-start max-w-[1200px] pt-[24px] pr-[20px] pb-[75px] pl-[20px]",
       "bg": null,
       "bgSize": "cover",
       "bgPosition": null,

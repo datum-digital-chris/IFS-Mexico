@@ -60,7 +60,10 @@
   --text-lead: 1.25rem;
   --text-hero: clamp(2rem, 1.2rem + 2.6vw, 3.25rem);
 
-  --spacing-container: 1120px;
+  /* Widened from Oxygen's 1120 so the market article can reach a full 80ch
+     measure beside its sidebar. Extracted pages keep their own compiled 1120
+     inner wraps, so their content sits slightly inside the masthead. */
+  --spacing-container: 1200px;
   --spacing-section: 75px;
 
   /* Square corners, per the house style. */
@@ -299,8 +302,19 @@
 
   /* Long-form market copy. The old pages ran 140-750 words with no measure and
      no rhythm between headings and body, so everything read as one block. */
+  /* 80ch is the upper bound of comfortable measure, and it has to apply to the
+     TEXT. The panel is border-box, so a plain `max-width: 80ch` caps the panel
+     including its padding and the line ends up ~73ch. Padding is declared here
+     rather than as utilities so the cap can add it back. */
   .market-prose {
-    max-width: 68ch;
+    --prose-pad: 1.5rem;
+    padding: var(--prose-pad);
+    max-width: calc(80ch + 2 * var(--prose-pad));
+  }
+  @media (min-width: 768px) {
+    .market-prose {
+      --prose-pad: 2rem;
+    }
   }
   .market-prose :is(h2, h3, h4, h5, h6) {
     margin-top: 2.25rem;

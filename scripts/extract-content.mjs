@@ -191,6 +191,11 @@ const wrapDefaults = (() => {
       for (const [bucket, decls] of Object.entries(viewportOnly(buckets))) Object.assign((out[bucket] ??= {}), decls);
     }
   }
+  // Widen Oxygen's container to the site's, so extracted pages line up with the
+  // masthead and the redesigned pages.
+  for (const decls of Object.values(out)) {
+    if (decls["max-width"] === cfg.oxygenContainerWidth) decls["max-width"] = cfg.containerWidth;
+  }
   return out;
 })();
 

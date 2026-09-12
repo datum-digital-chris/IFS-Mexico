@@ -103,8 +103,18 @@ structure:
 - A page header — eyebrow, title, market photograph with a directional scrim.
   The title was previously buried as the first heading in the body; it is lifted
   into the header, so the page opens by saying what it is.
-- A 68ch measure for the article, with a hairline divider above each `h2` so the
-  sections are visible at a glance. The opening paragraph is set larger.
+- An 80ch measure for the article, with a hairline divider above each `h2` so
+  the sections are visible at a glance. The opening paragraph is set larger.
+
+  Two things make 80ch actually happen. The panel is `border-box`, so a plain
+  `max-width: 80ch` caps the panel *including its padding* and the line lands
+  at ~73ch; the padding is therefore declared in CSS and added back
+  (`calc(80ch + 2 * var(--prose-pad))`). And the column has to be wide enough
+  for the cap to be what binds rather than the layout — at Oxygen's 1120
+  container the text could only reach 68ch, so the site container is now
+  1200px. Oxygen compiles its own `max-width: 1120px` onto every section inner
+  wrap, so `cfg.oxygenContainerWidth` → `cfg.containerWidth` rewrites that too;
+  without it the masthead overhangs every extracted page by 40px a side.
 - A supporting photograph placed after the opening passage — never directly
   after a heading, which would separate it from its own text.
 - A sticky "Mercados" card listing all seven with the current one marked. The

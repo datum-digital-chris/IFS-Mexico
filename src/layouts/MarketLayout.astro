@@ -73,8 +73,10 @@ const rest = body.slice(splitAt);
       {/* Sized to the content rather than the container: a 68ch measure beside
           a 300px sidebar is ~1000px, and stretching that across the full 1120px
           container just opens a gap between the two. */}
-      <div class="grid gap-10 lg:grid-cols-[minmax(0,1fr)_216px] lg:gap-12">
-        <article class="market-prose min-w-0 border border-surface-edge bg-surface p-7 md:p-10">
+      {/* 1200 container - 200 sidebar - 40 gap - 64 panel padding = 856px,
+          which is 80ch at the body font. The measure cap holds it there. */}
+      <div class="grid gap-10 lg:grid-cols-[minmax(0,1fr)_200px] lg:gap-10">
+        <article class="market-prose min-w-0 border border-surface-edge bg-surface">
           {opening.map((b) => <Block block={b} />)}
 
           {

@@ -65,6 +65,14 @@ export default {
     },
   },
 
+  // Site container width. Oxygen's sections compile their own
+  // `max-width: 1120px` onto every inner wrap, so widening only the CSS token
+  // would leave the masthead overhanging the extracted pages by 40px a side.
+  // This rewrites that compiled value so every page lines up with the header.
+  // Keep in step with --spacing-container in src/styles/theme.css.
+  containerWidth: "1200px",
+  oxygenContainerWidth: "1120px",
+
   // WordPress shortcodes whose plugin is not installed, mapped to a table
   // authored in src/content/tables/. The old site printed the literal
   // shortcode text on the page; these render the real thing instead.
