@@ -61,6 +61,10 @@ const EXPECTED = [
   // prints the literal "[wpdatatable id=2]" on the page; reproducing that would
   // be reproducing a visible fault.
   "wpdatatable id=2",
+  // The fluoropolymer product is IFS 500FP, and the old copy writes it as
+  // "IFS 500P" here. Corrected by cfg.textCorrections, so this sentence now
+  // reads 500FP and no longer matches the original run.
+  "más información sobre ifs 500p aquí",
 ];
 
 const norm = (s) => s.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").replace(/\s+/g, " ").trim();

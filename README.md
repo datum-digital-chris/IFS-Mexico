@@ -81,11 +81,14 @@ WordPress `srcset` variants nothing links to, and the RAL swatches were
 
 ## Container width
 
-The site container is **1200px**, set in two places that must stay in step:
-`--spacing-container` in `src/styles/theme.css`, and `cfg.containerWidth` in
-`scripts/site.config.mjs` (which rewrites the `max-width: 1120px` Oxygen
-compiles onto every extracted section wrap). Change one without the other and
-the masthead stops lining up with the page.
+The site container is **1200px**, defined once as `--spacing-container` in
+`src/styles/theme.css`. `scripts/site.config.mjs` reads that value out of the
+stylesheet rather than repeating it, because the extractor also has to rewrite
+the `max-width: 1120px` Oxygen compiles onto every section inner wrap — and
+holding the number in two places meant changing one silently pulled the
+masthead out of line with 22 pages.
+
+Change the stylesheet and re-run `npm run extract`; everything follows.
 
 ## Deploy
 

@@ -1,5 +1,5 @@
 {
-  "_note": "Authored content, NOT generated. The AAMA performance table for /mercado-arquitectonico/. Figures come from the IFS Coatings US site (content/architectural/index.md, aama.rows), translated to Spanish. The source's description and footnote are deliberately omitted: the Mexican page already carries equivalent sentences either side of the table. The product code is IFS 500P to match that page's own copy (the US site calls it IFS 500FP).",
+  "_note": "Authored content, NOT generated. The AAMA performance table for /mercado-arquitectonico/. Figures come from the IFS Coatings US site (content/architectural/index.md, aama.rows), translated to Spanish. The source's description and footnote are deliberately omitted: the Mexican page already carries equivalent sentences either side of the table. The product code is IFS 500FP. The Mexican site used both forms - its own fluoropolymer page says 500FP four times and 500P once - and the US site says 500FP throughout, so the short form is a typo. scripts/site.config.mjs corrects it in the extracted copy too.",
   "caption": "Especificaciones de rendimiento AAMA",
   "headers": ["Prueba", "AAMA 2603", "AAMA 2604", "AAMA 2605"],
   "rows": [
@@ -33,7 +33,7 @@
     },
     {
       "label": "Producto IFS",
-      "values": [["IFS 300SP"], ["IFS 400SD"], ["IFS 500P"]]
+      "values": [["IFS 300SP"], ["IFS 400SD"], ["IFS 500FP"]]
     }
   ]
 }

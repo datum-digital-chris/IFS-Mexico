@@ -115,6 +115,8 @@ structure:
   1200px. Oxygen compiles its own `max-width: 1120px` onto every section inner
   wrap, so `cfg.oxygenContainerWidth` → `cfg.containerWidth` rewrites that too;
   without it the masthead overhangs every extracted page by 40px a side.
+  `cfg.containerWidth` is read out of the stylesheet, so the width has one
+  source of truth rather than two values that have to be kept in step.
 - A supporting photograph placed after the opening passage — never directly
   after a heading, which would separate it from its own text.
 - A sticky "Mercados" card listing all seven with the current one marked. The

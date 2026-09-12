@@ -29,7 +29,7 @@ const computed = JSON.parse(readFileSync(P("docs/oxygen-computed.json"), "utf8")
 const wpPages = JSON.parse(readFileSync(P("docs/wp-pages.json"), "utf8"));
 const metaBySlug = new Map(wpPages.map((p) => [p.slug, p]));
 
-const report = { unhandledCss: {}, shortcodes: [], external: new Set(), missingMedia: new Set(), unknownTags: {} };
+const report = { unhandledCss: {}, shortcodes: [], external: new Set(), missingMedia: new Set(), unknownTags: {}, corrections: new Set() };
 
 /** Absolute URL on one of our hosts -> site-relative path. */
 const rewriteUrl = (raw) => {
@@ -327,6 +327,17 @@ function tagFeatureLists(el) {
   }
 }
 
+/** Apply the configured corrections to a run of extracted HTML. */
+function correctText(html) {
+  let out = html;
+  for (const { from, to, reason } of cfg.textCorrections ?? []) {
+    const before = out;
+    out = out.replace(from, to);
+    if (out !== before) report.corrections.add(reason);
+  }
+  return out;
+}
+
 /** Inline HTML of a rich-text/text block, with internal links rewritten. */
 function innerHtml(el) {
   tagFeatureLists(el);
@@ -338,7 +349,7 @@ function innerHtml(el) {
     if (!img.getAttribute("alt")) img.setAttribute("alt", "");
     img.setAttribute("loading", "lazy");
   }
-  return el.innerHTML.trim();
+  return correctText(el.innerHTML.trim());
 }
 
 /** Compiled Tailwind classes for one Oxygen element id. */
@@ -905,6 +916,9 @@ lines.push(report.shortcodes.length ? report.shortcodes.map((s) => `- \`${s.id}\
 
 lines.push("", "## Missing media (referenced, not in the cache)", "");
 lines.push(report.missingMedia.size ? [...report.missingMedia].map((m) => `- ${m}`).join("\n") : "None.");
+
+lines.push("", "## Corrections applied to extracted copy", "");
+lines.push(report.corrections.size ? [...report.corrections].map((c) => `- ${c}`).join("\n") : "None.");
 
 lines.push("", "## External links", "");
 lines.push(report.external.size ? [...report.external].sort().map((m) => `- ${m}`).join("\n") : "None.");

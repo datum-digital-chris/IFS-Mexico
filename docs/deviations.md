@@ -103,6 +103,24 @@ cards.
 
 **Why:** the pairing was plainly a mistake, and the grid makes it obvious.
 
+## 9. The fluoropolymer product code is corrected to IFS 500FP
+
+**Old:** the site used both forms. Its own fluoropolymer page says *IFS 500FP*
+four times and *IFS 500P* once; the architectural page says *IFS 500P* once and
+500FP never.
+
+**New:** *IFS 500FP* throughout, applied by `cfg.textCorrections` in the
+extractor so the fix survives re-extraction, and matched in
+`src/content/tables/aama.json`.
+
+**Why:** the US site writes 500FP 38 times across its content and 500P once (in
+a legacy extracted page), and the Mexican product page itself favours 500FP
+four to one. The short form is a typo — and this is the code a specifier writes
+into a construction document, so it is worth being right.
+
+`compare-content.mjs` flags the one sentence this changes; it is listed in that
+script's `EXPECTED`.
+
 ---
 
 ## Not a deviation: `[wpdatatable id=2]`

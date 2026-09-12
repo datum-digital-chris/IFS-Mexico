@@ -48,6 +48,10 @@ None.
 
 None.
 
+## Corrections applied to extracted copy
+
+- product code typo: the product is IFS 500FP
+
 ## External links
 
 - https://ifscoatings.kecommerce.net/Ecom/epoxy-powder?securitycontext=2&cmsv=863
