@@ -66,7 +66,7 @@
                 {
                   "kind": "richtext",
                   "id": "_rich_text-9-732",
-                  "html": "<p>Los tráilers tienen que ser confiables, resistentes, funcionar bien y verse bien, al igual que el revestimiento en polvo que los protege. Consulte nuestra increíble gama de revestimientos en polvo IFS creados teniendo en cuenta las duras exigencias de la industria de los tráilers.</p><p>Los revestimientos en polvo para tráilers de IFS ofrecen:</p><ul><li>Excelente protección contra la corrosión</li><li>Excelente resistencia al rayado y al impacto</li><li>Excelente resistencia a la intemperie exterior</li><li>Una amplia gama de colores, efectos y texturas</li><li>Excelentes beneficios ambientales</li></ul>",
+                  "html": "<p>Los tráilers tienen que ser confiables, resistentes, funcionar bien y verse bien, al igual que el revestimiento en polvo que los protege. Consulte nuestra increíble gama de revestimientos en polvo IFS creados teniendo en cuenta las duras exigencias de la industria de los tráilers.</p><p>Los revestimientos en polvo para tráilers de IFS ofrecen:</p><ul class=\"feature-list\"><li>Excelente protección contra la corrosión</li><li>Excelente resistencia al rayado y al impacto</li><li>Excelente resistencia a la intemperie exterior</li><li>Una amplia gama de colores, efectos y texturas</li><li>Excelentes beneficios ambientales</li></ul>",
                   "className": "mb-[20px]",
                   "isCard": false,
                   "wrapClassName": "",
@@ -89,7 +89,7 @@
                 {
                   "kind": "richtext",
                   "id": "_rich_text-11-732",
-                  "html": "<p>Los revestimientos en polvo de IFS pueden ofrecer muchas ventajas sobre los revestimientos líquidos, en una sola capa, que incluyen:</p><ul><li>Mejor resistencia a los rayones y marcas</li><li>Mejor espesor de película</li><li>Menos susceptible a la acumulación de suciedad y moho</li><li>Excelente costo aplicado y tasa de utilización</li><li>Ventajas medioambientales que incluyen la ausencia de requisitos de eliminación peligrosa</li></ul>",
+                  "html": "<p>Los revestimientos en polvo de IFS pueden ofrecer muchas ventajas sobre los revestimientos líquidos, en una sola capa, que incluyen:</p><ul class=\"feature-list feature-list--wide\"><li>Mejor resistencia a los rayones y marcas</li><li>Mejor espesor de película</li><li>Menos susceptible a la acumulación de suciedad y moho</li><li>Excelente costo aplicado y tasa de utilización</li><li>Ventajas medioambientales que incluyen la ausencia de requisitos de eliminación peligrosa</li></ul>",
                   "className": "mb-[20px]",
                   "isCard": false,
                   "wrapClassName": "",
@@ -112,7 +112,7 @@
                 {
                   "kind": "richtext",
                   "id": "_rich_text-13-732",
-                  "html": "<p>Los siguientes productos son populares en el mercado de tráilers:</p><ul><li>IFS superduraderos: obtenga más información sobre los polvos IFS superduraderos</li><li>Poliésteres estándares IFS: aprenda más sobre los poliésteres estándares IFS</li><li>Imprimadores IFS: aprenda más sobre los imprimadores IFS</li><li>Formulaciones personalizadas: resuelva sus problemas de revestimiento y obtenga el rendimiento exacto que necesita</li></ul><p>Hable con su representante de IFS sobre las necesidades específicas de su producto.</p>",
+                  "html": "<p>Los siguientes productos son populares en el mercado de tráilers:</p><ul class=\"feature-list feature-list--wide\"><li>IFS superduraderos: obtenga más información sobre los polvos IFS superduraderos</li><li>Poliésteres estándares IFS: aprenda más sobre los poliésteres estándares IFS</li><li>Imprimadores IFS: aprenda más sobre los imprimadores IFS</li><li>Formulaciones personalizadas: resuelva sus problemas de revestimiento y obtenga el rendimiento exacto que necesita</li></ul><p>Hable con su representante de IFS sobre las necesidades específicas de su producto.</p>",
                   "className": "",
                   "isCard": false,
                   "wrapClassName": "",
@@ -209,6 +209,7 @@
   ],
   "template": "market",
   "market": {
+    "key": "trailers-2",
     "title": "Tráilers",
     "heroImage": "/uploads/markets/trailers-2-hero.jpg",
     "supportImage": null,
@@ -216,7 +217,7 @@
       {
         "kind": "richtext",
         "id": "_rich_text-9-732",
-        "html": "<p>Los tráilers tienen que ser confiables, resistentes, funcionar bien y verse bien, al igual que el revestimiento en polvo que los protege. Consulte nuestra increíble gama de revestimientos en polvo IFS creados teniendo en cuenta las duras exigencias de la industria de los tráilers.</p><p>Los revestimientos en polvo para tráilers de IFS ofrecen:</p><ul><li>Excelente protección contra la corrosión</li><li>Excelente resistencia al rayado y al impacto</li><li>Excelente resistencia a la intemperie exterior</li><li>Una amplia gama de colores, efectos y texturas</li><li>Excelentes beneficios ambientales</li></ul>",
+        "html": "<p>Los tráilers tienen que ser confiables, resistentes, funcionar bien y verse bien, al igual que el revestimiento en polvo que los protege. Consulte nuestra increíble gama de revestimientos en polvo IFS creados teniendo en cuenta las duras exigencias de la industria de los tráilers.</p><p>Los revestimientos en polvo para tráilers de IFS ofrecen:</p><ul class=\"feature-list\"><li>Excelente protección contra la corrosión</li><li>Excelente resistencia al rayado y al impacto</li><li>Excelente resistencia a la intemperie exterior</li><li>Una amplia gama de colores, efectos y texturas</li><li>Excelentes beneficios ambientales</li></ul>",
         "className": "mb-[20px]",
         "isCard": false,
         "wrapClassName": "",
@@ -239,7 +240,7 @@
       {
         "kind": "richtext",
         "id": "_rich_text-11-732",
-        "html": "<p>Los revestimientos en polvo de IFS pueden ofrecer muchas ventajas sobre los revestimientos líquidos, en una sola capa, que incluyen:</p><ul><li>Mejor resistencia a los rayones y marcas</li><li>Mejor espesor de película</li><li>Menos susceptible a la acumulación de suciedad y moho</li><li>Excelente costo aplicado y tasa de utilización</li><li>Ventajas medioambientales que incluyen la ausencia de requisitos de eliminación peligrosa</li></ul>",
+        "html": "<p>Los revestimientos en polvo de IFS pueden ofrecer muchas ventajas sobre los revestimientos líquidos, en una sola capa, que incluyen:</p><ul class=\"feature-list feature-list--wide\"><li>Mejor resistencia a los rayones y marcas</li><li>Mejor espesor de película</li><li>Menos susceptible a la acumulación de suciedad y moho</li><li>Excelente costo aplicado y tasa de utilización</li><li>Ventajas medioambientales que incluyen la ausencia de requisitos de eliminación peligrosa</li></ul>",
         "className": "mb-[20px]",
         "isCard": false,
         "wrapClassName": "",
@@ -262,7 +263,7 @@
       {
         "kind": "richtext",
         "id": "_rich_text-13-732",
-        "html": "<p>Los siguientes productos son populares en el mercado de tráilers:</p><ul><li>IFS superduraderos: obtenga más información sobre los polvos IFS superduraderos</li><li>Poliésteres estándares IFS: aprenda más sobre los poliésteres estándares IFS</li><li>Imprimadores IFS: aprenda más sobre los imprimadores IFS</li><li>Formulaciones personalizadas: resuelva sus problemas de revestimiento y obtenga el rendimiento exacto que necesita</li></ul><p>Hable con su representante de IFS sobre las necesidades específicas de su producto.</p>",
+        "html": "<p>Los siguientes productos son populares en el mercado de tráilers:</p><ul class=\"feature-list feature-list--wide\"><li>IFS superduraderos: obtenga más información sobre los polvos IFS superduraderos</li><li>Poliésteres estándares IFS: aprenda más sobre los poliésteres estándares IFS</li><li>Imprimadores IFS: aprenda más sobre los imprimadores IFS</li><li>Formulaciones personalizadas: resuelva sus problemas de revestimiento y obtenga el rendimiento exacto que necesita</li></ul><p>Hable con su representante de IFS sobre las necesidades específicas de su producto.</p>",
         "className": "",
         "isCard": false,
         "wrapClassName": "",

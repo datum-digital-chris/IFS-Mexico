@@ -66,7 +66,7 @@
                 {
                   "kind": "richtext",
                   "id": "_rich_text-20-771",
-                  "html": "<p>IFS Coatings entiende que, independientemente del tamaño de su negocio, los recubridores de polvo requieren lo siguiente de sus proveedores de polvo:</p><ul><li>Gran variedad de colores</li><li>Flexibilidad</li><li>Velocidad de envío</li><li>Opciones de polvo de calidad</li><li>Polvos fáciles de aplicar</li></ul><p>Teniendo esto en mente, los revestimientos en polvo IFS ofrecen:</p><ul><li>Una amplia gama de productos en polvo</li><li>Miles de colores y efectos en polvo</li><li>Servicio personalizado de combinación de colores</li><li>Tamaños de pedido flexibles para satisfacer sus necesidades</li><li>Atención al cliente y soporte técnico</li></ul>",
+                  "html": "<p>IFS Coatings entiende que, independientemente del tamaño de su negocio, los recubridores de polvo requieren lo siguiente de sus proveedores de polvo:</p><ul class=\"feature-list\"><li>Gran variedad de colores</li><li>Flexibilidad</li><li>Velocidad de envío</li><li>Opciones de polvo de calidad</li><li>Polvos fáciles de aplicar</li></ul><p>Teniendo esto en mente, los revestimientos en polvo IFS ofrecen:</p><ul class=\"feature-list feature-list--wide\"><li>Una amplia gama de productos en polvo</li><li>Miles de colores y efectos en polvo</li><li>Servicio personalizado de combinación de colores</li><li>Tamaños de pedido flexibles para satisfacer sus necesidades</li><li>Atención al cliente y soporte técnico</li></ul>",
                   "className": "",
                   "isCard": false,
                   "wrapClassName": "",
@@ -89,7 +89,7 @@
                 {
                   "kind": "richtext",
                   "id": "_rich_text-22-771",
-                  "html": "<p>En IFS tenemos más de 76,000 colores en polvo en nuestra base de datos, por lo que tendremos el color o efecto que necesite. Contamos con una amplia gama de colores estándar, entre ellos:</p><ul><li>RAL de 200 a más</li><li>ANSI/normas federales</li><li>Colores de seguridad</li><li>NSF</li><li>Neutrales: cientos de negros, blancos y grises</li><li>Hermosos metálicos: plateados, bronces, dorados, champañas</li><li>Colores brillantes y neones</li><li>Translúcidos y latentes</li><li>Efectos especiales que incluyen tonos de martillo, ríos, motas, componentes múltiples</li></ul><p>Tenemos cartas de colores, folletos y prospectos gratuitos, así como paneles de pared IFS para comprar, para que los muestre a sus clientes. Le permiten exhibir cientos de colores en polvo. Contáctenos para ordenar sus materiales o para más información.</p>",
+                  "html": "<p>En IFS tenemos más de 76,000 colores en polvo en nuestra base de datos, por lo que tendremos el color o efecto que necesite. Contamos con una amplia gama de colores estándar, entre ellos:</p><ul class=\"feature-list feature-list--wide\"><li>RAL de 200 a más</li><li>ANSI/normas federales</li><li>Colores de seguridad</li><li>NSF</li><li>Neutrales: cientos de negros, blancos y grises</li><li>Hermosos metálicos: plateados, bronces, dorados, champañas</li><li>Colores brillantes y neones</li><li>Translúcidos y latentes</li><li>Efectos especiales que incluyen tonos de martillo, ríos, motas, componentes múltiples</li></ul><p>Tenemos cartas de colores, folletos y prospectos gratuitos, así como paneles de pared IFS para comprar, para que los muestre a sus clientes. Le permiten exhibir cientos de colores en polvo. Contáctenos para ordenar sus materiales o para más información.</p>",
                   "className": "mb-[20px]",
                   "isCard": false,
                   "wrapClassName": "",
@@ -193,7 +193,7 @@
                 {
                   "kind": "richtext",
                   "id": "_rich_text-31-771",
-                  "html": "<p>Además de metalizados y texturas, IFS también ofrece una amplia gama de efectos especiales, que incluyen:</p><ul><li>Tonos de martillo</li><li>Venas</li><li>Efectos multicomponente</li><li>Ríos</li><li>Arrugas</li><li>Motas</li></ul><p>Consulte algunos de los efectos de la carta de colores IFS o hable con su representante sobre sus necesidades.</p>",
+                  "html": "<p>Además de metalizados y texturas, IFS también ofrece una amplia gama de efectos especiales, que incluyen:</p><ul class=\"feature-list\"><li>Tonos de martillo</li><li>Venas</li><li>Efectos multicomponente</li><li>Ríos</li><li>Arrugas</li><li>Motas</li></ul><p>Consulte algunos de los efectos de la carta de colores IFS o hable con su representante sobre sus necesidades.</p>",
                   "className": "mb-[20px]",
                   "isCard": false,
                   "wrapClassName": "",
@@ -239,7 +239,7 @@
                 {
                   "kind": "richtext",
                   "id": "_rich_text-35-771",
-                  "html": "<p>Independientemente del color que elija, la elección correcta de la química del producto es importante. Tenemos muchas tecnologías de productos diferentes para diferentes usos finales.</p><ul><li>Uso interior</li><li>Aplicaciones exteriores</li><li>Alta humedad</li><li>Ambientes ricos en sal</li><li>Aplicaciones de alta radiación ultravioleta</li><li>Formulaciones que toleran la desgasificación</li><li>Tratamientos antimicrobianos</li><li>Tratamientos antigrafiti</li><li>Curado a baja temperatura</li></ul><p>Los productos químicos típicos incluyen:</p><ul><li>Poliésteres estándar: TGIC y sin TGIC</li><li>Superduraderos: TGIC y sin TGIC</li><li>Híbridos</li><li>Epóxicos</li></ul>",
+                  "html": "<p>Independientemente del color que elija, la elección correcta de la química del producto es importante. Tenemos muchas tecnologías de productos diferentes para diferentes usos finales.</p><ul class=\"feature-list\"><li>Uso interior</li><li>Aplicaciones exteriores</li><li>Alta humedad</li><li>Ambientes ricos en sal</li><li>Aplicaciones de alta radiación ultravioleta</li><li>Formulaciones que toleran la desgasificación</li><li>Tratamientos antimicrobianos</li><li>Tratamientos antigrafiti</li><li>Curado a baja temperatura</li></ul><p>Los productos químicos típicos incluyen:</p><ul class=\"feature-list\"><li>Poliésteres estándar: TGIC y sin TGIC</li><li>Superduraderos: TGIC y sin TGIC</li><li>Híbridos</li><li>Epóxicos</li></ul>",
                   "className": "mb-[20px]",
                   "isCard": false,
                   "wrapClassName": "",
@@ -474,6 +474,7 @@
   ],
   "template": "market",
   "market": {
+    "key": "maquiladores",
     "title": "Maquiladores",
     "heroImage": "/uploads/markets/maquiladores-hero.jpg",
     "supportImage": "/uploads/markets/maquiladores-support.jpg",
@@ -481,7 +482,7 @@
       {
         "kind": "richtext",
         "id": "_rich_text-20-771",
-        "html": "<p>IFS Coatings entiende que, independientemente del tamaño de su negocio, los recubridores de polvo requieren lo siguiente de sus proveedores de polvo:</p><ul><li>Gran variedad de colores</li><li>Flexibilidad</li><li>Velocidad de envío</li><li>Opciones de polvo de calidad</li><li>Polvos fáciles de aplicar</li></ul><p>Teniendo esto en mente, los revestimientos en polvo IFS ofrecen:</p><ul><li>Una amplia gama de productos en polvo</li><li>Miles de colores y efectos en polvo</li><li>Servicio personalizado de combinación de colores</li><li>Tamaños de pedido flexibles para satisfacer sus necesidades</li><li>Atención al cliente y soporte técnico</li></ul>",
+        "html": "<p>IFS Coatings entiende que, independientemente del tamaño de su negocio, los recubridores de polvo requieren lo siguiente de sus proveedores de polvo:</p><ul class=\"feature-list\"><li>Gran variedad de colores</li><li>Flexibilidad</li><li>Velocidad de envío</li><li>Opciones de polvo de calidad</li><li>Polvos fáciles de aplicar</li></ul><p>Teniendo esto en mente, los revestimientos en polvo IFS ofrecen:</p><ul class=\"feature-list feature-list--wide\"><li>Una amplia gama de productos en polvo</li><li>Miles de colores y efectos en polvo</li><li>Servicio personalizado de combinación de colores</li><li>Tamaños de pedido flexibles para satisfacer sus necesidades</li><li>Atención al cliente y soporte técnico</li></ul>",
         "className": "",
         "isCard": false,
         "wrapClassName": "",
@@ -504,7 +505,7 @@
       {
         "kind": "richtext",
         "id": "_rich_text-22-771",
-        "html": "<p>En IFS tenemos más de 76,000 colores en polvo en nuestra base de datos, por lo que tendremos el color o efecto que necesite. Contamos con una amplia gama de colores estándar, entre ellos:</p><ul><li>RAL de 200 a más</li><li>ANSI/normas federales</li><li>Colores de seguridad</li><li>NSF</li><li>Neutrales: cientos de negros, blancos y grises</li><li>Hermosos metálicos: plateados, bronces, dorados, champañas</li><li>Colores brillantes y neones</li><li>Translúcidos y latentes</li><li>Efectos especiales que incluyen tonos de martillo, ríos, motas, componentes múltiples</li></ul><p>Tenemos cartas de colores, folletos y prospectos gratuitos, así como paneles de pared IFS para comprar, para que los muestre a sus clientes. Le permiten exhibir cientos de colores en polvo. Contáctenos para ordenar sus materiales o para más información.</p>",
+        "html": "<p>En IFS tenemos más de 76,000 colores en polvo en nuestra base de datos, por lo que tendremos el color o efecto que necesite. Contamos con una amplia gama de colores estándar, entre ellos:</p><ul class=\"feature-list feature-list--wide\"><li>RAL de 200 a más</li><li>ANSI/normas federales</li><li>Colores de seguridad</li><li>NSF</li><li>Neutrales: cientos de negros, blancos y grises</li><li>Hermosos metálicos: plateados, bronces, dorados, champañas</li><li>Colores brillantes y neones</li><li>Translúcidos y latentes</li><li>Efectos especiales que incluyen tonos de martillo, ríos, motas, componentes múltiples</li></ul><p>Tenemos cartas de colores, folletos y prospectos gratuitos, así como paneles de pared IFS para comprar, para que los muestre a sus clientes. Le permiten exhibir cientos de colores en polvo. Contáctenos para ordenar sus materiales o para más información.</p>",
         "className": "mb-[20px]",
         "isCard": false,
         "wrapClassName": "",
@@ -608,7 +609,7 @@
       {
         "kind": "richtext",
         "id": "_rich_text-31-771",
-        "html": "<p>Además de metalizados y texturas, IFS también ofrece una amplia gama de efectos especiales, que incluyen:</p><ul><li>Tonos de martillo</li><li>Venas</li><li>Efectos multicomponente</li><li>Ríos</li><li>Arrugas</li><li>Motas</li></ul><p>Consulte algunos de los efectos de la carta de colores IFS o hable con su representante sobre sus necesidades.</p>",
+        "html": "<p>Además de metalizados y texturas, IFS también ofrece una amplia gama de efectos especiales, que incluyen:</p><ul class=\"feature-list\"><li>Tonos de martillo</li><li>Venas</li><li>Efectos multicomponente</li><li>Ríos</li><li>Arrugas</li><li>Motas</li></ul><p>Consulte algunos de los efectos de la carta de colores IFS o hable con su representante sobre sus necesidades.</p>",
         "className": "mb-[20px]",
         "isCard": false,
         "wrapClassName": "",
@@ -654,7 +655,7 @@
       {
         "kind": "richtext",
         "id": "_rich_text-35-771",
-        "html": "<p>Independientemente del color que elija, la elección correcta de la química del producto es importante. Tenemos muchas tecnologías de productos diferentes para diferentes usos finales.</p><ul><li>Uso interior</li><li>Aplicaciones exteriores</li><li>Alta humedad</li><li>Ambientes ricos en sal</li><li>Aplicaciones de alta radiación ultravioleta</li><li>Formulaciones que toleran la desgasificación</li><li>Tratamientos antimicrobianos</li><li>Tratamientos antigrafiti</li><li>Curado a baja temperatura</li></ul><p>Los productos químicos típicos incluyen:</p><ul><li>Poliésteres estándar: TGIC y sin TGIC</li><li>Superduraderos: TGIC y sin TGIC</li><li>Híbridos</li><li>Epóxicos</li></ul>",
+        "html": "<p>Independientemente del color que elija, la elección correcta de la química del producto es importante. Tenemos muchas tecnologías de productos diferentes para diferentes usos finales.</p><ul class=\"feature-list\"><li>Uso interior</li><li>Aplicaciones exteriores</li><li>Alta humedad</li><li>Ambientes ricos en sal</li><li>Aplicaciones de alta radiación ultravioleta</li><li>Formulaciones que toleran la desgasificación</li><li>Tratamientos antimicrobianos</li><li>Tratamientos antigrafiti</li><li>Curado a baja temperatura</li></ul><p>Los productos químicos típicos incluyen:</p><ul class=\"feature-list\"><li>Poliésteres estándar: TGIC y sin TGIC</li><li>Superduraderos: TGIC y sin TGIC</li><li>Híbridos</li><li>Epóxicos</li></ul>",
         "className": "mb-[20px]",
         "isCard": false,
         "wrapClassName": "",

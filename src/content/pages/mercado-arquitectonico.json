@@ -78,7 +78,7 @@
                 {
                   "kind": "richtext",
                   "id": "_rich_text-8-711",
-                  "html": "<p>Los revestimientos en polvo de grado arquitectónico de IFS son polvos de rendimiento aplicados en fábrica diseñados específicamente para aplicaciones arquitectónicas.</p><p>Con una excelente resistencia a la intemperie, durabilidad, resistencia química y rendimiento mecánico como estándar, la gama de polvos arquitectónicos de IFS es adecuada para su uso en:</p><ul><li>Aluminio</li><li>Acero</li></ul><p>Aplicaciones interiores y exteriores, tales como:</p><ul><li>Muro cortina</li><li>Pared de ventana</li><li>Ventanas</li><li>Montantes</li><li>Paneles</li><li>Escaparate comercial</li><li>Extrusiones</li><li>Cerca</li><li>Barandilla</li><li>La mayoría de las aplicaciones de interiores de metal</li></ul>",
+                  "html": "<p>Los revestimientos en polvo de grado arquitectónico de IFS son polvos de rendimiento aplicados en fábrica diseñados específicamente para aplicaciones arquitectónicas.</p><p>Con una excelente resistencia a la intemperie, durabilidad, resistencia química y rendimiento mecánico como estándar, la gama de polvos arquitectónicos de IFS es adecuada para su uso en:</p><ul><li>Aluminio</li><li>Acero</li></ul><p>Aplicaciones interiores y exteriores, tales como:</p><ul class=\"feature-list feature-list--wide\"><li>Muro cortina</li><li>Pared de ventana</li><li>Ventanas</li><li>Montantes</li><li>Paneles</li><li>Escaparate comercial</li><li>Extrusiones</li><li>Cerca</li><li>Barandilla</li><li>La mayoría de las aplicaciones de interiores de metal</li></ul>",
                   "className": "",
                   "isCard": false,
                   "wrapClassName": "",
@@ -181,7 +181,7 @@
                 {
                   "kind": "richtext",
                   "id": "_rich_text-25-711",
-                  "html": "<p>Polvos que funcionan y lucen bien. Los polvos de grado arquitectónico IFS vienen en:</p><ul><li>Miles de colores</li><li>RAL</li><li>Efectos metálicos y de mica</li><li>Texturas</li><li>Diferentes niveles de brillo</li><li>Creación y combinación de colores personalizados</li></ul><p>Eche un vistazo a nuestra:</p><ul><li>Carta de colores arquitectónicos de IFS</li><li>Tarjeta RAL</li></ul>",
+                  "html": "<p>Polvos que funcionan y lucen bien. Los polvos de grado arquitectónico IFS vienen en:</p><ul class=\"feature-list\"><li>Miles de colores</li><li>RAL</li><li>Efectos metálicos y de mica</li><li>Texturas</li><li>Diferentes niveles de brillo</li><li>Creación y combinación de colores personalizados</li></ul><p>Eche un vistazo a nuestra:</p><ul><li>Carta de colores arquitectónicos de IFS</li><li>Tarjeta RAL</li></ul>",
                   "className": "mb-[20px]",
                   "isCard": false,
                   "wrapClassName": "",
@@ -278,6 +278,7 @@
   ],
   "template": "market",
   "market": {
+    "key": "mercado-arquitectonico",
     "title": "Mercado Arquitectónico",
     "heroImage": "/uploads/markets/mercado-arquitectonico-hero.jpg",
     "supportImage": "/uploads/markets/mercado-arquitectonico-support.jpg",
@@ -296,7 +297,7 @@
       {
         "kind": "richtext",
         "id": "_rich_text-8-711",
-        "html": "<p>Los revestimientos en polvo de grado arquitectónico de IFS son polvos de rendimiento aplicados en fábrica diseñados específicamente para aplicaciones arquitectónicas.</p><p>Con una excelente resistencia a la intemperie, durabilidad, resistencia química y rendimiento mecánico como estándar, la gama de polvos arquitectónicos de IFS es adecuada para su uso en:</p><ul><li>Aluminio</li><li>Acero</li></ul><p>Aplicaciones interiores y exteriores, tales como:</p><ul><li>Muro cortina</li><li>Pared de ventana</li><li>Ventanas</li><li>Montantes</li><li>Paneles</li><li>Escaparate comercial</li><li>Extrusiones</li><li>Cerca</li><li>Barandilla</li><li>La mayoría de las aplicaciones de interiores de metal</li></ul>",
+        "html": "<p>Los revestimientos en polvo de grado arquitectónico de IFS son polvos de rendimiento aplicados en fábrica diseñados específicamente para aplicaciones arquitectónicas.</p><p>Con una excelente resistencia a la intemperie, durabilidad, resistencia química y rendimiento mecánico como estándar, la gama de polvos arquitectónicos de IFS es adecuada para su uso en:</p><ul><li>Aluminio</li><li>Acero</li></ul><p>Aplicaciones interiores y exteriores, tales como:</p><ul class=\"feature-list feature-list--wide\"><li>Muro cortina</li><li>Pared de ventana</li><li>Ventanas</li><li>Montantes</li><li>Paneles</li><li>Escaparate comercial</li><li>Extrusiones</li><li>Cerca</li><li>Barandilla</li><li>La mayoría de las aplicaciones de interiores de metal</li></ul>",
         "className": "",
         "isCard": false,
         "wrapClassName": "",
@@ -387,7 +388,7 @@
       {
         "kind": "richtext",
         "id": "_rich_text-25-711",
-        "html": "<p>Polvos que funcionan y lucen bien. Los polvos de grado arquitectónico IFS vienen en:</p><ul><li>Miles de colores</li><li>RAL</li><li>Efectos metálicos y de mica</li><li>Texturas</li><li>Diferentes niveles de brillo</li><li>Creación y combinación de colores personalizados</li></ul><p>Eche un vistazo a nuestra:</p><ul><li>Carta de colores arquitectónicos de IFS</li><li>Tarjeta RAL</li></ul>",
+        "html": "<p>Polvos que funcionan y lucen bien. Los polvos de grado arquitectónico IFS vienen en:</p><ul class=\"feature-list\"><li>Miles de colores</li><li>RAL</li><li>Efectos metálicos y de mica</li><li>Texturas</li><li>Diferentes niveles de brillo</li><li>Creación y combinación de colores personalizados</li></ul><p>Eche un vistazo a nuestra:</p><ul><li>Carta de colores arquitectónicos de IFS</li><li>Tarjeta RAL</li></ul>",
         "className": "mb-[20px]",
         "isCard": false,
         "wrapClassName": "",

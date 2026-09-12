@@ -63,6 +63,7 @@ const pages = defineCollection({
     template: z.string().optional(),
     market: z
       .object({
+        key: z.string(),
         title: z.string(),
         heroImage: z.string().nullable(),
         supportImage: z.string().nullable(),

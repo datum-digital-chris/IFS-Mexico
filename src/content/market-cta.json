@@ -1,0 +1,35 @@
+{
+  "_note": "AUTHORED CONTENT, not extracted. A closing call to action for each Mercados page, following the house rule that every page ends with a CTA banner. Tone and shape mirror the equivalent blocks on the IFS Coatings US site (content/markets/*.md, type: cta): an action heading naming the market, one line on what the representative can provide, and a button. The button label reuses the site's own existing term, Contáctenos. Written for this project and NOT migrated from the old site, so it needs a review before launch.",
+  "label": "Contáctenos",
+  "href": "/contactenos/",
+  "markets": {
+    "mercado-arquitectonico": {
+      "heading": "Especifique IFS para su próximo proyecto arquitectónico.",
+      "description": "Cumplimiento AAMA, igualación de color, fichas técnicas y paneles de muestra. Su representante de arquitectura de IFS tiene lo que necesita."
+    },
+    "aplicaciones-industriales-generales": {
+      "heading": "Encuentre su solución en polvo para uso industrial.",
+      "description": "Asesoría técnica, selección de imprimadores y formulación a medida. Hable con su representante de IFS."
+    },
+    "electrodomesticos": {
+      "heading": "¿Listo para especificar un polvo para electrodomésticos?",
+      "description": "Igualación de color, selección de acabado y fichas técnicas. Su representante de IFS puede ayudarle."
+    },
+    "repintado-de-automoviles": {
+      "heading": "Consiga el acabado automotriz perfecto.",
+      "description": "Recomendación de productos, igualación de color y paneles de muestra. Hable con su representante de IFS."
+    },
+    "maquiladores": {
+      "heading": "Confíe su operación de recubrimiento a IFS.",
+      "description": "Gama completa de químicas en polvo, miles de colores y soporte técnico. Su representante de IFS le acompaña."
+    },
+    "trailers-2": {
+      "heading": "Encuentre su solución de recubrimiento para tráilers.",
+      "description": "Resistencia al impacto, datos de intemperie y resultados de niebla salina. Su representante de IFS tiene los datos."
+    },
+    "varillas-de-refuerzo": {
+      "heading": "Especifique el recubrimiento correcto para varilla de refuerzo.",
+      "description": "Fichas técnicas, resultados de niebla salina y cumplimiento ASTM y AASHTO. Hable con su representante de IFS."
+    }
+  }
+}

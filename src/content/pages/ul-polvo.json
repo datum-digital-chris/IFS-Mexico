@@ -77,7 +77,7 @@
         {
           "kind": "richtext",
           "id": "_rich_text-11-820",
-          "html": "<p>Además de cumplir con el rendimiento contra la corrosión UL1332, estos recubrimientos en polvo IFS también mostrarán:</p><ul><li>Excelente adherencia</li><li>Excelente dureza</li><li>Excelente flexibilidad</li><li>Buena retención del color</li><li>Buena retención del brillo</li></ul>",
+          "html": "<p>Además de cumplir con el rendimiento contra la corrosión UL1332, estos recubrimientos en polvo IFS también mostrarán:</p><ul class=\"feature-list\"><li>Excelente adherencia</li><li>Excelente dureza</li><li>Excelente flexibilidad</li><li>Buena retención del color</li><li>Buena retención del brillo</li></ul>",
           "className": "mb-[15px]",
           "isCard": false,
           "wrapClassName": "",
@@ -100,7 +100,7 @@
         {
           "kind": "richtext",
           "id": "_rich_text-15-820",
-          "html": "<p>Hay miles de colores sólidos disponibles en la formulación listada por UL de IFS Coatings. ¡Hable con nosotros sobre sus necesidades de color! Los colores incluyen (entre otros):</p><ul><li>Colores RAL</li><li>ANSI 49</li><li>ANSI 61</li><li>ANSI 70</li><li>Grises</li><li>Ropa blanca</li><li>Bronceado</li></ul>",
+          "html": "<p>Hay miles de colores sólidos disponibles en la formulación listada por UL de IFS Coatings. ¡Hable con nosotros sobre sus necesidades de color! Los colores incluyen (entre otros):</p><ul class=\"feature-list\"><li>Colores RAL</li><li>ANSI 49</li><li>ANSI 61</li><li>ANSI 70</li><li>Grises</li><li>Ropa blanca</li><li>Bronceado</li></ul>",
           "className": "mb-[15px]",
           "isCard": false,
           "wrapClassName": "",

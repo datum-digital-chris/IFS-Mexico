@@ -255,6 +255,48 @@
     }
   }
 
+  /* Feature lists. These pages are mostly lists of applications and benefits;
+     as plain bullets they read as one undifferentiated block. Two columns and a
+     brand check turn each into something scannable. Tagged at extraction
+     (tagFeatureLists) so only short, flat lists qualify. */
+  ul.feature-list,
+  .rich-text ul.feature-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem 1.75rem;
+    margin-block: 1.25rem;
+    padding: 0;
+    list-style: none;
+  }
+  @media (min-width: 640px) {
+    ul.feature-list,
+    .rich-text ul.feature-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    ul.feature-list--wide,
+    .rich-text ul.feature-list--wide {
+      grid-template-columns: 1fr;
+    }
+  }
+  ul.feature-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.7rem;
+    padding-block: 0.4rem;
+    border-top: 1px solid var(--color-surface-edge);
+    line-height: 1.45;
+  }
+  /* A check drawn in CSS rather than a glyph, so it is identical in every font. */
+  ul.feature-list li::before {
+    content: "";
+    flex: none;
+    width: 0.38em;
+    height: 0.72em;
+    border: solid var(--color-brand);
+    border-width: 0 2px 2px 0;
+    transform: translateY(-0.08em) rotate(45deg);
+  }
+
   /* Long-form market copy. The old pages ran 140-750 words with no measure and
      no rhythm between headings and body, so everything read as one block. */
   .market-prose {
@@ -263,9 +305,23 @@
   .market-prose :is(h2, h3, h4, h5, h6) {
     margin-top: 2.25rem;
   }
+  /* A section opener, not just a bigger line of text: a short brand bar over
+     the heading gives each section a visible start. */
   .market-prose h2 {
-    padding-top: 1.75rem;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
     border-top: 1px solid var(--color-surface-edge);
+    position: relative;
+    font-size: clamp(1.625rem, 1.3rem + 1vw, 2.125rem);
+  }
+  .market-prose h2::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 0;
+    width: 3.5rem;
+    height: 3px;
+    background: var(--color-brand);
   }
   /* The divider is a separator between sections, so the opening heading must
      not carry one — otherwise the article starts with a stray rule. */
@@ -274,6 +330,9 @@
     margin-top: 0;
     padding-top: 0;
     border-top: 0;
+  }
+  .market-prose > :is(h2):first-child::before {
+    display: none;
   }
   /* The opening paragraph carries the page: give it more presence. */
   .market-prose > .rich-text:first-child > p:first-child {

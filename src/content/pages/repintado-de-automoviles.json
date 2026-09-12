@@ -66,7 +66,7 @@
                 {
                   "kind": "richtext",
                   "id": "_rich_text-8-718",
-                  "html": "<p>Todos amamos de verdad a nuestros automóviles; son esenciales para nuestra vida diaria. Los revestimientos en polvo utilizados para pintarlos son igualmente importantes para IFS. La resistencia al rayado y la abrasión, la durabilidad y la resistencia a la intemperie, los excelentes colores y acabados e incluso la flexibilidad son funciones importantes a tener en cuenta al escoger un revestimiento en polvo IFS de calidad.</p><p>Los polvos IFS para el repintado de automóviles se utilizan en:</p><ul><li>Ruedas</li><li>Tapicería</li><li>Partes debajo del cofre</li><li>Partes de la parte inferior de la carrocería</li><li>Bicicletas</li><li>Kits de autos</li><li>Autos de carreras</li></ul>",
+                  "html": "<p>Todos amamos de verdad a nuestros automóviles; son esenciales para nuestra vida diaria. Los revestimientos en polvo utilizados para pintarlos son igualmente importantes para IFS. La resistencia al rayado y la abrasión, la durabilidad y la resistencia a la intemperie, los excelentes colores y acabados e incluso la flexibilidad son funciones importantes a tener en cuenta al escoger un revestimiento en polvo IFS de calidad.</p><p>Los polvos IFS para el repintado de automóviles se utilizan en:</p><ul class=\"feature-list\"><li>Ruedas</li><li>Tapicería</li><li>Partes debajo del cofre</li><li>Partes de la parte inferior de la carrocería</li><li>Bicicletas</li><li>Kits de autos</li><li>Autos de carreras</li></ul>",
                   "className": "mb-[20px]",
                   "isCard": false,
                   "wrapClassName": "",
@@ -89,7 +89,7 @@
                 {
                   "kind": "richtext",
                   "id": "_rich_text-15-718",
-                  "html": "<p>La protección de sus ruedas es importante, considerando algunas de las condiciones a las que está sujeto su vehículo:</p><ul><li>Grava y rocas</li><li>Hielo y nieve</li><li>Sal y humedad</li><li>Altos niveles de UV del sol</li><li>Limpiadores químicos</li></ul><p>Los polvos IFS se han formulado cuidadosamente para ofrecer una excelente durabilidad en todas las condiciones mencionadas anteriormente. Nuestros productos incorporan resistencia a rayones, productos químicos y astillas. Todo esto mientras ofrece una apariencia estética superior, una transparencia cristalina y una suavidad de primer nivel.</p>",
+                  "html": "<p>La protección de sus ruedas es importante, considerando algunas de las condiciones a las que está sujeto su vehículo:</p><ul class=\"feature-list\"><li>Grava y rocas</li><li>Hielo y nieve</li><li>Sal y humedad</li><li>Altos niveles de UV del sol</li><li>Limpiadores químicos</li></ul><p>Los polvos IFS se han formulado cuidadosamente para ofrecer una excelente durabilidad en todas las condiciones mencionadas anteriormente. Nuestros productos incorporan resistencia a rayones, productos químicos y astillas. Todo esto mientras ofrece una apariencia estética superior, una transparencia cristalina y una suavidad de primer nivel.</p>",
                   "className": "mb-[20px]",
                   "isCard": false,
                   "wrapClassName": "",
@@ -244,6 +244,7 @@
   ],
   "template": "market",
   "market": {
+    "key": "repintado-de-automoviles",
     "title": "Repintado de Automóviles",
     "heroImage": "/uploads/markets/repintado-de-automoviles-hero.jpg",
     "supportImage": null,
@@ -251,7 +252,7 @@
       {
         "kind": "richtext",
         "id": "_rich_text-8-718",
-        "html": "<p>Todos amamos de verdad a nuestros automóviles; son esenciales para nuestra vida diaria. Los revestimientos en polvo utilizados para pintarlos son igualmente importantes para IFS. La resistencia al rayado y la abrasión, la durabilidad y la resistencia a la intemperie, los excelentes colores y acabados e incluso la flexibilidad son funciones importantes a tener en cuenta al escoger un revestimiento en polvo IFS de calidad.</p><p>Los polvos IFS para el repintado de automóviles se utilizan en:</p><ul><li>Ruedas</li><li>Tapicería</li><li>Partes debajo del cofre</li><li>Partes de la parte inferior de la carrocería</li><li>Bicicletas</li><li>Kits de autos</li><li>Autos de carreras</li></ul>",
+        "html": "<p>Todos amamos de verdad a nuestros automóviles; son esenciales para nuestra vida diaria. Los revestimientos en polvo utilizados para pintarlos son igualmente importantes para IFS. La resistencia al rayado y la abrasión, la durabilidad y la resistencia a la intemperie, los excelentes colores y acabados e incluso la flexibilidad son funciones importantes a tener en cuenta al escoger un revestimiento en polvo IFS de calidad.</p><p>Los polvos IFS para el repintado de automóviles se utilizan en:</p><ul class=\"feature-list\"><li>Ruedas</li><li>Tapicería</li><li>Partes debajo del cofre</li><li>Partes de la parte inferior de la carrocería</li><li>Bicicletas</li><li>Kits de autos</li><li>Autos de carreras</li></ul>",
         "className": "mb-[20px]",
         "isCard": false,
         "wrapClassName": "",
@@ -274,7 +275,7 @@
       {
         "kind": "richtext",
         "id": "_rich_text-15-718",
-        "html": "<p>La protección de sus ruedas es importante, considerando algunas de las condiciones a las que está sujeto su vehículo:</p><ul><li>Grava y rocas</li><li>Hielo y nieve</li><li>Sal y humedad</li><li>Altos niveles de UV del sol</li><li>Limpiadores químicos</li></ul><p>Los polvos IFS se han formulado cuidadosamente para ofrecer una excelente durabilidad en todas las condiciones mencionadas anteriormente. Nuestros productos incorporan resistencia a rayones, productos químicos y astillas. Todo esto mientras ofrece una apariencia estética superior, una transparencia cristalina y una suavidad de primer nivel.</p>",
+        "html": "<p>La protección de sus ruedas es importante, considerando algunas de las condiciones a las que está sujeto su vehículo:</p><ul class=\"feature-list\"><li>Grava y rocas</li><li>Hielo y nieve</li><li>Sal y humedad</li><li>Altos niveles de UV del sol</li><li>Limpiadores químicos</li></ul><p>Los polvos IFS se han formulado cuidadosamente para ofrecer una excelente durabilidad en todas las condiciones mencionadas anteriormente. Nuestros productos incorporan resistencia a rayones, productos químicos y astillas. Todo esto mientras ofrece una apariencia estética superior, una transparencia cristalina y una suavidad de primer nivel.</p>",
         "className": "mb-[20px]",
         "isCard": false,
         "wrapClassName": "",

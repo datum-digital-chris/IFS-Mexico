@@ -66,7 +66,7 @@
                 {
                   "kind": "richtext",
                   "id": "_rich_text-18-91",
-                  "html": "<p>Los recubrimientos epoxi en polvo de IFS están hechos para aplicaciones que necesitan ser resistentes a los productos químicos y la corrosión y verse bien, pero en las que la durabilidad en el exterior no es importante. Los recubrimientos epoxi en polvo de IFS se usan normalmente en una amplia gama de aplicaciones, entre las que se incluyen:</p><ul><li>Armarios metálicos</li><li>Material deportivo y recreativo</li><li>Muebles</li><li>Herramientas manuales y eléctricas</li><li>Accesorios de fontanería y ferretería de latón</li><li>Cajas de herramientas y artículos de alambre, revestimientos de tuberías</li><li>Barra de refuerzo</li><li>Piezas de la parte inferior de la carrocería y del capó de automóviles</li></ul>",
+                  "html": "<p>Los recubrimientos epoxi en polvo de IFS están hechos para aplicaciones que necesitan ser resistentes a los productos químicos y la corrosión y verse bien, pero en las que la durabilidad en el exterior no es importante. Los recubrimientos epoxi en polvo de IFS se usan normalmente en una amplia gama de aplicaciones, entre las que se incluyen:</p><ul class=\"feature-list feature-list--wide\"><li>Armarios metálicos</li><li>Material deportivo y recreativo</li><li>Muebles</li><li>Herramientas manuales y eléctricas</li><li>Accesorios de fontanería y ferretería de latón</li><li>Cajas de herramientas y artículos de alambre, revestimientos de tuberías</li><li>Barra de refuerzo</li><li>Piezas de la parte inferior de la carrocería y del capó de automóviles</li></ul>",
                   "className": "",
                   "isCard": false,
                   "wrapClassName": "",
@@ -89,7 +89,7 @@
                 {
                   "kind": "richtext",
                   "id": "_rich_text-20-91",
-                  "html": "<ul><li>Excelente adherencia</li><li>Excelente resistencia química</li><li>Excelente resistencia a la corrosión</li><li>Excelente flexibilidad</li><li>Excelente dureza</li><li>Amplia gama de programas de curado</li><li>Posibilidad de baja temperatura</li><li>Gama completa de brillo</li></ul>",
+                  "html": "<ul class=\"feature-list\"><li>Excelente adherencia</li><li>Excelente resistencia química</li><li>Excelente resistencia a la corrosión</li><li>Excelente flexibilidad</li><li>Excelente dureza</li><li>Amplia gama de programas de curado</li><li>Posibilidad de baja temperatura</li><li>Gama completa de brillo</li></ul>",
                   "className": "pb-0 mt-[20px]",
                   "isCard": false,
                   "wrapClassName": "",

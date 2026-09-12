@@ -66,7 +66,7 @@
                 {
                   "kind": "richtext",
                   "id": "_rich_text-7-93",
-                  "html": "<p>Estos recubrimientos en polvo híbridos representan un equilibrio entre el rendimiento de los epoxis y los poliésteres. Se forman mezclando estos dos tipos de polímeros en diferentes proporciones según los requisitos del uso final. El rendimiento de polvo híbrido se puede resumir de la siguiente manera:</p><ul><li>Mayor resistencia al sobrehorneado en comparación con el epoxi</li><li>Buena penetración de jaula de Faraday (más fácil de penetrar en los huecos que se encuentran en la parte que se va a recubrir)</li><li>Gama completa de brillo (10 a más de 95)</li><li>Películas finas y ultrasuaves (0.8 a 1.2 ml)</li><li>Económico</li></ul><p>Las desventajas de estos polvos híbridos son las siguientes:</p><ul><li>Mala resistencia a la intemperie al aire libre</li></ul>",
+                  "html": "<p>Estos recubrimientos en polvo híbridos representan un equilibrio entre el rendimiento de los epoxis y los poliésteres. Se forman mezclando estos dos tipos de polímeros en diferentes proporciones según los requisitos del uso final. El rendimiento de polvo híbrido se puede resumir de la siguiente manera:</p><ul class=\"feature-list feature-list--wide\"><li>Mayor resistencia al sobrehorneado en comparación con el epoxi</li><li>Buena penetración de jaula de Faraday (más fácil de penetrar en los huecos que se encuentran en la parte que se va a recubrir)</li><li>Gama completa de brillo (10 a más de 95)</li><li>Películas finas y ultrasuaves (0.8 a 1.2 ml)</li><li>Económico</li></ul><p>Las desventajas de estos polvos híbridos son las siguientes:</p><ul><li>Mala resistencia a la intemperie al aire libre</li></ul>",
                   "className": "",
                   "isCard": false,
                   "wrapClassName": "",
@@ -89,7 +89,7 @@
                 {
                   "kind": "richtext",
                   "id": "_rich_text-9-93",
-                  "html": "<p>Los recubrimientos en polvo híbridos se encuentran por lo general en:</p><ul><li>Muebles de oficina</li><li>Armarios metálicos</li><li>Estantería</li><li>Accesorios de iluminación interior</li><li>Herramientas eléctricas</li><li>Piezas de la parte inferior de la carrocería y del capó de automóviles</li></ul><p>Tenga en cuenta que estos representan pautas generales. Hable con el laboratorio de IFS o con un representante para obtener una explicación más detallada y usos específicos.</p>",
+                  "html": "<p>Los recubrimientos en polvo híbridos se encuentran por lo general en:</p><ul class=\"feature-list feature-list--wide\"><li>Muebles de oficina</li><li>Armarios metálicos</li><li>Estantería</li><li>Accesorios de iluminación interior</li><li>Herramientas eléctricas</li><li>Piezas de la parte inferior de la carrocería y del capó de automóviles</li></ul><p>Tenga en cuenta que estos representan pautas generales. Hable con el laboratorio de IFS o con un representante para obtener una explicación más detallada y usos específicos.</p>",
                   "className": "pb-0 mt-[20px]",
                   "isCard": false,
                   "wrapClassName": "",

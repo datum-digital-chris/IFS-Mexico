@@ -109,6 +109,50 @@ structure:
   after a heading, which would separate it from its own text.
 - A sticky "Mercados" card listing all seven with the current one marked.
 
+### Giving them presence
+
+The first pass was correct but flat — clean prose in a column. These pages are
+overwhelmingly **lists**: applications, benefits, standards. Rendering those as
+plain bullets is what made them read as an undifferentiated wall.
+
+- **Feature lists.** `tagFeatureLists()` in the extractor marks a list as a
+  feature grid when it is flat and its items are labels rather than paragraphs.
+  Those render as two columns with a brand check (drawn in CSS, so it is
+  identical in every font) and hairline separators. Items over ~52 characters
+  get `--wide` and stay in one column; over ~130 characters the list stays a
+  plain list. 95 lists across the site convert. The threshold deliberately errs
+  towards converting: one styled list among three plain ones looks like a
+  mistake.
+- **A taller hero** — 320/400/440px by breakpoint, bottom-aligned, with a larger
+  fluid title and a brand bar beneath it.
+- **Section openers** — a short brand bar above each `h2` rather than a plain
+  hairline, so a section has a visible start.
+- **The article as a panel** — white, hairline-bordered, on a tinted page. The
+  body had been white-on-white from the hero to the footer with nothing to give
+  it edges.
+
+### The closing CTA
+
+Every Mercados page now ends with a call-to-action band — the house rule in
+`.claude/rules/00-core/CLAUDE.core.md` is that every page ends with one, and
+these previously just stopped after the last paragraph.
+
+Copy is **authored**, in `src/content/market-cta.json`: an action heading naming
+the market, one line on what the representative provides, and a button. Shape
+and tone follow the equivalent blocks on the US site (`content/markets/*.md`,
+`type: cta`); the button reuses the site's own existing term, *Contáctenos*, and
+links to `/contactenos/`.
+
+The band is brand red rather than the footer's charcoal, because it has to
+separate a light page above from a dark footer below — in charcoal it would
+merge into the footer and disappear. All three colour pairs pass AA (6.37 / 4.81
+/ 6.37).
+
+One implementation note: the market key is carried on the content model
+(`market.key`) rather than derived from the route, because `trailers-2`
+publishes at `/trailers/` and the two identifiers diverge — deriving it silently
+dropped the CTA from that one page.
+
 ### Imagery
 
 The Mexican site had no market photography, so hero and supporting images come

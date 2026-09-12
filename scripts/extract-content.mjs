@@ -284,8 +284,47 @@ const strip = (h) => String(h ?? "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " 
 
 const oxyType = (id) => id?.match(/^([a-z_]+)-\d+-\d+$/i)?.[1] ?? null;
 
+/**
+ * Mark lists that should render as a feature grid rather than plain bullets.
+ *
+ * These pages are largely lists — applications, benefits, standards — and as
+ * bullets they read as an undifferentiated wall. A list qualifies when it is
+ * flat (no nested list) and its items are short labels rather than sentences;
+ * anything longer stays a normal list, because a grid of paragraphs is worse
+ * than a column of them.
+ */
+/** domino's NodeList is not iterable; convert by index. */
+const nodeList = (list) => {
+  const out = [];
+  for (let i = 0; i < (list?.length ?? 0); i++) out.push(list[i] ?? list.item(i));
+  return out;
+};
+
+function tagFeatureLists(el) {
+  // innerHtml is also called on nodes that carry no element children.
+  if (typeof el.querySelectorAll !== "function") return;
+  for (const ul of nodeList(el.querySelectorAll("ul"))) {
+    if (ul.querySelector("ul") || ul.querySelector("ol")) continue;
+    const items = [...ul.childNodes].filter((n) => n.nodeType === 1 && n.tagName.toLowerCase() === "li");
+    if (items.length < 3) continue;
+    const longest = Math.max(...items.map((li) => li.textContent.trim().length));
+    // Beyond this an item is a paragraph, and a checklist of paragraphs reads
+    // worse than a plain list. Below it, converting everything keeps the
+    // treatment consistent down the page - one styled list among three plain
+    // ones looks like a mistake.
+    if (longest > 130) continue;
+    // Long-ish items still get the treatment, but in one column: two columns of
+    // wrapping sentences is unreadable.
+    const wide = longest > 52;
+    const cls = ul.getAttribute("class");
+    const add = wide ? "feature-list feature-list--wide" : "feature-list";
+    ul.setAttribute("class", cls ? `${cls} ${add}` : add);
+  }
+}
+
 /** Inline HTML of a rich-text/text block, with internal links rewritten. */
 function innerHtml(el) {
+  tagFeatureLists(el);
   for (const a of el.querySelectorAll("a[href]")) a.setAttribute("href", rewriteUrl(a.getAttribute("href")));
   for (const img of el.querySelectorAll("img[src]")) {
     img.setAttribute("src", rewriteUrl(img.getAttribute("src")));
@@ -683,6 +722,9 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
     const images = cfg.markets[slug];
     page.template = "market";
     page.market = {
+      // The config key, carried explicitly: the route cannot derive it, because
+      // trailers-2 publishes at /trailers/ and the ids diverge.
+      key: slug,
       title,
       heroImage: images.hero ? `/uploads/markets/${slug}-hero${images.hero.slice(images.hero.lastIndexOf("."))}` : null,
       supportImage: images.support ? `/uploads/markets/${slug}-support${images.support.slice(images.support.lastIndexOf("."))}` : null,

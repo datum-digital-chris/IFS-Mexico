@@ -66,7 +66,7 @@
                 {
                   "kind": "richtext",
                   "id": "_rich_text-8-727",
-                  "html": "<p>Los marcos de metal, los tanques de propano, los transformadores eléctricos, las estanterías, las torres de cerveza, los aparatos, las torres de agua y mucho, mucho más, se benefician de la protección de los revestimientos en polvo duraderos.</p><p>Los revestimientos en polvo de IFS tienen una amplia gama de productos químicos y colores diseñados para muchas aplicaciones de metales industriales diferentes.</p><p>Elija entre productos que brindarán beneficios técnicos que incluyen:</p><ul><li>Resistencia a la corrosión</li><li>Resistencia química</li><li>Resistencia al rayado</li><li>Resistencia al desgaste</li><li>Resistencia al impacto</li><li>Resistencia a la intemperie exterior</li></ul>",
+                  "html": "<p>Los marcos de metal, los tanques de propano, los transformadores eléctricos, las estanterías, las torres de cerveza, los aparatos, las torres de agua y mucho, mucho más, se benefician de la protección de los revestimientos en polvo duraderos.</p><p>Los revestimientos en polvo de IFS tienen una amplia gama de productos químicos y colores diseñados para muchas aplicaciones de metales industriales diferentes.</p><p>Elija entre productos que brindarán beneficios técnicos que incluyen:</p><ul class=\"feature-list\"><li>Resistencia a la corrosión</li><li>Resistencia química</li><li>Resistencia al rayado</li><li>Resistencia al desgaste</li><li>Resistencia al impacto</li><li>Resistencia a la intemperie exterior</li></ul>",
                   "className": "mb-[20px]",
                   "isCard": false,
                   "wrapClassName": "",
@@ -112,7 +112,7 @@
                 {
                   "kind": "richtext",
                   "id": "_rich_text-17-727",
-                  "html": "<p>Además de nuestra amplia gama de productos químicos, también fabricamos productos especializados diseñados para combatir problemas específicos. Estos incluyen:</p><ul><li>Polvos antigrafiti</li><li>Polvos disipadores electrostáticos</li><li>Polvos dieléctricos</li><li>Polvos resistentes al calor</li><li>Polvos termoplásticos para mejorar la resistencia al impacto y lograr una sensación más suave</li><li>IFS Co-Cure: formulaciones secas sobre secas</li></ul><p>Ya sea que necesite una solución rentable, un nivel específico de rendimiento de su polvo, un imprimador protector en polvo o un hermoso color, lo tenemos cubierto.</p><p>Hable con su representante de IFS sobre las necesidades específicas de su producto.</p>",
+                  "html": "<p>Además de nuestra amplia gama de productos químicos, también fabricamos productos especializados diseñados para combatir problemas específicos. Estos incluyen:</p><ul class=\"feature-list feature-list--wide\"><li>Polvos antigrafiti</li><li>Polvos disipadores electrostáticos</li><li>Polvos dieléctricos</li><li>Polvos resistentes al calor</li><li>Polvos termoplásticos para mejorar la resistencia al impacto y lograr una sensación más suave</li><li>IFS Co-Cure: formulaciones secas sobre secas</li></ul><p>Ya sea que necesite una solución rentable, un nivel específico de rendimiento de su polvo, un imprimador protector en polvo o un hermoso color, lo tenemos cubierto.</p><p>Hable con su representante de IFS sobre las necesidades específicas de su producto.</p>",
                   "className": "",
                   "isCard": false,
                   "wrapClassName": "",
@@ -209,6 +209,7 @@
   ],
   "template": "market",
   "market": {
+    "key": "aplicaciones-industriales-generales",
     "title": "Aplicaciones Industriales Generales",
     "heroImage": "/uploads/markets/aplicaciones-industriales-generales-hero.jpg",
     "supportImage": "/uploads/markets/aplicaciones-industriales-generales-support.jpg",
@@ -216,7 +217,7 @@
       {
         "kind": "richtext",
         "id": "_rich_text-8-727",
-        "html": "<p>Los marcos de metal, los tanques de propano, los transformadores eléctricos, las estanterías, las torres de cerveza, los aparatos, las torres de agua y mucho, mucho más, se benefician de la protección de los revestimientos en polvo duraderos.</p><p>Los revestimientos en polvo de IFS tienen una amplia gama de productos químicos y colores diseñados para muchas aplicaciones de metales industriales diferentes.</p><p>Elija entre productos que brindarán beneficios técnicos que incluyen:</p><ul><li>Resistencia a la corrosión</li><li>Resistencia química</li><li>Resistencia al rayado</li><li>Resistencia al desgaste</li><li>Resistencia al impacto</li><li>Resistencia a la intemperie exterior</li></ul>",
+        "html": "<p>Los marcos de metal, los tanques de propano, los transformadores eléctricos, las estanterías, las torres de cerveza, los aparatos, las torres de agua y mucho, mucho más, se benefician de la protección de los revestimientos en polvo duraderos.</p><p>Los revestimientos en polvo de IFS tienen una amplia gama de productos químicos y colores diseñados para muchas aplicaciones de metales industriales diferentes.</p><p>Elija entre productos que brindarán beneficios técnicos que incluyen:</p><ul class=\"feature-list\"><li>Resistencia a la corrosión</li><li>Resistencia química</li><li>Resistencia al rayado</li><li>Resistencia al desgaste</li><li>Resistencia al impacto</li><li>Resistencia a la intemperie exterior</li></ul>",
         "className": "mb-[20px]",
         "isCard": false,
         "wrapClassName": "",
@@ -262,7 +263,7 @@
       {
         "kind": "richtext",
         "id": "_rich_text-17-727",
-        "html": "<p>Además de nuestra amplia gama de productos químicos, también fabricamos productos especializados diseñados para combatir problemas específicos. Estos incluyen:</p><ul><li>Polvos antigrafiti</li><li>Polvos disipadores electrostáticos</li><li>Polvos dieléctricos</li><li>Polvos resistentes al calor</li><li>Polvos termoplásticos para mejorar la resistencia al impacto y lograr una sensación más suave</li><li>IFS Co-Cure: formulaciones secas sobre secas</li></ul><p>Ya sea que necesite una solución rentable, un nivel específico de rendimiento de su polvo, un imprimador protector en polvo o un hermoso color, lo tenemos cubierto.</p><p>Hable con su representante de IFS sobre las necesidades específicas de su producto.</p>",
+        "html": "<p>Además de nuestra amplia gama de productos químicos, también fabricamos productos especializados diseñados para combatir problemas específicos. Estos incluyen:</p><ul class=\"feature-list feature-list--wide\"><li>Polvos antigrafiti</li><li>Polvos disipadores electrostáticos</li><li>Polvos dieléctricos</li><li>Polvos resistentes al calor</li><li>Polvos termoplásticos para mejorar la resistencia al impacto y lograr una sensación más suave</li><li>IFS Co-Cure: formulaciones secas sobre secas</li></ul><p>Ya sea que necesite una solución rentable, un nivel específico de rendimiento de su polvo, un imprimador protector en polvo o un hermoso color, lo tenemos cubierto.</p><p>Hable con su representante de IFS sobre las necesidades específicas de su producto.</p>",
         "className": "",
         "isCard": false,
         "wrapClassName": "",

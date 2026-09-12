@@ -51,7 +51,7 @@
                 {
                   "kind": "richtext",
                   "id": "_rich_text-7-751",
-                  "html": "<p>Gracias por su interés en IFS Coatings</p><p>Llámenos: +52 554 166 2665</p><p>Envíe un correo electrónico a <a href=\"mailto:revestimientosinfo@ifscoatings.com\">revestimientosinfo@ifscoatings.com</a> si desea:</p><ul><li>Solicite folletos, tarjetas de colores y volantes</li><li>Solicite paneles de muestra</li><li>Obtenga soporte técnico</li><li>hablar con un representante</li><li>Envíanos una pregunta o comentario</li></ul>",
+                  "html": "<p>Gracias por su interés en IFS Coatings</p><p>Llámenos: +52 554 166 2665</p><p>Envíe un correo electrónico a <a href=\"mailto:revestimientosinfo@ifscoatings.com\">revestimientosinfo@ifscoatings.com</a> si desea:</p><ul class=\"feature-list\"><li>Solicite folletos, tarjetas de colores y volantes</li><li>Solicite paneles de muestra</li><li>Obtenga soporte técnico</li><li>hablar con un representante</li><li>Envíanos una pregunta o comentario</li></ul>",
                   "className": "mb-0",
                   "isCard": false,
                   "wrapClassName": "",

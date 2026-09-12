@@ -46,7 +46,12 @@ The home page has its own template (`src/pages/index.astro`) driven by
 `src/content/home.json`, because its content is a list and the old site rendered
 it as seven stacked slabs — see `docs/design-system.md`.
 
-`src/content/` is **generated**. Never hand-edit it: fix the templates or the
+Two files under `src/content/` are **authored, not generated** and are excluded
+from that rule: `tables/aama.json` (the AAMA specification figures) and
+`market-cta.json` (the Mercados call-to-action copy). Both carry a `_note`
+explaining where they came from, and both want a review before launch.
+
+`src/content/` is otherwise **generated**. Never hand-edit it: fix the templates or the
 extractor. See `docs/content-map.md`.
 
 ## Verification
