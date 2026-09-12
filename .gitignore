@@ -2,6 +2,10 @@
 # the live site until cutover; too large and too transient for git.
 wp-cache/
 
+# Screenshot comparisons: verification artefacts, regenerable with `npm run
+# shots` while the old site is up. 29MB of PNGs that change every run.
+docs/visual/
+
 node_modules/
 dist/
 .astro/
