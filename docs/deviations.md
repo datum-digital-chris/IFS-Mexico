@@ -151,6 +151,143 @@ the value to change if the client wants their own red back; it is one line
 
 ---
 
+## 11. The masthead loses its black utility strip
+
+**Old:** a black bar above the masthead carrying two links (Conocenos,
+Contáctenos), the Mexican flag and the phone number, then a masthead with the
+circular IFS mark on a white-to-grey gradient.
+
+**New:** one row. The wordmark used on `ifscoatings.com`
+(`public/uploads/ifs-logo.png`), the flag beside it behind a hairline, the nav,
+and the phone number at the end of the row. The phone also repeats at the foot
+of the mobile menu.
+
+**Why:** the strip was a second navigation for items the main menu already
+carried — Conocenos sits under Recursos and Contáctenos is a top-level item —
+and it pushed the masthead 38px down the page on every view. No text is lost:
+both links and the number are still on every page. The wordmark is the .com's
+so the two IFS sites read as one company.
+
+---
+
+## 11b. The masthead is ifscoatings.com's, and carries search
+
+**Old (and the first rebuild):** the masthead carried the phone number as its
+right-hand item and had no search of any kind. The site's only way in was the
+menu.
+
+**New:** the row is the .com's — 60px tall, a 36px wordmark, 14px nav items —
+and it ends with the two actions the .com ends with: a search trigger (⌘K, or
+Ctrl K off Apple platforms) and the Contáctenos button. The phone number moved
+out of the masthead; it is still on every page, in the contact flyout and in
+the footer, which is where the .com keeps it too.
+
+**Search** indexes all 28 pages and all 190 RAL colours
+(`/search-index.json`, built from the same content the pages render). A colour
+result lands on its own swatch. The index is fetched the first time the palette
+opens, and the trigger is hidden until its script runs: with JavaScript
+unavailable there is no search box rather than a dead one.
+
+---
+
+## 12. Contáctenos opens a flyout, and its page is laid out as a form
+
+**Old:** Contáctenos was a link to a page that ran its copy down a prose column
+with the form beneath it.
+
+**New:** the masthead's Contáctenos opens a panel of contact options — the
+form, a quote, the phone, the email — mirroring the panel on `ifscoatings.com`.
+The panel's copy is authored in `src/content/contact.json` and is **not**
+migrated content. `/contactenos/` itself is now the reference site's contact
+layout: photo header, the form in a two-thirds column, and the page's own phone
+number, email line and "si desea" list in the column beside it, over the links
+to the rest of Recursos.
+
+**Why:** a visitor who only wants the phone number should not have to load a
+page to find it. Every word of the old page is still on it — `npm run compare`
+stays at 0 missing — and the trigger is a real link to `/contactenos/`, so the
+page is still reachable with JavaScript unavailable.
+
+---
+
+## 13. The colour page is one grid with a search, not three tabs
+
+**Old:** 190 RAL swatches split across three tab panels labelled "RAL Colors
+1", "2" and "3" — a division made where the first panel got long, carrying no
+meaning. See #1 for the related fault (no tab selected on load).
+
+**New:** one grid in RAL order, six across, over a search field and a row of
+colour-family filters (Amarillos, Naranjas, Rojos, Violetas, Azules, Verdes,
+Grises, Marrones, Blancos y negros). Each card carries its family's colour on
+its top edge and its IFS code in a pill tinted to match. This is the shape the
+US site gives the same content (`src/components/RalColorSearch.tsx`).
+
+**Why:** the tabs hid two thirds of the range and nothing could be found. The
+family names are authored — the only text added to the page — and the swatches,
+their RAL numbers and their IFS codes are untouched.
+
+**Header photograph:** replaced with `ifscoatings.com/ral-color/`'s, a fan of
+coated chips (`/uploads/library/colors-hero.jpg`). The old one is a printed RAL
+fan deck whose colour names read as a second set of labels behind the title.
+
+**No-JavaScript behaviour:** the filter bar is hidden until its script runs.
+The complete grid is the page; search narrows it, it is not how it works.
+
+---
+
+## 14. The powder-type headers are the .com's, page for page
+
+**Old:** nine of the eleven Tipos de Polvo pages opened on the same handful of
+generic powder-explosion graphics — nothing in the picture told you which
+chemistry you were reading about, and Polvo Epoxi and Polvo Híbrido were
+literally the same file.
+
+**New:** each page takes the header `ifscoatings.com` gives the same chemistry:
+
+| Página                             | ifscoatings.com                   |
+| ---------------------------------- | --------------------------------- |
+| Polvo de Poliéster Estándar        | `/standard-polyester-powder/`     |
+| Polvos de Poliéster Superduraderos | `/super-durable-powder/`          |
+| Polvo de Fluoropolímero (FEVE)     | `/fluoropolymer-powder/`          |
+| Polvo Epoxi                        | `/epoxy-powder/`                  |
+| Polvo Híbrido                      | `/hybrid-powder/`                 |
+| Polvo Antimicrobiano               | `/anti-microbial-powder/`         |
+| Polvo Antigrafiti                  | `/anti-graffiti-powder/`          |
+| Imprimadores en Polvo              | `/primer-powders/`                |
+| Polvo Aprobados por NSF            | `/nsf-powder/`                    |
+| Polvo (ESD)                        | `/esd-powder/`                    |
+| Polvos Termoplásticos IFS Puroplaz | `/puroplaz-thermoplastic-powder/` |
+
+Antimicrobiano and ESD already carried the .com's shot; the other nine now do
+too. UL Polvo has no counterpart on the .com, so it keeps the chemistry-guide
+header. Mapped in `cfg.pageImages`, so the pairing is recorded rather than
+remembered.
+
+**Worth knowing:** these are 1900×300 banner strips on the .com as well, used
+there in the same full-height header — so they upscale on both sites. They are
+softer than the market photography, and identical to the reference.
+
+---
+
+## 15. The footer is a site map, and its "Contáctenos" link goes to Contáctenos
+
+**Old:** a centred stack — the mission statement, the circular logo, a
+"Contáctenos" link that pointed at `/conocenos/`, the email and the phone —
+and no way into the rest of the site.
+
+**New:** the reference site's footer. A brand column (the `ifscoatings.com`
+wordmark knocked out to white, the mission statement, the phone and the email)
+beside one column per section of the menu, then a legal bar carrying the
+copyright and the two legal pages. The mission, phone, email and copyright are
+the old footer's own strings; the columns come from the site's menu. The
+mis-pointed link now goes to `/contactenos/`.
+
+**Address:** the old site carries no postal address on any page, so the footer
+has an address slot (`address` in `src/content/contact.json`) that renders
+nothing until the client supplies one. No placeholder is shipped.
+
+---
+
 ## Not a deviation: `[wpdatatable id=2]`
 
 One shortcode on `/mercado-arquitectonico/` refers to a wpDataTables table.

@@ -41,6 +41,8 @@
   --action-dark: color-mix(in srgb, var(--seed-action) 82%, black);
   --action-deep: color-mix(in srgb, var(--seed-action) 66%, black);
   --action-shade: color-mix(in srgb, var(--seed-action) 92%, black);
+  /* The faintest rung: a tint for the row an action is hovering over. */
+  --action-wash: color-mix(in srgb, var(--seed-action) 7%, white);
 
   --accent-sheen: color-mix(in srgb, var(--seed-accent) 88%, white);
   --accent-base: var(--seed-accent);
@@ -178,6 +180,17 @@
   /* The container gutter: px-4 sm:px-6. */
   --spacing-gutter: 1rem;
   --spacing-gutter-lg: 1.5rem;
+
+  /* Every page header with a photograph is this tall, so moving between pages
+     does not move the masthead's shadow line up and down. Held as a token
+     because three templates draw a header: the generic document one, Colores
+     and Contáctenos. The two legal pages have no photograph and are sized to
+     their copy instead — a 75vh band of empty navy is a hole, not a header. */
+  --spacing-hero: 75vh;
+
+  /* The masthead's height. Held here because the colour index sticks directly
+     under it, and the two drifting apart leaves a gap or an overlap. */
+  --spacing-header: 60px;
 
   /* Square corners, per the house style. */
   --radius-button: 0px;
@@ -398,6 +411,12 @@
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), var(--gradient-action);
   }
 
+  /* The masthead size: the row is 72px, so the action has to sit inside it. */
+  .ox-btn--sm {
+    padding: 0.6rem 1.1rem;
+    font-size: 0.8125rem;
+  }
+
   /* The section-CTA size. */
   .ox-btn--lg {
     padding: 1rem 2rem;
@@ -540,6 +559,11 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
+  /* The same cells in a column, for a grid that runs in the sidebar rather
+     than across a section. */
+  .app-grid--stack {
+    grid-template-columns: 1fr;
+  }
   .app-grid__cell {
     display: flex;
     align-items: center;
@@ -567,6 +591,485 @@
     background: var(--color-brand);
     -webkit-mask: var(--check) center / 1.1rem no-repeat;
     mask: var(--check) center / 1.1rem no-repeat;
+  }
+
+  /* ---------------------------------------------------------------------
+     The colour index.
+
+     190 RAL swatches, grouped by family. The family's own colour arrives from
+     content as --group-color and is used for the chip, the rule under the
+     heading and the tint behind the code — content colour, bound through a
+     custom property so no visual property is written inline.
+  --------------------------------------------------------------------- */
+  .color-filter {
+    position: sticky;
+    /* Directly under the masthead, which is sticky at z-30. */
+    top: var(--spacing-header);
+    z-index: 20;
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-surface-edge);
+  }
+  .color-search {
+    position: relative;
+    width: 100%;
+    max-width: 28rem;
+  }
+  .color-search__icon {
+    position: absolute;
+    top: 50%;
+    left: 0.75rem;
+    width: 1rem;
+    height: 1rem;
+    transform: translateY(-50%);
+    color: var(--color-ink-muted);
+    pointer-events: none;
+  }
+  .color-search input {
+    width: 100%;
+    padding: 0.6rem 0.9rem 0.6rem 2.25rem;
+    border: 1px solid var(--color-surface-edge-strong);
+    background: var(--color-surface);
+    font-size: 0.9375rem;
+    color: var(--color-ink);
+  }
+  .color-search input::placeholder {
+    color: var(--color-ink-muted);
+  }
+  .color-search input:focus {
+    border-color: var(--color-action);
+    outline: none;
+  }
+
+  /* The family row. One scrolling line on a phone — wrapped, it is six rows
+     deep and the sticky bar swallows the viewport. */
+  .color-ranges {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+  }
+  .color-ranges > * {
+    flex: none;
+  }
+  @media (min-width: 992px) {
+    .color-ranges {
+      flex-wrap: wrap;
+      justify-content: center;
+      overflow-x: visible;
+      padding-bottom: 0;
+    }
+  }
+
+  /* A colour family, as a filter. Square, like every other control here; the
+     family's own colour is the chip, and the selected one takes the action
+     fill so selection is never carried by colour alone. */
+  .color-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.75rem;
+    border: 1px solid var(--color-surface-edge);
+    background: var(--color-surface);
+    font-family: var(--font-heading);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-ink);
+    cursor: pointer;
+    transition:
+      border-color 0.15s ease,
+      background-color 0.15s ease,
+      color 0.15s ease;
+  }
+  .color-pill:hover {
+    border-color: var(--group-color, var(--color-action));
+    background: var(--color-surface-alt);
+  }
+  .color-pill[aria-pressed="true"] {
+    background: var(--gradient-glint), var(--gradient-action);
+    border-color: transparent;
+    color: #fff;
+  }
+  .color-pill__chip {
+    width: 0.75rem;
+    height: 0.75rem;
+    flex: none;
+    background: var(--group-color, var(--color-surface-edge-strong));
+    outline: 1px solid rgba(0, 0, 0, 0.12);
+    outline-offset: -1px;
+  }
+  .color-pill__count {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--color-ink-muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .color-pill[aria-pressed="true"] .color-pill__count {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  /* A swatch card. Square, hairline, and no hover lift: 190 of them, so the
+     card has to be quiet. The family's colour rides the top edge, which is what
+     keeps the grid legible as families when nothing is filtered. */
+  .swatch {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-surface);
+    border: 1px solid var(--color-surface-edge);
+    border-top: 3px solid var(--group-color, var(--color-surface-edge-strong));
+  }
+  .swatch__chip {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    padding: 7.5%;
+    object-fit: contain;
+    /* A shade under the card, so the panel photograph sits in a tile rather
+       than floating on the card's own white. */
+    background: color-mix(in srgb, var(--color-surface-warm) 55%, white);
+  }
+  .swatch__meta {
+    padding: 0.625rem 0.75rem 0.75rem;
+  }
+  .swatch__name {
+    font-family: var(--font-heading);
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--color-ink);
+  }
+  /* The code pill: the product reference, tinted by the family it belongs to so
+     a column of them still reads as one group. */
+  .swatch__code {
+    display: inline-block;
+    margin-top: 0.375rem;
+    padding: 0.2rem 0.45rem;
+    background: color-mix(in srgb, var(--group-color, #6b7280) 12%, white);
+    border-left: 2px solid var(--group-color, var(--color-surface-edge-strong));
+    font-size: 0.6875rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--color-ink-body);
+    overflow-wrap: anywhere;
+  }
+
+  /* The masthead's search trigger: the icon, and the keyboard hint beside it
+     from the large tier up. Sized to sit inside the 60px row. */
+  .search-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    height: 2rem;
+    padding-inline: 0.5rem;
+    border: 1px solid transparent;
+    background: none;
+    color: var(--color-ink-body);
+    cursor: pointer;
+    transition:
+      color 0.15s ease,
+      border-color 0.15s ease,
+      background-color 0.15s ease;
+  }
+  .search-trigger:hover {
+    color: var(--color-ink);
+    background: var(--color-surface-alt);
+  }
+  .search-trigger svg {
+    width: 1.05rem;
+    height: 1.05rem;
+    flex: none;
+  }
+  .search-trigger__kbd {
+    display: none;
+    border: 1px solid var(--color-surface-edge-strong);
+    padding: 0.05rem 0.3rem;
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--color-ink-muted);
+  }
+  @media (min-width: 992px) {
+    .search-trigger__kbd {
+      display: inline-block;
+    }
+  }
+
+  /* ---------------------------------------------------------------------
+     Search palette.
+
+     The ⌘K overlay, carried over from the US site. Square, hairline, and on
+     the same surfaces as everything else; the rows are the flyout's rows.
+  --------------------------------------------------------------------- */
+  .site-search {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+  }
+  .site-search__scrim {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+  }
+  .site-search__panel {
+    position: relative;
+    width: 92%;
+    max-width: 40rem;
+    margin: 12vh auto 0;
+    background: var(--color-surface);
+    border: 1px solid var(--color-surface-edge);
+  }
+  .site-search__query {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding-inline: 1rem;
+    border-bottom: 1px solid var(--color-surface-edge);
+  }
+  .site-search__query svg {
+    width: 1.15rem;
+    height: 1.15rem;
+    flex: none;
+    color: var(--color-ink-muted);
+  }
+  .site-search__query input {
+    width: 100%;
+    padding-block: 1rem;
+    border: 0;
+    background: none;
+    font-size: 1rem;
+    color: var(--color-ink);
+  }
+  .site-search__query input:focus {
+    outline: none;
+  }
+  .site-search__query input::placeholder {
+    color: var(--color-ink-muted);
+  }
+  .site-search__esc {
+    flex: none;
+    border: 1px solid var(--color-surface-edge-strong);
+    padding: 0.05rem 0.35rem;
+    background: none;
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--color-ink-muted);
+    cursor: pointer;
+  }
+  .site-search__esc:hover {
+    border-color: var(--color-action);
+    color: var(--color-brand-deep);
+  }
+  .site-search__results {
+    max-height: 56vh;
+    overflow-y: auto;
+  }
+  .site-search__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--color-surface-edge);
+    color: var(--color-ink);
+  }
+  .site-search__row:last-child {
+    border-bottom: 0;
+  }
+  .site-search__row:hover,
+  .site-search__row.is-active {
+    background: var(--action-wash);
+    color: var(--color-ink);
+  }
+  .site-search__row-text {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+  }
+  .site-search__row-title {
+    font-family: var(--font-heading);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .site-search__row-desc {
+    overflow: hidden;
+    font-size: 0.8125rem;
+    line-height: 1.35;
+    color: var(--color-ink-muted);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .site-search__row-type {
+    flex: none;
+    font-family: var(--font-heading);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+  }
+  .site-search__empty {
+    padding: 1.75rem 1rem;
+    text-align: center;
+    color: var(--color-ink-muted);
+  }
+  .site-search__hint {
+    display: none;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+    border-top: 1px solid var(--color-surface-edge);
+    font-size: 0.6875rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-ink-muted);
+  }
+  .site-search__hint b {
+    color: var(--color-ink-body);
+  }
+  @media (min-width: 640px) {
+    .site-search__hint {
+      display: flex;
+    }
+  }
+
+  /* ---------------------------------------------------------------------
+     Contact flyout.
+
+     The panel the masthead's Contáctenos opens, carried over from the US site
+     (~/GitHub/IFS-Coatings, src/components/layout/ContactFlyout.astro): a
+     320px drawer off the left edge over a scrim, an accent-filled header, and
+     one row per way of getting in touch. Square corners and hairline rules,
+     like every other surface here; the icon tile takes the action sweep
+     because each row is a link.
+
+     BEM, per the house style — the only interactive component on the site with
+     enough parts to need it.
+  --------------------------------------------------------------------- */
+  .contact-flyout {
+    position: fixed;
+    inset: 0;
+    z-index: 50; /* over the sticky masthead, which is z-30 */
+    pointer-events: none;
+    visibility: hidden;
+  }
+  .contact-flyout--open {
+    pointer-events: auto;
+    visibility: visible;
+  }
+  .contact-flyout__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.25s ease;
+  }
+  .contact-flyout--open .contact-flyout__backdrop {
+    background: rgba(0, 0, 0, 0.55);
+  }
+  .contact-flyout__panel {
+    position: absolute;
+    inset-block: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 340px;
+    max-width: 85vw;
+    background: var(--color-surface);
+    border-right: 1px solid var(--color-surface-edge);
+    transform: translateX(-100%);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .contact-flyout--open .contact-flyout__panel {
+    transform: translateX(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .contact-flyout__panel,
+    .contact-flyout__backdrop {
+      transition: none;
+    }
+  }
+  .contact-flyout__header {
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--gradient-glint), var(--gradient-accent);
+  }
+  .contact-flyout__title {
+    font-family: var(--font-heading);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: #fff;
+  }
+  .contact-flyout__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border: 0;
+    background: none;
+    color: rgba(255, 255, 255, 0.75);
+    cursor: pointer;
+    transition:
+      background-color 0.15s ease,
+      color 0.15s ease;
+  }
+  .contact-flyout__close:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+  }
+  .contact-flyout__body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  .contact-flyout__item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    color: var(--color-ink);
+    border-bottom: 1px solid var(--color-surface-edge);
+    transition: background-color 0.15s ease;
+  }
+  .contact-flyout__item:last-child {
+    border-bottom: 0;
+  }
+  .contact-flyout__item:hover {
+    background: var(--action-wash);
+    color: var(--color-ink);
+  }
+  .contact-flyout__icon {
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: #fff;
+    background: var(--gradient-glint), var(--gradient-action);
+  }
+  .contact-flyout__label {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--color-ink);
+  }
+  .contact-flyout__sub {
+    display: block;
+    margin-top: 2px;
+    font-size: 0.8125rem;
+    line-height: 1.35;
+    color: var(--color-ink-muted);
+    overflow-wrap: anywhere;
   }
 
   /* An icon from public/icons/, painted through a mask so its colour comes
@@ -641,6 +1144,56 @@
   }
   .doc-prose > :is(h3, h4, h5, h6):first-child {
     margin-top: 0;
+  }
+
+  /* The overview panel's copy column. It holds the grid the opening passage
+     introduces, so the grid has to size against the column rather than the
+     viewport — a container query, not a media query. */
+  .panel-col {
+    container-type: inline-size;
+  }
+  .panel-col .app-grid,
+  .panel-col ul.feature-list {
+    grid-template-columns: 1fr;
+    /* The run wrapper carries the space above and below. */
+    margin-block: 0;
+  }
+  @container (min-width: 440px) {
+    .panel-col .app-grid,
+    .panel-col ul.feature-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @container (min-width: 760px) {
+    .panel-col .app-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  /* A run of data inside a section — an application grid, a table, the colour
+     tabs. The wrapper carries the rhythm, so the block inside it must not add
+     its own on top: the two together were 64px of compounding space at every
+     boundary. */
+  .doc-run {
+    margin-block: 2rem;
+  }
+  .doc-run > :first-child {
+    margin-block-start: 0;
+  }
+  .doc-run > :last-child {
+    margin-block-end: 0;
+  }
+
+  /* A band's padding is the space at its foot and head. A trailing list or
+     paragraph inside it must not add to that — margins collapse through the
+     container and push the boundary out by another 30-60px. */
+  section > .container-ox > :first-child,
+  section > .container-ox > :first-child > :first-child {
+    margin-block-start: 0;
+  }
+  section > .container-ox > :last-child,
+  section > .container-ox > :last-child > :last-child {
+    margin-block-end: 0;
   }
 
   /* The numbered items under a section heading — the US site's "advantages"
@@ -718,6 +1271,11 @@
     max-width: var(--container-measure);
     font-size: 1.25rem;
     line-height: 1.625;
+  }
+  /* Consecutive text blocks: each is one paragraph whose own outer margins are
+     trimmed, so without this they touch. */
+  .doc-lead > * + * {
+    margin-top: 1em;
   }
   .doc-lead > .rich-text:first-child > p:first-child {
     color: var(--color-ink);

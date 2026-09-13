@@ -1,0 +1,163 @@
+---
+/**
+ * Contáctenos.
+ *
+ * The generic document template (src/layouts/PageLayout.astro) presents a page
+ * as prose: a lead panel, then one band per section. This page is not prose —
+ * it is a form plus the two ways to reach IFS without one — so it gets the
+ * shape the US site gives the same job (~/GitHub/IFS-Coatings,
+ * src/pages/contact-us.astro): photo header, then the form in a two-thirds
+ * column with the contact details and the resource links beside it.
+ *
+ * Every string still comes from the extracted page (src/content/pages/
+ * contactenos.json) and the site menu; the layout moved, the copy did not, and
+ * `npm run compare` checks that. The closing CTA band is deliberately absent —
+ * it points here.
+ */
+import { getEntry } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/page/PageHero.astro";
+import ContactForm from "@/components/ContactForm.astro";
+import RichText from "@/components/RichText.astro";
+import site from "@/content/site.json";
+import cta from "@/content/cta.json";
+import type { Block as BlockType, Doc } from "@/lib/blocks";
+
+const entry = await getEntry("pages", "contactenos");
+if (!entry?.data.doc)
+  throw new Error("contactenos: the extracted page has no doc — run npm run extract");
+
+const doc = entry.data.doc as Doc;
+const body = doc.lead.body;
+const form = body.find((b: BlockType) => b.kind === "form");
+const prose = body.filter((b: BlockType) => b.kind === "richtext");
+const lists = body.filter((b: BlockType) => b.kind === "featurelist");
+
+/* The sidebar's second card. The section this page sits in, with its siblings:
+   labels and destinations are the site's own menu, so nothing here is
+   authored. */
+const resources = site.menu.find((m) => m.label === doc.eyebrow);
+const siblings = (resources?.children ?? []).filter((c) => c.href !== entry.data.path);
+
+const card = "bg-surface-warm";
+---
+
+<BaseLayout title={doc.title} description={doc.lead.hero} ogImage={doc.heroImage}>
+  {
+    /* The same header every other page opens on, from the same component, so
+      the photo band is the same height across the site. The action is the one
+      this page is, so it is omitted; the editorial second action stays. */
+  }
+  <PageHero
+    title={doc.title}
+    eyebrow={doc.eyebrow}
+    lead={doc.lead.hero}
+    image={doc.heroImage}
+    action={null}
+    secondary={cta.secondary}
+  />
+
+  <section class="bg-surface-alt">
+    <div class="container-ox band">
+      <nav aria-label="Ruta de navegación" class="mb-10">
+        <ol class="text-ink-body flex flex-wrap items-center gap-2 text-[0.8125rem]">
+          <li><a href="/" class="hover:text-brand-hover">Inicio</a></li>
+          {
+            doc.eyebrow && (
+              <Fragment>
+                <li aria-hidden="true">/</li>
+                <li>{doc.eyebrow}</li>
+              </Fragment>
+            )
+          }
+          <li aria-hidden="true">/</li>
+          <li class="text-ink font-medium">{doc.title}</li>
+        </ol>
+      </nav>
+
+      <div class="grid gap-8 lg:grid-cols-3 lg:gap-10">
+        {/* The form, in the wide column. */}
+        <div class="lg:col-span-2">
+          <div class={card}>
+            <div class="bg-brand h-1" aria-hidden="true"></div>
+            <div class="p-8 sm:p-10">
+              {form?.heading && <h2 class="display text-3xl sm:text-4xl">{form.heading}</h2>}
+              {
+                form?.intro && (
+                  <div class="rich-text doc-lead mt-4 mb-8">
+                    <RichText html={form.intro} />
+                  </div>
+                )
+              }
+              <ContactForm />
+            </div>
+          </div>
+        </div>
+
+        {
+          /* Beside it: how to reach IFS without the form, and what an email can
+            ask for. Both are this page's own copy, moved out of the prose
+            column it used to run down. */
+        }
+        <div class="flex flex-col gap-6">
+          <div class={card}>
+            <div class="bg-brand h-1" aria-hidden="true"></div>
+            <div class="p-7">
+              {
+                prose.map((block) => (
+                  <div class="rich-text">
+                    <RichText html={block.html} />
+                  </div>
+                ))
+              }
+              {
+                lists.map((list) => (
+                  <ul class="app-grid app-grid--stack">
+                    {/* The check, never the item's own icon: one drawing of a
+                        sample panel among four check marks reads as a fault,
+                        not as a distinction. */}
+                    {(list.cells ?? []).map((cell) => (
+                      <li class="app-grid__cell">
+                        <span class="app-grid__check" aria-hidden="true" />
+                        <span>{cell.label}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ))
+              }
+            </div>
+          </div>
+
+          {
+            siblings.length > 0 && (
+              <div class="bg-surface-dark p-7">
+                <h2 class="display text-surface mb-5 text-xl">{doc.eyebrow}</h2>
+                <ul class="space-y-3">
+                  {siblings.map((link) => (
+                    <li>
+                      <a href={link.href} class="ox-link ox-link--on-dark text-[0.9375rem]">
+                        <svg
+                          class="h-4 w-4 shrink-0"
+                          viewBox="0 0 16 16"
+                          fill="currentColor"
+                          aria-hidden="true"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z"
+                            clip-rule="evenodd"
+                          />
+                        </svg>
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

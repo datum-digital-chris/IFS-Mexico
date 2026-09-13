@@ -12,10 +12,11 @@
  * column by lifting a bulleted list out of the body would separate the list
  * from the sentence that introduces it. The column is left to the photograph.
  *
- * Eight of the 28 pages have no hero photograph of their own — the legal pages,
- * the downloads list, Conócenos. Those get the same header on the flat dark
- * surface, sized to its copy: a 68vh band of empty navy is not a header, it is
- * a hole.
+ * Every header carrying a photograph is --spacing-hero tall, so the masthead's
+ * rule does not move up and down as you go from page to page. The two legal
+ * pages have no photograph of their own; those get the same header on the flat
+ * dark surface, sized to its copy — a 75vh band of empty navy is not a header,
+ * it is a hole.
  */
 interface Props {
   title: string;
@@ -30,12 +31,18 @@ interface Props {
 }
 
 const { title, eyebrow, lead, image, action, secondary } = Astro.props;
+
+/* One title on the site runs to 66 characters ("Recubrimientos en Polvo
+   Disipadores de Electricidad Estática (ESD)"). At the full display size it
+   wraps to three lines and pushes its header past every other page's. A long
+   title takes the next size down, which is what a type scale is for. */
+const longTitle = title.length > 48;
 ---
 
 <section
   class:list={[
     "bg-surface-dark relative isolate flex flex-col justify-end overflow-hidden",
-    image && "min-h-[75vh]",
+    image && "min-h-[var(--spacing-hero)]",
   ]}
 >
   {
@@ -80,7 +87,12 @@ const { title, eyebrow, lead, image, action, secondary } = Astro.props;
 
   <div class:list={["container-ox", image ? "pt-16 pb-20" : "band"]}>
     {eyebrow && <p class="eyebrow eyebrow--on-dark mb-5">{eyebrow}</p>}
-    <h1 class="display display--black text-surface max-w-measure text-5xl sm:text-6xl">
+    <h1
+      class:list={[
+        "display display--black text-surface max-w-measure",
+        longTitle ? "text-4xl sm:text-5xl" : "text-5xl sm:text-6xl",
+      ]}
+    >
       {title}
     </h1>
     {lead && <p class="text-surface/60 mt-8 max-w-lg text-lg leading-relaxed">{lead}</p>}

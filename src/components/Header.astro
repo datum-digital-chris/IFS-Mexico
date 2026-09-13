@@ -1,68 +1,86 @@
 ---
 /**
- * Top bar + masthead, extracted from Oxygen template post 6 so it matches the
- * old site on every page. The nav is a real <nav> with a disclosure-style
- * mobile menu; the old site's version needed JavaScript to open at all, which
- * left it unusable when scripts failed.
+ * Masthead. One row: the wordmark with the Mexican flag beside it, the nav, and
+ * the two actions — search and Contáctenos.
+ *
+ * Sized and laid out as ifscoatings.com's: a 60px row, a 36px wordmark, 14px
+ * nav items, and the actions at the end.
+ *
+ * The old site opened on a black utility strip above the masthead carrying two
+ * links and the phone — a second navigation for items the main menu already
+ * has. It is gone; the flag moved up beside the logo, where it identifies the
+ * site rather than decorating a strip. The phone is in the contact flyout and
+ * the footer, which is where the reference site keeps it too.
+ *
+ * The wordmark is ifscoatings.com's (public/uploads/ifs-logo.png), so the two
+ * IFS sites read as one company. Everything else still comes from the extracted
+ * Oxygen template (post 6) by way of src/content/site.json.
+ *
+ * The nav is a real <nav> with a disclosure-style mobile menu; the old site's
+ * version needed JavaScript to open at all, which left it unusable when
+ * scripts failed.
  */
 import site from "@/content/site.json";
+import cta from "@/content/cta.json";
 
 const { topBar, logo, menu } = site;
 const here = Astro.url.pathname;
 const isCurrent = (href: string | null) => !!href && href !== "/" && here.startsWith(href);
+
+/* Contáctenos opens the flyout rather than navigating, as it does on the US
+   site. It stays a real link to the contact page: the attribute is all that
+   ContactFlyout binds to, so with no JavaScript the link simply works. */
+const isFlyout = (item: { href: string | null; children: unknown[] }) =>
+  item.href === cta.href && item.children.length === 0;
+const opensFlyout = (item: { href: string | null; children: unknown[] }) =>
+  isFlyout(item) ? { "data-contact-trigger": true, "aria-haspopup": "dialog" as const } : {};
+
+// Desktop carries Contáctenos as the action at the end of the row, the way the
+// reference masthead does, so it is not also a word in the middle of the nav.
+const navItems = menu.filter((item) => !isFlyout(item));
 ---
 
-<!-- Top bar: a quiet utility strip. Smaller than the old 18px so it reads as
-     secondary to the masthead rather than competing with it. -->
-<div class="bg-surface-dark text-surface">
-  <div
-    class="container-ox flex flex-wrap items-center justify-center gap-x-5 gap-y-0.5 py-1.5 text-[14px] lg:h-[38px] lg:flex-nowrap lg:justify-end lg:gap-x-7 lg:py-0 lg:text-[15px]"
-  >
-    {
-      topBar.links.map((l) => (
-        <a href={l.href} class="text-surface/80 hover:text-surface transition-colors">
-          {l.label}
-        </a>
-      ))
-    }
-    {/* The flag sits on its own 29px row on mobile, inline with the phone above 992px. */}
-    {
-      topBar.flag && (
-        <img
-          src={topBar.flag.src}
-          alt={topBar.flag.alt}
-          width="24"
-          height="16"
-          class="h-[18px] w-auto object-contain lg:h-4"
-        />
-      )
-    }
-    <a href={topBar.phone.href} class="text-surface hover:text-brand font-medium transition-colors"
-      >{topBar.phone.label}</a
-    >
-  </div>
-</div>
-
-<!-- Masthead. The old white-to-grey gradient is the single most dated element
-     on the page; a flat surface with one hairline rule replaces it. Sticky, so
-     navigation stays reachable on these long product pages. -->
 <header class="border-surface-edge bg-surface/95 sticky top-0 z-30 border-b backdrop-blur-sm">
-  <div class="container-ox flex h-[84px] items-center justify-between gap-4 xl:h-[88px]">
-    {
-      logo && (
-        <a href={logo.href} class="shrink-0">
-          <img
-            src={logo.src}
-            alt={logo.alt}
-            class="h-[64px] w-[64px] object-contain xl:h-[72px] xl:w-[72px]"
-            width="72"
-            height="72"
-          />
-        </a>
-      )
-    }
+  <div class="container-ox flex h-[var(--spacing-header)] items-center gap-4">
+    <div class="flex shrink-0 items-center gap-3 lg:order-1">
+      {
+        logo && (
+          <a href={logo.href} class="shrink-0">
+            <img
+              src="/uploads/ifs-logo.png"
+              alt={logo.alt}
+              class="h-9 w-auto object-contain"
+              width="921"
+              height="195"
+            />
+          </a>
+        )
+      }
+      {
+        /* The flag says which IFS site this is, which is the one thing the
+           wordmark cannot. Divided from it by a hairline so it reads as a
+           qualifier rather than as part of the mark. */
+      }
+      {
+        topBar.flag && (
+          <span class="border-surface-edge border-l pl-3">
+            <img
+              src={topBar.flag.src}
+              alt={topBar.flag.alt}
+              width="24"
+              height="16"
+              class="h-6 w-auto object-contain"
+            />
+          </span>
+        )
+      }
+    </div>
 
-    <nav aria-label="Principal" class="ml-auto">
+    {
+      /* Below lg the nav is the burger, which sits last; from lg it is the
+       menu itself and leads the row. */
+    }
+    <nav aria-label="Principal" class="order-last lg:order-2 lg:mr-auto lg:ml-8 xl:ml-10">
       <!-- Mobile: a native disclosure, so the menu opens without JavaScript. -->
       <details class="lg:hidden">
         <summary class="text-brand cursor-pointer list-none px-3 py-2" aria-label="Abrir menú">
@@ -78,6 +96,7 @@ const isCurrent = (href: string | null) => !!href && href !== "/" && here.starts
                   href={item.href}
                   class="font-medium"
                   aria-current={isCurrent(item.href) ? "page" : undefined}
+                  {...opensFlyout(item)}
                 >
                   {item.label}
                 </a>
@@ -105,18 +124,33 @@ const isCurrent = (href: string | null) => !!href && href !== "/" && here.starts
       <!-- Desktop: hover/focus dropdowns, CSS only. -->
       <ul class="hidden lg:flex lg:items-center lg:gap-6">
         {
-          menu.map((item) => (
+          navItems.map((item) => (
             <li class="group relative">
               <a
                 href={item.href}
                 class:list={[
-                  "font-heading text-ink hover:text-brand relative inline-block py-2 text-[15px] font-medium tracking-tight transition-colors",
+                  "font-heading text-ink hover:text-brand relative inline-block py-2 text-sm font-medium tracking-tight transition-colors",
                   "after:bg-brand after:absolute after:inset-x-0 after:-bottom-0.5 after:h-[2px] after:origin-left after:scale-x-0 after:transition-transform hover:after:scale-x-100",
                   isCurrent(item.href) && "text-brand-deep after:scale-x-100",
                 ]}
                 aria-current={isCurrent(item.href) ? "page" : undefined}
+                {...opensFlyout(item)}
               >
                 {item.label}
+                {item.children.length > 0 && (
+                  <svg
+                    class="ml-1 inline-block h-3 w-3 align-[-0.1em] transition-transform group-hover:rotate-180"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                )}
               </a>
               {item.children.length > 0 && (
                 <ul class="border-surface-edge bg-surface invisible absolute top-full left-0 z-20 min-w-72 border opacity-0 transition-opacity group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
@@ -138,5 +172,33 @@ const isCurrent = (href: string | null) => !!href && href !== "/" && here.starts
         }
       </ul>
     </nav>
+
+    <div class="ml-auto flex shrink-0 items-center gap-2 lg:order-3 lg:ml-0 lg:gap-3">
+      {
+        /* Hidden until SiteSearch's script runs: a search box that cannot
+          search is worse than none. */
+      }
+      <button
+        type="button"
+        class="search-trigger"
+        data-search-trigger
+        aria-label="Buscar (⌘K)"
+        hidden
+      >
+        <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path
+            fill-rule="evenodd"
+            d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z"
+            clip-rule="evenodd"></path>
+        </svg>
+        <span class="search-trigger__kbd" data-search-kbd>⌘K</span>
+      </button>
+      <a
+        href={cta.href}
+        class="ox-btn ox-btn--sm hidden lg:inline-block"
+        data-contact-trigger
+        aria-haspopup="dialog">{cta.label}</a
+      >
+    </div>
   </div>
 </header>

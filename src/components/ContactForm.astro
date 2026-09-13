@@ -22,7 +22,7 @@ const label = "mb-1.5 block font-heading text-[15px] font-medium text-ink";
   data-netlify="true"
   netlify-honeypot="bot-field"
   action="/gracias/"
-  class="w-full max-w-2xl"
+  class="w-full"
 >
   <input type="hidden" name="form-name" value="contacto" />
   <p class="hidden">
@@ -32,11 +32,25 @@ const label = "mb-1.5 block font-heading text-[15px] font-medium text-ink";
   <div class="grid gap-4 sm:grid-cols-2">
     <div>
       <label class={label} for="nombre">Nombre <span aria-hidden="true">*</span></label>
-      <input class={field} type="text" id="nombre" name="nombre" required autocomplete="given-name" />
+      <input
+        class={field}
+        type="text"
+        id="nombre"
+        name="nombre"
+        required
+        autocomplete="given-name"
+      />
     </div>
     <div>
       <label class={label} for="apellido">Apellido <span aria-hidden="true">*</span></label>
-      <input class={field} type="text" id="apellido" name="apellido" required autocomplete="family-name" />
+      <input
+        class={field}
+        type="text"
+        id="apellido"
+        name="apellido"
+        required
+        autocomplete="family-name"
+      />
     </div>
   </div>
 
@@ -55,10 +69,5 @@ const label = "mb-1.5 block font-heading text-[15px] font-medium text-ink";
     <textarea class={field} id="mensaje" name="mensaje" rows="6" required></textarea>
   </div>
 
-  <button
-    type="submit"
-    class="ox-btn mt-6"
-  >
-    Enviar
-  </button>
+  <button type="submit" class="ox-btn mt-6"> Enviar </button>
 </form>

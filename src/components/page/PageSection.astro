@@ -40,7 +40,7 @@ const runs = runsOf(body);
 
     {
       runs.map((run) => (
-        <div class:list={[run.wide ? "my-8 overflow-x-auto" : "doc-prose"]}>
+        <div class:list={[run.wide ? "doc-run overflow-x-auto" : "doc-prose"]}>
           {run.blocks.map((b) => (
             <Block block={b} />
           ))}

@@ -10,9 +10,14 @@ import Block from "@/components/Block.astro";
 import type { Block as BlockType, Doc } from "@/lib/blocks";
 
 export async function getStaticPaths() {
-  // Home has its own template (src/pages/index.astro), which presents the same
-  // content as a grid rather than seven stacked slabs.
-  const pages = (await getCollection("pages")).filter((p) => p.data.slug !== "");
+  // Three pages have a template of their own: home (src/pages/index.astro),
+  // which presents the seven markets as a grid rather than seven stacked slabs;
+  // Contáctenos (src/pages/contactenos.astro), which is a form rather than
+  // prose; and Colores (src/pages/colors.astro), which groups the RAL swatches
+  // by family instead of splitting them across three meaningless tabs. All
+  // three still take every string from the extracted page.
+  const OWN_TEMPLATE = new Set(["", "contactenos", "colors"]);
+  const pages = (await getCollection("pages")).filter((p) => !OWN_TEMPLATE.has(p.data.slug));
   return pages.map((page) => ({
     params: { slug: page.data.slug || undefined },
     props: { page },

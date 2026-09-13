@@ -38,8 +38,10 @@ const DEVIATIONS = [
   {
     // The old /colors/ page ships with no tab selected, so all three panels are
     // hidden and none of the 190 RAL swatches are visible until the visitor
-    // guesses to click. The rebuild selects the first tab. Reproducing the
-    // fault would mean shipping a colour page that shows no colours.
+    // guesses to click. The rebuild has no tabs at all: the swatches are one
+    // grid over a search and a row of colour-family filters
+    // (docs/deviations.md #13). Reproducing the fault would mean shipping a
+    // colour page that shows no colours.
     //
     // Everything inside a tab panel is therefore expected to differ: in the old
     // page those elements have zero height. The set is read from the extracted
@@ -80,12 +82,14 @@ const DEVIATIONS = [
     })(),
   },
   {
-    // The contact form is rebuilt as a Netlify Form (docs/deviations.md #4).
-    // Its fields are laid out as a responsive grid rather than Formidable's
-    // stacked markup, so the form block and its container are a different
-    // height by design. Everything else on the page is compared normally.
+    // Contáctenos is now a purpose-built page rather than the generic document
+    // template (docs/deviations.md #12): the reference site's contact layout,
+    // with the form in a two-thirds column and the page's phone number, email
+    // line and list beside it. It keeps every word and none of the Oxygen
+    // wrappers, so no element on it has a counterpart to measure. The form
+    // itself was already rebuilt as a Netlify Form (#4).
     slug: "contactenos",
-    match: (id) => ["section-12-751", "div_block-16-751", "nestable_shortcode-14-751"].includes(id),
+    match: () => true,
   },
 ];
 
@@ -94,11 +98,27 @@ const WIDTHS = [
   { name: "mobile", width: 390, height: 844 },
 ];
 
-const MIME = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".svg": "image/svg+xml", ".webp": "image/webp", ".ico": "image/x-icon", ".pdf": "application/pdf", ".woff2": "font/woff2" };
+const MIME = {
+  ".html": "text/html",
+  ".css": "text/css",
+  ".js": "text/javascript",
+  ".png": "image/png",
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".svg": "image/svg+xml",
+  ".webp": "image/webp",
+  ".ico": "image/x-icon",
+  ".pdf": "application/pdf",
+  ".woff2": "font/woff2",
+};
 
 function resolveDist(pathname) {
   const p = decodeURIComponent(pathname);
-  for (const c of [join(P("dist"), p), join(P("dist"), p, "index.html"), `${join(P("dist"), p)}.html`]) {
+  for (const c of [
+    join(P("dist"), p),
+    join(P("dist"), p, "index.html"),
+    `${join(P("dist"), p)}.html`,
+  ]) {
     if (existsSync(c)) {
       try {
         return { body: readFileSync(c), type: MIME[extname(c)] ?? "application/octet-stream" };
@@ -113,7 +133,7 @@ function resolveDist(pathname) {
 /** Geometry + the computed styles that carry the design, keyed by Oxygen id. */
 const PROBE = () => {
   const out = {};
-  for (const el of document.querySelectorAll('[id]')) {
+  for (const el of document.querySelectorAll("[id]")) {
     const id = el.id;
     if (!/^[a-z_]+-\d+-\d+$/i.test(id)) continue;
     const r = el.getBoundingClientRect();
@@ -167,11 +187,21 @@ for (const { name, width, height } of WIDTHS) {
       await oldPage.goto(cfg.siteUrl + oldPath, { waitUntil: "networkidle", timeout: 45000 });
       await oldPage.waitForTimeout(400);
       o = await oldPage.evaluate(PROBE);
-      await newPage.goto(`https://new.local${newPath}`, { waitUntil: "networkidle", timeout: 45000 });
+      await newPage.goto(`https://new.local${newPath}`, {
+        waitUntil: "networkidle",
+        timeout: 45000,
+      });
       await newPage.waitForTimeout(400);
       n = await newPage.evaluate(PROBE);
     } catch (err) {
-      findings.push({ slug, viewport: name, id: "-", field: "load", old: "", now: String(err.message).split("\n")[0] });
+      findings.push({
+        slug,
+        viewport: name,
+        id: "-",
+        field: "load",
+        old: "",
+        now: String(err.message).split("\n")[0],
+      });
       continue;
     }
 
@@ -184,8 +214,19 @@ for (const { name, width, height } of WIDTHS) {
     // and report the header offset once.
     const originOld = Math.min(...ids.map((id) => o[id].y));
     const originNew = Math.min(...ids.filter((id) => n[id]).map((id) => n[id].y));
-    if (Number.isFinite(originOld) && Number.isFinite(originNew) && Math.abs(originOld - originNew) > TOL) {
-      findings.push({ slug, viewport: name, id: "(header)", field: "offset", old: originOld, now: originNew });
+    if (
+      Number.isFinite(originOld) &&
+      Number.isFinite(originNew) &&
+      Math.abs(originOld - originNew) > TOL
+    ) {
+      findings.push({
+        slug,
+        viewport: name,
+        id: "(header)",
+        field: "offset",
+        old: originOld,
+        now: originNew,
+      });
     }
 
     for (const id of ids) {
@@ -199,7 +240,14 @@ for (const { name, width, height } of WIDTHS) {
         continue;
       }
       if (!b) {
-        findings.push({ slug, viewport: name, id, field: "missing", old: `${a.w}x${a.h}`, now: "absent" });
+        findings.push({
+          slug,
+          viewport: name,
+          id,
+          field: "missing",
+          old: `${a.w}x${a.h}`,
+          now: "absent",
+        });
         continue;
       }
       let ok = true;
@@ -230,15 +278,24 @@ const byField = {};
 for (const f of findings) (byField[f.field] ??= []).push(f);
 
 mkdirSync(P("docs"), { recursive: true });
-const rows = findings.map((f) => `${f.slug},${f.viewport},${f.id},${f.field},"${f.old}","${f.now}"`);
-writeFileSync(P("docs/layout-diff.csv"), ["page,viewport,element,field,old,new", ...rows].join("\n") + "\n");
+const rows = findings.map(
+  (f) => `${f.slug},${f.viewport},${f.id},${f.field},"${f.old}","${f.now}"`,
+);
+writeFileSync(
+  P("docs/layout-diff.csv"),
+  ["page,viewport,element,field,old,new", ...rows].join("\n") + "\n",
+);
 
 console.log(`elements compared : ${compared}`);
-console.log(`matching          : ${matched} (${((100 * matched) / Math.max(compared, 1)).toFixed(1)}%)`);
+console.log(
+  `matching          : ${matched} (${((100 * matched) / Math.max(compared, 1)).toFixed(1)}%)`,
+);
 console.log(`findings          : ${findings.length}`);
 for (const [field, list] of Object.entries(byField).sort((a, b) => b[1].length - a[1].length)) {
   const pagesHit = new Set(list.map((f) => f.slug)).size;
-  console.log(`  ${field.padEnd(8)} ${String(list.length).padStart(5)}  across ${pagesHit} pages   e.g. ${list[0].id} ${list[0].old} -> ${list[0].now}`);
+  console.log(
+    `  ${field.padEnd(8)} ${String(list.length).padStart(5)}  across ${pagesHit} pages   e.g. ${list[0].id} ${list[0].old} -> ${list[0].now}`,
+  );
 }
 console.log(`\nfull list: docs/layout-diff.csv`);
 process.exitCode = findings.length ? 1 : 0;

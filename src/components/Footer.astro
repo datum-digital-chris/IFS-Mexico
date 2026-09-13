@@ -1,18 +1,139 @@
 ---
 /**
- * Footer, extracted from Oxygen template post 6 and rendered through the same
- * recursive block renderer as page content.
+ * Footer.
+ *
+ * The old one was a centred stack — mission statement, logo, one "Contáctenos"
+ * link, the email, the phone — which gave the site no map of itself and left
+ * the last section of every page closing on a narrow column of three lines.
+ *
+ * It is the reference site's footer now (~/GitHub/IFS-Coatings,
+ * src/components/layout/Footer.astro): a brand column carrying the wordmark,
+ * the mission statement and the ways to get in touch, then one column per
+ * section of the menu, closed by a legal bar.
+ *
+ * Every string still comes from the extracted template (src/lib/footer.ts) or
+ * from the site's own menu. The address is authored in
+ * src/content/contact.json and renders only when it has one — the old site
+ * carries no postal address anywhere, and a placeholder is worse than a gap.
+ *
+ * One fault is fixed rather than reproduced: the old footer's "Contáctenos"
+ * link pointed at /conocenos/.
  */
 import site from "@/content/site.json";
-import Block from "./Block.astro";
+import contact from "@/content/contact.json";
+import cta from "@/content/cta.json";
+import { footerOf } from "@/lib/footer";
 import type { Block as BlockType } from "@/lib/blocks";
 
-const footer = site.footer as BlockType | null;
+const { mission, email, phone, copyright } = footerOf(site.footer as BlockType | null);
+
+// One column per section of the menu; the sections with no children (Colores,
+// Contáctenos) are links in their own right and close the brand column.
+const columns = site.menu.filter((item) => item.children.length > 0);
+const singles = site.menu.filter((item) => item.children.length === 0);
+
+const legal = [
+  { label: "Política de Privacidad", href: "/politica-de-privacidad/" },
+  { label: "Condiciones de Uso", href: "/condiciones-de-uso/" },
+];
 ---
 
-<!-- The old footer repeated the masthead's grey gradient. A single solid dark
-     surface closes the page instead and gives the last section something to
-     contrast against. -->
 <footer class="ox-footer bg-surface-dark text-surface">
-  {footer && <Block block={footer} />}
+  <div class="container-ox band--tight">
+    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1.7fr_0.9fr_1fr] lg:gap-8">
+      <div class="max-w-sm">
+        <a href="/" class="inline-block">
+          {/* The same wordmark as the masthead, knocked out to white. */}
+          <img
+            src="/uploads/ifs-logo.png"
+            alt={site.logo?.alt ?? "IFS Coatings"}
+            width="921"
+            height="195"
+            loading="lazy"
+            class="h-auto w-[150px] max-w-full brightness-0 invert"
+          />
+        </a>
+
+        {mission && <p class="text-surface/60 mt-5 text-[0.9375rem] leading-relaxed">{mission}</p>}
+
+        <address class="mt-5 space-y-1 text-[0.9375rem] not-italic">
+          {contact.address.map((line) => <p class="text-surface/60">{line}</p>)}
+          {
+            phone && (
+              <p>
+                <a href={phone.href} class="text-surface/85 hover:text-surface">
+                  {phone.label}
+                </a>
+              </p>
+            )
+          }
+          {
+            email && (
+              <p>
+                <a href={email.href} class="text-surface/85 hover:text-surface break-words">
+                  {email.label}
+                </a>
+              </p>
+            )
+          }
+        </address>
+
+        {
+          singles.length > 0 && (
+            <p class="mt-5 flex flex-wrap gap-x-4 gap-y-1 text-[0.9375rem]">
+              {singles.map((item) => (
+                <a
+                  href={item.href === cta.href ? cta.href : item.href}
+                  class="text-surface/85 hover:text-surface"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </p>
+          )
+        }
+      </div>
+
+      {
+        columns.map((column) => (
+          <nav aria-label={column.label}>
+            <h2 class="font-heading text-surface text-[0.8125rem] font-bold tracking-[0.1em] uppercase">
+              {column.label}
+            </h2>
+            {/* Tipos de Polvo is twelve items; run two-up so one column is not
+                twice the height of the row. */}
+            <ul
+              class:list={[
+                "mt-4",
+                column.children.length > 8 ? "sm:columns-2 sm:gap-x-6" : "space-y-2",
+              ]}
+            >
+              {column.children.map((child) => (
+                <li class="mb-2 break-inside-avoid">
+                  <a href={child.href} class="text-surface/60 hover:text-surface text-[0.9375rem]">
+                    {child.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        ))
+      }
+    </div>
+
+    <div
+      class="border-surface-edge-dark text-surface/60 mt-12 flex flex-col gap-3 border-t pt-6 text-[0.8125rem] sm:flex-row sm:items-center sm:justify-between"
+    >
+      {copyright && <p>{copyright}</p>}
+      <p class="flex flex-wrap gap-x-5 gap-y-1">
+        {
+          legal.map((link) => (
+            <a href={link.href} class="text-surface/60 hover:text-surface">
+              {link.label}
+            </a>
+          ))
+        }
+      </p>
+    </div>
+  </div>
 </footer>

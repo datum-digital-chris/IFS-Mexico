@@ -1,0 +1,31 @@
+{
+  "_note": "AUTHORED CHROME, not extracted. The contact flyout the masthead's Contáctenos opens, mirroring the panel on ifscoatings.com (~/GitHub/IFS-Coatings, src/components/layout/ContactFlyout.astro). Every destination already exists on this site: the two first items open the contact page, the last two are the phone and the address the top bar and the footer already carry. Labels are this site's own terms (Contáctenos, Llámenos) where it has one. Written for this project and NOT migrated from the old site, so it needs a review before launch. `address` is the one thing the old site never carried: it has no postal address on any page, so it is left empty until the client supplies one, and the footer renders nothing where it would go — never a placeholder.",
+  "title": "Contáctenos",
+  "address": [],
+  "items": [
+    {
+      "icon": "form",
+      "label": "Formulario de contacto",
+      "sub": "Envíenos un mensaje",
+      "href": "/contactenos/"
+    },
+    {
+      "icon": "quote",
+      "label": "Solicite una cotización",
+      "sub": "Pida precios para su proyecto",
+      "href": "/contactenos/"
+    },
+    {
+      "icon": "phone",
+      "label": "Llámenos",
+      "sub": "+52 55 4166 2665",
+      "href": "tel:+525541662665"
+    },
+    {
+      "icon": "mail",
+      "label": "Envíenos un correo",
+      "sub": "revestimientosinfo@ifscoatings.com",
+      "href": "mailto:revestimientosinfo@ifscoatings.com"
+    }
+  ]
+}

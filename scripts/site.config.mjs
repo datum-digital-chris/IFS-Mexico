@@ -12,7 +12,9 @@ function readContainerWidth() {
   const css = readFileSync(file, "utf8");
   const match = css.match(/--spacing-container:\s*([^;]+);/);
   if (!match) {
-    throw new Error(`--spacing-container not found in ${file}; the container width has no source of truth.`);
+    throw new Error(
+      `--spacing-container not found in ${file}; the container width has no source of truth.`,
+    );
   }
   return match[1].trim();
 }
@@ -96,26 +98,75 @@ export default {
     },
 
     // ---- Tipos de Polvo ----------------------------------------------------
-    // These keep their own photo bands; they only needed the supporting shot.
-    "polvo-de-poliester-estandar": { support: "uploads/powder-manufacture-hero.jpg" },
-    "polvos-de-poliester-superduraderos": { support: "uploads/understanding-weathering.jpg" },
-    "polvo-de-fluoropolimero-feve": { support: "uploads/framing-the-view-header.jpg" },
-    "polvo-epoxi": { support: "uploads/hardware-hero-01.jpg" },
-    "polvo-hibrido": { support: "uploads/myth-busting-powder-is-not-just-polyester.jpg" },
-    "polvo-antimicrobiano": { support: "uploads/ifs-advance-hero.jpg" },
-    // The page is about anti-graffiti powder; this is a graffitied wall.
-    "polvo-antigrafiti": { support: "uploads/ag-1200-website.jpg" },
-    "imprimadores-en-polvo": { support: "uploads/polyurethane-powder-hero.jpg" },
+    // Each header is the one ifscoatings.com gives the same chemistry, named in
+    // the comment. The Mexican site ran a generic powder-explosion graphic on
+    // nine of these eleven pages — the same handful of splashes, so nothing
+    // told you which chemistry you were looking at, and Epoxi and Híbrido
+    // literally shared a file. The .com uses subject photography instead: the
+    // thing the chemistry is for.
+    "polvo-de-poliester-estandar": {
+      hero: "uploads/hero-standard-polyester.jpg", // .com /standard-polyester-powder/
+      support: "uploads/powder-manufacture-hero.jpg",
+    },
+    "polvos-de-poliester-superduraderos": {
+      hero: "uploads/jimmy-johns1.jpg", // .com /super-durable-powder/
+      support: "uploads/understanding-weathering.jpg",
+    },
+    "polvo-de-fluoropolimero-feve": {
+      hero: "uploads/images/Arch-600.jpg", // .com /fluoropolymer-powder/
+      support: "uploads/framing-the-view-header.jpg",
+    },
+    "polvo-epoxi": {
+      hero: "uploads/images/hero-epoxy-powder.jpg", // .com /epoxy-powder/
+      support: "uploads/hardware-hero-01.jpg",
+    },
+    "polvo-hibrido": {
+      hero: "uploads/images/hero-hybrid.jpg", // .com /hybrid-powder/
+      support: "uploads/myth-busting-powder-is-not-just-polyester.jpg",
+    },
+    "polvo-antimicrobiano": {
+      hero: "uploads/images/hero-powders-antimicrobiano.jpg", // .com /anti-microbial-powder/
+      support: "uploads/ifs-advance-hero.jpg",
+    },
+    "polvo-antigrafiti": {
+      hero: "uploads/ag-1200-website.jpg", // .com /anti-graffiti-powder/
+      // The wall this page used to open on, kept as the supporting shot.
+      support: "uploads/images/Hero-anti-graffiti-powder.jpg",
+    },
+    "imprimadores-en-polvo": {
+      hero: "uploads/images/Primers.jpg", // .com /primer-powders/
+      support: "uploads/polyurethane-powder-hero.jpg",
+    },
     // NSF approval is for food-contact and food-service environments.
-    "recubrimientos-en-polvo-aprobados-por-nsf": { support: "uploads/10-powder-applications-for-retailers.jpg" },
-    "polvo-disipadores-de-electricidad-estatica-esd": { support: "uploads/ifs-specialities-hero.jpg" },
-    "polvos-termoplasticos-ifs-puroplaz": { support: "uploads/puroplaz-powder-coating-delivers-durability.jpg" },
+    "recubrimientos-en-polvo-aprobados-por-nsf": {
+      hero: "uploads/images/NSF-powder-hero.jpg", // .com /nsf-powder/
+      support: "uploads/10-powder-applications-for-retailers.jpg",
+    },
+    "polvo-disipadores-de-electricidad-estatica-esd": {
+      hero: "uploads/images/hero-powders-esd.jpg", // .com /esd-powder/
+      support: "uploads/ifs-specialities-hero.jpg",
+    },
+    "polvos-termoplasticos-ifs-puroplaz": {
+      hero: "uploads/images/Puroplaz-thermoplastic.jpg", // .com /puroplaz-thermoplastic-powder/
+      support: "uploads/puroplaz-powder-coating-delivers-durability.jpg",
+    },
     // UL listings are mostly lighting and electrical enclosures. This page had
-    // no photo band of its own, so it gets a hero as well.
-    "ul-polvo": { hero: "uploads/ifs-powder-types-hero.jpg", support: "uploads/lighting-hero-05.jpg" },
+    // no photo band of its own, so it gets a hero as well. The .com has no UL
+    // page to match it to, so this one is the chemistry-guide header.
+    "ul-polvo": {
+      hero: "uploads/ifs-powder-types-hero.jpg",
+      support: "uploads/lighting-hero-05.jpg",
+    },
 
     // ---- Más Allá del Metal ------------------------------------------------
-    "ifs-pureclad": { support: "uploads/ifs-architectural-al-hero.jpg" },
+    "ifs-pureclad": {
+      // The .com's own PureClad header: a kitchen in coated MDF, which is what
+      // a low-cure powder is for. The extracted band is a stack of logs — the
+      // raw material, not the product. The same shot supports Electrodomésticos,
+      // where it is the page's subject too.
+      hero: "uploads/hero-pureclad.jpg",
+      support: "uploads/ifs-architectural-al-hero.jpg",
+    },
 
     // ---- Colores -----------------------------------------------------------
     colors: { support: "uploads/color-trends-2026-chips.jpg" },
@@ -124,7 +175,10 @@ export default {
     // All four of these opened on a flat dark header, having no photograph of
     // their own. The legal pages keep theirs: a photograph over the terms of
     // use would be decoration, and the reference site's legal pages carry none.
-    conocenos: { hero: "uploads/about-us-hero.jpg", support: "uploads/ifs-manufacturing-facilities-hero.jpg" },
+    conocenos: {
+      hero: "uploads/about-us-hero.jpg",
+      support: "uploads/ifs-manufacturing-facilities-hero.jpg",
+    },
     "valores-de-la-mision": { hero: "uploads/join-the-team-hero.jpg" },
     "descargar-informacion": { hero: "downloads-hero.jpg" },
     "clave-de-codigo-de-producto": { hero: "uploads/product-codes-hero.jpg" },

@@ -1,0 +1,240 @@
+---
+/**
+ * Site search, as the US site has it (~/GitHub/IFS-Coatings,
+ * src/components/layout/SearchPalette.astro): a ⌘K palette over the page,
+ * searching every page and every RAL colour.
+ *
+ * A sibling of <header>, never nested inside it: the masthead applies a
+ * backdrop-filter, which would make it the containing block for this fixed
+ * overlay and trap it under the header.
+ *
+ * The index (/search-index.json) is fetched the first time the palette opens,
+ * so a visitor who never searches never pays for it. The trigger in the
+ * masthead is hidden until this script runs — without JavaScript there is no
+ * search, and a dead search box is worse than none.
+ */
+---
+
+<div
+  id="site-search"
+  class="site-search"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Buscar en el sitio"
+  hidden
+>
+  <div class="site-search__scrim" data-search-dismiss aria-hidden="true"></div>
+
+  <div class="site-search__panel">
+    <div class="bg-brand h-1" aria-hidden="true"></div>
+
+    <div class="site-search__query">
+      <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+        <path
+          fill-rule="evenodd"
+          d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z"
+          clip-rule="evenodd"></path>
+      </svg>
+      <label class="sr-only" for="site-search-input">Buscar en el sitio</label>
+      <input
+        id="site-search-input"
+        type="text"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="Buscar páginas, polvos y colores…"
+        aria-controls="site-search-results"
+      />
+      <button type="button" class="site-search__esc" data-search-dismiss>esc</button>
+    </div>
+
+    <div
+      id="site-search-results"
+      class="site-search__results"
+      role="listbox"
+      aria-label="Resultados"
+    >
+    </div>
+
+    <p class="site-search__hint">
+      <span><b>↑↓</b> Navegar</span>
+      <span><b>↵</b> Abrir</span>
+      <span><b>esc</b> Cerrar</span>
+    </p>
+  </div>
+</div>
+
+<script>
+  interface SearchDoc {
+    title: string;
+    url: string;
+    type: string;
+    description: string;
+  }
+
+  const overlay = document.getElementById("site-search");
+  const input = document.getElementById("site-search-input") as HTMLInputElement | null;
+  const results = document.getElementById("site-search-results");
+  const triggers = document.querySelectorAll<HTMLElement>("[data-search-trigger]");
+
+  if (overlay && input && results) {
+    // Bound once, so the narrowing survives into the function declarations
+    // below (a hoisted function cannot see the guard above it).
+    const dialog = overlay;
+    const field = input;
+    const list = results;
+    const MAX = 24;
+    let docs: SearchDoc[] | null = null;
+    let rows: HTMLAnchorElement[] = [];
+    let active = -1;
+    let lastTrigger: HTMLElement | null = null;
+
+    // The masthead badge reads ⌘K on Apple platforms and Ctrl K elsewhere; the
+    // accessible name has to track the visible text (WCAG 2.5.3).
+    const isMac = /Mac|iPhone|iPad|iPod/.test(navigator.userAgent);
+    if (!isMac) {
+      for (const hint of document.querySelectorAll("[data-search-kbd]"))
+        hint.textContent = "Ctrl K";
+      for (const t of triggers) t.setAttribute("aria-label", "Buscar (Ctrl K)");
+    }
+
+    async function ensureIndex() {
+      if (docs) return;
+      try {
+        const res = await fetch("/search-index.json");
+        docs = (await res.json()) as SearchDoc[];
+      } catch {
+        docs = [];
+      }
+    }
+
+    // "RAL 5010", "ral5010" and "5010" are all the same query here.
+    const norm = (s: string) =>
+      s
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[̀-ͯ]/g, "")
+        .replace(/\bral[\s-]+(\d)/g, "ral$1");
+
+    function score(doc: SearchDoc, terms: string[]): number {
+      const title = norm(doc.title);
+      const body = `${title} ${norm(doc.description)} ${norm(doc.type)}`;
+      let total = 0;
+      for (const term of terms) {
+        if (!body.includes(term)) return -1; // every term has to land somewhere
+        if (title.startsWith(term)) total += 6;
+        else if (title.includes(term)) total += 4;
+        else total += 1;
+      }
+      return total;
+    }
+
+    function render(query: string) {
+      const terms = norm(query).split(/\s+/).filter(Boolean);
+      rows = [];
+      active = -1;
+
+      if (!terms.length || !docs) {
+        list.innerHTML = "";
+        return;
+      }
+
+      const hits = docs
+        .map((doc) => ({ doc, score: score(doc, terms) }))
+        .filter((hit) => hit.score >= 0)
+        .sort((a, b) => b.score - a.score)
+        .slice(0, MAX);
+
+      if (!hits.length) {
+        list.innerHTML = `<p class="site-search__empty">Sin resultados</p>`;
+        return;
+      }
+
+      list.innerHTML = hits
+        .map(
+          ({ doc }) => `
+            <a href="${doc.url}" class="site-search__row" role="option">
+              <span class="site-search__row-text">
+                <span class="site-search__row-title"></span>
+                <span class="site-search__row-desc"></span>
+              </span>
+              <span class="site-search__row-type"></span>
+            </a>`,
+        )
+        .join("");
+
+      rows = Array.from(list.querySelectorAll<HTMLAnchorElement>("a"));
+      // Text goes in as text, never as markup: the index is built from page
+      // copy, and building HTML out of it would be an injection route.
+      rows.forEach((row, i) => {
+        const doc = hits[i]!.doc;
+        row.querySelector(".site-search__row-title")!.textContent = doc.title;
+        row.querySelector(".site-search__row-desc")!.textContent = doc.description.slice(0, 90);
+        row.querySelector(".site-search__row-type")!.textContent = doc.type;
+      });
+      setActive(0);
+    }
+
+    function setActive(i: number) {
+      if (!rows.length) return;
+      active = (i + rows.length) % rows.length;
+      rows.forEach((row, n) => row.classList.toggle("is-active", n === active));
+      rows[active]?.scrollIntoView({ block: "nearest" });
+    }
+
+    async function open(trigger: HTMLElement | null) {
+      lastTrigger = trigger;
+      dialog.hidden = false;
+      field.value = "";
+      list.innerHTML = "";
+      field.focus();
+      document.addEventListener("keydown", onKey);
+      await ensureIndex();
+    }
+
+    function close() {
+      dialog.hidden = true;
+      document.removeEventListener("keydown", onKey);
+      lastTrigger?.focus();
+      lastTrigger = null;
+    }
+
+    function onKey(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        close();
+      } else if (event.key === "ArrowDown") {
+        event.preventDefault();
+        setActive(active + 1);
+      } else if (event.key === "ArrowUp") {
+        event.preventDefault();
+        setActive(active - 1);
+      } else if (event.key === "Enter" && active >= 0) {
+        event.preventDefault();
+        rows[active]?.click();
+      }
+    }
+
+    field.addEventListener("input", () => render(field.value));
+    for (const trigger of triggers) {
+      trigger.hidden = false;
+      trigger.addEventListener("click", () => open(trigger));
+    }
+    for (const dismiss of dialog.querySelectorAll("[data-search-dismiss]")) {
+      dismiss.addEventListener("click", close);
+    }
+
+    // ⌘K / Ctrl K from anywhere, and "/" when not already typing.
+    document.addEventListener("keydown", (event) => {
+      const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(
+        (document.activeElement as HTMLElement | null)?.tagName ?? "",
+      );
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        if (dialog.hidden) open(null);
+        else close();
+      } else if (event.key === "/" && !typing && dialog.hidden) {
+        event.preventDefault();
+        open(null);
+      }
+    });
+  }
+</script>

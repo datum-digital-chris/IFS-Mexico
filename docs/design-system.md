@@ -163,6 +163,25 @@ photo header  →  breadcrumb + the lead  →  one band per section
 `src/pages/[...slug].astro` stays one generic route with one template — adding
 a page is still only adding content.
 
+### One header height
+
+Every page header carrying a photograph is `--spacing-hero` (75vh) tall, and
+all 25 of them measure identically. It is a token rather than a number in a
+template because three templates draw a header — the generic document one,
+Colores and Contáctenos — and the last two were drifting: Contáctenos had its
+own copy of the markup at 60vh. Both now render `PageHero`, so the band cannot
+drift again. The home page keeps its own, shorter header; it is not one of the
+document pages.
+
+Two things break a fixed height, and both are handled rather than clipped:
+
+- **A long title.** One page's title runs to 66 characters, wrapped to three
+  lines at the full display size and stood 37px taller than every other page.
+  Titles over 48 characters take the next size down — which is what a type
+  scale is for.
+- **No photograph.** The two legal pages have none, and a 75vh band of empty
+  navy is a hole, not a header. Those size to their copy.
+
 ### Grouping the copy into sections
 
 The US pages are authored into that shape — `type: hero`, `type: overview`,
@@ -208,6 +227,54 @@ The `h2`/`h3` mapping turns out to fit the source closely. _Repintado_ has three
 `h2` sections of 270–550 characters each — a band apiece. _Maquiladores_ nests
 twelve `h3`s under "Acabados en polvo", which is exactly the shape of the US
 site's numbered advantage grid, and renders as one.
+
+### The overview panel
+
+The panel holds the page's opening passage, the grid that passage introduces,
+and the photograph. It used to lay those out as: copy beside photograph, then
+grid across the full width underneath. On a page whose opening passage is a
+single line — _"Los revestimientos en polvo para tráilers de IFS ofrecen:"_ —
+that left a 340px void under one line of text, and the panel ran twice the
+height of its content.
+
+It is one copy column beside the photograph now:
+
+- **Everything that is words is in the copy column**, in source order, so each
+  grid follows the sentence that introduces it. Collecting all the prose and
+  then all the grids had put three introducing lines in a row above two grids,
+  and neither line belonged to the grid under it.
+- **The grid sizes against the column, not the viewport** — a container query
+  (`.panel-col`), which is what container queries are for. Two cells across in
+  the panel, three when the column is wide enough.
+- **The photograph keeps its own 4:3 where the column carries a grid**, because
+  stretching a landscape shot to a column that tall crops it into a strip. Where
+  the column is plain prose it fills the column as before.
+- Panel padding came down from `p-8 sm:p-10 lg:p-14` to `p-6 sm:p-8 lg:p-10`.
+
+Tráilers, the worst case, went from a 700px panel to 470px with no change to a
+word of it.
+
+### Vertical rhythm
+
+A band's padding is the space at its edges, and nothing inside it may add to
+that. Three places were doing exactly that, and together they put 60-80px of
+dead space at every boundary:
+
+- **A run wrapper and the block inside it both carried a margin.** The
+  application grids sit in a `.doc-run` wrapper with `margin-block: 2rem`, and
+  the grid itself carried another 2rem. The wrapper owns the rhythm now; the
+  first and last child inside it have their outer margins zeroed.
+- **Trailing margins collapsed out of the container** and pushed the band's
+  foot out past its own padding. A band's first and last child (and their own
+  first and last child, which is where a collapsing margin comes from) no
+  longer carry outer margins.
+- **The overview band ran at the wide rhythm around a panel that has 56px of
+  padding of its own.** It takes the tight rhythm instead, so the copy sits
+  136px from the section below rather than 200px.
+
+The two pages whose opening passage is empty — the lead is genuinely nothing
+but a breadcrumb — get a slim breadcrumb bar rather than a 160px band of empty
+tint under the header.
 
 ### The sections
 
@@ -445,6 +512,12 @@ page's own subject wherever the library has one:
 | UL Polvo                 | lighting, which is most of what UL listings cover  |
 | Colores                  | colour chips                                       |
 
+Two headers are the .com's own for the same subject rather than the extracted
+band: Colores takes `ifscoatings.com/ral-color/`'s fan of coated chips, and IFS
+PureClad takes `ifscoatings.com/introducing-pureclad/`'s kitchen in coated MDF —
+the extracted band there is a stack of logs, which is the raw material rather
+than the product.
+
 Coverage: 26 of 28 pages have a header photograph and 22 have a supporting one.
 Six panels run as a single capped column, each for a reason — the two legal
 pages take none at all (the reference site's legal pages carry no photography
@@ -493,6 +566,114 @@ Two decisions recorded there:
   site calls the same product **IFS 500FP**. One of the two is wrong and it is
   worth settling, because it is the code a specifier writes into a construction
   document.
+
+## The masthead
+
+The old chrome was two rows: a black utility strip carrying two links, the flag
+and the phone, then a masthead with the circular IFS mark on a white-to-grey
+gradient. The strip duplicated the main menu — Conocenos is under Recursos,
+Contáctenos is a top-level item — and cost 38px above every page.
+
+It is one row now, laid out and sized as the .com's: a 60px row
+(`--spacing-header`, matching `ifscoatings.com`'s 60px + hairline), a 36px
+wordmark with the Mexican flag beside it behind a hairline, 14px nav items
+leading from the logo, and the two actions at the end — search and Contáctenos.
+The height is a token because the colour page's filter bar sticks directly under
+it; the two drifting apart leaves a gap or an overlap.
+
+The phone number is not in the masthead. It is one tap away in the contact
+flyout and it closes the footer, which is where the reference site keeps it.
+
+### The footer
+
+The old footer was a centred stack — a mission statement, the circular logo,
+one "Contáctenos" link, the email and the phone — which gave the site no map of
+itself and closed every page on a three-line column. It is the reference site's
+footer now: a brand column (the wordmark knocked out to white, the mission
+statement, the ways to get in touch) beside one column per section of the menu,
+closed by a legal bar with the copyright and the two legal pages.
+
+- **The columns are derived from the menu**, not hand-maintained, so a page
+  added to a section appears in the footer with it. Tipos de Polvo is twelve
+  items and runs two-up, or that one column is twice the height of the row.
+- **The four strings that were in the old footer are still in it** — mission,
+  phone, email, copyright — read out of the extracted template by
+  `src/lib/footer.ts` rather than hand-copied.
+- **The address slot is authored** (`src/content/contact.json`) and renders
+  nothing while it is empty. The old site carries no postal address on any
+  page, and a placeholder address is worse than a gap.
+- One fault is fixed rather than reproduced: the old footer's "Contáctenos"
+  link pointed at `/conocenos/`.
+
+### Search
+
+The masthead's second action is a ⌘K palette (`SiteSearch.astro`), carried over
+from the US site. It searches all 28 pages and all 190 RAL colours from one
+`/search-index.json`, built at build time from the same content the pages
+render — the standfirst, the opening passage and the section headings for a
+page; the RAL number, the IFS code and the family for a colour. A colour result
+lands on its own swatch.
+
+The index is fetched the first time the palette opens, so a visitor who never
+searches never pays for it, and the trigger is hidden until the script runs:
+with JavaScript unavailable there is no search box rather than a dead one. The
+palette is a sibling of `<header>`, never nested in it — the masthead has a
+backdrop-filter, which would make it the containing block for a fixed overlay
+and trap the palette under the header.
+
+## Contáctenos
+
+Two changes, both taken from the US site.
+
+**The flyout.** The masthead's Contáctenos opens a 340px panel off the left
+edge with one row per way of reaching IFS — the form, a quote, the phone, the
+email — over a scrim, with an accent-filled header and the action sweep on each
+row's icon tile. Escape closes it, tab is trapped inside it, and focus returns
+to the trigger. The trigger is a real link to `/contactenos/`; the flyout only
+takes over once its script has run, so the page stays reachable without
+JavaScript. Its copy is authored in `src/content/contact.json` — like
+`cta.json`, it is not migrated content and needs a review before launch.
+
+**The page.** `/contactenos/` is no longer the generic document template, which
+presents a page as prose and left the form hanging under a column of contact
+details. It is the reference site's contact layout: the photo header, the form
+in a two-thirds column, and the page's own phone number, email line and "si
+desea" list in the column beside it, over the links to the rest of Recursos —
+labels taken from the site's own menu, so the sidebar adds no copy. Every word
+of the old page is still on it.
+
+## The colour page
+
+The 190 RAL swatches were split across three tab panels labelled "RAL Colors
+1", "2" and "3" — a division made where the first panel got long. Nothing could
+be found: a visitor looking for a green had to open all three tabs, and the
+page loaded with none of them open (`docs/deviations.md` #1).
+
+They are now one grid in RAL order, six across, over a search field and a row of
+colour-family filters, which is the shape `ifscoatings.com` gives the same
+content (`src/components/RalColorSearch.tsx`):
+
+- **The families are the grouping the range already has** — the first digit of
+  the RAL number. Each card carries its family's colour on its top edge and its
+  IFS code in a pill tinted to match, so a full view reads as families and a
+  filtered one reads the same way.
+- **The filter bar is sticky** under the masthead, because a filter you have to
+  scroll back to is a filter nobody uses. On a phone the family row is one
+  scrolling line; wrapped, it is six rows deep and swallows the viewport.
+- **It is hidden until its script runs.** The complete grid is the page. Search
+  narrows it; it is not how the page works.
+- Search matches the RAL number, the IFS code and the family name, so "1013",
+  "plsf70" and "verdes" all land somewhere useful.
+
+The header photograph is `ifscoatings.com/ral-color/`'s — a fan of coated chips,
+which is what this page is a catalogue of. The extracted page's own hero is a
+printed RAL fan deck shot at an angle, and its printed colour names read as a
+second, competing set of labels behind the title.
+
+The swatches, their numbers and their codes are read out of the extracted page
+by `src/lib/colors.ts` — nothing is hand-copied, and the loader returns an empty
+set with a warning rather than throwing if a re-extraction changes the page's
+shape. The family names are the only authored text on the page.
 
 ## Note on `verify:layout`
 

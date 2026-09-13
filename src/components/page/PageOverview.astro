@@ -45,10 +45,18 @@ const runs = runsOf(body);
 const prose = runs.filter((r) => !r.wide).flatMap((r) => r.blocks);
 const wide = runs.filter((r) => r.wide);
 const hasLead = prose.length > 0 || headline;
+// Two pages have no opening passage at all, so this band holds nothing but the
+// breadcrumb. At the full band rhythm that is 160px of empty tint under the
+// header; it is a breadcrumb bar, so it is sized as one.
+//
+// The band itself takes the tight rhythm rather than the wide one: the panel
+// inside it carries 56px of padding of its own, and the two together put 136px
+// between the copy and the section below it.
+const bare = !hasLead && wide.length === 0;
 ---
 
 <section class="bg-surface-alt">
-  <div class="container-ox band">
+  <div class:list={["container-ox", bare ? "py-5" : "band--tight"]}>
     <nav aria-label="Ruta de navegación" class:list={[hasLead || wide.length ? "mb-10" : ""]}>
       <ol class="text-ink-body flex flex-wrap items-center gap-2 text-[0.8125rem]">
         <li><a href="/" class="hover:text-brand-hover">Inicio</a></li>
@@ -77,29 +85,62 @@ const hasLead = prose.length > 0 || headline;
       hasLead && (
         <div class:list={["bg-surface-warm", !image && !wide.length && "lg:max-w-[52rem]"]}>
           <div class="bg-brand h-1" aria-hidden="true" />
-          <div class="p-8 sm:p-10 lg:p-14">
-            <div class:list={["grid gap-10 lg:gap-16", image && "lg:grid-cols-2"]}>
-              <div>
+          <div class="p-6 sm:p-8 lg:p-10">
+            <div
+              class:list={[
+                "grid gap-8 lg:gap-12",
+                image && "lg:grid-cols-[minmax(0,1fr)_minmax(0,34%)]",
+              ]}
+            >
+              {/* The copy column carries everything that is words: the opening
+                  passage, the grid that passage introduces, and the action. The
+                  grid used to sit below the whole panel, which left the copy
+                  column empty beside a 340px photograph and made the panel
+                  twice as tall as its content. */}
+              <div class="panel-col">
                 {headline && (
                   <h2 class="display mb-7 text-4xl sm:text-5xl lg:text-6xl">{headline}</h2>
                 )}
-                <div class="doc-lead">
-                  {prose.map((b) => (
-                    <Block block={b} />
-                  ))}
-                </div>
+                {/* In source order: each grid follows the sentence that
+                    introduces it. Collecting all the prose and then all the
+                    grids put three introducing lines in a row above two
+                    grids, and neither line belonged to the grid under it. */}
+                {runs.map((run, i) => (
+                  <div
+                    class:list={[
+                      run.wide ? "overflow-x-auto" : "doc-lead",
+                      i > 0 && (run.wide ? "mt-6" : "mt-7"),
+                    ]}
+                  >
+                    {run.blocks.map((b) => (
+                      <Block block={b} />
+                    ))}
+                  </div>
+                ))}
+
+                {action && (
+                  <a href={action.href} class="ox-link mt-7">
+                    {action.label}
+                    <svg class="h-4 w-4" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                      <path
+                        fill-rule="evenodd"
+                        d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </a>
+                )}
               </div>
-              {/* The photograph fills the row beside the copy — unless a grid
-                  follows, in which case the copy above it is usually a single
-                  introducing line and a stretched photograph would open a hole
-                  between that line and the grid it introduces. */}
+              {/* Where the copy column carries a grid it is much taller than
+                  the photograph, and stretching a landscape shot to it crops it
+                  into a tall strip — so there it keeps its own 4:3. A column of
+                  plain prose is close enough in height for the photograph to
+                  fill it. */}
               {image && (
                 <div
                   class:list={[
                     "relative",
-                    wide.length
-                      ? "h-[280px] self-start lg:h-[340px]"
-                      : "min-h-[280px] self-stretch",
+                    wide.length ? "aspect-[4/3] self-start" : "min-h-[280px] self-stretch",
                   ]}
                 >
                   <img
@@ -113,31 +154,6 @@ const hasLead = prose.length > 0 || headline;
                 </div>
               )}
             </div>
-
-            {/* An application grid or a table stays inside the panel, spanning
-                both its columns: the sentence that introduces it is in the copy
-                column above, and putting the grid on the band below would leave
-                that line hanging. */}
-            {wide.map((run) => (
-              <div class="mt-4 overflow-x-auto">
-                {run.blocks.map((b) => (
-                  <Block block={b} />
-                ))}
-              </div>
-            ))}
-
-            {action && (
-              <a href={action.href} class="ox-link mt-9">
-                {action.label}
-                <svg class="h-4 w-4" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-                  <path
-                    fill-rule="evenodd"
-                    d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </a>
-            )}
           </div>
         </div>
       )
