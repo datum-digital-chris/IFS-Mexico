@@ -381,11 +381,34 @@ the CTA from that one page.
 
 ### Imagery
 
-The Mexican site had no market photography, so hero and supporting images come
-from the IFS Coatings US library, mapped in `cfg.markets` and copied by
-`npm run import-images` (which caps the long edge at 2000px and re-encodes —
-the originals run to 3000×4500 and 1.9MB). 11 images, 4.7MB. **This is the only
-place new material was introduced; all copy is still the extracted original.**
+The Mexican site had almost no photography of its own: a market page carried one
+bare photo band and nothing in the body, and eight pages carried no photograph
+at all. Hero and supporting images come from the IFS Coatings US library, mapped
+page by page in `cfg.pageImages` and copied by `npm run import-images` (long
+edge capped at 1800px for a hero and 1200px for a supporting shot, then
+re-encoded — the originals run to 3000×4500 and 1.9MB). **35 images, 9.5MB. This
+is the only place new material was introduced; all copy is still the extracted
+original.**
+
+The choices are deliberate rather than decorative — the supporting shot is the
+page's own subject wherever the library has one:
+
+| Page                     | Supporting shot                                    |
+| ------------------------ | -------------------------------------------------- |
+| Industriales Generales   | the propane tanker its copy names second           |
+| Electrodomésticos        | a kitchen with a washing machine and an oven in it |
+| Repintado de Automóviles | a coated wheel — _"la protección de sus ruedas"_   |
+| Polvo Antigrafiti        | a graffitied wall                                  |
+| Polvo Aprobados por NSF  | a food-service interior                            |
+| UL Polvo                 | lighting, which is most of what UL listings cover  |
+| Colores                  | colour chips                                       |
+
+Coverage: 26 of 28 pages have a header photograph and 22 have a supporting one.
+Six panels run as a single capped column, each for a reason — the two legal
+pages take none at all (the reference site's legal pages carry no photography
+either, and a picture over the terms of use is decoration), and Contáctenos,
+Descargar Información and Clave de Código are each followed by a full-width form,
+link list or diagram that is the page's real content.
 
 ### Faults this exposed
 

@@ -1031,16 +1031,19 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
 
     const lead = { headline: leadHeadline, hero: heroLead, body: leadBody };
 
-    // Market photography was imported from the US library because the Mexican
-    // site had none; every other page uses the hero band it already had.
-    const images = cfg.markets[slug];
+    // Photography imported from the US library (cfg.pageImages), because the
+    // Mexican site had almost none of its own. A page with no `hero` entry
+    // keeps the photo band it already had.
+    const images = cfg.pageImages[slug];
     const ext = (f) => f.slice(f.lastIndexOf("."));
     const heroImage = images?.hero
-      ? `/uploads/markets/${slug}-hero${ext(images.hero)}`
+      ? `/uploads/${cfg.imageDir}/${slug}-hero${ext(images.hero)}`
       : heroBand
         ? bgImage(heroBand.bg)
         : null;
-    const supportImage = images?.support ? `/uploads/markets/${slug}-support${ext(images.support)}` : null;
+    const supportImage = images?.support
+      ? `/uploads/${cfg.imageDir}/${slug}-support${ext(images.support)}`
+      : null;
 
     const section_ = sectionFor(page.path);
     page.template = "doc";

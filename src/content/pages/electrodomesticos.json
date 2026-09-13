@@ -167,8 +167,8 @@
     "title": "Electrodomésticos",
     "eyebrow": "Mercados",
     "eyebrowHref": null,
-    "heroImage": "/uploads/markets/electrodomesticos-hero.jpg",
-    "supportImage": null,
+    "heroImage": "/uploads/library/electrodomesticos-hero.jpg",
+    "supportImage": "/uploads/library/electrodomesticos-support.jpg",
     "lead": {
       "headline": null,
       "hero": "Las lavadoras, secadoras, refrigeradores, hornos, microondas y la mayoría de los electrodomésticos son atacados regularmente por dedos pegajosos, limpiadores de cocina, agua, calor, frío y golpes.",

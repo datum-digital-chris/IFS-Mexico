@@ -140,8 +140,8 @@
     "title": "UL Polvo",
     "eyebrow": "Tipos de Polvo",
     "eyebrowHref": null,
-    "heroImage": null,
-    "supportImage": null,
+    "heroImage": "/uploads/library/ul-polvo-hero.jpg",
+    "supportImage": "/uploads/library/ul-polvo-support.jpg",
     "lead": {
       "headline": null,
       "hero": "",

@@ -16,7 +16,7 @@ npm run inventory      # rebuild docs/url-ledger.csv and docs/asset-census.csv
 npm run extract        # regenerate src/content/ from wp-cache/
 npm run compare        # text fidelity: every sentence on the old page survives
 npm run verify:layout  # visual fidelity: every element's geometry, old vs new
-npm run import-images  # copy market photography in from the IFS Coatings US repo
+npm run import-images  # copy page photography in from the IFS Coatings US repo
 ```
 
 ## How this migration works

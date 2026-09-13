@@ -38,16 +38,27 @@ export default {
   // The WP default sample post, never linked from the site. Retired, not migrated.
   retireSlugs: ["hello-world"],
 
-  // The seven market ("Mercados") pages. They share one template
-  // (src/layouts/MarketLayout.astro) and take their imagery from the IFS
-  // Coatings US site's library, which has proper market photography where the
-  // Mexican site had none: every market page carried a single bare photo band
-  // and zero images in the body.
+  // Imagery, imported from the IFS Coatings US site's library.
   //
-  // `from` is relative to the IFS-Coatings repo's public/ directory; run
-  // `npm run import-images` to copy them in.
-  marketsSource: "/Users/Chris/GitHub/IFS-Coatings/public",
-  markets: {
+  // The Mexican site had almost none of its own: a market page carried one bare
+  // photo band and no images in the body at all, and eight pages carried no
+  // photograph whatsoever. The US repo has proper photography for all of it, so
+  // each page here names the shot that belongs to it.
+  //
+  //   hero     overrides the page's own photo band, or supplies one where the
+  //            page has none. Omit it and the extracted band is used.
+  //   support  the photograph beside the opening passage in the overview panel.
+  //            Omit it and that panel runs as a single capped column.
+  //
+  // Paths are relative to the IFS-Coatings repo's public/ directory; run
+  // `npm run import-images` to copy them in. Choices are deliberate rather than
+  // decorative - the supporting shot is the page's own subject wherever the
+  // library has it, which is why Industriales gets the propane tanker its copy
+  // names and Repintado gets a coated wheel.
+  imageSource: "/Users/Chris/GitHub/IFS-Coatings/public",
+  imageDir: "library",
+  pageImages: {
+    // ---- Mercados ----------------------------------------------------------
     "mercado-arquitectonico": {
       hero: "architectural-coatings-hero.jpg",
       // A real building rather than the marketing collage in
@@ -56,15 +67,18 @@ export default {
     },
     "aplicaciones-industriales-generales": {
       hero: "general-industrial-hero.jpg",
-      support: "uploads/hardware-hero-01.jpg",
+      // "los tanques de propano" is the second thing the page's copy names.
+      support: "uploads/52-foot-propane-tanks-zinc-rich-primer-top-coated-with-super-wet-white.jpg",
     },
     electrodomesticos: {
       hero: "uploads/appliances-hero-02.jpg",
-      support: null,
+      // A kitchen with a washing machine and an oven in it, which is the page.
+      support: "uploads/hero-pureclad.jpg",
     },
     "repintado-de-automoviles": {
       hero: "uploads/automotive-powder-hero-01.jpg",
-      support: null,
+      // A coated wheel: "La protección de sus ruedas es importante".
+      support: "uploads/hero-standard-polyester.jpg",
     },
     maquiladores: {
       hero: "uploads/custom-coaters-hero-02.jpg",
@@ -72,7 +86,7 @@ export default {
     },
     "trailers-2": {
       hero: "uploads/trailers-hero-02.jpg",
-      support: null,
+      support: "uploads/with-hay-bales-website-1200.jpg",
     },
     "varillas-de-refuerzo": {
       // rebar-lr-1200.jpg is the same dimensions at 1.9MB and will not
@@ -80,6 +94,41 @@ export default {
       hero: "uploads/rebars-toughest-coating-yet.jpg",
       support: "uploads/top-5-questions-for-rebar-industry.jpg",
     },
+
+    // ---- Tipos de Polvo ----------------------------------------------------
+    // These keep their own photo bands; they only needed the supporting shot.
+    "polvo-de-poliester-estandar": { support: "uploads/powder-manufacture-hero.jpg" },
+    "polvos-de-poliester-superduraderos": { support: "uploads/understanding-weathering.jpg" },
+    "polvo-de-fluoropolimero-feve": { support: "uploads/framing-the-view-header.jpg" },
+    "polvo-epoxi": { support: "uploads/hardware-hero-01.jpg" },
+    "polvo-hibrido": { support: "uploads/myth-busting-powder-is-not-just-polyester.jpg" },
+    "polvo-antimicrobiano": { support: "uploads/ifs-advance-hero.jpg" },
+    // The page is about anti-graffiti powder; this is a graffitied wall.
+    "polvo-antigrafiti": { support: "uploads/ag-1200-website.jpg" },
+    "imprimadores-en-polvo": { support: "uploads/polyurethane-powder-hero.jpg" },
+    // NSF approval is for food-contact and food-service environments.
+    "recubrimientos-en-polvo-aprobados-por-nsf": { support: "uploads/10-powder-applications-for-retailers.jpg" },
+    "polvo-disipadores-de-electricidad-estatica-esd": { support: "uploads/ifs-specialities-hero.jpg" },
+    "polvos-termoplasticos-ifs-puroplaz": { support: "uploads/puroplaz-powder-coating-delivers-durability.jpg" },
+    // UL listings are mostly lighting and electrical enclosures. This page had
+    // no photo band of its own, so it gets a hero as well.
+    "ul-polvo": { hero: "uploads/ifs-powder-types-hero.jpg", support: "uploads/lighting-hero-05.jpg" },
+
+    // ---- Más Allá del Metal ------------------------------------------------
+    "ifs-pureclad": { support: "uploads/ifs-architectural-al-hero.jpg" },
+
+    // ---- Colores -----------------------------------------------------------
+    colors: { support: "uploads/color-trends-2026-chips.jpg" },
+
+    // ---- Recursos ----------------------------------------------------------
+    // All four of these opened on a flat dark header, having no photograph of
+    // their own. The legal pages keep theirs: a photograph over the terms of
+    // use would be decoration, and the reference site's legal pages carry none.
+    conocenos: { hero: "uploads/about-us-hero.jpg", support: "uploads/ifs-manufacturing-facilities-hero.jpg" },
+    "valores-de-la-mision": { hero: "uploads/join-the-team-hero.jpg" },
+    "descargar-informacion": { hero: "downloads-hero.jpg" },
+    "clave-de-codigo-de-producto": { hero: "uploads/product-codes-hero.jpg" },
+    contactenos: { hero: "contact-hero.jpg" },
   },
 
   // Site container width, read from the stylesheet so there is exactly one

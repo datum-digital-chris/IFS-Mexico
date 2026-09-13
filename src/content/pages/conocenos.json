@@ -71,8 +71,8 @@
     "title": "Conocenos",
     "eyebrow": "Recursos",
     "eyebrowHref": null,
-    "heroImage": null,
-    "supportImage": null,
+    "heroImage": "/uploads/library/conocenos-hero.jpg",
+    "supportImage": "/uploads/library/conocenos-support.jpg",
     "lead": {
       "headline": null,
       "hero": "En IFS Coatings estamos muy orgullosos de nuestra empresa, orgullosos de nuestro equipo, orgullosos de nuestros productos y servicios y orgullosos de nuestras instalaciones de fabricación con certificación ISO 9001:2015. Nuestra misión es brindar un servicio y un producto incomparables a la industria a la vez que brindamos una opción ambientalmente responsable.",
