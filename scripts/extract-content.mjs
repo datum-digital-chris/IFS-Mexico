@@ -494,8 +494,24 @@ function walk(el, parentType = null, parentId = null) {
   if (tag === "img" || cls.includes("ct-image")) {
     const img = tag === "img" ? el : el.querySelector("img");
     if (!img) return null;
-    const src = rewriteUrl(img.getAttribute("src"));
-    if (src?.startsWith("/uploads/")) {
+    let src = rewriteUrl(img.getAttribute("src"));
+    let alt = img.getAttribute("alt") ?? "";
+
+    // A corrected image (cfg.mediaCorrections) comes from the imported library
+    // rather than the archive, so it is not checked against wp-cache. The
+    // `from` is asserted: if the old markup changes under a re-extraction, the
+    // correction must be re-examined rather than silently applied to something
+    // else.
+    const fix = (cfg.mediaCorrections ?? []).find((c) => c.id === id);
+    if (fix) {
+      if (src !== fix.from) {
+        console.warn(`  media correction ${id}: expected ${fix.from}, found ${src} - not applied`);
+      } else {
+        src = fix.to;
+        alt = fix.alt ?? alt;
+        report.corrections.add(fix.reason);
+      }
+    } else if (src?.startsWith("/uploads/")) {
       try {
         readFileSync(P(cfg.cache.uploads, src.replace("/uploads/", "")));
       } catch {
@@ -506,7 +522,7 @@ function walk(el, parentType = null, parentId = null) {
       kind: "image",
       id,
       src,
-      alt: img.getAttribute("alt") ?? "",
+      alt,
       width: img.getAttribute("width") ?? null,
       height: img.getAttribute("height") ?? null,
       ...style,

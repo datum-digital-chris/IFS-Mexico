@@ -288,6 +288,34 @@ nothing until the client supplies one. No placeholder is shipped.
 
 ---
 
+## 16. RAL 5009 shows RAL 5009
+
+**Old:** the colour page's RAL 5009 tile carries RAL 5012's photograph — light
+blue where the colour is azure blue — with `alt="RAL 5012"` on it as well. The
+old media library has no RAL 5009 panel anywhere in it, so the tile was never
+going to be right.
+
+**New:** the panel from `ifscoatings.com/ral-color/ral-5009/`, which lists the
+same 190 RAL colours and has a photograph for each. Imported to
+`/uploads/library/ral-5009.png` by `npm run import-images` and applied by
+`cfg.mediaCorrections`, which asserts the old markup still carries the file it
+expects before substituting — so a re-extraction cannot silently apply the
+correction to something else.
+
+**Everything else checked:** all 190 tiles were compared against the .com's
+panel for the same RAL number by dominant colour. 5009 was the only one wrong.
+Eight pairs of near-identical greys and blacks share one photograph (6014/6022,
+7015/7024, 7033/7034, 7037/7043, 7040/7046, 9002/9007, 9004/9017, and
+9006 with 9022) — the .com shares the same photograph across the same pairs, so
+that is the library, not a fault here. Six more differ only in exposure
+(1004, 1012, 1018, 2000, 3017, 6005) and are the same colour on both sites.
+
+**Not added:** the .com lists RAL 6029, which this site does not sell, and this
+site lists RAL 9022, which the .com does not. Adding a colour is a product
+claim, not an image fix.
+
+---
+
 ## Not a deviation: `[wpdatatable id=2]`
 
 One shortcode on `/mercado-arquitectonico/` refers to a wpDataTables table.

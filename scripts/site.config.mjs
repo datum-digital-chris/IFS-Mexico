@@ -199,6 +199,26 @@ export default {
   // Corrections applied to extracted copy. Each needs evidence, because this
   // rewrites the client's own words — it is for demonstrable errors only, not
   // for editing.
+  // Images the old site got wrong, corrected by the id of the element carrying
+  // them. Unlike textCorrections these swap a file, and the replacement is
+  // imported from the US site's own library by `npm run import-images` — so
+  // the correction names both where it comes from and where it lands.
+  mediaCorrections: [
+    {
+      // The colour page's RAL 5009 tile carries RAL 5012's photograph, alt text
+      // and all: it shows light blue where the colour is azure blue, and the
+      // old site has no RAL 5009 panel anywhere in its media library. Taken
+      // from ifscoatings.com, which lists the same 190 RAL colours and has a
+      // panel for each (`/ral-color/ral-5009/`).
+      id: "image-3506-51",
+      from: "/uploads/2023/05/RAL-5012-600x600-1.png",
+      to: "/uploads/library/ral-5009.png",
+      alt: "RAL 5009",
+      source: "uploads/ral-colors/RAL5009-PLSF20122-Azure-Blue.png",
+      reason: "RAL 5009 was showing RAL 5012's swatch",
+    },
+  ],
+
   textCorrections: [
     {
       // The fluoropolymer product is IFS 500FP. Its own page on this site says

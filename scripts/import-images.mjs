@@ -11,7 +11,7 @@
  *   node scripts/import-images.mjs --dry-run
  */
 import { existsSync, mkdirSync, copyFileSync, statSync } from "node:fs";
-import { join, basename, extname } from "node:path";
+import { join, basename, dirname, extname } from "node:path";
 import { execFileSync } from "node:child_process";
 import cfg from "./site.config.mjs";
 
@@ -36,6 +36,33 @@ if (!DRY) mkdirSync(OUT, { recursive: true });
 let copied = 0;
 let bytes = 0;
 const missing = [];
+
+// Corrected images (cfg.mediaCorrections) land at the path the correction
+// names rather than under the page-image naming, and a swatch is displayed at
+// ~200px, so it takes the swatch cap rather than a supporting shot's.
+for (const fix of cfg.mediaCorrections ?? []) {
+  if (!fix.source || !fix.to) continue;
+  const src = join(cfg.imageSource, fix.source);
+  if (!existsSync(src)) {
+    missing.push(`correction ${fix.id}: ${fix.source}`);
+    continue;
+  }
+  const dest = join(ROOT, "public", fix.to);
+  if (DRY) {
+    console.log(`${fix.id.padEnd(36)} ${"fix".padEnd(8)} ${basename(fix.source)}`);
+    copied++;
+    continue;
+  }
+  mkdirSync(dirname(dest), { recursive: true });
+  copyFileSync(src, dest);
+  try {
+    execFileSync("sips", ["-Z", "440", dest], { stdio: "ignore" });
+  } catch {
+    /* sips is macOS-only; the file is still copied */
+  }
+  copied++;
+  bytes += statSync(dest).size;
+}
 
 for (const [slug, images] of Object.entries(cfg.pageImages)) {
   for (const [role, rel] of Object.entries(images)) {

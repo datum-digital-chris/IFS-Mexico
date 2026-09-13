@@ -50,6 +50,7 @@ None.
 
 ## Corrections applied to extracted copy
 
+- RAL 5009 was showing RAL 5012's swatch
 - product code typo: the product is IFS 500FP
 
 ## External links
