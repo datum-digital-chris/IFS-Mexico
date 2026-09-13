@@ -1,0 +1,25 @@
+---
+/**
+ * A line-art icon from the library in public/icons/, copied from the IFS
+ * Coatings US site (which builds it from the supplier's 2026 set).
+ *
+ * Painted through a CSS mask rather than drawn as an <img>, so its colour
+ * follows the `text-*` utility on the element and one file serves every
+ * surface. Decorative: the label beside it carries the meaning.
+ *
+ * The name is matched from extracted copy (scripts/lib/icons.mjs), and the
+ * extractor checks it against the files on disk, so an unknown name never
+ * reaches this component.
+ */
+interface Props {
+  name: string;
+  class?: string;
+}
+
+const { name, class: className = "h-6 w-6" } = Astro.props;
+---
+
+<span
+  class:list={["icon-mask", className]}
+  style={`--icon:url('/icons/${name}.png')`}
+  aria-hidden="true"></span>

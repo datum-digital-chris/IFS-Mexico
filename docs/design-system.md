@@ -329,8 +329,10 @@ Two consequences worth recording:
 
 ### Hairlines on the cells, not gaps over a parent
 
-Every grid on these pages — feature lists, numbered items, the cross-link band —
-is a bordered block of cells divided by hairlines. The US site draws those with
+Two grids on these pages — the numbered items and the cross-link band — are a
+bordered block of cells divided by hairlines. (The application grids are
+separate cells on a small gap, following the reference page's own applications
+block.) The US site draws those with
 `gap-px` over a coloured parent, which is shorter, and wrong here: most of these
 lists have an odd number of items, so the last slot is empty and the parent
 colour shows through it as a stray filled tile. The rules are drawn on the cells
@@ -338,16 +340,56 @@ instead (`.feature-list`, `.doc-items`, `.doc-nav` in `theme.css`), which
 holds at any item count. The cells take the card tint (`#fafafa`) so a grid
 reads as cells on either of the two light section surfaces.
 
-### Lists
+### Lists are the content, so they are laid out as grids
 
-`tagFeatureLists()` in the extractor marks a list as a feature grid when it is
-flat and its items are labels rather than paragraphs. Those render as two
-columns with a check drawn in CSS in the decorative accent, so it is identical
-in every font. Items
-over ~52 characters get `--wide` and stay in one column; over ~130 characters
-the list stays a plain list. 95 lists across the site convert. The threshold
-deliberately errs towards converting: one styled list among three plain ones
-looks like a mistake.
+These pages are overwhelmingly lists — applications, benefits, standards — and
+the US site treats a list of six or more uniform items as a first-class layout:
+an application grid, three across, each cell on the card surface with a rule
+down its leading edge and a line-art icon beside the label.
+
+Three steps get there:
+
+1. **`tagFeatureLists()`** marks a list as a candidate when it is flat and its
+   items are labels rather than paragraphs (longest item ≤130 characters). 92
+   lists across the site qualify.
+2. **`liftLists()`** takes each one that sits at the top level of its prose
+   block and makes it a block of its own, so it can use the full width of its
+   section instead of being stuck at the text measure stacking one item per
+   row. 45 lists lift. A list nested inside another list is left alone: it
+   belongs to the sentence above it (_"Diseñado para cumplir y superar los
+   siguientes estándares:"_) and moving it would orphan that line.
+3. **`iconFor()`** matches a Spanish label to the icon library.
+
+#### Which lists get icons
+
+The US site authors an icon name onto every item of an applications block.
+These lists are extracted copy with no such field, so the icon is matched from
+the label — accents stripped, longest phrase first, so _"muebles de exterior"_
+beats _"muebles"_.
+
+A list becomes an icon grid only when **at least 60% of its items match**. That
+line matters: these lists are of two kinds, and only one of them is iconic.
+_Ruedas, Tapicería, Bicicletas_ are things that get coated and the library can
+draw all of them. _Excelente adherencia, Excelente dureza_ are properties, and
+there is no honest icon for a property — that list keeps the check.
+
+11 lists cross the threshold and 34 do not. Inside the 11, 95% of items match;
+the remaining handful keep the check, boxed to the icon's size so the rows stay
+aligned.
+
+#### The icons
+
+145 line-art marks, copied from the US site's `public/icons/` (which builds them
+from the supplier's 2026 set). 1.1MB. They are painted through a CSS mask
+(`.icon-mask`), so the colour comes from the `color` of the element rather than
+from the file, and one file serves every surface. The extractor checks every
+matched slug against the files on disk, so a name that does not exist is caught
+at build time rather than shipping as a blank square.
+
+An application grid that comes from a page's opening passage stays **inside the
+lead panel**, spanning both its columns. The sentence that introduces it is in
+the copy column above, and putting the grid on the band below left that line
+hanging over an empty panel.
 
 ### The closing CTA
 
@@ -386,9 +428,9 @@ bare photo band and nothing in the body, and eight pages carried no photograph
 at all. Hero and supporting images come from the IFS Coatings US library, mapped
 page by page in `cfg.pageImages` and copied by `npm run import-images` (long
 edge capped at 1800px for a hero and 1200px for a supporting shot, then
-re-encoded — the originals run to 3000×4500 and 1.9MB). **35 images, 9.5MB. This
-is the only place new material was introduced; all copy is still the extracted
-original.**
+re-encoded — the originals run to 3000×4500 and 1.9MB). **35 images, 9.5MB, plus the 145
+icons at 1.1MB. This is the only place new material was introduced; all copy is
+still the extracted original.**
 
 The choices are deliberate rather than decorative — the supporting shot is the
 page's own subject wherever the library has one:

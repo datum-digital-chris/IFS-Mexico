@@ -271,13 +271,72 @@
           {
             "kind": "richtext",
             "id": "_rich_text-15-119",
-            "html": "<p>Creados pensando en un rendimiento interior superior, los recubrimientos en polvo disipadores de electricidad estática (ESD) de IFS exhiben las siguientes propiedades en aplicaciones interiores:</p><ul class=\"feature-list feature-list--wide\"><li>Excelente resistividad superficial (en el rango de 104 a 1011 ohmios)</li><li>Excelente dureza</li><li>Excelente flexibilidad</li><li>Excelente adherencia</li><li>Excelente resistencia al impacto</li><li>Buena resistencia a la niebla salina</li><li>Los recubrimientos en polvo disipadores de electricidad estática (ESD) de IFS ofrecen:</li><li>Excelente funcionalidad</li><li>Amplia gama de aplicaciones</li><li>No se requiere equipo especial para aplicar</li><li>Excelente rendimiento mecánico</li><li>Amplia gama de colores y acabados</li><li>Rango de brillo de 5 a 90</li></ul>",
+            "html": "<p>Creados pensando en un rendimiento interior superior, los recubrimientos en polvo disipadores de electricidad estática (ESD) de IFS exhiben las siguientes propiedades en aplicaciones interiores:</p>",
             "className": "pb-0 mb-[20px]",
             "isCard": false,
             "wrapClassName": "",
             "bg": null,
             "bgSize": null,
             "bgPosition": null
+          },
+          {
+            "kind": "featurelist",
+            "id": "_rich_text-15-119-list-1",
+            "icons": false,
+            "cells": [
+              {
+                "label": "Excelente resistividad superficial (en el rango de 104 a 1011 ohmios)",
+                "icon": null
+              },
+              {
+                "label": "Excelente dureza",
+                "icon": null
+              },
+              {
+                "label": "Excelente flexibilidad",
+                "icon": null
+              },
+              {
+                "label": "Excelente adherencia",
+                "icon": null
+              },
+              {
+                "label": "Excelente resistencia al impacto",
+                "icon": null
+              },
+              {
+                "label": "Buena resistencia a la niebla salina",
+                "icon": null
+              },
+              {
+                "label": "Los recubrimientos en polvo disipadores de electricidad estática (ESD) de IFS ofrecen:",
+                "icon": null
+              },
+              {
+                "label": "Excelente funcionalidad",
+                "icon": null
+              },
+              {
+                "label": "Amplia gama de aplicaciones",
+                "icon": null
+              },
+              {
+                "label": "No se requiere equipo especial para aplicar",
+                "icon": null
+              },
+              {
+                "label": "Excelente rendimiento mecánico",
+                "icon": null
+              },
+              {
+                "label": "Amplia gama de colores y acabados",
+                "icon": null
+              },
+              {
+                "label": "Rango de brillo de 5 a 90",
+                "icon": null
+              }
+            ]
           }
         ],
         "items": []

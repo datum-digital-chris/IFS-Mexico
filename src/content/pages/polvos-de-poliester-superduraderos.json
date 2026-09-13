@@ -306,7 +306,57 @@
           {
             "kind": "richtext",
             "id": "_rich_text-8-77",
-            "html": "<p>Los sistemas de poliéster superduradero basados en TGIC ofrecen las siguientes ventajas:</p><ul class=\"feature-list feature-list--wide\"><li>Excelente durabilidad exterior</li><li>Excelente resistencia química</li><li>Alta resistencia a los impactos y flexibilidad</li><li>Excelente resistencia a la abrasión</li><li>Se puede formular en una amplia gama de colores, brillos y efectos especiales</li><li>Aplicaciones interiores y exteriores</li><li>Extremadamente rentable</li><li>A menudo cumplen y superan los requisitos de rendimiento de AAMA 2604</li></ul><p>Desventajas de los sistemas de poliéster superduradero basados en TGIC:</p><ul><li>Menos claridad y suavidad que los acrílicos GMA cuando se usan como revestimiento transparente</li></ul>",
+            "html": "<p>Los sistemas de poliéster superduradero basados en TGIC ofrecen las siguientes ventajas:</p>",
+            "className": "mb-[20px] pl-0 pr-0 text-[16px] sm:pl-[25px] sm:pr-[25px] sm:text-[18px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          },
+          {
+            "kind": "featurelist",
+            "id": "_rich_text-8-77-list-1",
+            "icons": false,
+            "cells": [
+              {
+                "label": "Excelente durabilidad exterior",
+                "icon": null
+              },
+              {
+                "label": "Excelente resistencia química",
+                "icon": null
+              },
+              {
+                "label": "Alta resistencia a los impactos y flexibilidad",
+                "icon": null
+              },
+              {
+                "label": "Excelente resistencia a la abrasión",
+                "icon": null
+              },
+              {
+                "label": "Se puede formular en una amplia gama de colores, brillos y efectos especiales",
+                "icon": null
+              },
+              {
+                "label": "Aplicaciones interiores y exteriores",
+                "icon": null
+              },
+              {
+                "label": "Extremadamente rentable",
+                "icon": null
+              },
+              {
+                "label": "A menudo cumplen y superan los requisitos de rendimiento de AAMA 2604",
+                "icon": null
+              }
+            ]
+          },
+          {
+            "kind": "richtext",
+            "id": "_rich_text-8-77",
+            "html": "<p>Desventajas de los sistemas de poliéster superduradero basados en TGIC:</p><ul><li>Menos claridad y suavidad que los acrílicos GMA cuando se usan como revestimiento transparente</li></ul>",
             "className": "mb-[20px] pl-0 pr-0 text-[16px] sm:pl-[25px] sm:pr-[25px] sm:text-[18px]",
             "isCard": false,
             "wrapClassName": "",
@@ -324,13 +374,36 @@
           {
             "kind": "richtext",
             "id": "_rich_text-10-77",
-            "html": "<p>Los polvos de poliéster superduraderos sin TGIC (isocianurato de triglicidilo) se pueden usar en aplicaciones en las que no se desea TGIC (en Europa el TGIC se considera peligroso).</p><p>El poliéster superresistente sin TGIC de IFS ofrece las mismas ventajas que un producto con TGIC, además de:</p><ul><li>Nada de TGIC</li><li>Mayor eficiencia de transferencia en el primer paso</li></ul><p>Las desventajas del poliéster superduradero sin TGIC pueden incluir:</p><ul class=\"feature-list feature-list--wide\"><li>Más sensible al exceso de espesor de la película</li><li>Rango de curado y brillo limitado</li><li>Menos horneado que los TGIC</li><li>Más propenso a problemas de corrosión si hay un pretratamiento deficiente</li></ul>",
+            "html": "<p>Los polvos de poliéster superduraderos sin TGIC (isocianurato de triglicidilo) se pueden usar en aplicaciones en las que no se desea TGIC (en Europa el TGIC se considera peligroso).</p><p>El poliéster superresistente sin TGIC de IFS ofrece las mismas ventajas que un producto con TGIC, además de:</p><ul><li>Nada de TGIC</li><li>Mayor eficiencia de transferencia en el primer paso</li></ul><p>Las desventajas del poliéster superduradero sin TGIC pueden incluir:</p>",
             "className": "mb-[20px] pl-0 pr-0 text-[16px] sm:pl-[25px] sm:pr-[25px] sm:text-[18px]",
             "isCard": false,
             "wrapClassName": "",
             "bg": null,
             "bgSize": null,
             "bgPosition": null
+          },
+          {
+            "kind": "featurelist",
+            "id": "_rich_text-10-77-list-1",
+            "icons": false,
+            "cells": [
+              {
+                "label": "Más sensible al exceso de espesor de la película",
+                "icon": null
+              },
+              {
+                "label": "Rango de curado y brillo limitado",
+                "icon": null
+              },
+              {
+                "label": "Menos horneado que los TGIC",
+                "icon": null
+              },
+              {
+                "label": "Más propenso a problemas de corrosión si hay un pretratamiento deficiente",
+                "icon": null
+              }
+            ]
           }
         ],
         "items": []
@@ -342,13 +415,84 @@
           {
             "kind": "richtext",
             "id": "_rich_text-13-77",
-            "html": "<p>Los recubrimientos en polvo de poliéster superduraderos se usan en una amplia gama de aplicaciones, que incluyen:</p><ul class=\"feature-list feature-list--wide\"><li>Ventanas y puertas</li><li>Escaparate</li><li>Muro cortina y ventana de poca altura</li><li>Toldos</li><li>Aplicaciones interiores de gama alta, por ejemplo, parteluces</li><li>Muebles de exterior y vallas</li><li>Equipos de juegos y recreación</li><li>Asientos de estadio</li><li>Accesorios de iluminación exterior</li><li>Máquinas expendedoras exteriores</li><li>Partes automotrices y remolques</li><li>Equipo marino,</li><li>Equipos de césped y jardín</li><li>Maquinaria agrícola</li><li>Remolques</li><li>Tanques transformadores</li></ul>",
+            "html": "<p>Los recubrimientos en polvo de poliéster superduraderos se usan en una amplia gama de aplicaciones, que incluyen:</p>",
             "className": "pb-0 mb-[20px] pl-0 pr-0 text-[16px] sm:pl-[25px] sm:pr-[25px] sm:text-[18px]",
             "isCard": false,
             "wrapClassName": "",
             "bg": null,
             "bgSize": null,
             "bgPosition": null
+          },
+          {
+            "kind": "featurelist",
+            "id": "_rich_text-13-77-list-1",
+            "icons": true,
+            "cells": [
+              {
+                "label": "Ventanas y puertas",
+                "icon": "window"
+              },
+              {
+                "label": "Escaparate",
+                "icon": "storefront"
+              },
+              {
+                "label": "Muro cortina y ventana de poca altura",
+                "icon": "curtain-wall"
+              },
+              {
+                "label": "Toldos",
+                "icon": "awning"
+              },
+              {
+                "label": "Aplicaciones interiores de gama alta, por ejemplo, parteluces",
+                "icon": "window"
+              },
+              {
+                "label": "Muebles de exterior y vallas",
+                "icon": "garden-furniture"
+              },
+              {
+                "label": "Equipos de juegos y recreación",
+                "icon": "playground"
+              },
+              {
+                "label": "Asientos de estadio",
+                "icon": "stadium"
+              },
+              {
+                "label": "Accesorios de iluminación exterior",
+                "icon": "light-bulb"
+              },
+              {
+                "label": "Máquinas expendedoras exteriores",
+                "icon": "vending-machine"
+              },
+              {
+                "label": "Partes automotrices y remolques",
+                "icon": "car"
+              },
+              {
+                "label": "Equipo marino,",
+                "icon": "marine"
+              },
+              {
+                "label": "Equipos de césped y jardín",
+                "icon": "lawn-and-patio"
+              },
+              {
+                "label": "Maquinaria agrícola",
+                "icon": "agricultural-equipment"
+              },
+              {
+                "label": "Remolques",
+                "icon": "trailer"
+              },
+              {
+                "label": "Tanques transformadores",
+                "icon": "transformer-tank"
+              }
+            ]
           }
         ],
         "items": []

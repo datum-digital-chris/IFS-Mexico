@@ -242,13 +242,52 @@
         {
           "kind": "richtext",
           "id": "_rich_text-18-91",
-          "html": "<p>Los recubrimientos epoxi en polvo de IFS están hechos para aplicaciones que necesitan ser resistentes a los productos químicos y la corrosión y verse bien, pero en las que la durabilidad en el exterior no es importante. Los recubrimientos epoxi en polvo de IFS se usan normalmente en una amplia gama de aplicaciones, entre las que se incluyen:</p><ul class=\"feature-list feature-list--wide\"><li>Armarios metálicos</li><li>Material deportivo y recreativo</li><li>Muebles</li><li>Herramientas manuales y eléctricas</li><li>Accesorios de fontanería y ferretería de latón</li><li>Cajas de herramientas y artículos de alambre, revestimientos de tuberías</li><li>Barra de refuerzo</li><li>Piezas de la parte inferior de la carrocería y del capó de automóviles</li></ul>",
+          "html": "<p>Los recubrimientos epoxi en polvo de IFS están hechos para aplicaciones que necesitan ser resistentes a los productos químicos y la corrosión y verse bien, pero en las que la durabilidad en el exterior no es importante. Los recubrimientos epoxi en polvo de IFS se usan normalmente en una amplia gama de aplicaciones, entre las que se incluyen:</p>",
           "className": "",
           "isCard": false,
           "wrapClassName": "",
           "bg": null,
           "bgSize": null,
           "bgPosition": null
+        },
+        {
+          "kind": "featurelist",
+          "id": "_rich_text-18-91-list-1",
+          "icons": true,
+          "cells": [
+            {
+              "label": "Armarios metálicos",
+              "icon": "cabinet"
+            },
+            {
+              "label": "Material deportivo y recreativo",
+              "icon": "fitness-equipment"
+            },
+            {
+              "label": "Muebles",
+              "icon": "furniture"
+            },
+            {
+              "label": "Herramientas manuales y eléctricas",
+              "icon": "power-tool"
+            },
+            {
+              "label": "Accesorios de fontanería y ferretería de latón",
+              "icon": "faucet"
+            },
+            {
+              "label": "Cajas de herramientas y artículos de alambre, revestimientos de tuberías",
+              "icon": "pipe-fitting"
+            },
+            {
+              "label": "Barra de refuerzo",
+              "icon": "rebar"
+            },
+            {
+              "label": "Piezas de la parte inferior de la carrocería y del capó de automóviles",
+              "icon": "car"
+            }
+          ]
         }
       ]
     },
@@ -258,15 +297,43 @@
         "headline": "Las ventajas del polvo epoxi de IFS incluyen:",
         "body": [
           {
-            "kind": "richtext",
-            "id": "_rich_text-20-91",
-            "html": "<ul class=\"feature-list\"><li>Excelente adherencia</li><li>Excelente resistencia química</li><li>Excelente resistencia a la corrosión</li><li>Excelente flexibilidad</li><li>Excelente dureza</li><li>Amplia gama de programas de curado</li><li>Posibilidad de baja temperatura</li><li>Gama completa de brillo</li></ul>",
-            "className": "pb-0 mt-[20px]",
-            "isCard": false,
-            "wrapClassName": "",
-            "bg": null,
-            "bgSize": null,
-            "bgPosition": null
+            "kind": "featurelist",
+            "id": "_rich_text-20-91-list-0",
+            "icons": false,
+            "cells": [
+              {
+                "label": "Excelente adherencia",
+                "icon": null
+              },
+              {
+                "label": "Excelente resistencia química",
+                "icon": null
+              },
+              {
+                "label": "Excelente resistencia a la corrosión",
+                "icon": null
+              },
+              {
+                "label": "Excelente flexibilidad",
+                "icon": null
+              },
+              {
+                "label": "Excelente dureza",
+                "icon": null
+              },
+              {
+                "label": "Amplia gama de programas de curado",
+                "icon": null
+              },
+              {
+                "label": "Posibilidad de baja temperatura",
+                "icon": null
+              },
+              {
+                "label": "Gama completa de brillo",
+                "icon": null
+              }
+            ]
           }
         ],
         "items": []

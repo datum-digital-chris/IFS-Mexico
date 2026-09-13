@@ -29,6 +29,7 @@ const block: z.ZodType<unknown> = z.lazy(() =>
       "navmenu",
       "tabs",
       "spectable",
+      "featurelist",
     ]),
     id: z.string().optional(),
     className: z.string().optional(),
@@ -58,6 +59,8 @@ const block: z.ZodType<unknown> = z.lazy(() =>
     items: z
       .array(z.object({ label: z.string(), href: z.string().nullable(), current: z.boolean() }))
       .optional(),
+    cells: z.array(z.object({ label: z.string(), icon: z.string().nullable() })).optional(),
+    icons: z.boolean().optional(),
     tabs: z
       .array(
         z.object({

@@ -363,13 +363,60 @@
           {
             "kind": "richtext",
             "id": "_rich_text-10-701",
-            "html": "<p>La gama IFS PureClad ofrece una amplia variedad de productos químicos en polvo de curado bajo que ofrecerán un rendimiento técnico excepcional.&nbsp;</p><p>Todos los polvos PureClad:</p><ul class=\"feature-list feature-list--wide\"><li>Ofrecen una protección resistente y duradera</li><li>Ofrecen infinitas opciones de personalización: colores, texturas y niveles de brillo</li><li>Son amigables con el medio ambiente y seguros para todos los involucrados</li><li>Tienen la capacidad de recubrir uniformemente formas complejas</li><li>Se pueden recubrir y curar con una huella de taller relativamente pequeña</li><li>Ofrecen la máxima eficiencia de producción con altas densidades de línea, aplicación rápida y curado</li><li>La mayoría de las aplicaciones solo requieren una capa</li><li>Ofrecen un proceso de acabado simple y repetible</li><li>Se pueden formular con funcionalidad adicional para agregar valor, como propiedades antimicrobianas</li><li>Vienen con soporte técnico y operativo completo<strong>&nbsp;</strong></li></ul>",
+            "html": "<p>La gama IFS PureClad ofrece una amplia variedad de productos químicos en polvo de curado bajo que ofrecerán un rendimiento técnico excepcional.&nbsp;</p><p>Todos los polvos PureClad:</p>",
             "className": "pb-0 mt-[20px]",
             "isCard": false,
             "wrapClassName": "",
             "bg": null,
             "bgSize": null,
             "bgPosition": null
+          },
+          {
+            "kind": "featurelist",
+            "id": "_rich_text-10-701-list-1",
+            "icons": false,
+            "cells": [
+              {
+                "label": "Ofrecen una protección resistente y duradera",
+                "icon": null
+              },
+              {
+                "label": "Ofrecen infinitas opciones de personalización: colores, texturas y niveles de brillo",
+                "icon": null
+              },
+              {
+                "label": "Son amigables con el medio ambiente y seguros para todos los involucrados",
+                "icon": null
+              },
+              {
+                "label": "Tienen la capacidad de recubrir uniformemente formas complejas",
+                "icon": null
+              },
+              {
+                "label": "Se pueden recubrir y curar con una huella de taller relativamente pequeña",
+                "icon": null
+              },
+              {
+                "label": "Ofrecen la máxima eficiencia de producción con altas densidades de línea, aplicación rápida y curado",
+                "icon": null
+              },
+              {
+                "label": "La mayoría de las aplicaciones solo requieren una capa",
+                "icon": null
+              },
+              {
+                "label": "Ofrecen un proceso de acabado simple y repetible",
+                "icon": null
+              },
+              {
+                "label": "Se pueden formular con funcionalidad adicional para agregar valor, como propiedades antimicrobianas",
+                "icon": null
+              },
+              {
+                "label": "Vienen con soporte técnico y operativo completo",
+                "icon": null
+              }
+            ]
           }
         ],
         "items": []
@@ -381,13 +428,76 @@
           {
             "kind": "richtext",
             "id": "_rich_text-17-701",
-            "html": "<p>PureClad X cuenta con características de aplicación superiores y es una aplicación de una sola capa con gran capacidad de lijado, además de:</p><ul class=\"feature-list feature-list--wide\"><li>Resistencia a la intemperie: gran solidez del color y retención del brillo</li><li>No se pone amarillo</li><li>Excelente resistencia al agua</li><li>Excelente producto de limpieza y resistencia a las manchas</li><li>Mantiene la flexibilidad a lo largo del tiempo (sin fragilidad)</li><li>Buena estabilidad</li><li>Buena estabilidad al sobrehorneado</li><li>Buena estabilidad de almacenamiento (idealmente a 80 °F o 26 °C) durante unos 6 meses</li><li>Se aplica uniformemente con una excelente formación de película, sin bordes “grasos”</li><li>Buena tolerancia a la desgasificación de los bordes</li><li>Buena capacidad de revestimiento</li><li>Se cura a una temperatura de 240 °F (115 °C) durante unos 6 minutos</li><li>Adecuado para maderas duras (debido a la ventana de curado a baja temperatura)</li><li>Disponible en una gama de coloresUn acabado suave con brillo tan bajo como 25</li></ul>",
+            "html": "<p>PureClad X cuenta con características de aplicación superiores y es una aplicación de una sola capa con gran capacidad de lijado, además de:</p>",
             "className": "pb-0 mt-[20px]",
             "isCard": false,
             "wrapClassName": "",
             "bg": null,
             "bgSize": null,
             "bgPosition": null
+          },
+          {
+            "kind": "featurelist",
+            "id": "_rich_text-17-701-list-1",
+            "icons": false,
+            "cells": [
+              {
+                "label": "Resistencia a la intemperie: gran solidez del color y retención del brillo",
+                "icon": null
+              },
+              {
+                "label": "No se pone amarillo",
+                "icon": null
+              },
+              {
+                "label": "Excelente resistencia al agua",
+                "icon": null
+              },
+              {
+                "label": "Excelente producto de limpieza y resistencia a las manchas",
+                "icon": null
+              },
+              {
+                "label": "Mantiene la flexibilidad a lo largo del tiempo (sin fragilidad)",
+                "icon": null
+              },
+              {
+                "label": "Buena estabilidad",
+                "icon": null
+              },
+              {
+                "label": "Buena estabilidad al sobrehorneado",
+                "icon": null
+              },
+              {
+                "label": "Buena estabilidad de almacenamiento (idealmente a 80 °F o 26 °C) durante unos 6 meses",
+                "icon": null
+              },
+              {
+                "label": "Se aplica uniformemente con una excelente formación de película, sin bordes “grasos”",
+                "icon": null
+              },
+              {
+                "label": "Buena tolerancia a la desgasificación de los bordes",
+                "icon": null
+              },
+              {
+                "label": "Buena capacidad de revestimiento",
+                "icon": null
+              },
+              {
+                "label": "Se cura a una temperatura de 240 °F (115 °C) durante unos 6 minutos",
+                "icon": null
+              },
+              {
+                "label": "Adecuado para maderas duras (debido a la ventana de curado a baja temperatura)",
+                "icon": null
+              },
+              {
+                "label": "Disponible en una gama de coloresUn acabado suave con brillo tan bajo como 25",
+                "icon": null
+              }
+            ]
           }
         ],
         "items": []
@@ -399,13 +509,60 @@
           {
             "kind": "richtext",
             "id": "_rich_text-21-701",
-            "html": "<p>El imprimador en polvo PureClad agrega rendimiento técnico a su acabado y puede aumentar el rendimiento y reducir la cantidad de operaciones de manipulación, lo que ahorra tiempo de fabricación.</p><p>Los imprimadores PureClad aceptarán una capa superior en polvo o líquida y brindarán una excelente resistencia al agua, resistencia química y resistencia a las manchas. Los imprimadores PureClad proporcionan:</p><ul class=\"feature-list feature-list--wide\"><li>Una solución de imprimación de una sola capa</li><li>Imprimación seguida de almacenamiento en espera de lijado, revestimiento o envío posterior</li><li>Buena capacidad de lijado: reduce la cantidad de lijado necesaria</li><li>Soluciones de lijado personalizadas</li><li>Capacidades superiores de llenado en superficies fresadas</li><li>Gran flexibilidad para adaptarse a la deformación a largo plazo de la madera&nbsp;</li><li>Facilidad de trabajar en combinación con resanador</li><li>Capacidad para aceptar una capa superior líquida o en polvo</li><li>Gran flujo y fácil aplicación</li><li>Buena capacidad de revestimiento</li></ul>",
+            "html": "<p>El imprimador en polvo PureClad agrega rendimiento técnico a su acabado y puede aumentar el rendimiento y reducir la cantidad de operaciones de manipulación, lo que ahorra tiempo de fabricación.</p><p>Los imprimadores PureClad aceptarán una capa superior en polvo o líquida y brindarán una excelente resistencia al agua, resistencia química y resistencia a las manchas. Los imprimadores PureClad proporcionan:</p>",
             "className": "pb-0 mt-[20px]",
             "isCard": false,
             "wrapClassName": "",
             "bg": null,
             "bgSize": null,
             "bgPosition": null
+          },
+          {
+            "kind": "featurelist",
+            "id": "_rich_text-21-701-list-1",
+            "icons": false,
+            "cells": [
+              {
+                "label": "Una solución de imprimación de una sola capa",
+                "icon": null
+              },
+              {
+                "label": "Imprimación seguida de almacenamiento en espera de lijado, revestimiento o envío posterior",
+                "icon": null
+              },
+              {
+                "label": "Buena capacidad de lijado: reduce la cantidad de lijado necesaria",
+                "icon": null
+              },
+              {
+                "label": "Soluciones de lijado personalizadas",
+                "icon": null
+              },
+              {
+                "label": "Capacidades superiores de llenado en superficies fresadas",
+                "icon": null
+              },
+              {
+                "label": "Gran flexibilidad para adaptarse a la deformación a largo plazo de la madera",
+                "icon": null
+              },
+              {
+                "label": "Facilidad de trabajar en combinación con resanador",
+                "icon": null
+              },
+              {
+                "label": "Capacidad para aceptar una capa superior líquida o en polvo",
+                "icon": null
+              },
+              {
+                "label": "Gran flujo y fácil aplicación",
+                "icon": null
+              },
+              {
+                "label": "Buena capacidad de revestimiento",
+                "icon": null
+              }
+            ]
           }
         ],
         "items": []
@@ -417,13 +574,48 @@
           {
             "kind": "richtext",
             "id": "_rich_text-23-701",
-            "html": "<p>Las aplicaciones típicas incluyen, entre otras:</p><ul class=\"feature-list\"><li>Gabinetes de cocina</li><li>Muebles de baño</li><li>Gabinetes de garaje</li><li>Muebles</li><li>Revestimiento residencial</li><li>Molduras</li><li>Puertas de madera/fibra de vidrio</li></ul>",
+            "html": "<p>Las aplicaciones típicas incluyen, entre otras:</p>",
             "className": "pb-0 mt-[20px]",
             "isCard": false,
             "wrapClassName": "",
             "bg": null,
             "bgSize": null,
             "bgPosition": null
+          },
+          {
+            "kind": "featurelist",
+            "id": "_rich_text-23-701-list-1",
+            "icons": true,
+            "cells": [
+              {
+                "label": "Gabinetes de cocina",
+                "icon": "cabinet"
+              },
+              {
+                "label": "Muebles de baño",
+                "icon": "bathroom-hardware"
+              },
+              {
+                "label": "Gabinetes de garaje",
+                "icon": "cabinet"
+              },
+              {
+                "label": "Muebles",
+                "icon": "furniture"
+              },
+              {
+                "label": "Revestimiento residencial",
+                "icon": "home"
+              },
+              {
+                "label": "Molduras",
+                "icon": "arch-panel"
+              },
+              {
+                "label": "Puertas de madera/fibra de vidrio",
+                "icon": "door"
+              }
+            ]
           }
         ],
         "items": []
@@ -471,13 +663,40 @@
           {
             "kind": "richtext",
             "id": "_rich_text-32-701",
-            "html": "<p>IFS PureClad es una solución de revestimiento ambientalmente responsable para sustratos sensibles al calor que no solo ofrece excelencia técnica sino también:</p><ul class=\"feature-list feature-list--wide\"><li>No contiene emisiones nocivas de COV</li><li>Tiene una huella de carbono impresionante</li><li>Se puede recuperar y reutilizar o reciclar</li><li>Cura a temperaturas más bajas, lo que reduce el consumo de energía</li><li>No se generan residuos peligrosos ni en la fabricación ni en la aplicación</li></ul>",
+            "html": "<p>IFS PureClad es una solución de revestimiento ambientalmente responsable para sustratos sensibles al calor que no solo ofrece excelencia técnica sino también:</p>",
             "className": "pb-0 mt-[20px]",
             "isCard": false,
             "wrapClassName": "",
             "bg": null,
             "bgSize": null,
             "bgPosition": null
+          },
+          {
+            "kind": "featurelist",
+            "id": "_rich_text-32-701-list-1",
+            "icons": false,
+            "cells": [
+              {
+                "label": "No contiene emisiones nocivas de COV",
+                "icon": null
+              },
+              {
+                "label": "Tiene una huella de carbono impresionante",
+                "icon": null
+              },
+              {
+                "label": "Se puede recuperar y reutilizar o reciclar",
+                "icon": null
+              },
+              {
+                "label": "Cura a temperaturas más bajas, lo que reduce el consumo de energía",
+                "icon": null
+              },
+              {
+                "label": "No se generan residuos peligrosos ni en la fabricación ni en la aplicación",
+                "icon": null
+              }
+            ]
           }
         ],
         "items": []

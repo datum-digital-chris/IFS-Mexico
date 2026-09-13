@@ -75,44 +75,68 @@ const hasLead = prose.length > 0 || headline;
 
     {
       hasLead && (
-        <div class:list={["bg-surface-warm", !image && "lg:max-w-[52rem]"]}>
+        <div class:list={["bg-surface-warm", !image && !wide.length && "lg:max-w-[52rem]"]}>
           <div class="bg-brand h-1" aria-hidden="true" />
-          <div
-            class:list={["grid gap-10 p-8 sm:p-10 lg:gap-16 lg:p-14", image && "lg:grid-cols-2"]}
-          >
-            <div>
-              {headline && (
-                <h2 class="display mb-7 text-4xl sm:text-5xl lg:text-6xl">{headline}</h2>
+          <div class="p-8 sm:p-10 lg:p-14">
+            <div class:list={["grid gap-10 lg:gap-16", image && "lg:grid-cols-2"]}>
+              <div>
+                {headline && (
+                  <h2 class="display mb-7 text-4xl sm:text-5xl lg:text-6xl">{headline}</h2>
+                )}
+                <div class="doc-lead">
+                  {prose.map((b) => (
+                    <Block block={b} />
+                  ))}
+                </div>
+              </div>
+              {/* The photograph fills the row beside the copy — unless a grid
+                  follows, in which case the copy above it is usually a single
+                  introducing line and a stretched photograph would open a hole
+                  between that line and the grid it introduces. */}
+              {image && (
+                <div
+                  class:list={[
+                    "relative",
+                    wide.length
+                      ? "h-[280px] self-start lg:h-[340px]"
+                      : "min-h-[280px] self-stretch",
+                  ]}
+                >
+                  <img
+                    src={image}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    decoding="async"
+                    class="absolute inset-0 h-full w-full object-cover"
+                  />
+                </div>
               )}
-              <div class="doc-lead">
-                {prose.map((b) => (
+            </div>
+
+            {/* An application grid or a table stays inside the panel, spanning
+                both its columns: the sentence that introduces it is in the copy
+                column above, and putting the grid on the band below would leave
+                that line hanging. */}
+            {wide.map((run) => (
+              <div class="mt-4 overflow-x-auto">
+                {run.blocks.map((b) => (
                   <Block block={b} />
                 ))}
               </div>
-              {action && (
-                <a href={action.href} class="ox-link mt-9">
-                  {action.label}
-                  <svg class="h-4 w-4" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-                    <path
-                      fill-rule="evenodd"
-                      d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                </a>
-              )}
-            </div>
-            {image && (
-              <div class="relative min-h-[280px] self-stretch">
-                <img
-                  src={image}
-                  alt=""
-                  aria-hidden="true"
-                  loading="lazy"
-                  decoding="async"
-                  class="absolute inset-0 h-full w-full object-cover"
-                />
-              </div>
+            ))}
+
+            {action && (
+              <a href={action.href} class="ox-link mt-9">
+                {action.label}
+                <svg class="h-4 w-4" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                  <path
+                    fill-rule="evenodd"
+                    d="M2 8a.75.75 0 0 1 .75-.75h8.69L8.22 4.03a.75.75 0 0 1 1.06-1.06l4.5 4.5a.75.75 0 0 1 0 1.06l-4.5 4.5a.75.75 0 0 1-1.06-1.06l3.22-3.22H2.75A.75.75 0 0 1 2 8Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
             )}
           </div>
         </div>
@@ -120,13 +144,14 @@ const hasLead = prose.length > 0 || headline;
     }
 
     {
-      wide.map((run) => (
-        <div class:list={["overflow-x-auto", hasLead && "mt-14"]}>
-          {run.blocks.map((b) => (
-            <Block block={b} />
-          ))}
-        </div>
-      ))
+      !hasLead &&
+        wide.map((run) => (
+          <div class="overflow-x-auto">
+            {run.blocks.map((b) => (
+              <Block block={b} />
+            ))}
+          </div>
+        ))
     }
   </div>
 </section>

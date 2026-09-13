@@ -301,7 +301,57 @@
           {
             "kind": "richtext",
             "id": "_rich_text-17-109",
-            "html": "<p>La Norma 61 de NSF/ANSI se aplica a los materiales y recubrimientos usados en la fabricación de equipos que entran en contacto con agua potable o productos que respaldan la producción de agua potable.</p><p>Para aplicaciones de accesorios, bombas, tanques y válvulas, los siguientes productos de IFS cuentan con la aprobación NSF 61:</p><ul class=\"feature-list\"><li>Negro – ERSS11685</li><li>Azul – ERSS22993</li><li>Marrón – ERSS47676</li><li>Gris – ERSS75636</li><li>Verde – ERSS33254</li><li>Rojo – ERSS62900</li><li>Blanco – ERSS83401</li><li>Amarillo – ERSS51039</li></ul><p>Las hojas de datos técnicos están disponibles para cada producto.</p>",
+            "html": "<p>La Norma 61 de NSF/ANSI se aplica a los materiales y recubrimientos usados en la fabricación de equipos que entran en contacto con agua potable o productos que respaldan la producción de agua potable.</p><p>Para aplicaciones de accesorios, bombas, tanques y válvulas, los siguientes productos de IFS cuentan con la aprobación NSF 61:</p>",
+            "className": "mb-[20px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          },
+          {
+            "kind": "featurelist",
+            "id": "_rich_text-17-109-list-1",
+            "icons": false,
+            "cells": [
+              {
+                "label": "Negro – ERSS11685",
+                "icon": null
+              },
+              {
+                "label": "Azul – ERSS22993",
+                "icon": null
+              },
+              {
+                "label": "Marrón – ERSS47676",
+                "icon": null
+              },
+              {
+                "label": "Gris – ERSS75636",
+                "icon": null
+              },
+              {
+                "label": "Verde – ERSS33254",
+                "icon": null
+              },
+              {
+                "label": "Rojo – ERSS62900",
+                "icon": null
+              },
+              {
+                "label": "Blanco – ERSS83401",
+                "icon": null
+              },
+              {
+                "label": "Amarillo – ERSS51039",
+                "icon": null
+              }
+            ]
+          },
+          {
+            "kind": "richtext",
+            "id": "_rich_text-17-109",
+            "html": "<p>Las hojas de datos técnicos están disponibles para cada producto.</p>",
             "className": "mb-[20px]",
             "isCard": false,
             "wrapClassName": "",

@@ -117,13 +117,40 @@
         {
           "kind": "richtext",
           "id": "_rich_text-7-751",
-          "html": "<p>Llámenos: +52 554 166 2665</p><p>Envíe un correo electrónico a <a href=\"mailto:revestimientosinfo@ifscoatings.com\">revestimientosinfo@ifscoatings.com</a> si desea:</p><ul class=\"feature-list\"><li>Solicite folletos, tarjetas de colores y volantes</li><li>Solicite paneles de muestra</li><li>Obtenga soporte técnico</li><li>hablar con un representante</li><li>Envíanos una pregunta o comentario</li></ul>",
+          "html": "<p>Llámenos: +52 554 166 2665</p><p>Envíe un correo electrónico a <a href=\"mailto:revestimientosinfo@ifscoatings.com\">revestimientosinfo@ifscoatings.com</a> si desea:</p>",
           "className": "mb-0",
           "isCard": false,
           "wrapClassName": "",
           "bg": null,
           "bgSize": null,
           "bgPosition": null
+        },
+        {
+          "kind": "featurelist",
+          "id": "_rich_text-7-751-list-1",
+          "icons": false,
+          "cells": [
+            {
+              "label": "Solicite folletos, tarjetas de colores y volantes",
+              "icon": null
+            },
+            {
+              "label": "Solicite paneles de muestra",
+              "icon": "arch-panel"
+            },
+            {
+              "label": "Obtenga soporte técnico",
+              "icon": null
+            },
+            {
+              "label": "hablar con un representante",
+              "icon": null
+            },
+            {
+              "label": "Envíanos una pregunta o comentario",
+              "icon": null
+            }
+          ]
         },
         {
           "kind": "form",

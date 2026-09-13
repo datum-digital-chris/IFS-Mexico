@@ -18,7 +18,8 @@ export type BlockKind =
   | "form"
   | "navmenu"
   | "tabs"
-  | "spectable";
+  | "spectable"
+  | "featurelist";
 
 export interface Background {
   /** Ordered CSS background-image layers, already pointing at local assets. */
@@ -52,6 +53,9 @@ export interface Block {
   /** Name of an authored table in src/content/tables/. */
   table?: string;
   items?: { label: string; href: string | null; current: boolean }[];
+  /** featurelist: the cells of an application grid, and whether it is icon-led. */
+  cells?: { label: string; icon: string | null }[];
+  icons?: boolean;
   tabs?: {
     id: string;
     label: string;
@@ -99,7 +103,14 @@ export function isSafeHtml(html: string | undefined): boolean {
  * of the text measure to the full width of their section: a spec table, the
  * colour tabs, the contact form, a migrated TablePress table, a diagram.
  */
-export const WIDE_KINDS = new Set<BlockKind>(["spectable", "tabs", "form", "html", "image"]);
+export const WIDE_KINDS = new Set<BlockKind>([
+  "spectable",
+  "tabs",
+  "form",
+  "html",
+  "image",
+  "featurelist",
+]);
 
 /**
  * A page, grouped by the extractor into the shape the templates render: a

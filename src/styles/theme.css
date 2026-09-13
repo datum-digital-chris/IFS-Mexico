@@ -26,6 +26,10 @@
    whole ramp moves with it.
 --------------------------------------------------------------------------- */
 :root {
+  /* The check mark, as an SVG data URI so the same drawing serves the inline
+     list bullet and the boxed mark in an application grid. */
+  --check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M6.2 12.5 1.8 8.1l1.5-1.5 2.9 2.9 6.5-6.5 1.5 1.5z'/%3E%3C/svg%3E");
+
   --seed-action: #e21e24;
   --seed-accent: #1f2937;
 
@@ -513,6 +517,68 @@
      parent. The gap trick is shorter, but an odd number of items leaves the
      last slot empty and the parent colour shows through it as a stray filled
      tile — and most of these lists are odd. */
+  /* Application grids: a list of things that get coated, lifted out of its
+     prose by the extractor so it can use the full width of its section. The
+     cell is the reference page's applications cell (ApplicationsBlock.astro) -
+     separate cells on a small gap, each on the card surface with a rule down
+     its leading edge, an icon and a label. */
+  .app-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    margin-block: 2rem;
+    padding: 0;
+    list-style: none;
+  }
+  @media (min-width: 640px) {
+    .app-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (min-width: 992px) {
+    .app-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  .app-grid__cell {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--color-surface-alt);
+    border-left: 2px solid var(--color-surface-edge-strong);
+    padding: 1rem 1.25rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--color-ink);
+  }
+  .app-grid__icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    flex: none;
+    color: var(--color-accent-text);
+  }
+  /* The fallback mark, drawn in CSS so it is identical in every font, boxed to
+     the icon's size so the rows stay aligned whichever a cell carries. */
+  .app-grid__check {
+    flex: none;
+    width: 2.25rem;
+    height: 2.25rem;
+    background: var(--color-brand);
+    -webkit-mask: var(--check) center / 1.1rem no-repeat;
+    mask: var(--check) center / 1.1rem no-repeat;
+  }
+
+  /* An icon from public/icons/, painted through a mask so its colour comes
+     from the `color` of the element rather than from the file. */
+  .icon-mask {
+    display: inline-block;
+    flex-shrink: 0;
+    background-color: currentColor;
+    -webkit-mask: var(--icon) center / contain no-repeat;
+    mask: var(--icon) center / contain no-repeat;
+  }
+
   /* The cell shape is the reference page's applications grid
      (ApplicationsBlock.astro): separate cells on a small gap, each on the card
      surface with a rule down its leading edge. Its cells carry an icon; these

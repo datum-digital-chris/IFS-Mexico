@@ -222,13 +222,44 @@
         {
           "kind": "richtext",
           "id": "_rich_text-8-727",
-          "html": "<p>Los revestimientos en polvo de IFS tienen una amplia gama de productos químicos y colores diseñados para muchas aplicaciones de metales industriales diferentes.</p><p>Elija entre productos que brindarán beneficios técnicos que incluyen:</p><ul class=\"feature-list\"><li>Resistencia a la corrosión</li><li>Resistencia química</li><li>Resistencia al rayado</li><li>Resistencia al desgaste</li><li>Resistencia al impacto</li><li>Resistencia a la intemperie exterior</li></ul>",
+          "html": "<p>Los revestimientos en polvo de IFS tienen una amplia gama de productos químicos y colores diseñados para muchas aplicaciones de metales industriales diferentes.</p><p>Elija entre productos que brindarán beneficios técnicos que incluyen:</p>",
           "className": "mb-[20px]",
           "isCard": false,
           "wrapClassName": "",
           "bg": null,
           "bgSize": null,
           "bgPosition": null
+        },
+        {
+          "kind": "featurelist",
+          "id": "_rich_text-8-727-list-1",
+          "icons": false,
+          "cells": [
+            {
+              "label": "Resistencia a la corrosión",
+              "icon": null
+            },
+            {
+              "label": "Resistencia química",
+              "icon": null
+            },
+            {
+              "label": "Resistencia al rayado",
+              "icon": null
+            },
+            {
+              "label": "Resistencia al desgaste",
+              "icon": null
+            },
+            {
+              "label": "Resistencia al impacto",
+              "icon": null
+            },
+            {
+              "label": "Resistencia a la intemperie exterior",
+              "icon": null
+            }
+          ]
         }
       ]
     },
@@ -258,7 +289,49 @@
           {
             "kind": "richtext",
             "id": "_rich_text-17-727",
-            "html": "<p>Además de nuestra amplia gama de productos químicos, también fabricamos productos especializados diseñados para combatir problemas específicos. Estos incluyen:</p><ul class=\"feature-list feature-list--wide\"><li>Polvos antigrafiti</li><li>Polvos disipadores electrostáticos</li><li>Polvos dieléctricos</li><li>Polvos resistentes al calor</li><li>Polvos termoplásticos para mejorar la resistencia al impacto y lograr una sensación más suave</li><li>IFS Co-Cure: formulaciones secas sobre secas</li></ul><p>Ya sea que necesite una solución rentable, un nivel específico de rendimiento de su polvo, un imprimador protector en polvo o un hermoso color, lo tenemos cubierto.</p><p>Hable con su representante de IFS sobre las necesidades específicas de su producto.</p>",
+            "html": "<p>Además de nuestra amplia gama de productos químicos, también fabricamos productos especializados diseñados para combatir problemas específicos. Estos incluyen:</p>",
+            "className": "",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          },
+          {
+            "kind": "featurelist",
+            "id": "_rich_text-17-727-list-1",
+            "icons": false,
+            "cells": [
+              {
+                "label": "Polvos antigrafiti",
+                "icon": null
+              },
+              {
+                "label": "Polvos disipadores electrostáticos",
+                "icon": null
+              },
+              {
+                "label": "Polvos dieléctricos",
+                "icon": null
+              },
+              {
+                "label": "Polvos resistentes al calor",
+                "icon": null
+              },
+              {
+                "label": "Polvos termoplásticos para mejorar la resistencia al impacto y lograr una sensación más suave",
+                "icon": null
+              },
+              {
+                "label": "IFS Co-Cure: formulaciones secas sobre secas",
+                "icon": null
+              }
+            ]
+          },
+          {
+            "kind": "richtext",
+            "id": "_rich_text-17-727",
+            "html": "<p>Ya sea que necesite una solución rentable, un nivel específico de rendimiento de su polvo, un imprimador protector en polvo o un hermoso color, lo tenemos cubierto.</p><p>Hable con su representante de IFS sobre las necesidades específicas de su producto.</p>",
             "className": "",
             "isCard": false,
             "wrapClassName": "",

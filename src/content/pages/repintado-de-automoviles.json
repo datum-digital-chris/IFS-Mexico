@@ -257,13 +257,48 @@
         {
           "kind": "richtext",
           "id": "_rich_text-8-718",
-          "html": "<p>Los polvos IFS para el repintado de automóviles se utilizan en:</p><ul class=\"feature-list\"><li>Ruedas</li><li>Tapicería</li><li>Partes debajo del cofre</li><li>Partes de la parte inferior de la carrocería</li><li>Bicicletas</li><li>Kits de autos</li><li>Autos de carreras</li></ul>",
+          "html": "<p>Los polvos IFS para el repintado de automóviles se utilizan en:</p>",
           "className": "mb-[20px]",
           "isCard": false,
           "wrapClassName": "",
           "bg": null,
           "bgSize": null,
           "bgPosition": null
+        },
+        {
+          "kind": "featurelist",
+          "id": "_rich_text-8-718-list-1",
+          "icons": true,
+          "cells": [
+            {
+              "label": "Ruedas",
+              "icon": "wheel"
+            },
+            {
+              "label": "Tapicería",
+              "icon": "furniture"
+            },
+            {
+              "label": "Partes debajo del cofre",
+              "icon": "auto-underhood"
+            },
+            {
+              "label": "Partes de la parte inferior de la carrocería",
+              "icon": "car"
+            },
+            {
+              "label": "Bicicletas",
+              "icon": "bicycle"
+            },
+            {
+              "label": "Kits de autos",
+              "icon": "car"
+            },
+            {
+              "label": "Autos de carreras",
+              "icon": "hot-rod"
+            }
+          ]
         }
       ]
     },
@@ -275,7 +310,45 @@
           {
             "kind": "richtext",
             "id": "_rich_text-15-718",
-            "html": "<p>La protección de sus ruedas es importante, considerando algunas de las condiciones a las que está sujeto su vehículo:</p><ul class=\"feature-list\"><li>Grava y rocas</li><li>Hielo y nieve</li><li>Sal y humedad</li><li>Altos niveles de UV del sol</li><li>Limpiadores químicos</li></ul><p>Los polvos IFS se han formulado cuidadosamente para ofrecer una excelente durabilidad en todas las condiciones mencionadas anteriormente. Nuestros productos incorporan resistencia a rayones, productos químicos y astillas. Todo esto mientras ofrece una apariencia estética superior, una transparencia cristalina y una suavidad de primer nivel.</p>",
+            "html": "<p>La protección de sus ruedas es importante, considerando algunas de las condiciones a las que está sujeto su vehículo:</p>",
+            "className": "mb-[20px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          },
+          {
+            "kind": "featurelist",
+            "id": "_rich_text-15-718-list-1",
+            "icons": false,
+            "cells": [
+              {
+                "label": "Grava y rocas",
+                "icon": null
+              },
+              {
+                "label": "Hielo y nieve",
+                "icon": null
+              },
+              {
+                "label": "Sal y humedad",
+                "icon": null
+              },
+              {
+                "label": "Altos niveles de UV del sol",
+                "icon": null
+              },
+              {
+                "label": "Limpiadores químicos",
+                "icon": null
+              }
+            ]
+          },
+          {
+            "kind": "richtext",
+            "id": "_rich_text-15-718",
+            "html": "<p>Los polvos IFS se han formulado cuidadosamente para ofrecer una excelente durabilidad en todas las condiciones mencionadas anteriormente. Nuestros productos incorporan resistencia a rayones, productos químicos y astillas. Todo esto mientras ofrece una apariencia estética superior, una transparencia cristalina y una suavidad de primer nivel.</p>",
             "className": "mb-[20px]",
             "isCard": false,
             "wrapClassName": "",

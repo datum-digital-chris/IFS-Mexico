@@ -315,7 +315,61 @@
           {
             "kind": "richtext",
             "id": "_rich_text-11-72",
-            "html": "<p>Los sistemas de poliéster estándar basados en TGIC ofrecen las siguientes ventajas:</p><ul class=\"feature-list feature-list--wide\"><li>Excelente recubrimiento multiuso</li><li>Buena resistencia química</li><li>Altamente resistente a los impactos y flexible</li><li>Se puede formular en una amplia gama de colores, brillos y efectos especiales</li><li>Buena resistencia del sobrehorneado al amarillamiento</li><li>Buena durabilidad para aplicaciones exteriores</li><li>Puede cumplir o superar los requisitos de rendimiento de AAMA 2603</li><li>Económico</li><li>Se puede formular a medida para exhibir funcionalidad adicional si es necesario</li></ul><p>Desventajas de los sistemas de poliéster estándar basados en TGIC:</p><ul><li>Resistencia química inferior en comparación con los epoxis</li><li>Durabilidad exterior limitada</li></ul>",
+            "html": "<p>Los sistemas de poliéster estándar basados en TGIC ofrecen las siguientes ventajas:</p>",
+            "className": "pb-0 mt-[20px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          },
+          {
+            "kind": "featurelist",
+            "id": "_rich_text-11-72-list-1",
+            "icons": false,
+            "cells": [
+              {
+                "label": "Excelente recubrimiento multiuso",
+                "icon": null
+              },
+              {
+                "label": "Buena resistencia química",
+                "icon": null
+              },
+              {
+                "label": "Altamente resistente a los impactos y flexible",
+                "icon": null
+              },
+              {
+                "label": "Se puede formular en una amplia gama de colores, brillos y efectos especiales",
+                "icon": null
+              },
+              {
+                "label": "Buena resistencia del sobrehorneado al amarillamiento",
+                "icon": null
+              },
+              {
+                "label": "Buena durabilidad para aplicaciones exteriores",
+                "icon": null
+              },
+              {
+                "label": "Puede cumplir o superar los requisitos de rendimiento de AAMA 2603",
+                "icon": null
+              },
+              {
+                "label": "Económico",
+                "icon": null
+              },
+              {
+                "label": "Se puede formular a medida para exhibir funcionalidad adicional si es necesario",
+                "icon": null
+              }
+            ]
+          },
+          {
+            "kind": "richtext",
+            "id": "_rich_text-11-72",
+            "html": "<p>Desventajas de los sistemas de poliéster estándar basados en TGIC:</p><ul><li>Resistencia química inferior en comparación con los epoxis</li><li>Durabilidad exterior limitada</li></ul>",
             "className": "pb-0 mt-[20px]",
             "isCard": false,
             "wrapClassName": "",
@@ -333,13 +387,40 @@
           {
             "kind": "richtext",
             "id": "_rich_text-24-72",
-            "html": "<p>Los sistemas de polvos de poliéster estándar sin TGIC (isocianurato de triglicidilo) ofrecen las mismas ventajas que los productos basados en TGIC, con el beneficio adicional de no contener TGIC. También ofrecen:</p><ul><li>Nada de TGIC</li><li>Mayor eficiencia de transferencia de primer paso</li></ul><p>Sin embargo, existen algunas desventajas en los sistemas de poliéster estándar sin TGIC:</p><ul class=\"feature-list feature-list--wide\"><li>Más sensible al exceso de espesor de la película</li><li>Rango de curado y brillo limitado</li><li>Menos resistencia al sobrehorneado que los TGIC</li><li>Más propenso a problemas de corrosión si hay un pretratamiento deficiente</li><li>Durabilidad exterior limitada</li></ul>",
+            "html": "<p>Los sistemas de polvos de poliéster estándar sin TGIC (isocianurato de triglicidilo) ofrecen las mismas ventajas que los productos basados en TGIC, con el beneficio adicional de no contener TGIC. También ofrecen:</p><ul><li>Nada de TGIC</li><li>Mayor eficiencia de transferencia de primer paso</li></ul><p>Sin embargo, existen algunas desventajas en los sistemas de poliéster estándar sin TGIC:</p>",
             "className": "mb-[20px]",
             "isCard": false,
             "wrapClassName": "",
             "bg": null,
             "bgSize": null,
             "bgPosition": null
+          },
+          {
+            "kind": "featurelist",
+            "id": "_rich_text-24-72-list-1",
+            "icons": false,
+            "cells": [
+              {
+                "label": "Más sensible al exceso de espesor de la película",
+                "icon": null
+              },
+              {
+                "label": "Rango de curado y brillo limitado",
+                "icon": null
+              },
+              {
+                "label": "Menos resistencia al sobrehorneado que los TGIC",
+                "icon": null
+              },
+              {
+                "label": "Más propenso a problemas de corrosión si hay un pretratamiento deficiente",
+                "icon": null
+              },
+              {
+                "label": "Durabilidad exterior limitada",
+                "icon": null
+              }
+            ]
           }
         ],
         "items": []
@@ -351,13 +432,68 @@
           {
             "kind": "richtext",
             "id": "_rich_text-26-72",
-            "html": "<p>Los recubrimientos en polvo de poliéster estándar se usan en una amplia gama de aplicaciones, que incluyen:</p><ul class=\"feature-list\"><li>Uso arquitectónico (AAMA 2603)</li><li>Interiores para venta minorista</li><li>Muebles</li><li>Instalaciones y accesorios</li><li>Vallas</li><li>Electrodomésticos de cocina</li><li>Aparatos de iluminación</li><li>Tela de alambre</li><li>Máquinas expendedoras</li><li>Piezas de automóviles</li><li>Piezas decorativas</li><li>Hombre, muchas más aplicaciones</li></ul>",
+            "html": "<p>Los recubrimientos en polvo de poliéster estándar se usan en una amplia gama de aplicaciones, que incluyen:</p>",
             "className": "pb-0 mb-[20px]",
             "isCard": false,
             "wrapClassName": "",
             "bg": null,
             "bgSize": null,
             "bgPosition": null
+          },
+          {
+            "kind": "featurelist",
+            "id": "_rich_text-26-72-list-1",
+            "icons": true,
+            "cells": [
+              {
+                "label": "Uso arquitectónico (AAMA 2603)",
+                "icon": "arch-panel"
+              },
+              {
+                "label": "Interiores para venta minorista",
+                "icon": "retail-display"
+              },
+              {
+                "label": "Muebles",
+                "icon": "furniture"
+              },
+              {
+                "label": "Instalaciones y accesorios",
+                "icon": "cog"
+              },
+              {
+                "label": "Vallas",
+                "icon": "fence"
+              },
+              {
+                "label": "Electrodomésticos de cocina",
+                "icon": "oven-range"
+              },
+              {
+                "label": "Aparatos de iluminación",
+                "icon": "light-bulb"
+              },
+              {
+                "label": "Tela de alambre",
+                "icon": "wire-goods"
+              },
+              {
+                "label": "Máquinas expendedoras",
+                "icon": "vending-machine"
+              },
+              {
+                "label": "Piezas de automóviles",
+                "icon": "car"
+              },
+              {
+                "label": "Piezas decorativas",
+                "icon": "picture-frame"
+              },
+              {
+                "label": "Hombre, muchas más aplicaciones",
+                "icon": null
+              }
+            ]
           }
         ],
         "items": []

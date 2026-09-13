@@ -17,6 +17,7 @@
 import { readFileSync, writeFileSync, mkdirSync, readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { createWindow } from "@mixmark-io/domino";
+import { iconFor, ICON_LIST_THRESHOLD } from "./lib/icons.mjs";
 import cfg from "./site.config.mjs";
 import { elementToTw, COMPONENT_DEFAULTS } from "./lib/css-to-tw.mjs";
 
@@ -836,8 +837,9 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
     if (!node || typeof node !== "object") return String(node ?? "");
     const own = [node.html, node.value, node.label, node.alt].filter(Boolean).join(" ");
     const items = (node.items ?? []).map((i) => i.label).join(" ");
+    const cells = (node.cells ?? []).map((c) => c.label).join(" ");
     const panels = (node.panels ?? []).map((p) => visible(p.children ?? [])).join(" ");
-    return [strip(own), items, panels, visible(node.children ?? [])].join(" ");
+    return [strip(own), items, cells, panels, visible(node.children ?? [])].join(" ");
   };
   const letters = (s) => s.replace(/<[^>]+>/g, " ").replace(/[^\p{L}\p{N}]+/gu, "");
 
@@ -893,6 +895,71 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
     return out;
   };
 
+  // Every icon the library actually holds, so a slug that does not exist is
+  // caught here rather than shipping as a blank square.
+  const iconFiles = new Set(
+    readdirSync(P("public/icons"))
+      .filter((f) => f.endsWith(".png"))
+      .map((f) => f.slice(0, -4)),
+  );
+
+  /**
+   * Lift a flat list out of the prose it is embedded in.
+   *
+   * These pages are mostly lists - applications, benefits, standards - and
+   * tagFeatureLists already marks the ones that are labels rather than
+   * paragraphs. Inside a rich-text block they are stuck at the text measure and
+   * stack one per row; as blocks of their own they can run the full width of
+   * the section as the US site's application grids do.
+   *
+   * Only a list at the top level of the block is lifted. A list nested inside
+   * another list belongs to the sentence above it ("Diseñado para cumplir y
+   * superar los siguientes estándares:") and moving it would orphan that line.
+   */
+  const liftLists = (node) => {
+    if (node.kind !== "richtext" || !/feature-list/.test(node.html ?? "")) return [node];
+    const host = createWindow("<div></div>").document.querySelector("div");
+    host.innerHTML = node.html;
+
+    const out = [];
+    let buffer = "";
+    const flushProse = () => {
+      if (buffer.trim()) out.push({ ...node, html: buffer.trim() });
+      buffer = "";
+    };
+    for (const child of [...host.childNodes]) {
+      const isList =
+        child.nodeType === 1 &&
+        child.tagName.toLowerCase() === "ul" &&
+        /\bfeature-list\b/.test(child.getAttribute("class") ?? "");
+      if (!isList) {
+        buffer += child.nodeType === 1 ? child.outerHTML : (child.textContent ?? "");
+        continue;
+      }
+      flushProse();
+      const cells = [...child.childNodes]
+        .filter((n) => n.nodeType === 1 && n.tagName.toLowerCase() === "li")
+        .map((li) => {
+          const label = (li.textContent ?? "").replace(/\s+/g, " ").trim();
+          const icon = iconFor(label);
+          return { label, icon: icon && iconFiles.has(icon) ? icon : null };
+        });
+      if (!cells.length) continue;
+      // A list is an application grid when most of it names a thing that can be
+      // drawn. A list of benefits is not, and keeps the brand check: there is no
+      // honest icon for "Excelente adherencia".
+      const matched = cells.filter((c) => c.icon).length;
+      out.push({
+        kind: "featurelist",
+        id: node.id ? `${node.id}-list-${out.length}` : undefined,
+        icons: matched / cells.length >= ICON_LIST_THRESHOLD,
+        cells,
+      });
+    }
+    flushProse();
+    return out.length ? out : [node];
+  };
+
   let built = 0;
   for (const { slug } of results) {
     // The home page has its own model and its own template.
@@ -927,6 +994,9 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
 
     const skip = new Set([heroBand, navColumn, nav].filter(Boolean));
     let nodes = flatten(page.sections, skip);
+    // Lifting a list out of its prose moves copy between blocks, so it happens
+    // inside the window the character check below covers.
+    nodes = nodes.flatMap(liftLists);
 
     // A page whose title was written into the body copy rather than as its own
     // heading (descargar-informacion) - split the leading h1 back out so the

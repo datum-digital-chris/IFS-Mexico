@@ -260,13 +260,74 @@
           {
             "kind": "richtext",
             "id": "_rich_text-15-101",
-            "html": "<p>Nuestros productos químicos antigrafiti están disponibles en diversos productos químicos en polvo, que incluyen:</p><ul class=\"feature-list\"><li><a href=\"https://ifscoatings.kecommerce.net/Ecom/epoxy-powder?securitycontext=2&amp;cmsv=863\">Epoxi</a></li><li>Poliésteres: estándares y superduraderos</li><li>Fluoropolímeros</li></ul><p>Estos revestimientos no solo tienen propiedades antigrafiti de primera clase, sino que se benefician de:</p><ul><li>Buena resistencia química y a las manchas</li><li>Gran durabilidad</li></ul><p>Son adecuados para aplicaciones interiores y exteriores, incluyendo:</p><ul class=\"feature-list feature-list--wide\"><li>Transporte público y áreas de tránsito público</li><li>Señalización, juegos infantiles y equipos recreativos</li><li>Taquillas y buzones</li><li>Puertas y equipos de juego</li><li>Estructuras de baños</li><li>Rejas y puertas enrollables</li></ul>",
+            "html": "<p>Nuestros productos químicos antigrafiti están disponibles en diversos productos químicos en polvo, que incluyen:</p>",
             "className": "pb-0 mt-[20px]",
             "isCard": false,
             "wrapClassName": "",
             "bg": null,
             "bgSize": null,
             "bgPosition": null
+          },
+          {
+            "kind": "featurelist",
+            "id": "_rich_text-15-101-list-1",
+            "icons": false,
+            "cells": [
+              {
+                "label": "Epoxi",
+                "icon": null
+              },
+              {
+                "label": "Poliésteres: estándares y superduraderos",
+                "icon": null
+              },
+              {
+                "label": "Fluoropolímeros",
+                "icon": null
+              }
+            ]
+          },
+          {
+            "kind": "richtext",
+            "id": "_rich_text-15-101",
+            "html": "<p>Estos revestimientos no solo tienen propiedades antigrafiti de primera clase, sino que se benefician de:</p><ul><li>Buena resistencia química y a las manchas</li><li>Gran durabilidad</li></ul><p>Son adecuados para aplicaciones interiores y exteriores, incluyendo:</p>",
+            "className": "pb-0 mt-[20px]",
+            "isCard": false,
+            "wrapClassName": "",
+            "bg": null,
+            "bgSize": null,
+            "bgPosition": null
+          },
+          {
+            "kind": "featurelist",
+            "id": "_rich_text-15-101-list-3",
+            "icons": true,
+            "cells": [
+              {
+                "label": "Transporte público y áreas de tránsito público",
+                "icon": "public-transit"
+              },
+              {
+                "label": "Señalización, juegos infantiles y equipos recreativos",
+                "icon": "playground"
+              },
+              {
+                "label": "Taquillas y buzones",
+                "icon": "locker"
+              },
+              {
+                "label": "Puertas y equipos de juego",
+                "icon": "playground"
+              },
+              {
+                "label": "Estructuras de baños",
+                "icon": "restroom"
+              },
+              {
+                "label": "Rejas y puertas enrollables",
+                "icon": "roller-door"
+              }
+            ]
           }
         ],
         "items": []
