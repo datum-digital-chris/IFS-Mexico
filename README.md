@@ -19,6 +19,12 @@ npm run verify:layout  # visual fidelity: every element's geometry, old vs new
 npm run import-images  # copy page photography in from the IFS Coatings US repo
 ```
 
+**Restart the dev server after `npm run extract`.** The extraction rewrites
+every file in `src/content/`, and Astro's content layer does not always pick the
+whole batch up in a running dev server: the pages it misses 404 until the server
+restarts, while `npm run build` renders all of them correctly. A 404 in dev on a
+page that builds fine is this, not a routing fault.
+
 ## How this migration works
 
 Oxygen stores layout as builder JSON and never passes it through
@@ -33,7 +39,7 @@ So the pipeline is:
    the old host staying up. Not in git; re-fetchable while the old site lives.
 2. **`scripts/analyze-oxygen-css.mjs`** - parses the stylesheets into a
    per-element style map and mines the value census in `docs/design-tokens.md`.
-3. **`scripts/probe-styles.mjs`** - records what the old site *computed* at
+3. **`scripts/probe-styles.mjs`** - records what the old site _computed_ at
    desktop width, which supplies base values that exist nowhere in the element's
    own rules.
 4. **`scripts/extract-content.mjs`** - walks the Oxygen DOM into a typed block
@@ -58,11 +64,11 @@ extractor. See `docs/content-map.md`.
 
 Three gates, because each catches something the others cannot:
 
-| Gate | Checks | Status |
-|---|---|---|
-| `npm run build` | pages render; every referenced asset exists | 30 pages, 2,770 refs, 0 missing |
-| `npm run compare` | every sentence of old copy survives | 924 runs, 0 missing |
-| `npm run verify:layout` | every element's geometry vs the OLD design | expected to fail since the restyle; kept as a record |
+| Gate                    | Checks                                      | Status                                               |
+| ----------------------- | ------------------------------------------- | ---------------------------------------------------- |
+| `npm run build`         | pages render; every referenced asset exists | 30 pages, 2,770 refs, 0 missing                      |
+| `npm run compare`       | every sentence of old copy survives         | 924 runs, 0 missing                                  |
+| `npm run verify:layout` | every element's geometry vs the OLD design  | expected to fail since the restyle; kept as a record |
 
 `verify:layout` writes `docs/layout-diff.csv`. Because the rebuild keeps
 Oxygen's element ids, every element can be matched one-to-one against the old
