@@ -1,0 +1,141 @@
+---
+/**
+ * Rueda de color.
+ *
+ * The same 190 swatches the /colors/ grid lists, arranged the way a physical
+ * fan deck is: one ring carrying every RAL family, each arc sized to how many
+ * shades it holds, over a wheel that spins the shades of whichever family is
+ * selected.
+ *
+ * The wheel itself is a shared asset, not code that lives here — one file at
+ * public/assets/color-wheel/color-wheel.js, maintained once for Polychem,
+ * ifscoatings.com and this site (see its README). It takes plain JSON and every
+ * string it shows is an option, which is why this page can be entirely in
+ * Spanish without a translated build of the widget.
+ *
+ * The shades are this site's own: the swatch photographs and IFS codes come
+ * from the extracted page through colorSetOf, exactly as /colors/ gets them.
+ * Only the colour value is imported — the RAL standard's published sRGB per
+ * code — because the swatch photographs cannot supply one: they are panels
+ * under a fixed light, and that light pulls every shade towards mid grey.
+ */
+import { getEntry } from "astro:content";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/page/PageHero.astro";
+import CtaBanner from "@/components/CtaBanner.astro";
+import { colorSetOf } from "@/lib/colors";
+import cta from "@/content/cta.json";
+import ralClassic from "@/data/ral-classic.es.json";
+import type { Doc } from "@/lib/blocks";
+
+const entry = await getEntry("pages", "colors");
+if (!entry?.data.doc)
+  throw new Error("rueda-de-color: the extracted page has no doc — run npm run extract");
+
+const doc = entry.data.doc as Doc;
+const { groups } = colorSetOf(doc.lead.body);
+
+/** RAL number → the standard's own sRGB and Spanish name. */
+const byCode = new Map(
+  (ralClassic as { code: string; name: string; hex: string }[]).map((r) => [
+    r.code.replace(/\D/g, ""),
+    r,
+  ]),
+);
+
+const shades = groups
+  .flatMap((group) => group.swatches)
+  .map((swatch) => {
+    const digits = swatch.name.replace(/\D/g, "");
+    const ral = byCode.get(digits);
+    if (!ral) return null;
+    return {
+      code: swatch.name,
+      name: ral.name,
+      hex: ral.hex,
+      // "IFS Code 1: PLSF40705" — the reference a customer orders by.
+      productCode: swatch.code.replace(/^IFS\s*Code\s*\d*\s*:\s*/i, "").trim(),
+      image: swatch.image ?? undefined,
+      href: `/colors/#${swatch.name.toLowerCase().replace(/\s+/g, "-")}`,
+    };
+  })
+  .filter((s): s is NonNullable<typeof s> => s !== null);
+
+const missing = groups.flatMap((g) => g.swatches).length - shades.length;
+if (missing > 0) console.warn(`[rueda-de-color] ${missing} swatches have no RAL Classic value`);
+
+const SERIES = [
+  { digit: "1", name: "Amarillos" },
+  { digit: "2", name: "Naranjas" },
+  { digit: "3", name: "Rojos" },
+  { digit: "4", name: "Violetas" },
+  { digit: "5", name: "Azules" },
+  { digit: "6", name: "Verdes" },
+  { digit: "7", name: "Grises" },
+  { digit: "8", name: "Marrones" },
+  { digit: "9", name: "Blancos y negros" },
+];
+
+const TEXT = {
+  searchPlaceholder: "Busca un número RAL o código IFS",
+  searchLabel: "Busca un número RAL o código IFS",
+  previous: "Anterior",
+  next: "Siguiente",
+  of: "de",
+  shades: "tonos",
+  shade: "tono",
+  hint: "Arrastra la rueda, o usa las flechas del teclado cuando esté enfocada.",
+  all: "Todos los colores",
+  everyColour: "Todos los colores",
+  viewShade: "Ver este color",
+  tds: "Ficha técnica",
+};
+
+const title = "Rueda de color RAL";
+const lead = `Explora los ${shades.length} tonos RAL de IFS por familia de color. Gira la rueda, o busca por número RAL o código IFS.`;
+---
+
+<BaseLayout title={title} description={lead}>
+  <PageHero
+    title={title}
+    eyebrow="Colores"
+    lead={lead}
+    image={null}
+    action={{ label: cta.label, href: cta.href }}
+    secondary={{ label: "Ver todos los colores", href: "/colors/" }}
+  />
+
+  <section class="bg-surface">
+    <div class="container-ox py-[var(--spacing-band)] sm:py-[var(--spacing-band-lg)]">
+      <div
+        data-color-wheel
+        data-grid
+        data-series={JSON.stringify(SERIES)}
+        data-text={JSON.stringify(TEXT)}
+      >
+        <script type="application/json" set:html={JSON.stringify(shades)} />
+      </div>
+
+      <p class="text-ink-body mt-10 max-w-2xl text-sm leading-relaxed">
+        El color en pantalla es una aproximación del estándar RAL y no coincide
+        con un panel recubierto. Solicita una muestra física antes de
+        especificar.
+      </p>
+    </div>
+  </section>
+
+  <CtaBanner page={doc.key} />
+</BaseLayout>
+
+<script is:inline src="/assets/color-wheel/color-wheel.js" defer></script>
+
+<style>
+  /* The widget paints itself from these; everything else is its own CSS. */
+  [data-color-wheel] {
+    --cw-accent: var(--color-brand, #e21e24);
+    --cw-ink: var(--color-ink, #111827);
+    --cw-muted: var(--color-ink-body, #6b7280);
+    --cw-rule: var(--color-rule, #e5e7eb);
+    --cw-surface: #ffffff;
+  }
+</style>
