@@ -7,12 +7,13 @@
  * says the guide will follow by email instead of offering a dead link.
  */
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import CtaBanner from "@/components/CtaBanner.astro";
 import ebook from "@/data/ebook.json";
 
 const pdf: string | null = ebook.pdf;
 ---
 
-<BaseLayout title="Gracias">
+<BaseLayout title="Gracias - Guía de Recubrimiento en Polvo">
   <meta slot="head" name="robots" content="noindex, follow" />
   <section class="bg-surface-warm">
     <div class="container-ox band">
@@ -23,7 +24,7 @@ const pdf: string | null = ebook.pdf;
         pdf ? (
           <Fragment>
             <p class="text-lead text-ink-muted mt-4">Su guía está lista para descargar.</p>
-            <a href={pdf} class="ox-btn ox-btn--lg mt-6" download>
+            <a href={pdf} class="ox-btn ox-btn--lg mt-6" rel="nofollow" download>
               Descargar: {ebook.title} (PDF)
             </a>
           </Fragment>
@@ -39,4 +40,5 @@ const pdf: string | null = ebook.pdf;
       </p>
     </div>
   </section>
+  <CtaBanner page="guia-de-recubrimiento-en-polvo" />
 </BaseLayout>

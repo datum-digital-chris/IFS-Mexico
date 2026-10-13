@@ -2,6 +2,7 @@ import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
 import { colorSetOf } from "@/lib/colors";
 import type { Block, Doc } from "@/lib/blocks";
+import { RECURSOS } from "@/data/recursos";
 
 /**
  * The search index, built at build time from the same content the pages render.
@@ -76,6 +77,16 @@ export const GET: APIRoute = async () => {
         }
       }
     }
+  }
+
+  // The resource pages built here rather than extracted.
+  for (const page of Object.values(RECURSOS)) {
+    docs.push({
+      title: page.title,
+      url: page.path,
+      type: "Recursos",
+      description: page.description,
+    });
   }
 
   return new Response(JSON.stringify(docs), {

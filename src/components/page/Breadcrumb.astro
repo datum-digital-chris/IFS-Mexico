@@ -1,0 +1,40 @@
+---
+/**
+ * Inicio / section / this page. Shared by the extracted pages (PageOverview)
+ * and the pages built here, so every page names where it sits the same way.
+ */
+interface Props {
+  /** Page title, for the current crumb. */
+  title: string;
+  /** The site's own name for this page's section. */
+  category: string;
+  categoryHref: string | null;
+  class?: string;
+}
+
+const { title, category, categoryHref, class: className } = Astro.props;
+---
+
+<nav aria-label="Ruta de navegación" class={className}>
+  <ol class="text-ink-body flex flex-wrap items-center gap-2 text-[0.8125rem]">
+    <li><a href="/" class="hover:text-brand-hover">Inicio</a></li>
+    {
+      category && (
+        <Fragment>
+          <li aria-hidden="true">/</li>
+          <li>
+            {categoryHref ? (
+              <a href={categoryHref} class="hover:text-brand-hover">
+                {category}
+              </a>
+            ) : (
+              category
+            )}
+          </li>
+        </Fragment>
+      )
+    }
+    <li aria-hidden="true">/</li>
+    <li class="text-ink font-medium">{title}</li>
+  </ol>
+</nav>

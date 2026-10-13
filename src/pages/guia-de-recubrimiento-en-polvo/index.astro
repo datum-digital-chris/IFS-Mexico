@@ -7,109 +7,132 @@
  * is what the client asked for. The form is a Netlify Form like the contact
  * form, and the confirmation page carries the download (src/data/ebook.json).
  *
+ * The email is collected to send the guide. Anything further from IFS is a
+ * separate purpose, so it is a separate, unticked box (LFPDPPP lets the person
+ * refuse secondary purposes); a submission records which they chose.
+ *
  * The gate is a courtesy, not access control: the PDF is a static file and its
- * address is not secret.
+ * address is not secret. It is kept out of search results by an X-Robots-Tag
+ * header in netlify.toml.
  */
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHero from "@/components/page/PageHero.astro";
+import Breadcrumb from "@/components/page/Breadcrumb.astro";
+import PageNav from "@/components/page/PageNav.astro";
 import CtaBanner from "@/components/CtaBanner.astro";
 import ebook from "@/data/ebook.json";
+import { RECURSOS } from "@/data/recursos";
+import { sectionNav } from "@/lib/menu";
 
-const title = "E-Book: Guía de Recubrimiento en Polvo";
-const lead =
-  "Una referencia completa para aplicadores de todos los niveles. Déjenos su correo electrónico y descargue la guía sin costo.";
-
-const field =
-  "w-full border border-surface-edge bg-surface px-3.5 py-2.5 text-ink transition-colors placeholder:text-ink-body/50 focus:border-brand focus:outline-none";
-const label = "mb-1.5 block font-heading text-[15px] font-medium text-ink";
+const page = RECURSOS.ebook;
+const nav = sectionNav("Recursos", page.path);
 ---
 
-<BaseLayout
-  title={title}
-  description={lead}
-  ogImage="/uploads/library/guia-de-recubrimiento-en-polvo-hero.jpg"
->
+<BaseLayout title={page.title} description={page.description} ogImage={page.hero}>
   <PageHero
-    title={title}
+    title={page.title}
     eyebrow="Recursos"
-    lead={lead}
-    image="/uploads/library/guia-de-recubrimiento-en-polvo-hero.jpg"
+    lead={page.description}
+    image={page.hero}
     action={{ label: "Descargar la guía", href: "#descarga" }}
     secondary={null}
   />
 
-  <section id="descarga" class="bg-surface-alt band">
-    <div class="container-ox grid gap-10 lg:grid-cols-2 lg:gap-16">
-      <div>
-        <p class="eyebrow mb-4">E-Book</p>
-        <h2 class="display text-ink text-3xl sm:text-4xl">{ebook.title}</h2>
-        <p class="text-ink-body mt-6 text-lg leading-relaxed">
-          Todo lo que necesita para obtener un acabado de calidad con recubrimiento en polvo, de la
-          preparación de la superficie al curado, explicado por los técnicos de IFS.
-        </p>
-      </div>
+  <section id="descarga" class="bg-surface-alt">
+    <div class="container-ox band--tight">
+      <Breadcrumb title={page.title} category="Recursos" categoryHref={null} class="mb-10" />
 
-      <form
-        name="ebook"
-        method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-        action="/guia-de-recubrimiento-en-polvo/descarga/"
-        class="border-surface-edge bg-surface border p-6 sm:p-8"
-      >
-        <input type="hidden" name="form-name" value="ebook" />
-        <p class="hidden">
-          <label>Si es humano, deje este campo en blanco: <input name="bot-field" /></label>
-        </p>
-
+      <div class="grid gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
-          <label class={label} for="ebook-nombre">Nombre <span aria-hidden="true">*</span></label>
-          <input
-            class={field}
-            type="text"
-            id="ebook-nombre"
-            name="nombre"
-            required
-            autocomplete="name"
-          />
+          <p class="eyebrow mb-4">E-Book</p>
+          <h2 class="display display--black text-ink text-3xl sm:text-4xl">{ebook.title}</h2>
+          <p class="text-ink-body mt-6 text-lg leading-relaxed">
+            Todo lo que necesita para obtener un acabado de calidad con recubrimiento en polvo, de
+            la preparación de la superficie al curado, explicado por los técnicos de IFS.
+          </p>
         </div>
 
-        <div class="mt-4">
-          <label class={label} for="ebook-empresa">Empresa</label>
-          <input
-            class={field}
-            type="text"
-            id="ebook-empresa"
-            name="empresa"
-            autocomplete="organization"
-          />
-        </div>
+        <form
+          name="ebook"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          action="/guia-de-recubrimiento-en-polvo/descarga/"
+          class="border-surface-edge bg-surface border p-6 sm:p-8"
+        >
+          <input type="hidden" name="form-name" value="ebook" />
+          <p class="hidden">
+            <label>Si es humano, deje este campo en blanco: <input name="bot-field" /></label>
+          </p>
 
-        <div class="mt-4">
-          <label class={label} for="ebook-email">
-            Correo electrónico <span aria-hidden="true">*</span>
-          </label>
-          <input
-            class={field}
-            type="email"
-            id="ebook-email"
-            name="email"
-            required
-            autocomplete="email"
-          />
-        </div>
+          <div>
+            <label class="ox-label" for="ebook-nombre">
+              Nombre <span aria-hidden="true">*</span>
+            </label>
+            <input
+              class="ox-field"
+              type="text"
+              id="ebook-nombre"
+              name="nombre"
+              required
+              autocomplete="name"
+            />
+          </div>
 
-        <p class="text-ink-muted mt-4 text-sm">
-          Usaremos su correo para enviarle la guía y, ocasionalmente, información de IFS. Consulte
-          nuestra <a href="/politica-de-privacidad/" class="text-brand-deep underline"
-            >política de privacidad</a
-          >.
-        </p>
+          <div class="mt-4">
+            <label class="ox-label" for="ebook-empresa">Empresa</label>
+            <input
+              class="ox-field"
+              type="text"
+              id="ebook-empresa"
+              name="empresa"
+              autocomplete="organization"
+            />
+          </div>
 
-        <button type="submit" class="ox-btn mt-6">Descargar la guía</button>
-      </form>
+          <div class="mt-4">
+            <label class="ox-label" for="ebook-email">
+              Correo electrónico <span aria-hidden="true">*</span>
+            </label>
+            <input
+              class="ox-field"
+              type="email"
+              id="ebook-email"
+              name="email"
+              required
+              autocomplete="email"
+              aria-describedby="ebook-aviso"
+            />
+          </div>
+
+          <div class="mt-5 flex items-start gap-3">
+            <input
+              class="accent-action mt-1 h-4 w-4 shrink-0"
+              type="checkbox"
+              id="ebook-novedades"
+              name="acepta_novedades"
+              value="si"
+            />
+            <label class="text-ink-body text-sm" for="ebook-novedades">
+              Deseo recibir ocasionalmente información de productos y novedades de IFS.
+            </label>
+          </div>
+
+          <p class="ox-hint mt-4" id="ebook-aviso">
+            Usaremos sus datos para enviarle la guía. Solo le enviaremos otra información si marca
+            la casilla. Consulte nuestra
+            <a
+              href="/politica-de-privacidad/"
+              class="text-brand-deep hover:text-brand-hover underline">política de privacidad</a
+            >.
+          </p>
+
+          <button type="submit" class="ox-btn mt-6">Descargar la guía</button>
+        </form>
+      </div>
     </div>
   </section>
 
+  <PageNav heading={nav.heading} items={nav.items} />
   <CtaBanner page="guia-de-recubrimiento-en-polvo" />
 </BaseLayout>

@@ -17,12 +17,61 @@
  */
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHero from "@/components/page/PageHero.astro";
+import Breadcrumb from "@/components/page/Breadcrumb.astro";
+import PageNav from "@/components/page/PageNav.astro";
 import CtaBanner from "@/components/CtaBanner.astro";
 import cta from "@/content/cta.json";
+import { RECURSOS } from "@/data/recursos";
+import { sectionNav } from "@/lib/menu";
 
-const title = "Calculadora de Cobertura";
-const lead =
-  "Calcule cuántos kilogramos de polvo necesita a partir del área a recubrir, el espesor de película y la eficiencia de transferencia. El resultado se actualiza al escribir.";
+const page = RECURSOS.calculadora;
+const nav = sectionNav("Recursos", page.path);
+
+/** The inputs. `min`/`max` are what the script validates against too. */
+const fields = [
+  {
+    id: "calc-ge",
+    label: "Gravedad específica",
+    hint: "Viene en la ficha técnica del producto. Rango típico: 1.2 a 1.8.",
+    step: "0.01",
+    min: "0.01",
+    placeholder: "p. ej. 1.5",
+  },
+  {
+    id: "calc-area",
+    label: "Área a recubrir (m²)",
+    hint: "Superficie total de todas las piezas a recubrir.",
+    step: "any",
+    min: "0.01",
+    placeholder: "p. ej. 500",
+  },
+  {
+    id: "calc-um",
+    label: "Espesor de película (µm)",
+    hint: "Recubrimiento en polvo típico: 50 a 100 µm.",
+    step: "1",
+    min: "1",
+    value: "60",
+  },
+  {
+    id: "calc-et",
+    label: "Eficiencia de transferencia (%)",
+    hint: "Pistola electrostática: 60 a 75 %. Lecho fluidizado: 95 % o más.",
+    step: "1",
+    min: "1",
+    max: "100",
+    value: "65",
+  },
+  {
+    id: "calc-margen",
+    label: "Margen de seguridad (%)",
+    hint: "Para arranques, cambios de color y geometrías complejas. Normalmente de 10 a 15 %.",
+    step: "5",
+    min: "0",
+    max: "100",
+    value: "15",
+  },
+];
 
 const steps = [
   {
@@ -45,122 +94,80 @@ const steps = [
   },
 ];
 
-const field =
-  "w-full border border-surface-edge bg-surface px-3.5 py-2.5 text-ink tabular-nums transition-colors placeholder:text-ink-body/50 focus:border-brand focus:outline-none";
-const label = "mb-1.5 block font-heading text-[15px] font-medium text-ink";
-const hint = "text-ink-muted mt-1.5 text-sm";
 const stat = "text-surface/70 font-heading text-xs font-bold tracking-[0.15em] uppercase";
 ---
 
-<BaseLayout
-  title={title}
-  description={lead}
-  ogImage="/uploads/library/calculadora-de-cobertura-hero.jpg"
->
+<BaseLayout title={page.title} description={page.description} ogImage={page.hero}>
   <PageHero
-    title={title}
+    title={page.title}
     eyebrow="Recursos"
-    lead={lead}
-    image="/uploads/library/calculadora-de-cobertura-hero.jpg"
+    lead={`${page.description} El resultado se actualiza al escribir.`}
+    image={page.hero}
     action={{ label: "Ir a la calculadora", href: "#calculadora" }}
     secondary={{ label: "Solicitar una cotización", href: cta.href }}
   />
 
-  <section id="calculadora" class="bg-surface-alt band">
-    <div class="container-ox">
-      <p class="eyebrow mb-4">Calculadora</p>
-      <h2 class="display text-ink text-3xl sm:text-4xl">¿Cuánto polvo necesita?</h2>
+  <section id="calculadora" class="bg-surface-alt">
+    <div class="container-ox band--tight">
+      <Breadcrumb title={page.title} category="Recursos" categoryHref={null} class="mb-10" />
+      <div class="mb-14">
+        <p class="eyebrow mb-4">Calculadora</p>
+        <h2 class="display display--black text-ink text-3xl sm:text-4xl">
+          ¿Cuánto polvo necesita?
+        </h2>
+      </div>
 
-      <div class="mt-10 grid gap-6 lg:grid-cols-2">
+      <div class="grid gap-6 lg:grid-cols-2">
         <form class="border-surface-edge bg-surface border p-6 sm:p-8" data-calculator novalidate>
           <div class="space-y-6">
-            <div>
-              <label class={label} for="calc-ge">Gravedad específica</label>
-              <input
-                class={field}
-                type="number"
-                id="calc-ge"
-                inputmode="decimal"
-                step="0.01"
-                min="0"
-                placeholder="p. ej. 1.5"
-              />
-              <p class={hint}>Viene en la ficha técnica del producto. Rango típico: 1.2 a 1.8.</p>
-            </div>
+            {
+              fields.map((f) => (
+                <div>
+                  <label class="ox-label" for={f.id}>
+                    {f.label}
+                  </label>
+                  <input
+                    class="ox-field"
+                    type="number"
+                    id={f.id}
+                    inputmode="decimal"
+                    step={f.step}
+                    min={f.min}
+                    max={f.max}
+                    value={f.value}
+                    placeholder={f.placeholder}
+                    aria-describedby={`${f.id}-hint`}
+                  />
+                  <p class="ox-hint" id={`${f.id}-hint`}>
+                    {f.hint}
+                  </p>
+                </div>
+              ))
+            }
 
             <div>
-              <label class={label} for="calc-area">Área a recubrir (m²)</label>
-              <input
-                class={field}
-                type="number"
-                id="calc-area"
-                inputmode="decimal"
-                step="any"
-                min="0"
-                placeholder="p. ej. 500"
-              />
-              <p class={hint}>Superficie total de todas las piezas a recubrir.</p>
-            </div>
-
-            <div>
-              <label class={label} for="calc-um">Espesor de película (µm)</label>
-              <input
-                class={field}
-                type="number"
-                id="calc-um"
-                inputmode="decimal"
-                step="1"
-                min="0"
-                value="60"
-              />
-              <p class={hint}>Recubrimiento en polvo típico: 50 a 100 µm.</p>
-            </div>
-
-            <div>
-              <label class={label} for="calc-et">Eficiencia de transferencia (%)</label>
-              <input
-                class={field}
-                type="number"
-                id="calc-et"
-                inputmode="decimal"
-                step="1"
-                min="1"
-                max="100"
-                value="65"
-              />
-              <p class={hint}>Pistola electrostática: 60 a 75 %. Lecho fluidizado: 95 % o más.</p>
-            </div>
-
-            <div>
-              <label class={label} for="calc-capas">Número de capas</label>
-              <select class={field} id="calc-capas">
+              <label class="ox-label" for="calc-capas">Número de capas</label>
+              <select class="ox-field" id="calc-capas">
                 <option value="1">1 capa</option>
                 <option value="2">2 capas</option>
                 <option value="3">3 capas</option>
               </select>
             </div>
 
-            <div>
-              <label class={label} for="calc-margen">Margen de seguridad (%)</label>
-              <input
-                class={field}
-                type="number"
-                id="calc-margen"
-                inputmode="decimal"
-                step="5"
-                min="0"
-                max="100"
-                value="15"
-              />
-            </div>
-
             <button type="reset" class="ox-link">Restablecer</button>
           </div>
         </form>
 
-        <div class="bg-surface-dark text-surface flex flex-col p-6 sm:p-8" aria-live="polite">
+        <div class="bg-surface-dark text-surface flex flex-col p-6 sm:p-8">
           <p class="text-surface/70 my-auto py-12 text-center" data-placeholder>
             Complete los campos para calcular el polvo que necesita.
+          </p>
+          <p
+            class="text-surface my-auto py-12 text-center font-semibold"
+            role="alert"
+            data-error
+            hidden
+          >
           </p>
 
           <div hidden data-result>
@@ -201,6 +208,9 @@ const stat = "text-surface/70 font-heading text-xs font-bold tracking-[0.15em] u
             </dl>
           </div>
 
+          {/* One short line for screen readers, not the whole panel. */}
+          <p class="sr-only" aria-live="polite" aria-atomic="true" data-announce></p>
+
           <a href={cta.href} class="ox-btn ox-btn--white mt-8 self-start"
             >Solicitar una cotización</a
           >
@@ -209,22 +219,26 @@ const stat = "text-surface/70 font-heading text-xs font-bold tracking-[0.15em] u
     </div>
   </section>
 
-  <section class="bg-surface-warm band">
-    <div class="container-ox">
-      <p class="eyebrow mb-4">El cálculo</p>
-      <h2 class="display text-ink text-3xl sm:text-4xl">Cómo funciona la fórmula</h2>
-      <p class="text-ink-body mt-4 max-w-xl text-lg">
-        Tres pasos de la gravedad específica a la cantidad a pedir.
-      </p>
+  <section class="bg-surface-warm">
+    <div class="container-ox band--tight">
+      <div class="mb-14">
+        <p class="eyebrow mb-4">El cálculo</p>
+        <h2 class="display display--black text-ink text-3xl sm:text-4xl">
+          Cómo funciona la fórmula
+        </h2>
+        <p class="text-ink-body mt-4 max-w-xl text-lg">
+          Tres pasos de la gravedad específica a la cantidad a pedir.
+        </p>
+      </div>
 
-      <ol class="mt-10 grid gap-6 md:grid-cols-3">
+      <ol class="grid gap-6 md:grid-cols-3">
         {
           steps.map(({ index, headline, body, formula }) => (
-            <li class="bg-surface border-surface-edge border-t-brand flex flex-col border-t-4 p-6 sm:p-8">
+            <li class="bg-surface border-t-brand flex flex-col border-t-4 p-6 sm:p-8">
               <span class="text-accent-text font-heading font-black tracking-[0.15em] tabular-nums">
                 {index}
               </span>
-              <h3 class="display text-ink mt-4 text-xl">{headline}</h3>
+              <h3 class="display display--black text-ink mt-4 text-2xl">{headline}</h3>
               <p class="text-ink-body mt-3 flex-1">{body}</p>
               <p class="border-surface-edge text-ink mt-6 border-t pt-4 font-mono text-sm font-semibold">
                 {formula}
@@ -245,16 +259,18 @@ const stat = "text-surface/70 font-heading text-xs font-bold tracking-[0.15em] u
     </div>
   </section>
 
+  <PageNav heading={nav.heading} items={nav.items} />
   <CtaBanner page="calculadora-de-cobertura" />
 </BaseLayout>
 
 <script>
   const form = document.querySelector<HTMLFormElement>("[data-calculator]");
   const placeholder = document.querySelector<HTMLElement>("[data-placeholder]");
+  const error = document.querySelector<HTMLElement>("[data-error]");
   const result = document.querySelector<HTMLElement>("[data-result]");
+  const announce = document.querySelector<HTMLElement>("[data-announce]");
 
-  const num = (id: string) =>
-    Number.parseFloat((document.getElementById(id) as HTMLInputElement).value);
+  const input = (id: string) => document.getElementById(id) as HTMLInputElement;
   const out = (key: string, text: string) => {
     const el = document.querySelector(`[data-out="${key}"]`);
     if (el) el.textContent = text;
@@ -262,19 +278,55 @@ const stat = "text-surface/70 font-heading text-xs font-bold tracking-[0.15em] u
   const fmt = (n: number, digits: number) =>
     n.toLocaleString("es-MX", { minimumFractionDigits: digits, maximumFractionDigits: digits });
 
-  function calculate() {
-    if (!placeholder || !result) return;
-    const ge = num("calc-ge");
-    const area = num("calc-area");
-    const um = num("calc-um");
-    const et = num("calc-et");
-    const coats = num("calc-capas") || 1;
-    const margin = Math.max(0, Math.min(100, num("calc-margen") || 0));
+  /** Value of a required field: null while empty, NaN when out of range. */
+  function read(id: string, name: string, problems: string[]): number | null {
+    const el = input(id);
+    if (el.value.trim() === "") {
+      el.removeAttribute("aria-invalid");
+      return null;
+    }
+    const value = Number.parseFloat(el.value);
+    const min = Number.parseFloat(el.min);
+    const max = el.max ? Number.parseFloat(el.max) : Infinity;
+    const ok = Number.isFinite(value) && value >= min && value <= max;
+    el.toggleAttribute("aria-invalid", !ok);
+    if (ok) return value;
+    problems.push(
+      Number.isFinite(max)
+        ? `${name} debe estar entre ${min} y ${max}.`
+        : `${name} debe ser mayor que 0.`,
+    );
+    return Number.NaN;
+  }
 
-    const valid = [ge, area, um, et].every((v) => Number.isFinite(v) && v > 0) && et <= 100;
-    placeholder.hidden = valid;
-    result.hidden = !valid;
-    if (!valid) return;
+  let announceTimer: ReturnType<typeof setTimeout> | undefined;
+
+  function show(state: "placeholder" | "error" | "result") {
+    if (placeholder) placeholder.hidden = state !== "placeholder";
+    if (error) error.hidden = state !== "error";
+    if (result) result.hidden = state !== "result";
+  }
+
+  function calculate() {
+    const problems: string[] = [];
+    const ge = read("calc-ge", "La gravedad específica", problems);
+    const area = read("calc-area", "El área", problems);
+    const um = read("calc-um", "El espesor de película", problems);
+    const et = read("calc-et", "La eficiencia de transferencia", problems);
+    const margin = read("calc-margen", "El margen de seguridad", problems) ?? 0;
+    const coats = Number.parseInt(input("calc-capas").value, 10) || 1;
+
+    clearTimeout(announceTimer);
+    if (problems.length) {
+      if (error) error.textContent = problems.join(" ");
+      show("error");
+      return;
+    }
+    if (ge === null || area === null || um === null || et === null) {
+      show("placeholder");
+      if (announce) announce.textContent = "";
+      return;
+    }
 
     // Effective coverage: m² one kilogram actually coats, after overspray.
     const m2PerKg = (1000 / (ge * um)) * (et / 100);
@@ -288,9 +340,20 @@ const stat = "text-surface/70 font-heading text-xs font-bold tracking-[0.15em] u
     out("m2kg", fmt(m2PerKg, 2));
     const capas = coats > 1 ? ` · ${coats} capas` : "";
     out("summary", `${fmt(area, 0)} m² · ${fmt(um, 0)} µm · ${fmt(et, 0)} % ET${capas}`);
+    show("result");
+
+    // Announced once typing pauses, rather than on every keystroke.
+    announceTimer = setTimeout(() => {
+      if (announce) {
+        announce.textContent = `Polvo requerido: ${fmt(kg, 2)} kg. Cantidad recomendada: ${fmt(order, 1)} kg.`;
+      }
+    }, 800);
   }
 
   form?.addEventListener("input", calculate);
   // Reset restores the defaults only after the event, so recalculate next tick.
   form?.addEventListener("reset", () => setTimeout(calculate));
+  // Back navigation and autofill restore values without an input event.
+  window.addEventListener("pageshow", calculate);
+  calculate();
 </script>

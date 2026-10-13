@@ -13,7 +13,15 @@ export default defineConfig({
 
   build: { inlineStylesheets: "always" },
 
-  integrations: [sitemap()],
+  // The form confirmation pages are noindex, so listing them would contradict
+  // themselves.
+  integrations: [sitemap({ filter: (page) => !/\/(gracias|descarga)\/$/.test(page) })],
 
-  vite: { plugins: [tailwindcss()] },
+  vite: {
+    plugins: [tailwindcss()],
+    // Serve every script as a file rather than inlining the small ones, so the
+    // Content-Security-Policy in netlify.toml can be `script-src 'self'`
+    // without a hash per page.
+    build: { assetsInlineLimit: 0 },
+  },
 });

@@ -793,7 +793,11 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
         continue;
       }
       const at = host.children.findIndex((c) => c.label === after);
-      const added = items.map((i) => ({ ...i, children: [] }));
+      if (at === -1) console.warn(`  menu addition: no "${after}" under "${parent}" - added at the end`);
+      // Skip anything the old menu already links to, so an item added to the
+      // WordPress menu later is not listed twice.
+      const present = new Set(menu.flatMap((m) => [m.href, ...m.children.map((c) => c.href)]));
+      const added = items.filter((i) => !present.has(i.href)).map((i) => ({ ...i, children: [] }));
       host.children.splice(at === -1 ? host.children.length : at + 1, 0, ...added);
     }
     return menu;

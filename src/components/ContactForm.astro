@@ -11,9 +11,6 @@
  * otherwise entirely Spanish site. They are translated here - see
  * docs/deviations.md, which lists this as a deliberate change.
  */
-const field =
-  "w-full border border-surface-edge bg-surface px-3.5 py-2.5 text-ink transition-colors placeholder:text-ink-body/50 focus:border-brand focus:outline-none";
-const label = "mb-1.5 block font-heading text-[15px] font-medium text-ink";
 ---
 
 <form
@@ -31,9 +28,9 @@ const label = "mb-1.5 block font-heading text-[15px] font-medium text-ink";
 
   <div class="grid gap-4 sm:grid-cols-2">
     <div>
-      <label class={label} for="nombre">Nombre <span aria-hidden="true">*</span></label>
+      <label class="ox-label" for="nombre">Nombre <span aria-hidden="true">*</span></label>
       <input
-        class={field}
+        class="ox-field"
         type="text"
         id="nombre"
         name="nombre"
@@ -42,9 +39,9 @@ const label = "mb-1.5 block font-heading text-[15px] font-medium text-ink";
       />
     </div>
     <div>
-      <label class={label} for="apellido">Apellido <span aria-hidden="true">*</span></label>
+      <label class="ox-label" for="apellido">Apellido <span aria-hidden="true">*</span></label>
       <input
-        class={field}
+        class="ox-field"
         type="text"
         id="apellido"
         name="apellido"
@@ -55,18 +52,18 @@ const label = "mb-1.5 block font-heading text-[15px] font-medium text-ink";
   </div>
 
   <div class="mt-4">
-    <label class={label} for="email">Correo electrónico <span aria-hidden="true">*</span></label>
-    <input class={field} type="email" id="email" name="email" required autocomplete="email" />
+    <label class="ox-label" for="email">Correo electrónico <span aria-hidden="true">*</span></label>
+    <input class="ox-field" type="email" id="email" name="email" required autocomplete="email" />
   </div>
 
   <div class="mt-4">
-    <label class={label} for="asunto">Asunto <span aria-hidden="true">*</span></label>
-    <input class={field} type="text" id="asunto" name="asunto" required />
+    <label class="ox-label" for="asunto">Asunto <span aria-hidden="true">*</span></label>
+    <input class="ox-field" type="text" id="asunto" name="asunto" required />
   </div>
 
   <div class="mt-4">
-    <label class={label} for="mensaje">Mensaje <span aria-hidden="true">*</span></label>
-    <textarea class={field} id="mensaje" name="mensaje" rows="6" required></textarea>
+    <label class="ox-label" for="mensaje">Mensaje <span aria-hidden="true">*</span></label>
+    <textarea class="ox-field" id="mensaje" name="mensaje" rows="6" required></textarea>
   </div>
 
   <button type="submit" class="ox-btn mt-6"> Enviar </button>

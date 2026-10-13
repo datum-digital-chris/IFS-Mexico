@@ -14,35 +14,39 @@
  */
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import PageHero from "@/components/page/PageHero.astro";
+import Breadcrumb from "@/components/page/Breadcrumb.astro";
+import PageNav from "@/components/page/PageNav.astro";
 import CtaBanner from "@/components/CtaBanner.astro";
 import cta from "@/content/cta.json";
 import videos from "@/data/videos-de-demostracion.json";
+import { RECURSOS } from "@/data/recursos";
+import { sectionNav } from "@/lib/menu";
 
-const title = "Videos de Demostración";
-const lead =
-  "Consejos de aplicación de los técnicos de IFS: acabados lisos, texturizados, metálicos y efecto vena, y cómo sacar el mejor resultado de su horno.";
+const page = RECURSOS.videos;
+const nav = sectionNav("Recursos", page.path);
 ---
 
-<BaseLayout
-  title={title}
-  description={lead}
-  ogImage="/uploads/library/videos-de-demostracion-hero.jpg"
->
+<BaseLayout title={page.title} description={page.description} ogImage={page.hero}>
   <PageHero
-    title={title}
+    title={page.title}
     eyebrow="Recursos"
-    lead={lead}
-    image="/uploads/library/videos-de-demostracion-hero.jpg"
+    lead={page.description}
+    image={page.hero}
     action={{ label: "Ver los videos", href: "#videos" }}
     secondary={{ label: "Solicitar una demostración", href: cta.href }}
   />
 
-  <section id="videos" class="bg-surface-warm band">
-    <div class="container-ox">
-      <p class="eyebrow mb-4">Videos</p>
-      <h2 class="display text-ink text-3xl sm:text-4xl">Vea los polvos de IFS en acción</h2>
+  <section id="videos" class="bg-surface-warm">
+    <div class="container-ox band--tight">
+      <Breadcrumb title={page.title} category="Recursos" categoryHref={null} class="mb-10" />
+      <div class="mb-14">
+        <p class="eyebrow mb-4">Videos</p>
+        <h2 class="display display--black text-ink text-3xl sm:text-4xl">
+          Vea los polvos de IFS en acción
+        </h2>
+      </div>
 
-      <ul class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {
           videos.items.map(({ id, title }) => (
             <li class="ox-card bg-surface my-0 flex flex-col">
@@ -61,13 +65,13 @@ const lead =
                   loading="lazy"
                   width="480"
                   height="360"
-                  class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105 group-focus-visible:scale-105"
                 />
                 <span
-                  class="absolute inset-0 flex items-center justify-center bg-black/30 transition-colors group-hover:bg-black/50"
+                  class="bg-surface-dark/30 group-hover:bg-surface-dark/50 group-focus-visible:bg-surface-dark/50 absolute inset-0 flex items-center justify-center transition-colors"
                   aria-hidden="true"
                 >
-                  <span class="ox-brand-fill flex h-14 w-14 items-center justify-center">
+                  <span class="ox-brand-fill flex h-14 w-14 items-center justify-center transition-transform group-hover:scale-110 group-focus-visible:scale-110">
                     <svg
                       class="text-surface h-6 w-6 translate-x-0.5"
                       viewBox="0 0 24 24"
@@ -78,7 +82,7 @@ const lead =
                   </span>
                 </span>
               </a>
-              <h3 class="font-heading text-ink p-6 text-lg leading-snug font-bold">{title}</h3>
+              <h3 class="display text-ink p-6 text-xl">{title}</h3>
             </li>
           ))
         }
@@ -86,13 +90,18 @@ const lead =
     </div>
   </section>
 
+  <PageNav heading={nav.heading} items={nav.items} />
   <CtaBanner page="videos-de-demostracion" />
 </BaseLayout>
 
 <script>
   for (const link of document.querySelectorAll<HTMLAnchorElement>("[data-video]")) {
     link.addEventListener("click", (event) => {
-      if (event.metaKey || event.ctrlKey || event.shiftKey) return;
+      // A modified or non-primary click keeps its usual meaning (new tab,
+      // window, download): only a plain click plays in place.
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+        return;
+      }
       event.preventDefault();
       const id = encodeURIComponent(link.dataset.video ?? "");
       const frame = document.createElement("iframe");
@@ -100,6 +109,7 @@ const lead =
       frame.title = link.dataset.title ?? "";
       frame.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
       frame.allowFullscreen = true;
+      frame.referrerPolicy = "strict-origin-when-cross-origin";
       frame.className = "aspect-video h-auto w-full";
       link.replaceWith(frame);
       frame.focus();

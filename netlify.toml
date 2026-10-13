@@ -15,6 +15,21 @@
     X-Frame-Options = "SAMEORIGIN"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+    # Scripts are all files on this origin (astro.config.mjs sets
+    # assetsInlineLimit: 0), so script-src needs no 'unsafe-inline'. Styles do:
+    # stylesheets are inlined into each page, the RAL swatches carry their
+    # colour as a style attribute, and the colour wheel builds its own styles.
+    # YouTube is framed only on /videos-de-demostracion/, after a click.
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src https://www.youtube-nocookie.com; form-action 'self'; frame-ancestors 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
+
+# The e-book sits behind an email form; keep the PDF itself out of search
+# results so it is not found without it.
+[[headers]]
+  for = "/descargas/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
 
 # Fingerprinted build output is safe to cache forever; the uploads directory
 # keeps the WordPress filenames, so it is cached for a day instead.

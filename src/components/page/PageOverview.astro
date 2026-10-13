@@ -23,6 +23,7 @@
  * in a panel, so those run full width below it.
  */
 import Block from "@/components/Block.astro";
+import Breadcrumb from "@/components/page/Breadcrumb.astro";
 import { runsOf, type Block as BlockType } from "@/lib/blocks";
 
 interface Props {
@@ -57,29 +58,12 @@ const bare = !hasLead && wide.length === 0;
 
 <section class="bg-surface-alt">
   <div class:list={["container-ox", bare ? "py-5" : "band--tight"]}>
-    <nav aria-label="Ruta de navegación" class:list={[hasLead || wide.length ? "mb-10" : ""]}>
-      <ol class="text-ink-body flex flex-wrap items-center gap-2 text-[0.8125rem]">
-        <li><a href="/" class="hover:text-brand-hover">Inicio</a></li>
-        {
-          category && (
-            <Fragment>
-              <li aria-hidden="true">/</li>
-              <li>
-                {categoryHref ? (
-                  <a href={categoryHref} class="hover:text-brand-hover">
-                    {category}
-                  </a>
-                ) : (
-                  category
-                )}
-              </li>
-            </Fragment>
-          )
-        }
-        <li aria-hidden="true">/</li>
-        <li class="text-ink font-medium">{title}</li>
-      </ol>
-    </nav>
+    <Breadcrumb
+      title={title}
+      category={category}
+      categoryHref={categoryHref}
+      class={hasLead || wide.length ? "mb-10" : ""}
+    />
 
     {
       hasLead && (

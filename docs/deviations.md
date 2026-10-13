@@ -362,7 +362,21 @@ survive re-extraction. All three are authored copy, not extracted, so
   (`ebook`) that asks for a name and email. It confirms on `…/descarga/`.
   The Spanish PDF is still being produced: until `pdf` is set in
   `src/data/ebook.json` the confirmation page says the guide will follow by
-  email, and the sign-ups are captured meanwhile.
+  email, and the sign-ups are captured meanwhile. Receiving anything further
+  from IFS is a separate, unticked box, and the PDF folder (`/descargas/`) is
+  served `X-Robots-Tag: noindex` so the guide is not found without the form.
+
+All three open on the breadcrumb and close on the Recursos band and the CTA,
+as the extracted pages do. Their titles and descriptions live once, in
+`src/data/recursos.ts`, which the site search reads as well.
+
+## 19. Both form confirmation pages end on the CTA band
+
+**Old:** `/gracias/` stopped after its message.
+
+**New:** it and the e-book's `/descarga/` close on the CTA band like every
+other page (house rule), and both are left out of the sitemap, since they are
+`noindex`.
 
 ---
 
