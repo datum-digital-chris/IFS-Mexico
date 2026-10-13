@@ -1,0 +1,42 @@
+---
+/**
+ * Confirmation page for the e-book form, carrying the download. Kept out of
+ * search results, like /gracias/: it is meaningless arrived at cold.
+ *
+ * Until the Spanish edition exists (`pdf` is null in src/data/ebook.json) it
+ * says the guide will follow by email instead of offering a dead link.
+ */
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ebook from "@/data/ebook.json";
+
+const pdf: string | null = ebook.pdf;
+---
+
+<BaseLayout title="Gracias">
+  <meta slot="head" name="robots" content="noindex, follow" />
+  <section class="bg-surface-warm">
+    <div class="container-ox band">
+      <h1 class="display display--black max-w-measure text-4xl sm:text-5xl">
+        Gracias por su interés
+      </h1>
+      {
+        pdf ? (
+          <Fragment>
+            <p class="text-lead text-ink-muted mt-4">Su guía está lista para descargar.</p>
+            <a href={pdf} class="ox-btn ox-btn--lg mt-6" download>
+              Descargar: {ebook.title} (PDF)
+            </a>
+          </Fragment>
+        ) : (
+          <p class="text-lead text-ink-muted mt-4">
+            Le enviaremos la {ebook.title.toLowerCase()} a su correo electrónico en cuanto esté
+            disponible.
+          </p>
+        )
+      }
+      <p class="mt-8">
+        <a href="/" class="ox-link">Volver al inicio</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>

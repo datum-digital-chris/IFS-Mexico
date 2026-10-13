@@ -1,0 +1,115 @@
+---
+/**
+ * E-book: the guide to applying powder coatings, in Spanish.
+ *
+ * Added at the client's request (October 2026 review). The .com links its
+ * English edition directly; here the download asks for an email first, which
+ * is what the client asked for. The form is a Netlify Form like the contact
+ * form, and the confirmation page carries the download (src/data/ebook.json).
+ *
+ * The gate is a courtesy, not access control: the PDF is a static file and its
+ * address is not secret.
+ */
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/page/PageHero.astro";
+import CtaBanner from "@/components/CtaBanner.astro";
+import ebook from "@/data/ebook.json";
+
+const title = "E-Book: Guía de Recubrimiento en Polvo";
+const lead =
+  "Una referencia completa para aplicadores de todos los niveles. Déjenos su correo electrónico y descargue la guía sin costo.";
+
+const field =
+  "w-full border border-surface-edge bg-surface px-3.5 py-2.5 text-ink transition-colors placeholder:text-ink-body/50 focus:border-brand focus:outline-none";
+const label = "mb-1.5 block font-heading text-[15px] font-medium text-ink";
+---
+
+<BaseLayout
+  title={title}
+  description={lead}
+  ogImage="/uploads/library/guia-de-recubrimiento-en-polvo-hero.jpg"
+>
+  <PageHero
+    title={title}
+    eyebrow="Recursos"
+    lead={lead}
+    image="/uploads/library/guia-de-recubrimiento-en-polvo-hero.jpg"
+    action={{ label: "Descargar la guía", href: "#descarga" }}
+    secondary={null}
+  />
+
+  <section id="descarga" class="bg-surface-alt band">
+    <div class="container-ox grid gap-10 lg:grid-cols-2 lg:gap-16">
+      <div>
+        <p class="eyebrow mb-4">E-Book</p>
+        <h2 class="display text-ink text-3xl sm:text-4xl">{ebook.title}</h2>
+        <p class="text-ink-body mt-6 text-lg leading-relaxed">
+          Todo lo que necesita para obtener un acabado de calidad con recubrimiento en polvo, de la
+          preparación de la superficie al curado, explicado por los técnicos de IFS.
+        </p>
+      </div>
+
+      <form
+        name="ebook"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        action="/guia-de-recubrimiento-en-polvo/descarga/"
+        class="border-surface-edge bg-surface border p-6 sm:p-8"
+      >
+        <input type="hidden" name="form-name" value="ebook" />
+        <p class="hidden">
+          <label>Si es humano, deje este campo en blanco: <input name="bot-field" /></label>
+        </p>
+
+        <div>
+          <label class={label} for="ebook-nombre">Nombre <span aria-hidden="true">*</span></label>
+          <input
+            class={field}
+            type="text"
+            id="ebook-nombre"
+            name="nombre"
+            required
+            autocomplete="name"
+          />
+        </div>
+
+        <div class="mt-4">
+          <label class={label} for="ebook-empresa">Empresa</label>
+          <input
+            class={field}
+            type="text"
+            id="ebook-empresa"
+            name="empresa"
+            autocomplete="organization"
+          />
+        </div>
+
+        <div class="mt-4">
+          <label class={label} for="ebook-email">
+            Correo electrónico <span aria-hidden="true">*</span>
+          </label>
+          <input
+            class={field}
+            type="email"
+            id="ebook-email"
+            name="email"
+            required
+            autocomplete="email"
+          />
+        </div>
+
+        <p class="text-ink-muted mt-4 text-sm">
+          Usaremos su correo para enviarle la guía y, ocasionalmente, información de IFS. Consulte
+          nuestra <a href="/politica-de-privacidad/" class="text-brand-deep underline"
+            >política de privacidad</a
+          >.
+        </p>
+
+        <button type="submit" class="ox-btn mt-6">Descargar la guía</button>
+      </form>
+    </div>
+  </section>
+
+  <CtaBanner page="guia-de-recubrimiento-en-polvo" />
+</BaseLayout>

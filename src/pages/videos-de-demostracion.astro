@@ -1,0 +1,108 @@
+---
+/**
+ * Videos de demostración.
+ *
+ * Added at the client's request (October 2026 review): six application videos
+ * IFS published in Spanish. Laid out as the .com's demonstration-videos page
+ * is: a grid of thumbnails that play in place.
+ *
+ * Each card is a link to the video on YouTube, so it works with scripts off;
+ * with scripts on, a click swaps the thumbnail for the player. Nothing loads
+ * from YouTube until then, which keeps six embedded players (and their
+ * cookies) off a visitor who only reads the page. The player is the
+ * youtube-nocookie host for the same reason.
+ */
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/page/PageHero.astro";
+import CtaBanner from "@/components/CtaBanner.astro";
+import cta from "@/content/cta.json";
+import videos from "@/data/videos-de-demostracion.json";
+
+const title = "Videos de Demostración";
+const lead =
+  "Consejos de aplicación de los técnicos de IFS: acabados lisos, texturizados, metálicos y efecto vena, y cómo sacar el mejor resultado de su horno.";
+---
+
+<BaseLayout
+  title={title}
+  description={lead}
+  ogImage="/uploads/library/videos-de-demostracion-hero.jpg"
+>
+  <PageHero
+    title={title}
+    eyebrow="Recursos"
+    lead={lead}
+    image="/uploads/library/videos-de-demostracion-hero.jpg"
+    action={{ label: "Ver los videos", href: "#videos" }}
+    secondary={{ label: "Solicitar una demostración", href: cta.href }}
+  />
+
+  <section id="videos" class="bg-surface-warm band">
+    <div class="container-ox">
+      <p class="eyebrow mb-4">Videos</p>
+      <h2 class="display text-ink text-3xl sm:text-4xl">Vea los polvos de IFS en acción</h2>
+
+      <ul class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          videos.items.map(({ id, title }) => (
+            <li class="ox-card bg-surface my-0 flex flex-col">
+              <a
+                href={`https://www.youtube.com/watch?v=${id}`}
+                class="group bg-surface-dark relative block aspect-video overflow-hidden"
+                data-video={id}
+                data-title={title}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Reproducir video: ${title}`}
+              >
+                <img
+                  src={`/uploads/video-thumbs/${id}.jpg`}
+                  alt=""
+                  loading="lazy"
+                  width="480"
+                  height="360"
+                  class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <span
+                  class="absolute inset-0 flex items-center justify-center bg-black/30 transition-colors group-hover:bg-black/50"
+                  aria-hidden="true"
+                >
+                  <span class="ox-brand-fill flex h-14 w-14 items-center justify-center">
+                    <svg
+                      class="text-surface h-6 w-6 translate-x-0.5"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z" />
+                    </svg>
+                  </span>
+                </span>
+              </a>
+              <h3 class="font-heading text-ink p-6 text-lg leading-snug font-bold">{title}</h3>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <CtaBanner page="videos-de-demostracion" />
+</BaseLayout>
+
+<script>
+  for (const link of document.querySelectorAll<HTMLAnchorElement>("[data-video]")) {
+    link.addEventListener("click", (event) => {
+      if (event.metaKey || event.ctrlKey || event.shiftKey) return;
+      event.preventDefault();
+      const id = encodeURIComponent(link.dataset.video ?? "");
+      const frame = document.createElement("iframe");
+      frame.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+      frame.title = link.dataset.title ?? "";
+      frame.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+      frame.allowFullscreen = true;
+      frame.className = "aspect-video h-auto w-full";
+      link.replaceWith(frame);
+      frame.focus();
+    });
+  }
+</script>

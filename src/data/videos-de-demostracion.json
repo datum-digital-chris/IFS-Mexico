@@ -1,0 +1,14 @@
+{
+  "_note": "AUTHORED CONTENT, not extracted. The six demonstration videos the client asked for in the October 2026 review (the ones made by Alex). Titles are the videos' own YouTube titles, read through YouTube's oEmbed endpoint, with the first letter capitalised. Thumbnails are YouTube's hqdefault frames, saved to public/uploads/video-thumbs/<id>.jpg so the page does not hotlink them.",
+  "items": [
+    {
+      "id": "_qC3IENtB1k",
+      "title": "Consejos para una buena gestión del horno de pintura en polvo"
+    },
+    { "id": "D0sNhi8CbsM", "title": "Cómo aplicar pintura en polvo efecto vena" },
+    { "id": "pdHVPfmW8Ms", "title": "Consejos para aplicar pintura en polvo texturizada" },
+    { "id": "UNUOX9yMGZ8", "title": "Consejos para aplicar una capa de polvo metálico" },
+    { "id": "uRxe_TO-Jtw", "title": "Lograr un acabado liso con recubrimiento en polvo" },
+    { "id": "Ia3G7gha7_4", "title": "Logrando un buen terreno" }
+  ]
+}

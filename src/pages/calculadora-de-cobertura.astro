@@ -1,0 +1,296 @@
+---
+/**
+ * Calculadora de cobertura.
+ *
+ * Added at the client's request (October 2026 review) as a metric version of
+ * the .com's powder requirement calculator (~/GitHub/IFS-Coatings,
+ * src/pages/powder-requirement-calculator.astro). Same method, in the units a
+ * Mexican applicator works in: area in m², film in µm, powder in kg.
+ *
+ * One kilogram of powder of specific gravity SG, laid at a film of t µm,
+ * covers 1000 ÷ (SG × t) m² in theory. Transfer efficiency scales that down to
+ * what reaches the part. The .com's imperial constant (192.3 ft²/lb at 1 mil)
+ * is the same relation in other units, so both calculators give the same
+ * answer for the same job.
+ *
+ * Authored copy, not extracted: npm run compare does not cover it.
+ */
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import PageHero from "@/components/page/PageHero.astro";
+import CtaBanner from "@/components/CtaBanner.astro";
+import cta from "@/content/cta.json";
+
+const title = "Calculadora de Cobertura";
+const lead =
+  "Calcule cuántos kilogramos de polvo necesita a partir del área a recubrir, el espesor de película y la eficiencia de transferencia. El resultado se actualiza al escribir.";
+
+const steps = [
+  {
+    index: "01",
+    headline: "Cobertura teórica",
+    body: "Un kilogramo de polvo cubre un área máxima que depende de su gravedad específica y del espesor de película. Un polvo más denso cubre menos área por kilogramo.",
+    formula: "1000 ÷ (GE × µm) = m²/kg",
+  },
+  {
+    index: "02",
+    headline: "Eficiencia de transferencia",
+    body: "No todo el polvo aplicado llega a la pieza. La eficiencia de transferencia descuenta el sobrerrociado; una línea electrostática bien ajustada trabaja normalmente entre 60 y 75 %.",
+    formula: "Cobertura teórica × ET % = m²/kg efectivos",
+  },
+  {
+    index: "03",
+    headline: "Polvo requerido",
+    body: "Divida el área total entre la cobertura efectiva. Agregue un margen de seguridad, normalmente de 10 a 15 %, para arranques, cambios de color y geometrías complejas.",
+    formula: "(Área × Capas) ÷ m²/kg efectivos = kg",
+  },
+];
+
+const field =
+  "w-full border border-surface-edge bg-surface px-3.5 py-2.5 text-ink tabular-nums transition-colors placeholder:text-ink-body/50 focus:border-brand focus:outline-none";
+const label = "mb-1.5 block font-heading text-[15px] font-medium text-ink";
+const hint = "text-ink-muted mt-1.5 text-sm";
+const stat = "text-surface/70 font-heading text-xs font-bold tracking-[0.15em] uppercase";
+---
+
+<BaseLayout
+  title={title}
+  description={lead}
+  ogImage="/uploads/library/calculadora-de-cobertura-hero.jpg"
+>
+  <PageHero
+    title={title}
+    eyebrow="Recursos"
+    lead={lead}
+    image="/uploads/library/calculadora-de-cobertura-hero.jpg"
+    action={{ label: "Ir a la calculadora", href: "#calculadora" }}
+    secondary={{ label: "Solicitar una cotización", href: cta.href }}
+  />
+
+  <section id="calculadora" class="bg-surface-alt band">
+    <div class="container-ox">
+      <p class="eyebrow mb-4">Calculadora</p>
+      <h2 class="display text-ink text-3xl sm:text-4xl">¿Cuánto polvo necesita?</h2>
+
+      <div class="mt-10 grid gap-6 lg:grid-cols-2">
+        <form class="border-surface-edge bg-surface border p-6 sm:p-8" data-calculator novalidate>
+          <div class="space-y-6">
+            <div>
+              <label class={label} for="calc-ge">Gravedad específica</label>
+              <input
+                class={field}
+                type="number"
+                id="calc-ge"
+                inputmode="decimal"
+                step="0.01"
+                min="0"
+                placeholder="p. ej. 1.5"
+              />
+              <p class={hint}>Viene en la ficha técnica del producto. Rango típico: 1.2 a 1.8.</p>
+            </div>
+
+            <div>
+              <label class={label} for="calc-area">Área a recubrir (m²)</label>
+              <input
+                class={field}
+                type="number"
+                id="calc-area"
+                inputmode="decimal"
+                step="any"
+                min="0"
+                placeholder="p. ej. 500"
+              />
+              <p class={hint}>Superficie total de todas las piezas a recubrir.</p>
+            </div>
+
+            <div>
+              <label class={label} for="calc-um">Espesor de película (µm)</label>
+              <input
+                class={field}
+                type="number"
+                id="calc-um"
+                inputmode="decimal"
+                step="1"
+                min="0"
+                value="60"
+              />
+              <p class={hint}>Recubrimiento en polvo típico: 50 a 100 µm.</p>
+            </div>
+
+            <div>
+              <label class={label} for="calc-et">Eficiencia de transferencia (%)</label>
+              <input
+                class={field}
+                type="number"
+                id="calc-et"
+                inputmode="decimal"
+                step="1"
+                min="1"
+                max="100"
+                value="65"
+              />
+              <p class={hint}>Pistola electrostática: 60 a 75 %. Lecho fluidizado: 95 % o más.</p>
+            </div>
+
+            <div>
+              <label class={label} for="calc-capas">Número de capas</label>
+              <select class={field} id="calc-capas">
+                <option value="1">1 capa</option>
+                <option value="2">2 capas</option>
+                <option value="3">3 capas</option>
+              </select>
+            </div>
+
+            <div>
+              <label class={label} for="calc-margen">Margen de seguridad (%)</label>
+              <input
+                class={field}
+                type="number"
+                id="calc-margen"
+                inputmode="decimal"
+                step="5"
+                min="0"
+                max="100"
+                value="15"
+              />
+            </div>
+
+            <button type="reset" class="ox-link">Restablecer</button>
+          </div>
+        </form>
+
+        <div class="bg-surface-dark text-surface flex flex-col p-6 sm:p-8" aria-live="polite">
+          <p class="text-surface/70 my-auto py-12 text-center" data-placeholder>
+            Complete los campos para calcular el polvo que necesita.
+          </p>
+
+          <div hidden data-result>
+            <p class={stat}>Polvo requerido</p>
+            <p class="mt-2 flex items-baseline gap-2.5">
+              <span class="font-heading text-6xl leading-none font-black tabular-nums" data-out="kg"
+              ></span>
+              <span class="text-xl font-semibold">kg</span>
+            </p>
+            <p class="text-surface/70 mt-2 text-sm" data-out="summary"></p>
+
+            <div class="border-surface/20 mt-8 border-t pt-6">
+              <p class={stat}>Cantidad recomendada a pedir</p>
+              <p class="mt-2 flex items-baseline gap-2.5">
+                <span
+                  class="font-heading text-4xl leading-none font-black tabular-nums"
+                  data-out="order"></span>
+                <span class="text-xl font-semibold">kg</span>
+              </p>
+              <p class="text-surface/70 mt-2 text-sm" data-out="margin"></p>
+            </div>
+
+            <dl class="border-surface/20 mt-8 grid grid-cols-2 gap-6 border-t pt-6">
+              <div>
+                <dt class={stat}>Consumo</dt>
+                <dd class="mt-2 text-2xl font-bold tabular-nums">
+                  <span data-out="kgm2"></span>
+                  <span class="text-base font-semibold">kg/m²</span>
+                </dd>
+              </div>
+              <div>
+                <dt class={stat}>Rendimiento efectivo</dt>
+                <dd class="mt-2 text-2xl font-bold tabular-nums">
+                  <span data-out="m2kg"></span>
+                  <span class="text-base font-semibold">m²/kg</span>
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          <a href={cta.href} class="ox-btn ox-btn--white mt-8 self-start"
+            >Solicitar una cotización</a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-surface-warm band">
+    <div class="container-ox">
+      <p class="eyebrow mb-4">El cálculo</p>
+      <h2 class="display text-ink text-3xl sm:text-4xl">Cómo funciona la fórmula</h2>
+      <p class="text-ink-body mt-4 max-w-xl text-lg">
+        Tres pasos de la gravedad específica a la cantidad a pedir.
+      </p>
+
+      <ol class="mt-10 grid gap-6 md:grid-cols-3">
+        {
+          steps.map(({ index, headline, body, formula }) => (
+            <li class="bg-surface border-surface-edge border-t-brand flex flex-col border-t-4 p-6 sm:p-8">
+              <span class="text-accent-text font-heading font-black tracking-[0.15em] tabular-nums">
+                {index}
+              </span>
+              <h3 class="display text-ink mt-4 text-xl">{headline}</h3>
+              <p class="text-ink-body mt-3 flex-1">{body}</p>
+              <p class="border-surface-edge text-ink mt-6 border-t pt-4 font-mono text-sm font-semibold">
+                {formula}
+              </p>
+            </li>
+          ))
+        }
+      </ol>
+
+      <div class="bg-surface mt-6 p-6 sm:p-8">
+        <p class="text-ink-muted font-heading text-xs font-bold tracking-widest uppercase">
+          Expresión completa
+        </p>
+        <p class="text-ink mt-3 font-mono font-medium">
+          kg = (Área × Capas × GE × µm) ÷ (1000 × ET %)
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner page="calculadora-de-cobertura" />
+</BaseLayout>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>("[data-calculator]");
+  const placeholder = document.querySelector<HTMLElement>("[data-placeholder]");
+  const result = document.querySelector<HTMLElement>("[data-result]");
+
+  const num = (id: string) =>
+    Number.parseFloat((document.getElementById(id) as HTMLInputElement).value);
+  const out = (key: string, text: string) => {
+    const el = document.querySelector(`[data-out="${key}"]`);
+    if (el) el.textContent = text;
+  };
+  const fmt = (n: number, digits: number) =>
+    n.toLocaleString("es-MX", { minimumFractionDigits: digits, maximumFractionDigits: digits });
+
+  function calculate() {
+    if (!placeholder || !result) return;
+    const ge = num("calc-ge");
+    const area = num("calc-area");
+    const um = num("calc-um");
+    const et = num("calc-et");
+    const coats = num("calc-capas") || 1;
+    const margin = Math.max(0, Math.min(100, num("calc-margen") || 0));
+
+    const valid = [ge, area, um, et].every((v) => Number.isFinite(v) && v > 0) && et <= 100;
+    placeholder.hidden = valid;
+    result.hidden = !valid;
+    if (!valid) return;
+
+    // Effective coverage: m² one kilogram actually coats, after overspray.
+    const m2PerKg = (1000 / (ge * um)) * (et / 100);
+    const kg = (area * coats) / m2PerKg;
+    const order = kg * (1 + margin / 100);
+
+    out("kg", fmt(kg, 2));
+    out("order", fmt(order, 1));
+    out("margin", `Incluye ${fmt(margin, 0)} % de margen (+ ${fmt(order - kg, 2)} kg)`);
+    out("kgm2", fmt(kg / area, 3));
+    out("m2kg", fmt(m2PerKg, 2));
+    const capas = coats > 1 ? ` · ${coats} capas` : "";
+    out("summary", `${fmt(area, 0)} m² · ${fmt(um, 0)} µm · ${fmt(et, 0)} % ET${capas}`);
+  }
+
+  form?.addEventListener("input", calculate);
+  // Reset restores the defaults only after the event, so recalculate next tick.
+  form?.addEventListener("reset", () => setTimeout(calculate));
+</script>

@@ -183,7 +183,28 @@ export default {
     "descargar-informacion": { hero: "downloads-hero.jpg" },
     "clave-de-codigo-de-producto": { hero: "uploads/product-codes-hero.jpg" },
     contactenos: { hero: "contact-hero.jpg" },
+    // The three resources added after the client's October 2026 review. Each
+    // takes the header the .com gives the same page.
+    "calculadora-de-cobertura": { hero: "hero-calculator.jpg" },
+    "videos-de-demostracion": { hero: "uploads/technical-guide-hero.jpg" },
+    "guia-de-recubrimiento-en-polvo": { hero: "uploads/custom-coaters-hero-03.jpg" },
   },
+
+  // Pages built here rather than extracted, added to a menu the old site's
+  // header defines. Each lands after the item named by `after`, so the
+  // extracted order is otherwise kept. Added at the client's request (October
+  // 2026 review); see docs/deviations.md.
+  menuAdditions: [
+    {
+      parent: "Recursos",
+      after: "Descargar Información",
+      items: [
+        { label: "Calculadora de Cobertura", href: "/calculadora-de-cobertura/" },
+        { label: "Videos de Demostración", href: "/videos-de-demostracion/" },
+        { label: "E-Book: Guía de Recubrimiento en Polvo", href: "/guia-de-recubrimiento-en-polvo/" },
+      ],
+    },
+  ],
 
   // Site container width, read from the stylesheet so there is exactly one
   // source of truth.

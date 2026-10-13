@@ -343,6 +343,29 @@ from a renamed heading do move (`#primers-ifs`); nothing links to them.
 
 ---
 
+## 18. Three resource pages the old site did not have
+
+Added under **Recursos** at the client's request (October 2026 review), after
+_Descargar Información_. The menu entries come from `cfg.menuAdditions`, so they
+survive re-extraction. All three are authored copy, not extracted, so
+`npm run compare` does not cover them.
+
+- **`/calculadora-de-cobertura/`**: the .com's powder requirement calculator,
+  in metric. Area in m², film in µm, result in kg, plus consumption in kg/m²
+  and effective coverage in m²/kg. Same method as the .com (whose 192.3
+  ft²/lb·mil constant is 1000 m²/kg·µm in metric), so both sites give the
+  same answer for the same job.
+- **`/videos-de-demostracion/`**: the six Spanish application videos the client
+  sent, listed in `src/data/videos-de-demostracion.json`. Nothing loads from
+  YouTube until a video is played.
+- **`/guia-de-recubrimiento-en-polvo/`**: the e-book, behind a Netlify Form
+  (`ebook`) that asks for a name and email. It confirms on `…/descarga/`.
+  The Spanish PDF is still being produced: until `pdf` is set in
+  `src/data/ebook.json` the confirmation page says the guide will follow by
+  email, and the sign-ups are captured meanwhile.
+
+---
+
 ## Not a deviation: `[wpdatatable id=2]`
 
 One shortcode on `/mercado-arquitectonico/` refers to a wpDataTables table.

@@ -784,6 +784,21 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
       })
       .filter((i) => i.label);
 
+  /** Insert cfg.menuAdditions into the extracted menu. */
+  const withAdditions = (menu) => {
+    for (const { parent, after, items } of cfg.menuAdditions ?? []) {
+      const host = menu.find((m) => m.label === parent);
+      if (!host) {
+        console.warn(`  menu addition: no "${parent}" menu - not applied`);
+        continue;
+      }
+      const at = host.children.findIndex((c) => c.label === after);
+      const added = items.map((i) => ({ ...i, children: [] }));
+      host.children.splice(at === -1 ? host.children.length : at + 1, 0, ...added);
+    }
+    return menu;
+  };
+
   const menuEl = doc.querySelector("#menu-main");
   const logo = byId("image-142-6")?.querySelector?.("img") ?? byId("image-142-6");
 
@@ -805,7 +820,7 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
     logo: logo
       ? { src: rewriteUrl(logo.getAttribute("src")), alt: logo.getAttribute("alt") || "IFS Coatings Mexico", href: rewriteUrl(byId("link-189-6")?.getAttribute("href") ?? "/") }
       : null,
-    menu: menuEl ? menuTree(menuEl) : [],
+    menu: withAdditions(menuEl ? menuTree(menuEl) : []),
     footer: (() => {
       const sec = byId("section-82-6");
       return sec ? walk(sec) : null;
