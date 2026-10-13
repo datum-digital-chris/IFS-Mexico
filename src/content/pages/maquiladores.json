@@ -239,7 +239,7 @@
                 {
                   "kind": "richtext",
                   "id": "_rich_text-35-771",
-                  "html": "<p>Independientemente del color que elija, la elección correcta de la química del producto es importante. Tenemos muchas tecnologías de productos diferentes para diferentes usos finales.</p><ul class=\"feature-list\"><li>Uso interior</li><li>Aplicaciones exteriores</li><li>Alta humedad</li><li>Ambientes ricos en sal</li><li>Aplicaciones de alta radiación ultravioleta</li><li>Formulaciones que toleran la desgasificación</li><li>Tratamientos antimicrobianos</li><li>Tratamientos antigrafiti</li><li>Curado a baja temperatura</li></ul><p>Los productos químicos típicos incluyen:</p><ul class=\"feature-list\"><li>Poliésteres estándar: TGIC y sin TGIC</li><li>Superduraderos: TGIC y sin TGIC</li><li>Híbridos</li><li>Epóxicos</li></ul>",
+                  "html": "<p>Independientemente del color que elija, la elección correcta de la química del producto es importante. Tenemos muchas tecnologías de productos diferentes para diferentes usos finales.</p><ul class=\"feature-list\"><li>Uso interior</li><li>Aplicaciones exteriores</li><li>Alta humedad</li><li>Ambientes ricos en sal</li><li>Aplicaciones de alta radiación ultravioleta</li><li>Formulaciones que toleran la desgasificación</li><li>Tratamientos antimicrobianos</li><li>Tratamientos antigrafiti</li><li>Curado a baja temperatura</li></ul><p>Los productos químicos típicos incluyen:</p><ul class=\"feature-list\"><li>Poliésteres estándar: TGIC y sin TGIC</li><li>Super Durables: TGIC y sin TGIC</li><li>Híbridos</li><li>Epóxicos</li></ul>",
                   "className": "mb-[20px]",
                   "isCard": false,
                   "wrapClassName": "",
@@ -840,7 +840,7 @@
                     "icon": null
                   },
                   {
-                    "label": "Superduraderos: TGIC y sin TGIC",
+                    "label": "Super Durables: TGIC y sin TGIC",
                     "icon": null
                   },
                   {

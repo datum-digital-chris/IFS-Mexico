@@ -112,7 +112,7 @@
                 {
                   "kind": "richtext",
                   "id": "_rich_text-13-732",
-                  "html": "<p>Los siguientes productos son populares en el mercado de tráilers:</p><ul class=\"feature-list feature-list--wide\"><li>IFS superduraderos: obtenga más información sobre los polvos IFS superduraderos</li><li>Poliésteres estándares IFS: aprenda más sobre los poliésteres estándares IFS</li><li>Imprimadores IFS: aprenda más sobre los imprimadores IFS</li><li>Formulaciones personalizadas: resuelva sus problemas de revestimiento y obtenga el rendimiento exacto que necesita</li></ul><p>Hable con su representante de IFS sobre las necesidades específicas de su producto.</p>",
+                  "html": "<p>Los siguientes productos son populares en el mercado de tráilers:</p><ul class=\"feature-list feature-list--wide\"><li>IFS super durables: obtenga más información sobre los polvos IFS super durables</li><li>Poliésteres estándares IFS: aprenda más sobre los poliésteres estándares IFS</li><li>Primers IFS: aprenda más sobre los primers IFS</li><li>Formulaciones personalizadas: resuelva sus problemas de revestimiento y obtenga el rendimiento exacto que necesita</li></ul><p>Hable con su representante de IFS sobre las necesidades específicas de su producto.</p>",
                   "className": "",
                   "isCard": false,
                   "wrapClassName": "",
@@ -326,7 +326,7 @@
             "icons": false,
             "cells": [
               {
-                "label": "IFS superduraderos: obtenga más información sobre los polvos IFS superduraderos",
+                "label": "IFS super durables: obtenga más información sobre los polvos IFS super durables",
                 "icon": null
               },
               {
@@ -334,7 +334,7 @@
                 "icon": null
               },
               {
-                "label": "Imprimadores IFS: aprenda más sobre los imprimadores IFS",
+                "label": "Primers IFS: aprenda más sobre los primers IFS",
                 "icon": null
               },
               {

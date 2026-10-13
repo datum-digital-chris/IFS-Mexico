@@ -17,6 +17,7 @@
 import { readFileSync, existsSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import cfg from "./site.config.mjs";
+import { editText } from "./lib/copy-edits.mjs";
 
 const ROOT = new URL("..", import.meta.url).pathname;
 const P = (...p) => join(ROOT, ...p);
@@ -75,7 +76,13 @@ const freq = new Map();
 for (const file of readdirSync(P(cfg.cache.html))) {
   const slug = file.replace(/\.html$/, "");
   if (cfg.retireSlugs.includes(slug)) continue;
-  const r = runs(readFileSync(P(cfg.cache.html, file), "utf8"));
+  // The client's approved wording changes (cfg.copyEdits) are applied to the
+  // old copy, so an edit reads as the sentence surviving, not as one lost.
+  // The size filter runs again because an edit can shorten a run below it,
+  // and the new page's text is filtered the same way.
+  const r = runs(readFileSync(P(cfg.cache.html, file), "utf8"))
+    .map(editText)
+    .filter((l) => l.length > 12);
   oldPages.set(slug, r);
   for (const u of new Set(r.map(norm))) freq.set(u, (freq.get(u) ?? 0) + 1);
 }

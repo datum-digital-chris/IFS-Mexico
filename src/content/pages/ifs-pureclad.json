@@ -124,7 +124,7 @@
                   "kind": "heading",
                   "id": "headline-19-701",
                   "level": 2,
-                  "html": "Imprimador PureClad<br>",
+                  "html": "Primer PureClad<br>",
                   "className": "mt-[20px]",
                   "isCard": false,
                   "wrapClassName": "",
@@ -135,7 +135,7 @@
                 {
                   "kind": "richtext",
                   "id": "_rich_text-21-701",
-                  "html": "<p>El imprimador en polvo PureClad agrega rendimiento técnico a su acabado y puede aumentar el rendimiento y reducir la cantidad de operaciones de manipulación, lo que ahorra tiempo de fabricación.</p><p>Los imprimadores PureClad aceptarán una capa superior en polvo o líquida y brindarán una excelente resistencia al agua, resistencia química y resistencia a las manchas. Los imprimadores PureClad proporcionan:</p><ul class=\"feature-list feature-list--wide\"><li>Una solución de imprimación de una sola capa</li><li>Imprimación seguida de almacenamiento en espera de lijado, revestimiento o envío posterior</li><li>Buena capacidad de lijado: reduce la cantidad de lijado necesaria</li><li>Soluciones de lijado personalizadas</li><li>Capacidades superiores de llenado en superficies fresadas</li><li>Gran flexibilidad para adaptarse a la deformación a largo plazo de la madera&nbsp;</li><li>Facilidad de trabajar en combinación con resanador</li><li>Capacidad para aceptar una capa superior líquida o en polvo</li><li>Gran flujo y fácil aplicación</li><li>Buena capacidad de revestimiento</li></ul>",
+                  "html": "<p>El primer en polvo PureClad agrega rendimiento técnico a su acabado y puede aumentar el rendimiento y reducir la cantidad de operaciones de manipulación, lo que ahorra tiempo de fabricación.</p><p>Los primers PureClad aceptarán una capa superior en polvo o líquida y brindarán una excelente resistencia al agua, resistencia química y resistencia a las manchas. Los primers PureClad proporcionan:</p><ul class=\"feature-list feature-list--wide\"><li>Una solución de imprimación de una sola capa</li><li>Imprimación seguida de almacenamiento en espera de lijado, revestimiento o envío posterior</li><li>Buena capacidad de lijado: reduce la cantidad de lijado necesaria</li><li>Soluciones de lijado personalizadas</li><li>Capacidades superiores de llenado en superficies fresadas</li><li>Gran flexibilidad para adaptarse a la deformación a largo plazo de la madera&nbsp;</li><li>Facilidad de trabajar en combinación con resanador</li><li>Capacidad para aceptar una capa superior líquida o en polvo</li><li>Gran flujo y fácil aplicación</li><li>Buena capacidad de revestimiento</li></ul>",
                   "className": "pb-0 mt-[20px]",
                   "isCard": false,
                   "wrapClassName": "",
@@ -279,7 +279,7 @@
                           "current": false
                         },
                         {
-                          "label": "Polvos de Poliéster Superduraderos",
+                          "label": "Polvos de Poliéster Super Durables",
                           "href": "/polvos-de-poliester-superduraderos/",
                           "current": false
                         },
@@ -309,7 +309,7 @@
                           "current": false
                         },
                         {
-                          "label": "Imprimadores en Polvo",
+                          "label": "Primers en Polvo",
                           "href": "/imprimadores-en-polvo/",
                           "current": false
                         },
@@ -503,13 +503,13 @@
         "items": []
       },
       {
-        "id": "imprimador-pureclad",
-        "headline": "Imprimador PureClad",
+        "id": "primer-pureclad",
+        "headline": "Primer PureClad",
         "body": [
           {
             "kind": "richtext",
             "id": "_rich_text-21-701",
-            "html": "<p>El imprimador en polvo PureClad agrega rendimiento técnico a su acabado y puede aumentar el rendimiento y reducir la cantidad de operaciones de manipulación, lo que ahorra tiempo de fabricación.</p><p>Los imprimadores PureClad aceptarán una capa superior en polvo o líquida y brindarán una excelente resistencia al agua, resistencia química y resistencia a las manchas. Los imprimadores PureClad proporcionan:</p>",
+            "html": "<p>El primer en polvo PureClad agrega rendimiento técnico a su acabado y puede aumentar el rendimiento y reducir la cantidad de operaciones de manipulación, lo que ahorra tiempo de fabricación.</p><p>Los primers PureClad aceptarán una capa superior en polvo o líquida y brindarán una excelente resistencia al agua, resistencia química y resistencia a las manchas. Los primers PureClad proporcionan:</p>",
             "className": "pb-0 mt-[20px]",
             "isCard": false,
             "wrapClassName": "",
@@ -711,7 +711,7 @@
           "current": false
         },
         {
-          "label": "Polvos de Poliéster Superduraderos",
+          "label": "Polvos de Poliéster Super Durables",
           "href": "/polvos-de-poliester-superduraderos/",
           "current": false
         },
@@ -741,7 +741,7 @@
           "current": false
         },
         {
-          "label": "Imprimadores en Polvo",
+          "label": "Primers en Polvo",
           "href": "/imprimadores-en-polvo/",
           "current": false
         },

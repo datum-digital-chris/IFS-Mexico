@@ -78,7 +78,7 @@
                   "kind": "heading",
                   "id": "headline-14-727",
                   "level": 2,
-                  "html": "Imprimadores IFS<br>",
+                  "html": "Primers IFS<br>",
                   "className": "mb-[20px]",
                   "isCard": false,
                   "wrapClassName": "",
@@ -89,7 +89,7 @@
                 {
                   "kind": "richtext",
                   "id": "_rich_text-13-727",
-                  "html": "<p>Los imprimadores en polvo de IFS son la capa base protectora perfecta para añadir una capa adicional de rendimiento a su sustrato metálico. Los imprimadores de revestimiento en polvo de IFS incluyen:</p><ul><li>Imprimador KW: a base de resina epoxi y modificada para ofrecer una buena corrosión. Solo para aplicaciones interiores.</li><li>Imprimador epoxi: excelente resistencia a la corrosión y longevidad exterior.</li><li>Imprimador rico en zinc: con zinc adicional extruido por lo que ofrece una excelente corrosión para aplicaciones exteriores.</li><li>Imprimador OGF: facilita la desgasificación en piezas como piezas fundidas o galvanizadas. Es a base de epoxi, por lo que se adapta mejor a las aplicaciones de interiores.</li><li>Imprimador conductivo: proporciona resistencia superficial y buena resistencia química y a la corrosión.</li><li>Imprimador conductor rico en zinc: excelente corrosión para aplicaciones exteriores más resistencia superficial adicional.</li></ul>",
+                  "html": "<p>Los primers en polvo de IFS son la capa base protectora perfecta para añadir una capa adicional de rendimiento a su sustrato metálico. Los primers de revestimiento en polvo de IFS incluyen:</p><ul><li>Primer KW: a base de resina epoxi y modificada para ofrecer una buena corrosión. Solo para aplicaciones interiores.</li><li>Primer epoxi: excelente resistencia a la corrosión y longevidad exterior.</li><li>Primer rico en zinc: con zinc adicional extruido por lo que ofrece una excelente corrosión para aplicaciones exteriores.</li><li>Primer OGF: facilita la desgasificación en piezas como piezas fundidas o galvanizadas. Es a base de epoxi, por lo que se adapta mejor a las aplicaciones de interiores.</li><li>Primer conductivo: proporciona resistencia superficial y buena resistencia química y a la corrosión.</li><li>Primer conductor rico en zinc: excelente corrosión para aplicaciones exteriores más resistencia superficial adicional.</li></ul>",
                   "className": "mb-[20px]",
                   "isCard": false,
                   "wrapClassName": "",
@@ -112,7 +112,7 @@
                 {
                   "kind": "richtext",
                   "id": "_rich_text-17-727",
-                  "html": "<p>Además de nuestra amplia gama de productos químicos, también fabricamos productos especializados diseñados para combatir problemas específicos. Estos incluyen:</p><ul class=\"feature-list feature-list--wide\"><li>Polvos antigrafiti</li><li>Polvos disipadores electrostáticos</li><li>Polvos dieléctricos</li><li>Polvos resistentes al calor</li><li>Polvos termoplásticos para mejorar la resistencia al impacto y lograr una sensación más suave</li><li>IFS Co-Cure: formulaciones secas sobre secas</li></ul><p>Ya sea que necesite una solución rentable, un nivel específico de rendimiento de su polvo, un imprimador protector en polvo o un hermoso color, lo tenemos cubierto.</p><p>Hable con su representante de IFS sobre las necesidades específicas de su producto.</p>",
+                  "html": "<p>Además de nuestra amplia gama de productos químicos, también fabricamos productos especializados diseñados para combatir problemas específicos. Estos incluyen:</p><ul class=\"feature-list feature-list--wide\"><li>Polvos antigrafiti</li><li>Polvos disipadores electrostáticos</li><li>Polvos dieléctricos</li><li>Polvos resistentes al calor</li><li>Polvos termoplásticos para mejorar la resistencia al impacto y lograr una sensación más suave</li><li>IFS Co-Cure: formulaciones secas sobre secas</li></ul><p>Ya sea que necesite una solución rentable, un nivel específico de rendimiento de su polvo, un primer protector en polvo o un hermoso color, lo tenemos cubierto.</p><p>Hable con su representante de IFS sobre las necesidades específicas de su producto.</p>",
                   "className": "",
                   "isCard": false,
                   "wrapClassName": "",
@@ -265,13 +265,13 @@
     },
     "sections": [
       {
-        "id": "imprimadores-ifs",
-        "headline": "Imprimadores IFS",
+        "id": "primers-ifs",
+        "headline": "Primers IFS",
         "body": [
           {
             "kind": "richtext",
             "id": "_rich_text-13-727",
-            "html": "<p>Los imprimadores en polvo de IFS son la capa base protectora perfecta para añadir una capa adicional de rendimiento a su sustrato metálico. Los imprimadores de revestimiento en polvo de IFS incluyen:</p><ul><li>Imprimador KW: a base de resina epoxi y modificada para ofrecer una buena corrosión. Solo para aplicaciones interiores.</li><li>Imprimador epoxi: excelente resistencia a la corrosión y longevidad exterior.</li><li>Imprimador rico en zinc: con zinc adicional extruido por lo que ofrece una excelente corrosión para aplicaciones exteriores.</li><li>Imprimador OGF: facilita la desgasificación en piezas como piezas fundidas o galvanizadas. Es a base de epoxi, por lo que se adapta mejor a las aplicaciones de interiores.</li><li>Imprimador conductivo: proporciona resistencia superficial y buena resistencia química y a la corrosión.</li><li>Imprimador conductor rico en zinc: excelente corrosión para aplicaciones exteriores más resistencia superficial adicional.</li></ul>",
+            "html": "<p>Los primers en polvo de IFS son la capa base protectora perfecta para añadir una capa adicional de rendimiento a su sustrato metálico. Los primers de revestimiento en polvo de IFS incluyen:</p><ul><li>Primer KW: a base de resina epoxi y modificada para ofrecer una buena corrosión. Solo para aplicaciones interiores.</li><li>Primer epoxi: excelente resistencia a la corrosión y longevidad exterior.</li><li>Primer rico en zinc: con zinc adicional extruido por lo que ofrece una excelente corrosión para aplicaciones exteriores.</li><li>Primer OGF: facilita la desgasificación en piezas como piezas fundidas o galvanizadas. Es a base de epoxi, por lo que se adapta mejor a las aplicaciones de interiores.</li><li>Primer conductivo: proporciona resistencia superficial y buena resistencia química y a la corrosión.</li><li>Primer conductor rico en zinc: excelente corrosión para aplicaciones exteriores más resistencia superficial adicional.</li></ul>",
             "className": "mb-[20px]",
             "isCard": false,
             "wrapClassName": "",
@@ -331,7 +331,7 @@
           {
             "kind": "richtext",
             "id": "_rich_text-17-727",
-            "html": "<p>Ya sea que necesite una solución rentable, un nivel específico de rendimiento de su polvo, un imprimador protector en polvo o un hermoso color, lo tenemos cubierto.</p><p>Hable con su representante de IFS sobre las necesidades específicas de su producto.</p>",
+            "html": "<p>Ya sea que necesite una solución rentable, un nivel específico de rendimiento de su polvo, un primer protector en polvo o un hermoso color, lo tenemos cubierto.</p><p>Hable con su representante de IFS sobre las necesidades específicas de su producto.</p>",
             "className": "",
             "isCard": false,
             "wrapClassName": "",

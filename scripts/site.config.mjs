@@ -232,6 +232,30 @@ export default {
     },
   ],
 
+  // Wording the client asked to change (October 2026 review). Unlike
+  // textCorrections these are edits, not error fixes: the client's own words,
+  // replaced at the client's request. Applied to every extracted string by
+  // scripts/lib/copy-edits.mjs; slugs and file names keep the old word so no
+  // published URL moves. Each `from` is a whole word, matched case-sensitively,
+  // so every case variant is listed.
+  copyEdits: [
+    // "Polvos de Poliéster Superduraderos" -> "... Super Durables"
+    { from: "Superduraderos", to: "Super Durables" },
+    { from: "Superduradero", to: "Super Durable" },
+    { from: "superduraderos", to: "super durables" },
+    { from: "superduradero", to: "super durable" },
+    // "Imprimadores en Polvo" -> "Primers en Polvo", "Imprimador PureClad" -> "Primer PureClad"
+    { from: "IMPRIMADORES", to: "PRIMERS" },
+    { from: "IMPRIMADOR", to: "PRIMER" },
+    { from: "Imprimadores", to: "Primers" },
+    { from: "Imprimador", to: "Primer" },
+    { from: "imprimadores", to: "primers" },
+    { from: "imprimador", to: "primer" },
+    // The service values on /valores-de-la-mision/.
+    { from: "Sensibilidad", to: "Agilidad" },
+    { from: "Pericia", to: "Experiencia" },
+  ],
+
   // WordPress shortcodes whose plugin is not installed, mapped to a table
   // authored in src/content/tables/. The old site printed the literal
   // shortcode text on the page; these render the real thing instead.

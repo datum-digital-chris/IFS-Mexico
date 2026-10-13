@@ -316,6 +316,33 @@ claim, not an image fix.
 
 ---
 
+## 17. Wording changed at the client's request
+
+**Old → new** (client review, October 2026):
+
+| Old | New |
+|---|---|
+| Polvos de Poliéster Superduraderos (and _superduradero(s)_ in the body) | Polvos de Poliéster Super Durables (_super durable(s)_) |
+| Imprimadores en Polvo, Imprimador PureClad (and _imprimador(es)_ in the body) | Primers en Polvo, Primer PureClad (_primer(s)_) |
+| Sensibilidad (a service value on `/valores-de-la-mision/`) | Agilidad |
+| Pericia (likewise) | Experiencia |
+
+The terms are changed everywhere they appear, not just in the headings the
+client named, so a page never calls the same product two things.
+_Imprimación_ (the act of priming) is a different word and is unchanged.
+
+**How:** `cfg.copyEdits` in `scripts/site.config.mjs`, applied to every string
+the extractor writes. `compare-content.mjs` applies the same edits to the old
+copy before comparing, so these read as the copy surviving rather than as copy
+lost, and anything else that moved still fails the gate.
+
+**Not changed:** URLs. `/imprimadores-en-polvo/` and
+`/polvos-de-poliester-superduraderos/` keep their slugs, as do image file
+names, so nothing already published or indexed breaks. Section anchors derived
+from a renamed heading do move (`#primers-ifs`); nothing links to them.
+
+---
+
 ## Not a deviation: `[wpdatatable id=2]`
 
 One shortcode on `/mercado-arquitectonico/` refers to a wpDataTables table.

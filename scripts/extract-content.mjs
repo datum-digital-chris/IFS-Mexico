@@ -20,6 +20,7 @@ import { createWindow } from "@mixmark-io/domino";
 import { iconFor, ICON_LIST_THRESHOLD } from "./lib/icons.mjs";
 import cfg from "./site.config.mjs";
 import { elementToTw, COMPONENT_DEFAULTS } from "./lib/css-to-tw.mjs";
+import { editContent } from "./lib/copy-edits.mjs";
 
 const ROOT = new URL("..", import.meta.url).pathname;
 const P = (...p) => join(ROOT, ...p);
@@ -29,6 +30,9 @@ const styles = JSON.parse(readFileSync(P("docs/oxygen-styles.json"), "utf8"));
 const computed = JSON.parse(readFileSync(P("docs/oxygen-computed.json"), "utf8"));
 const wpPages = JSON.parse(readFileSync(P("docs/wp-pages.json"), "utf8"));
 const metaBySlug = new Map(wpPages.map((p) => [p.slug, p]));
+
+/** Write extracted content, with the client's copy edits applied. */
+const writeContent = (file, data) => writeFileSync(file, JSON.stringify(editContent(data), null, 2) + "\n");
 
 const report = { unhandledCss: {}, shortcodes: [], external: new Set(), missingMedia: new Set(), unknownTags: {}, corrections: new Set() };
 
@@ -672,7 +676,7 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
     sections: tree,
   };
 
-  writeFileSync(P(cfg.outDir, `${slug}.json`), JSON.stringify(out, null, 2) + "\n");
+  writeContent(P(cfg.outDir, `${slug}.json`), out);
   const words = JSON.stringify(tree).replace(/<[^>]+>/g, " ").split(/\s+/).length;
   results.push({ slug, sections: tree.length, words });
 }
@@ -740,23 +744,16 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
   if (markets.length !== cardSections.length) warn(`${cardSections.length} card sections but ${markets.length} parsed`);
   for (const m of markets) if (!m.image) warn(`no image found for "${m.title}"`);
 
-  writeFileSync(
-    P("src/content/home.json"),
-    JSON.stringify(
-      {
-        hero: {
-          image: firstBg(heroSection),
-          headline: heroHeadings[0] ?? "",
-          supporting: heroHeadings.slice(1),
-          button: heroButton ? { label: heroButton.label, href: heroButton.href } : null,
-        },
-        intro: { eyebrow: introHeadings[0] ?? "", heading: introHeadings[1] ?? "", image: firstBg(introSection) },
-        markets,
-      },
-      null,
-      2,
-    ) + "\n",
-  );
+  writeContent(P("src/content/home.json"), {
+    hero: {
+      image: firstBg(heroSection),
+      headline: heroHeadings[0] ?? "",
+      supporting: heroHeadings.slice(1),
+      button: heroButton ? { label: heroButton.label, href: heroButton.href } : null,
+    },
+    intro: { eyebrow: introHeadings[0] ?? "", heading: introHeadings[1] ?? "", image: firstBg(introSection) },
+    markets,
+  });
   console.log(`home model    : ${markets.length} markets, ${heroHeadings.length} hero lines`);
 }
 
@@ -816,7 +813,7 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
   };
 
   extractingChrome = false;
-  writeFileSync(P("src/content/site.json"), JSON.stringify(site, null, 2) + "\n");
+  writeContent(P("src/content/site.json"), site);
   console.log(`menu items    : ${site.menu.length} top level`);
 }
 
@@ -1165,7 +1162,7 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
     if (!titleNode) console.warn(`  page ${slug}: no title heading in the body, using the <title>`);
     if (!lead.body.length && !sections.length) console.warn(`  page ${slug}: grouping produced no body`);
 
-    writeFileSync(file, JSON.stringify(page, null, 2) + "\n");
+    writeContent(file, page);
     built++;
   }
   console.log(`page models   : ${built}`);

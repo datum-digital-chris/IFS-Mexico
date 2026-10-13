@@ -2,7 +2,7 @@
   "slug": "imprimadores-en-polvo",
   "wpId": 103,
   "path": "/imprimadores-en-polvo/",
-  "title": "Imprimadores en Polvo",
+  "title": "Primers en Polvo",
   "description": "",
   "ogImage": null,
   "sections": [
@@ -55,7 +55,7 @@
                   "kind": "heading",
                   "id": "headline-12-103",
                   "level": 1,
-                  "html": "Imprimadores en Polvo",
+                  "html": "Primers en Polvo",
                   "className": "mb-[20px]",
                   "isCard": false,
                   "wrapClassName": "",
@@ -66,7 +66,7 @@
                 {
                   "kind": "richtext",
                   "id": "_rich_text-13-103",
-                  "html": "<p>Los imprimadores en polvo duros y resistentes están diseñados para agregar otro nivel de protección a su producto. IFS tiene una gama de imprimadores y también puede ofrecer formulaciones personalizadas:</p><ul><li><strong>Imprimador epoxi de IFS</strong>: este imprimador proporciona una excelente resistencia a la corrosión y longevidad exterior. Código de producto: ERSS 70424.</li><li><strong>Imprimador KW de IFS</strong>: creado con una resina epoxi y modificado para ofrecer una buena resistencia a la corrosión. Solo para aplicaciones interiores. Código de producto ELSS 72131.</li><li><strong>Imprimador rico en zinc</strong>: este imprimador tiene zinc adicional extruido en el producto para brindar una protección superior contra la corrosión en las aplicaciones exteriores.&nbsp;ELS 72683.</li><li><strong>IMPRIMADOR OGF DE IFS</strong>: este producto inteligente facilita la desgasificación en piezas como piezas fundidas o galvanizadas. Se basa en una resina epoxi. Código de producto ELSS 73127.</li><li><strong>Imprimador conductor de IFS</strong>: este imprimador proporciona resistencia superficial y buena resistencia química y a la corrosión. Código de producto ELSS 74220.</li></ul>",
+                  "html": "<p>Los primers en polvo duros y resistentes están diseñados para agregar otro nivel de protección a su producto. IFS tiene una gama de primers y también puede ofrecer formulaciones personalizadas:</p><ul><li><strong>Primer epoxi de IFS</strong>: este primer proporciona una excelente resistencia a la corrosión y longevidad exterior. Código de producto: ERSS 70424.</li><li><strong>Primer KW de IFS</strong>: creado con una resina epoxi y modificado para ofrecer una buena resistencia a la corrosión. Solo para aplicaciones interiores. Código de producto ELSS 72131.</li><li><strong>Primer rico en zinc</strong>: este primer tiene zinc adicional extruido en el producto para brindar una protección superior contra la corrosión en las aplicaciones exteriores.&nbsp;ELS 72683.</li><li><strong>PRIMER OGF DE IFS</strong>: este producto inteligente facilita la desgasificación en piezas como piezas fundidas o galvanizadas. Se basa en una resina epoxi. Código de producto ELSS 73127.</li><li><strong>Primer conductor de IFS</strong>: este primer proporciona resistencia superficial y buena resistencia química y a la corrosión. Código de producto ELSS 74220.</li></ul>",
                   "className": "",
                   "isCard": false,
                   "wrapClassName": "",
@@ -78,7 +78,7 @@
                   "kind": "heading",
                   "id": "headline-14-103",
                   "level": 2,
-                  "html": "¿Qué hacen los imprimadores en polvo de IFS?",
+                  "html": "¿Qué hacen los primers en polvo de IFS?",
                   "className": "mt-[20px]",
                   "isCard": false,
                   "wrapClassName": "",
@@ -89,7 +89,7 @@
                 {
                   "kind": "richtext",
                   "id": "_rich_text-15-103",
-                  "html": "<p>Nuestros imprimadores en polvo de alta calidad aportarán propiedades adicionales a su producto. Ciertos sustratos, como el acero, que requieren protección adicional contra la corrosión sin duda se benefician de un buen imprimador en polvo. Los imprimadores de IFS ayudarán con:</p><ul><li><strong>Mejor adhesión</strong>: la adhesión superior al sustrato y la capa superior puede mejorar la resistencia al desconchado.</li><li><strong>Endurecimiento</strong>: un imprimador resistente mejora la resistencia al desconchado de una capa final dura y resistente al desgaste.</li><li><strong>Resistencia a la corrosión</strong>: un imprimador puede retrasar la propagación del óxido de un corte que penetra a través del revestimiento.</li><li><strong>Sellado</strong>: se usa en sustratos porosos para proteger la capa superior de grietas, hoyos y decoloraciones.</li><li><strong>Cobertura de bordes</strong>: un imprimador de baja fluidez puede cubrir los bordes afilados de los sustratos metálicos.</li><li><strong>Alisado</strong>: se puede usar un imprimador para rellenar hoyos y grietas y juntar los bultos en un sustrato de metal.</li></ul><p>Para obtener más información, consulte las hojas de datos técnicos o comuníquese con nosotros y ¡estaremos encantados de ayudarlo.</p>",
+                  "html": "<p>Nuestros primers en polvo de alta calidad aportarán propiedades adicionales a su producto. Ciertos sustratos, como el acero, que requieren protección adicional contra la corrosión sin duda se benefician de un buen primer en polvo. Los primers de IFS ayudarán con:</p><ul><li><strong>Mejor adhesión</strong>: la adhesión superior al sustrato y la capa superior puede mejorar la resistencia al desconchado.</li><li><strong>Endurecimiento</strong>: un primer resistente mejora la resistencia al desconchado de una capa final dura y resistente al desgaste.</li><li><strong>Resistencia a la corrosión</strong>: un primer puede retrasar la propagación del óxido de un corte que penetra a través del revestimiento.</li><li><strong>Sellado</strong>: se usa en sustratos porosos para proteger la capa superior de grietas, hoyos y decoloraciones.</li><li><strong>Cobertura de bordes</strong>: un primer de baja fluidez puede cubrir los bordes afilados de los sustratos metálicos.</li><li><strong>Alisado</strong>: se puede usar un primer para rellenar hoyos y grietas y juntar los bultos en un sustrato de metal.</li></ul><p>Para obtener más información, consulte las hojas de datos técnicos o comuníquese con nosotros y ¡estaremos encantados de ayudarlo.</p>",
                   "className": "pb-0 mt-[20px]",
                   "isCard": false,
                   "wrapClassName": "",
@@ -141,7 +141,7 @@
                           "current": false
                         },
                         {
-                          "label": "Polvos de Poliéster Superduraderos",
+                          "label": "Polvos de Poliéster Super Durables",
                           "href": "/polvos-de-poliester-superduraderos/",
                           "current": false
                         },
@@ -171,7 +171,7 @@
                           "current": false
                         },
                         {
-                          "label": "Imprimadores en Polvo",
+                          "label": "Primers en Polvo",
                           "href": "/imprimadores-en-polvo/",
                           "current": true
                         },
@@ -207,7 +207,7 @@
   "template": "doc",
   "doc": {
     "key": "imprimadores-en-polvo",
-    "title": "Imprimadores en Polvo",
+    "title": "Primers en Polvo",
     "eyebrow": "Tipos de Polvo",
     "eyebrowHref": null,
     "heroImage": "/uploads/library/imprimadores-en-polvo-hero.jpg",
@@ -219,7 +219,7 @@
         {
           "kind": "richtext",
           "id": "_rich_text-13-103",
-          "html": "<p>Los imprimadores en polvo duros y resistentes están diseñados para agregar otro nivel de protección a su producto. IFS tiene una gama de imprimadores y también puede ofrecer formulaciones personalizadas:</p><ul><li><strong>Imprimador epoxi de IFS</strong>: este imprimador proporciona una excelente resistencia a la corrosión y longevidad exterior. Código de producto: ERSS 70424.</li><li><strong>Imprimador KW de IFS</strong>: creado con una resina epoxi y modificado para ofrecer una buena resistencia a la corrosión. Solo para aplicaciones interiores. Código de producto ELSS 72131.</li><li><strong>Imprimador rico en zinc</strong>: este imprimador tiene zinc adicional extruido en el producto para brindar una protección superior contra la corrosión en las aplicaciones exteriores.&nbsp;ELS 72683.</li><li><strong>IMPRIMADOR OGF DE IFS</strong>: este producto inteligente facilita la desgasificación en piezas como piezas fundidas o galvanizadas. Se basa en una resina epoxi. Código de producto ELSS 73127.</li><li><strong>Imprimador conductor de IFS</strong>: este imprimador proporciona resistencia superficial y buena resistencia química y a la corrosión. Código de producto ELSS 74220.</li></ul>",
+          "html": "<p>Los primers en polvo duros y resistentes están diseñados para agregar otro nivel de protección a su producto. IFS tiene una gama de primers y también puede ofrecer formulaciones personalizadas:</p><ul><li><strong>Primer epoxi de IFS</strong>: este primer proporciona una excelente resistencia a la corrosión y longevidad exterior. Código de producto: ERSS 70424.</li><li><strong>Primer KW de IFS</strong>: creado con una resina epoxi y modificado para ofrecer una buena resistencia a la corrosión. Solo para aplicaciones interiores. Código de producto ELSS 72131.</li><li><strong>Primer rico en zinc</strong>: este primer tiene zinc adicional extruido en el producto para brindar una protección superior contra la corrosión en las aplicaciones exteriores.&nbsp;ELS 72683.</li><li><strong>PRIMER OGF DE IFS</strong>: este producto inteligente facilita la desgasificación en piezas como piezas fundidas o galvanizadas. Se basa en una resina epoxi. Código de producto ELSS 73127.</li><li><strong>Primer conductor de IFS</strong>: este primer proporciona resistencia superficial y buena resistencia química y a la corrosión. Código de producto ELSS 74220.</li></ul>",
           "className": "",
           "isCard": false,
           "wrapClassName": "",
@@ -231,13 +231,13 @@
     },
     "sections": [
       {
-        "id": "que-hacen-los-imprimadores-en-polvo-de-ifs",
-        "headline": "¿Qué hacen los imprimadores en polvo de IFS?",
+        "id": "que-hacen-los-primers-en-polvo-de-ifs",
+        "headline": "¿Qué hacen los primers en polvo de IFS?",
         "body": [
           {
             "kind": "richtext",
             "id": "_rich_text-15-103",
-            "html": "<p>Nuestros imprimadores en polvo de alta calidad aportarán propiedades adicionales a su producto. Ciertos sustratos, como el acero, que requieren protección adicional contra la corrosión sin duda se benefician de un buen imprimador en polvo. Los imprimadores de IFS ayudarán con:</p><ul><li><strong>Mejor adhesión</strong>: la adhesión superior al sustrato y la capa superior puede mejorar la resistencia al desconchado.</li><li><strong>Endurecimiento</strong>: un imprimador resistente mejora la resistencia al desconchado de una capa final dura y resistente al desgaste.</li><li><strong>Resistencia a la corrosión</strong>: un imprimador puede retrasar la propagación del óxido de un corte que penetra a través del revestimiento.</li><li><strong>Sellado</strong>: se usa en sustratos porosos para proteger la capa superior de grietas, hoyos y decoloraciones.</li><li><strong>Cobertura de bordes</strong>: un imprimador de baja fluidez puede cubrir los bordes afilados de los sustratos metálicos.</li><li><strong>Alisado</strong>: se puede usar un imprimador para rellenar hoyos y grietas y juntar los bultos en un sustrato de metal.</li></ul><p>Para obtener más información, consulte las hojas de datos técnicos o comuníquese con nosotros y ¡estaremos encantados de ayudarlo.</p>",
+            "html": "<p>Nuestros primers en polvo de alta calidad aportarán propiedades adicionales a su producto. Ciertos sustratos, como el acero, que requieren protección adicional contra la corrosión sin duda se benefician de un buen primer en polvo. Los primers de IFS ayudarán con:</p><ul><li><strong>Mejor adhesión</strong>: la adhesión superior al sustrato y la capa superior puede mejorar la resistencia al desconchado.</li><li><strong>Endurecimiento</strong>: un primer resistente mejora la resistencia al desconchado de una capa final dura y resistente al desgaste.</li><li><strong>Resistencia a la corrosión</strong>: un primer puede retrasar la propagación del óxido de un corte que penetra a través del revestimiento.</li><li><strong>Sellado</strong>: se usa en sustratos porosos para proteger la capa superior de grietas, hoyos y decoloraciones.</li><li><strong>Cobertura de bordes</strong>: un primer de baja fluidez puede cubrir los bordes afilados de los sustratos metálicos.</li><li><strong>Alisado</strong>: se puede usar un primer para rellenar hoyos y grietas y juntar los bultos en un sustrato de metal.</li></ul><p>Para obtener más información, consulte las hojas de datos técnicos o comuníquese con nosotros y ¡estaremos encantados de ayudarlo.</p>",
             "className": "pb-0 mt-[20px]",
             "isCard": false,
             "wrapClassName": "",
@@ -258,7 +258,7 @@
           "current": false
         },
         {
-          "label": "Polvos de Poliéster Superduraderos",
+          "label": "Polvos de Poliéster Super Durables",
           "href": "/polvos-de-poliester-superduraderos/",
           "current": false
         },
@@ -288,7 +288,7 @@
           "current": false
         },
         {
-          "label": "Imprimadores en Polvo",
+          "label": "Primers en Polvo",
           "href": "/imprimadores-en-polvo/",
           "current": true
         },
