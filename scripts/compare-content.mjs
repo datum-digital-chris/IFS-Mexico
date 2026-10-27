@@ -101,9 +101,6 @@ const EXPECTED = [
   // page's architectural card read "revemiento" for "revestimiento".
   "104 a 1011 ohmios",
   "soluciones de revemiento",
-  // The privacy policy prints the old staging host as the text of its
-  // terms-of-use link; it shows the canonical address now.
-  "ifsmexico.us11.cdn-alpha.com/condiciones-de-uso",
 ];
 
 const norm = (s) =>

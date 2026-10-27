@@ -38,7 +38,9 @@ export default {
   mediaOut: "public/uploads",
 
   // The WP default sample post, never linked from the site. Retired, not migrated.
-  retireSlugs: ["hello-world"],
+  // The privacy policy is the IFS group's US/EU one; the site serves Mexico
+  // only, so /aviso-de-privacidad/ (authored) replaces it.
+  retireSlugs: ["hello-world", "politica-de-privacidad"],
 
   // Imagery, imported from the IFS Coatings US site's library.
   //

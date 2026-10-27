@@ -32,11 +32,10 @@ const { mission, email, phone, copyright } = footerOf(site.footer as BlockType |
 const columns = site.menu.filter((item) => item.children.length > 0);
 const singles = site.menu.filter((item) => item.children.length === 0);
 
-// The aviso de privacidad is the notice Mexican law requires; the Política de
-// Privacidad is the IFS group's policy the old site carried.
+// The aviso de privacidad replaces the old site's Política de Privacidad, the
+// IFS group's US/EU policy; /politica-de-privacidad/ redirects to it.
 const legal = [
   { label: "Aviso de Privacidad", href: "/aviso-de-privacidad/" },
-  { label: "Política de Privacidad", href: "/politica-de-privacidad/" },
   { label: "Condiciones de Uso", href: "/condiciones-de-uso/" },
 ];
 ---

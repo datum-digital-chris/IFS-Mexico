@@ -13,7 +13,7 @@ path,wpId,slug,title,words,images,forms,tables,owners,indexed,canonical,disposit
 /imprimadores-en-polvo/,103,imprimadores-en-polvo,Imprimadores en Polvo,790,3,,,6 103,yes,/imprimadores-en-polvo/,keep,/imprimadores-en-polvo/,same URL on the new site
 /maquiladores/,771,maquiladores,Maquiladores,1216,3,,,6 771,yes,/maquiladores/,keep,/maquiladores/,same URL on the new site
 /mercado-arquitectonico/,711,mercado-arquitectonico,Mercado Arquitectónico,877,3,,,6 711,yes,/mercado-arquitectonico/,keep,/mercado-arquitectonico/,same URL on the new site
-/politica-de-privacidad/,740,politica-de-privacidad,Politica de Privacidad,4519,3,,yes,6 740,yes,/politica-de-privacidad/,keep,/politica-de-privacidad/,same URL on the new site
+/politica-de-privacidad/,740,politica-de-privacidad,Politica de Privacidad,4519,3,,yes,6 740,yes,/politica-de-privacidad/,retire,/aviso-de-privacidad/,"US/EU group policy; the site serves Mexico only, replaced by the aviso de privacidad"
 /polvo-antigrafiti/,101,polvo-antigrafiti,Polvo Antigrafiti,660,3,,,6 101,yes,/polvo-antigrafiti/,keep,/polvo-antigrafiti/,same URL on the new site
 /polvo-antimicrobiano/,98,polvo-antimicrobiano,Polvo Antimicrobiano,731,3,,,6 98,yes,/polvo-antimicrobiano/,keep,/polvo-antimicrobiano/,same URL on the new site
 /polvo-de-fluoropolimero-feve/,82,polvo-de-fluoropolimero-feve,Polvo de Fluoropolímero (FEVE),779,3,,,6 82,yes,/polvo-de-fluoropolimero-feve/,keep,/polvo-de-fluoropolimero-feve/,same URL on the new site

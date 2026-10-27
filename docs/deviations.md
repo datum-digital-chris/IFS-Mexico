@@ -388,8 +388,13 @@ contact form linked to nothing.
 Ley Federal de Protección de Datos Personales en Posesión de los Particulares
 (DOF 20-03-2025), covering what art. 15 requires and describing what this site
 actually does. Each form carries the simplified notice art. 16 II requires
-where data is collected (`src/components/AvisoSimplificado.astro`). The footer
-links both notices. The old policy is kept, unchanged.
+where data is collected (`src/components/AvisoSimplificado.astro`).
+
+The site serves Mexico only, so the old policy is retired
+(`cfg.retireSlugs`) and `/politica-de-privacidad/` redirects to the aviso
+(`docs/url-ledger.csv`). Section 6 of the Condiciones de Uso still refers to
+"nuestra Política de Privacidad"; that is the client's legal wording and is
+left for them to amend.
 
 **Open:** the responsible party and domicile in
 `src/data/aviso-de-privacidad.ts` come from the old policy and need the
@@ -415,11 +420,9 @@ their own share the home page's hero. Metadata only: no visible text changes.
 
 Feature-list items now go through the corrections too; they had skipped them.
 
-The privacy policy's terms-of-use link printed the old staging address
-(`https://ifsmexico.us11.cdn-alpha.com/condiciones-de-uso`) as its text. Its
-target was already rewritten; the text now reads
-`https://ifscoatings.mx/condiciones-de-uso/`. Any link whose text is an address
-on one of the old hosts gets the same treatment (`showCanonicalUrl`).
+A link whose text is an address on one of the old hosts shows the canonical
+address (`showCanonicalUrl`). The one case was the retired privacy policy's
+terms-of-use link, which printed the old staging host.
 
 ---
 
