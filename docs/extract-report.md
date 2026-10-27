@@ -51,7 +51,9 @@ None.
 ## Corrections applied to extracted copy
 
 - RAL 5009 was showing RAL 5012's swatch
+- typo on the home page: revemiento for revestimiento
 - product code typo: the product is IFS 500FP
+- lost superscripts: the ESD resistivity range is 10^4 to 10^11 ohms
 
 ## External links
 

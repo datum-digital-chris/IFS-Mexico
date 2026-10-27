@@ -11,6 +11,7 @@
  * otherwise entirely Spanish site. They are translated here - see
  * docs/deviations.md, which lists this as a deliberate change.
  */
+import AvisoSimplificado from "@/components/AvisoSimplificado.astro";
 ---
 
 <form
@@ -53,7 +54,15 @@
 
   <div class="mt-4">
     <label class="ox-label" for="email">Correo electrónico <span aria-hidden="true">*</span></label>
-    <input class="ox-field" type="email" id="email" name="email" required autocomplete="email" />
+    <input
+      class="ox-field"
+      type="email"
+      id="email"
+      name="email"
+      required
+      autocomplete="email"
+      aria-describedby="contacto-aviso"
+    />
   </div>
 
   <div class="mt-4">
@@ -65,6 +74,13 @@
     <label class="ox-label" for="mensaje">Mensaje <span aria-hidden="true">*</span></label>
     <textarea class="ox-field" id="mensaje" name="mensaje" rows="6" required></textarea>
   </div>
+
+  <AvisoSimplificado
+    id="contacto-aviso"
+    datos="su nombre, su correo electrónico y su mensaje"
+    finalidad="responder a su consulta o solicitud de cotización"
+    class="mt-4"
+  />
 
   <button type="submit" class="ox-btn mt-6"> Enviar </button>
 </form>

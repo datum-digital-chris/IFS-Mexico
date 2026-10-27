@@ -32,9 +32,17 @@ const wpPages = JSON.parse(readFileSync(P("docs/wp-pages.json"), "utf8"));
 const metaBySlug = new Map(wpPages.map((p) => [p.slug, p]));
 
 /** Write extracted content, with the client's copy edits applied. */
-const writeContent = (file, data) => writeFileSync(file, JSON.stringify(editContent(data), null, 2) + "\n");
+const writeContent = (file, data) =>
+  writeFileSync(file, JSON.stringify(editContent(data), null, 2) + "\n");
 
-const report = { unhandledCss: {}, shortcodes: [], external: new Set(), missingMedia: new Set(), unknownTags: {}, corrections: new Set() };
+const report = {
+  unhandledCss: {},
+  shortcodes: [],
+  external: new Set(),
+  missingMedia: new Set(),
+  unknownTags: {},
+  corrections: new Set(),
+};
 
 /** Absolute URL on one of our hosts -> site-relative path. */
 const rewriteUrl = (raw) => {
@@ -48,7 +56,8 @@ const rewriteUrl = (raw) => {
       return raw;
     }
     let path = parsed.pathname;
-    if (path.startsWith("/wp-content/uploads/")) path = path.replace("/wp-content/uploads/", "/uploads/");
+    if (path.startsWith("/wp-content/uploads/"))
+      path = path.replace("/wp-content/uploads/", "/uploads/");
     for (const [from, to] of Object.entries(cfg.pathRewrites)) if (path === from) path = to;
     return path + parsed.search + parsed.hash;
   } catch {
@@ -112,7 +121,9 @@ const bgImage = (decl) => {
  * not `base` or a `max-<px>` tier is a targeted hack, not a breakpoint.
  */
 const viewportOnly = (buckets) =>
-  Object.fromEntries(Object.entries(buckets ?? {}).filter(([k]) => k === "base" || /^max-\d+$/.test(k)));
+  Object.fromEntries(
+    Object.entries(buckets ?? {}).filter(([k]) => k === "base" || /^max-\d+$/.test(k)),
+  );
 
 /**
  * Oxygen "classes" (reusable styles authored in the builder, e.g.
@@ -174,7 +185,7 @@ const componentDefaults = (() => {
       const type = Object.keys(TYPE_CLASS).find((k) => TYPE_CLASS[k] === m[1]);
       if (!type) continue;
       for (const [bucket, decls] of Object.entries(viewportOnly(buckets))) {
-        Object.assign((out[type] ??= {})[bucket] ??= {}, decls);
+        Object.assign(((out[type] ??= {})[bucket] ??= {}), decls);
       }
     }
   }
@@ -193,7 +204,8 @@ const wrapDefaults = (() => {
     for (const part of selector.split(",")) {
       const t = part.replace(/\s+/g, "").trim();
       if (t !== ".ct-section-inner-wrap" && t !== ".ct-section>.ct-section-inner-wrap") continue;
-      for (const [bucket, decls] of Object.entries(viewportOnly(buckets))) Object.assign((out[bucket] ??= {}), decls);
+      for (const [bucket, decls] of Object.entries(viewportOnly(buckets)))
+        Object.assign((out[bucket] ??= {}), decls);
     }
   }
   // Widen Oxygen's container to the site's, so extracted pages line up with the
@@ -222,7 +234,9 @@ const wrapDefaults = (() => {
  * for that context and is kept, or the heading vanishes into its background.
  */
 const isDefaultHeadingColour = (v) =>
-  /^(#fc0004|rgb\(\s*252\s*,\s*0\s*,\s*4\s*\)|#52565a|rgb\(\s*82\s*,\s*86\s*,\s*90\s*\))$/i.test(String(v).trim());
+  /^(#fc0004|rgb\(\s*252\s*,\s*0\s*,\s*4\s*\)|#52565a|rgb\(\s*82\s*,\s*86\s*,\s*90\s*\))$/i.test(
+    String(v).trim(),
+  );
 
 const RESTYLE_DROP = {
   // Headings: the old site painted every one brand red in a Japanese typeface
@@ -232,7 +246,15 @@ const RESTYLE_DROP = {
   // it invisible.
   headline: ["font-family", "font-weight", { prop: "color", when: isDefaultHeadingColour }],
   // Buttons were grey-on-grey. The theme owns button colour entirely.
-  link_button: ["color", "background-color", "border", "border-color", "border-width", "border-style", "background-image"],
+  link_button: [
+    "color",
+    "background-color",
+    "border",
+    "border-color",
+    "border-width",
+    "border-style",
+    "background-image",
+  ],
   // The old design drew a 2px brand rule under some text blocks as a section
   // divider. The new design has its own rhythm, and these land arbitrarily.
   _rich_text: ["border-bottom-width", "border-bottom-color", "border-bottom-style"],
@@ -277,7 +299,12 @@ const CONTEXTUAL = {
   // `.ct-new-columns > .ct-div-block { padding: 20px }` - the inset on every
   // column. Without it card text runs to the card edge.
   new_columns: {
-    div_block: { "padding-top": "20px", "padding-right": "20px", "padding-bottom": "20px", "padding-left": "20px" },
+    div_block: {
+      "padding-top": "20px",
+      "padding-right": "20px",
+      "padding-bottom": "20px",
+      "padding-left": "20px",
+    },
   },
 };
 
@@ -285,12 +312,17 @@ const CONTEXTUAL = {
 function mergeBuckets(...maps) {
   const out = {};
   for (const m of maps) {
-    for (const [bucket, decls] of Object.entries(m ?? {})) Object.assign((out[bucket] ??= {}), decls);
+    for (const [bucket, decls] of Object.entries(m ?? {}))
+      Object.assign((out[bucket] ??= {}), decls);
   }
   return out;
 }
 
-const strip = (h) => String(h ?? "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+const strip = (h) =>
+  String(h ?? "")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 
 const oxyType = (id) => id?.match(/^([a-z_]+)-\d+-\d+$/i)?.[1] ?? null;
 
@@ -315,7 +347,9 @@ function tagFeatureLists(el) {
   if (typeof el.querySelectorAll !== "function") return;
   for (const ul of nodeList(el.querySelectorAll("ul"))) {
     if (ul.querySelector("ul") || ul.querySelector("ol")) continue;
-    const items = [...ul.childNodes].filter((n) => n.nodeType === 1 && n.tagName.toLowerCase() === "li");
+    const items = [...ul.childNodes].filter(
+      (n) => n.nodeType === 1 && n.tagName.toLowerCase() === "li",
+    );
     if (items.length < 3) continue;
     const longest = Math.max(...items.map((li) => li.textContent.trim().length));
     // Beyond this an item is a paragraph, and a checklist of paragraphs reads
@@ -346,7 +380,8 @@ function correctText(html) {
 /** Inline HTML of a rich-text/text block, with internal links rewritten. */
 function innerHtml(el) {
   tagFeatureLists(el);
-  for (const a of el.querySelectorAll("a[href]")) a.setAttribute("href", rewriteUrl(a.getAttribute("href")));
+  for (const a of el.querySelectorAll("a[href]"))
+    a.setAttribute("href", rewriteUrl(a.getAttribute("href")));
   for (const img of el.querySelectorAll("img[src]")) {
     img.setAttribute("src", rewriteUrl(img.getAttribute("src")));
     img.removeAttribute("srcset");
@@ -390,7 +425,10 @@ function classesFor(id, classNames = "", parentType = null, parentId = null) {
 
   // Source positions for the rules that can conflict within one viewport
   // range: the element's own rules and the parent-scoped child rules.
-  const ruleOrders = mergeBuckets(...parentKeys.map((k) => styles.orders?.[k] ?? {}), styles.orders?.[id] ?? {});
+  const ruleOrders = mergeBuckets(
+    ...parentKeys.map((k) => styles.orders?.[k] ?? {}),
+    styles.orders?.[id] ?? {},
+  );
 
   const buckets = mergeBuckets(
     componentDefaults[type] ?? {},
@@ -423,7 +461,8 @@ function classesFor(id, classNames = "", parentType = null, parentId = null) {
     for (const prop of narrow) {
       if (buckets.base[prop] !== undefined || defaults[prop] !== undefined) continue;
       const v = probe[prop];
-      if (v !== undefined && v !== "" && v !== "auto" && v !== "normal" && v !== "none") buckets.base[prop] = v;
+      if (v !== undefined && v !== "" && v !== "auto" && v !== "normal" && v !== "none")
+        buckets.base[prop] = v;
     }
   }
 
@@ -436,7 +475,8 @@ function classesFor(id, classNames = "", parentType = null, parentId = null) {
   // the raw buckets would keep painting a gradient the restyle just dropped.
   const styled = restyle(type, buckets);
   const { className, unhandled } = elementToTw(styled, defaults, ruleOrders);
-  const wrapCompiled = type === "section" ? elementToTw(mergeBuckets(wrapDefaults, viewportOnly(wrap)), {}) : null;
+  const wrapCompiled =
+    type === "section" ? elementToTw(mergeBuckets(wrapDefaults, viewportOnly(wrap)), {}) : null;
   for (const [k, v] of Object.entries({ ...unhandled, ...(wrapCompiled?.unhandled ?? {}) })) {
     (report.unhandledCss[k] ??= new Set()).add(v);
   }
@@ -472,26 +512,49 @@ function walk(el, parentType = null, parentId = null) {
   const kids = () => [...el.childNodes].map((n) => walk(n, selfType, id)).filter(Boolean);
 
   if (cls.includes("ct-section")) {
-    const wrap = [...el.childNodes].find((n) => n.nodeType === 1 && (n.getAttribute?.("class") ?? "").includes("ct-section-inner-wrap")) ?? el;
-    return { kind: "section", id, ...style, children: [...wrap.childNodes].map((n) => walk(n, selfType, id)).filter(Boolean) };
+    const wrap =
+      [...el.childNodes].find(
+        (n) =>
+          n.nodeType === 1 && (n.getAttribute?.("class") ?? "").includes("ct-section-inner-wrap"),
+      ) ?? el;
+    return {
+      kind: "section",
+      id,
+      ...style,
+      children: [...wrap.childNodes].map((n) => walk(n, selfType, id)).filter(Boolean),
+    };
   }
   if (cls.includes("ct-new-columns")) return { kind: "columns", id, ...style, children: kids() };
   if (cls.includes("ct-div-block")) return { kind: "div", id, ...style, children: kids() };
   if (cls.includes("ct-headline")) {
-    return { kind: "heading", id, level: /^h[1-6]$/.test(tag) ? Number(tag[1]) : 2, html: innerHtml(el), ...style };
+    return {
+      kind: "heading",
+      id,
+      level: /^h[1-6]$/.test(tag) ? Number(tag[1]) : 2,
+      html: innerHtml(el),
+      ...style,
+    };
   }
   if (cls.includes("ct-text-block") || cls.includes("oxy-rich-text")) {
     return { kind: "richtext", id, html: innerHtml(el), ...style };
   }
   if (cls.includes("ct-link-button")) {
-    return { kind: "button", id, href: rewriteUrl(el.getAttribute("href")), label: el.textContent.trim(), ...style };
+    return {
+      kind: "button",
+      id,
+      href: rewriteUrl(el.getAttribute("href")),
+      label: el.textContent.trim(),
+      ...style,
+    };
   }
   if (cls.includes("ct-link-text") || (cls.includes("ct-link") && tag === "a")) {
     const href = rewriteUrl(el.getAttribute("href"));
     // A link that wraps Oxygen elements (the footer logo, the phone number)
     // must keep walking, or those children are emitted as raw HTML and lose the
     // classes compiled from their own ID rules.
-    const nested = [...el.childNodes].some((n) => n.nodeType === 1 && oxyType(n.getAttribute?.("id") ?? ""));
+    const nested = [...el.childNodes].some(
+      (n) => n.nodeType === 1 && oxyType(n.getAttribute?.("id") ?? ""),
+    );
     if (nested) return { kind: "link", id, href, ...style, children: kids() };
     return { kind: "link", id, href, html: innerHtml(el), ...style };
   }
@@ -539,9 +602,13 @@ function walk(el, parentType = null, parentId = null) {
   if (cls.includes("oxy-tabs-wrapper")) {
     const contentsId = el.getAttribute("data-oxy-tabs-contents-wrapper");
     const contents = contentsId ? el.ownerDocument.getElementById(contentsId) : null;
-    const tabEls = [...el.childNodes].filter((n) => n.nodeType === 1 && (n.getAttribute("class") ?? "").includes("oxy-tab"));
+    const tabEls = [...el.childNodes].filter(
+      (n) => n.nodeType === 1 && (n.getAttribute("class") ?? "").includes("oxy-tab"),
+    );
     const panelEls = contents
-      ? [...contents.childNodes].filter((n) => n.nodeType === 1 && (n.getAttribute("class") ?? "").includes("oxy-tab-content"))
+      ? [...contents.childNodes].filter(
+          (n) => n.nodeType === 1 && (n.getAttribute("class") ?? "").includes("oxy-tab-content"),
+        )
       : [];
     return {
       kind: "tabs",
@@ -551,19 +618,25 @@ function walk(el, parentType = null, parentId = null) {
         const tid = t.getAttribute("id") ?? "";
         // The label text sits in a nested Oxygen text block; keep its id and
         // classes so the rebuilt tab matches the original element for element.
-        const inner = [...t.childNodes].find((n) => n.nodeType === 1 && oxyType(n.getAttribute?.("id") ?? ""));
+        const inner = [...t.childNodes].find(
+          (n) => n.nodeType === 1 && oxyType(n.getAttribute?.("id") ?? ""),
+        );
         const innerId = inner?.getAttribute("id") ?? "";
         return {
           id: tid,
           label: t.textContent.trim(),
           className: classesFor(tid, t.getAttribute("class") ?? "", "tabs", id).className,
           innerId,
-          innerClassName: innerId ? classesFor(innerId, inner.getAttribute("class") ?? "", "tab", tid).className : "",
+          innerClassName: innerId
+            ? classesFor(innerId, inner.getAttribute("class") ?? "", "tab", tid).className
+            : "",
         };
       }),
       panels: panelEls.map((pnl) => ({
         id: pnl.getAttribute("id") ?? "",
-        children: [...pnl.childNodes].map((n) => walk(n, oxyType(pnl.getAttribute("id") ?? ""), pnl.getAttribute("id"))).filter(Boolean),
+        children: [...pnl.childNodes]
+          .map((n) => walk(n, oxyType(pnl.getAttribute("id") ?? ""), pnl.getAttribute("id")))
+          .filter(Boolean),
       })),
     };
   }
@@ -581,7 +654,9 @@ function walk(el, parentType = null, parentId = null) {
       ? [...list.childNodes]
           .filter((n) => n.nodeType === 1 && n.tagName.toLowerCase() === "li")
           .map((li) => {
-            const a = [...li.childNodes].find((n) => n.nodeType === 1 && n.tagName.toLowerCase() === "a");
+            const a = [...li.childNodes].find(
+              (n) => n.nodeType === 1 && n.tagName.toLowerCase() === "a",
+            );
             return a
               ? {
                   label: a.textContent.trim(),
@@ -595,7 +670,11 @@ function walk(el, parentType = null, parentId = null) {
     return { kind: "navmenu", id, items, ...style };
   }
 
-  if (cls.includes("ct-code-block") || cls.includes("ct-shortcode") || cls.includes("ct-nestable-shortcode")) {
+  if (
+    cls.includes("ct-code-block") ||
+    cls.includes("ct-shortcode") ||
+    cls.includes("ct-nestable-shortcode")
+  ) {
     const html = el.innerHTML.trim();
     // The Formidable contact form cannot come across to a static build; it is
     // rebuilt as a Netlify Form. Mark it so the renderer swaps in that
@@ -619,7 +698,8 @@ function walk(el, parentType = null, parentId = null) {
     // rather than reproduced as broken text.
     const bare = strip(html);
     const unresolved = /^\[[a-z_-]+[^\]]*\]$/i.test(bare);
-    if (/\[[a-z_-]+/i.test(html)) report.shortcodes.push({ id, html: html.slice(0, 160), unresolved });
+    if (/\[[a-z_-]+/i.test(html))
+      report.shortcodes.push({ id, html: html.slice(0, 160), unresolved });
     if (unresolved) {
       // Some of these have a real table authored for them.
       const key = bare.replace(/^\[|\]$/g, "").trim();
@@ -632,7 +712,24 @@ function walk(el, parentType = null, parentId = null) {
   // Anything else: keep the children so no text is lost.
   const children = kids();
   if (!children.length) return null;
-  if (!["div", "span", "section", "p", "ul", "ol", "li", "table", "tbody", "tr", "td", "th", "a", "figure"].includes(tag)) {
+  if (
+    ![
+      "div",
+      "span",
+      "section",
+      "p",
+      "ul",
+      "ol",
+      "li",
+      "table",
+      "tbody",
+      "tr",
+      "td",
+      "th",
+      "a",
+      "figure",
+    ].includes(tag)
+  ) {
     (report.unknownTags[tag] ??= new Set()).add(id || cls.slice(0, 40));
   }
   return { kind: "group", id, tag, ...style, children };
@@ -659,8 +756,11 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
 
   const tree = sections.map(walk).filter(Boolean);
 
-  const title = (html.match(/<title>([^<]*)<\/title>/)?.[1] ?? "").replace(/ - IFS Coatings Mexico$/, "").trim();
-  const description = html.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? "";
+  const title = (html.match(/<title>([^<]*)<\/title>/)?.[1] ?? "")
+    .replace(/ - IFS Coatings Mexico$/, "")
+    .trim();
+  const description =
+    cfg.descriptions?.[slug] ?? html.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? "";
   const ogImage = rewriteUrl(html.match(/<meta property="og:image" content="([^"]*)"/)?.[1] ?? "");
 
   let path = meta ? new URL(meta.link).pathname : `/${slug}/`;
@@ -677,7 +777,9 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
   };
 
   writeContent(P(cfg.outDir, `${slug}.json`), out);
-  const words = JSON.stringify(tree).replace(/<[^>]+>/g, " ").split(/\s+/).length;
+  const words = JSON.stringify(tree)
+    .replace(/<[^>]+>/g, " ")
+    .split(/\s+/).length;
   results.push({ slug, sections: tree.length, words });
 }
 
@@ -709,13 +811,21 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
     }
     return null;
   };
-  const strip = (h) => String(h ?? "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  const strip = (h) =>
+    String(h ?? "")
+      .replace(/<[^>]+>/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
 
   const [heroSection, introSection, ...cardSections] = page.sections;
 
-  const heroHeadings = collect(heroSection, "heading").map((h) => strip(h.html)).filter(Boolean);
+  const heroHeadings = collect(heroSection, "heading")
+    .map((h) => strip(h.html))
+    .filter(Boolean);
   const heroButton = collect(heroSection, "button")[0] ?? null;
-  const introHeadings = collect(introSection, "heading").map((h) => strip(h.html)).filter(Boolean);
+  const introHeadings = collect(introSection, "heading")
+    .map((h) => strip(h.html))
+    .filter(Boolean);
 
   const markets = cardSections
     .map((section) => {
@@ -740,8 +850,10 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
     .filter(Boolean);
 
   if (heroHeadings.length < 2) warn(`expected several hero headings, found ${heroHeadings.length}`);
-  if (introHeadings.length < 2) warn(`expected an eyebrow and a heading in the intro band, found ${introHeadings.length}`);
-  if (markets.length !== cardSections.length) warn(`${cardSections.length} card sections but ${markets.length} parsed`);
+  if (introHeadings.length < 2)
+    warn(`expected an eyebrow and a heading in the intro band, found ${introHeadings.length}`);
+  if (markets.length !== cardSections.length)
+    warn(`${cardSections.length} card sections but ${markets.length} parsed`);
   for (const m of markets) if (!m.image) warn(`no image found for "${m.title}"`);
 
   writeContent(P("src/content/home.json"), {
@@ -751,7 +863,11 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
       supporting: heroHeadings.slice(1),
       button: heroButton ? { label: heroButton.label, href: heroButton.href } : null,
     },
-    intro: { eyebrow: introHeadings[0] ?? "", heading: introHeadings[1] ?? "", image: firstBg(introSection) },
+    intro: {
+      eyebrow: introHeadings[0] ?? "",
+      heading: introHeadings[1] ?? "",
+      image: firstBg(introSection),
+    },
     markets,
   });
   console.log(`home model    : ${markets.length} markets, ${heroHeadings.length} hero lines`);
@@ -793,7 +909,8 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
         continue;
       }
       const at = host.children.findIndex((c) => c.label === after);
-      if (at === -1) console.warn(`  menu addition: no "${after}" under "${parent}" - added at the end`);
+      if (at === -1)
+        console.warn(`  menu addition: no "${after}" under "${parent}" - added at the end`);
       // Skip anything the old menu already links to, so an item added to the
       // WordPress menu later is not listed twice.
       const present = new Set(menu.flatMap((m) => [m.href, ...m.children.map((c) => c.href)]));
@@ -808,13 +925,26 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
 
   const site = {
     topBar: {
-      links: ["link_text-148-6", "link_text-150-6"].map((id) => {
-        const el = byId(id);
-        return el ? { label: el.textContent.trim(), href: rewriteUrl(el.getAttribute("href")), ...classesFor(id) } : null;
-      }).filter(Boolean),
+      links: ["link_text-148-6", "link_text-150-6"]
+        .map((id) => {
+          const el = byId(id);
+          return el
+            ? {
+                label: el.textContent.trim(),
+                href: rewriteUrl(el.getAttribute("href")),
+                ...classesFor(id),
+              }
+            : null;
+        })
+        .filter(Boolean),
       flag: (() => {
-        const img = byId("image-152-6")?.tagName?.toLowerCase() === "img" ? byId("image-152-6") : byId("image-152-6")?.querySelector("img");
-        return img ? { src: rewriteUrl(img.getAttribute("src")), alt: img.getAttribute("alt") ?? "" } : null;
+        const img =
+          byId("image-152-6")?.tagName?.toLowerCase() === "img"
+            ? byId("image-152-6")
+            : byId("image-152-6")?.querySelector("img");
+        return img
+          ? { src: rewriteUrl(img.getAttribute("src")), alt: img.getAttribute("alt") ?? "" }
+          : null;
       })(),
       phone: {
         label: byId("text_block-173-6")?.textContent.trim() ?? "",
@@ -822,7 +952,11 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
       },
     },
     logo: logo
-      ? { src: rewriteUrl(logo.getAttribute("src")), alt: logo.getAttribute("alt") || "IFS Coatings Mexico", href: rewriteUrl(byId("link-189-6")?.getAttribute("href") ?? "/") }
+      ? {
+          src: rewriteUrl(logo.getAttribute("src")),
+          alt: logo.getAttribute("alt") || "IFS Coatings Mexico",
+          href: rewriteUrl(byId("link-189-6")?.getAttribute("href") ?? "/"),
+        }
       : null,
     menu: withAdditions(menuEl ? menuTree(menuEl) : []),
     footer: (() => {
@@ -862,7 +996,11 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
     for (const c of node.children ?? []) collect(c, kind, out);
     return out;
   };
-  const strip = (h) => String(h ?? "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+  const strip = (h) =>
+    String(h ?? "")
+      .replace(/<[^>]+>/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
 
   const visible = (node) => {
     if (Array.isArray(node)) return node.map(visible).join(" ");
@@ -904,12 +1042,16 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
    * to the page you are already on is not a crumb.
    */
   const sectionFor = (path) => {
-    const found = (label, href) => ({ label, href: href && href !== "/" && href !== path ? href : null });
+    const found = (label, href) => ({
+      label,
+      href: href && href !== "/" && href !== path ? href : null,
+    });
     for (const top of site.menu ?? []) {
       if ((top.children ?? []).some((c) => c.href === path)) return found(top.label, top.href);
       if (top.href === path && !(top.children ?? []).length) return found(top.label, top.href);
     }
-    for (const link of site.topBar?.links ?? []) if (link.href === path) return found(link.label, link.href);
+    for (const link of site.topBar?.links ?? [])
+      if (link.href === path) return found(link.label, link.href);
     return { label: "", href: null };
   };
 
@@ -921,7 +1063,8 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
   const flatten = (nodes, skip, out = []) => {
     for (const node of nodes) {
       if (skip.has(node)) continue;
-      if (LAYOUT.has(node.kind) && !node.isCard && !node.bg) flatten(node.children ?? [], skip, out);
+      if (LAYOUT.has(node.kind) && !node.isCard && !node.bg)
+        flatten(node.children ?? [], skip, out);
       else out.push(node);
     }
     return out;
@@ -972,7 +1115,7 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
       const cells = [...child.childNodes]
         .filter((n) => n.nodeType === 1 && n.tagName.toLowerCase() === "li")
         .map((li) => {
-          const label = (li.textContent ?? "").replace(/\s+/g, " ").trim();
+          const label = correctText((li.textContent ?? "").replace(/\s+/g, " ").trim());
           const icon = iconFor(label);
           return { label, icon: icon && iconFiles.has(icon) ? icon : null };
         });
@@ -1010,7 +1153,9 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
     // copy at all. On this site that is only ever the page's hero photograph,
     // and it is a band with nothing in it - which is why the old pages opened
     // with a picture and no title.
-    const heroBand = page.sections.find((sec) => sec.bg && bgImage(sec.bg) && !letters(visible(sec)));
+    const heroBand = page.sections.find(
+      (sec) => sec.bg && bgImage(sec.bg) && !letters(visible(sec)),
+    );
 
     // The sidebar is a whole column of the content row, and its heading ("Polvos",
     // "Mercados") belongs to the navigation rather than to the page. Excluding
@@ -1022,7 +1167,9 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
         .flatMap((c) => c.children ?? [])
         .find((c) => collect(c, "navmenu").length) ?? null;
     const nav = collect({ children: page.sections }, "navmenu")[0] ?? null;
-    const navHeading = navColumn ? (collect(navColumn, "heading").map((h) => strip(h.html))[0] ?? "") : "";
+    const navHeading = navColumn
+      ? (collect(navColumn, "heading").map((h) => strip(h.html))[0] ?? "")
+      : "";
 
     const skip = new Set([heroBand, navColumn, nav].filter(Boolean));
     let nodes = flatten(page.sections, skip);
@@ -1039,7 +1186,12 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
       if (opening) {
         const rest = (nodes[firstProse].html ?? "").slice(opening[0].length).trim();
         const heading = { kind: "heading", level: 1, html: opening[1] };
-        nodes.splice(firstProse, 1, heading, ...(rest ? [{ ...nodes[firstProse], html: rest }] : []));
+        nodes.splice(
+          firstProse,
+          1,
+          heading,
+          ...(rest ? [{ ...nodes[firstProse], html: rest }] : []),
+        );
       }
     }
 
@@ -1176,10 +1328,13 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
       ].join(" "),
     );
     if (after.length !== before.length) {
-      console.warn(`  page ${slug}: grouping changed the copy (${before.length} chars in, ${after.length} out)`);
+      console.warn(
+        `  page ${slug}: grouping changed the copy (${before.length} chars in, ${after.length} out)`,
+      );
     }
     if (!titleNode) console.warn(`  page ${slug}: no title heading in the body, using the <title>`);
-    if (!lead.body.length && !sections.length) console.warn(`  page ${slug}: grouping produced no body`);
+    if (!lead.body.length && !sections.length)
+      console.warn(`  page ${slug}: grouping produced no body`);
 
     writeContent(file, page);
     built++;
@@ -1187,9 +1342,13 @@ for (const file of readdirSync(P(cfg.cache.html)).sort()) {
   console.log(`page models   : ${built}`);
 }
 
-
 // ---- report -----------------------------------------------------------------
-const lines = ["# Extraction report", "", "Generated by `scripts/extract-content.mjs`. Re-run after any change.", ""];
+const lines = [
+  "# Extraction report",
+  "",
+  "Generated by `scripts/extract-content.mjs`. Re-run after any change.",
+  "",
+];
 lines.push("## Pages", "", "| slug | sections |", "|---|---|");
 for (const r of results) lines.push(`| ${r.slug} | ${r.sections} |`);
 
@@ -1197,21 +1356,42 @@ lines.push("", "## CSS properties not compiled to Tailwind", "");
 const uh = Object.entries(report.unhandledCss).sort((a, b) => b[1].size - a[1].size);
 if (!uh.length) lines.push("None.");
 else {
-  lines.push("These Oxygen declarations have no utility mapping yet. Each is either", "irrelevant to the port or needs a rule in `scripts/lib/css-to-tw.mjs`.", "", "| property | distinct values | example |", "|---|---|---|");
+  lines.push(
+    "These Oxygen declarations have no utility mapping yet. Each is either",
+    "irrelevant to the port or needs a rule in `scripts/lib/css-to-tw.mjs`.",
+    "",
+    "| property | distinct values | example |",
+    "|---|---|---|",
+  );
   for (const [k, v] of uh) lines.push(`| \`${k}\` | ${v.size} | \`${[...v][0]?.slice(0, 60)}\` |`);
 }
 
 lines.push("", "## Shortcodes found in content", "");
-lines.push(report.shortcodes.length ? report.shortcodes.map((s) => `- \`${s.id}\`: \`${s.html.replace(/\n/g, " ")}\``).join("\n") : "None.");
+lines.push(
+  report.shortcodes.length
+    ? report.shortcodes.map((s) => `- \`${s.id}\`: \`${s.html.replace(/\n/g, " ")}\``).join("\n")
+    : "None.",
+);
 
 lines.push("", "## Missing media (referenced, not in the cache)", "");
-lines.push(report.missingMedia.size ? [...report.missingMedia].map((m) => `- ${m}`).join("\n") : "None.");
+lines.push(
+  report.missingMedia.size ? [...report.missingMedia].map((m) => `- ${m}`).join("\n") : "None.",
+);
 
 lines.push("", "## Corrections applied to extracted copy", "");
-lines.push(report.corrections.size ? [...report.corrections].map((c) => `- ${c}`).join("\n") : "None.");
+lines.push(
+  report.corrections.size ? [...report.corrections].map((c) => `- ${c}`).join("\n") : "None.",
+);
 
 lines.push("", "## External links", "");
-lines.push(report.external.size ? [...report.external].sort().map((m) => `- ${m}`).join("\n") : "None.");
+lines.push(
+  report.external.size
+    ? [...report.external]
+        .sort()
+        .map((m) => `- ${m}`)
+        .join("\n")
+    : "None.",
+);
 
 lines.push("", "## Unrecognised elements", "");
 const ut = Object.entries(report.unknownTags);

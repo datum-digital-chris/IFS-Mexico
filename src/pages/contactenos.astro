@@ -42,7 +42,11 @@ const siblings = (resources?.children ?? []).filter((c) => c.href !== entry.data
 const card = "bg-surface-warm";
 ---
 
-<BaseLayout title={doc.title} description={doc.lead.hero} ogImage={doc.heroImage}>
+<BaseLayout
+  title={doc.title}
+  description={entry.data.description || doc.lead.hero}
+  ogImage={doc.heroImage}
+>
   {
     /* The same header every other page opens on, from the same component, so
       the photo band is the same height across the site. The action is the one

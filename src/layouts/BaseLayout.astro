@@ -10,6 +10,7 @@ import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import ContactFlyout from "@/components/ContactFlyout.astro";
 import SiteSearch from "@/components/SiteSearch.astro";
+import { Font } from "astro:assets";
 import "@/styles/theme.css";
 
 interface Props {
@@ -18,10 +19,14 @@ interface Props {
   ogImage?: string | null;
 }
 
+// The share image for a page that has none of its own (home, the legal pages,
+// the confirmations): the home page's hero, so a shared link never goes bare.
+const DEFAULT_OG_IMAGE = "/uploads/2023/05/hero-homepage-01.jpg";
+
 const { title, description = "", ogImage } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const fullTitle = title ? `${title} - IFS Coatings Mexico` : "IFS Coatings Mexico";
-const image = ogImage ? new URL(ogImage, Astro.site).href : undefined;
+const image = new URL(ogImage || DEFAULT_OG_IMAGE, Astro.site).href;
 ---
 
 <!doctype html>
@@ -39,18 +44,14 @@ const image = ogImage ? new URL(ogImage, Astro.site).href : undefined;
     <meta property="og:title" content={fullTitle} />
     <meta property="og:url" content={canonical} />
     {description && <meta property="og:description" content={description} />}
-    {image && <meta property="og:image" content={image} />}
+    <meta property="og:image" content={image} />
     <meta name="twitter:card" content="summary_large_image" />
 
     <link rel="icon" href="/uploads/2023/05/cropped-favicon-03-32x32.png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/uploads/2023/05/cropped-favicon-03-180x180.png" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Roboto:wght@400;500;700&display=swap"
-    />
+    <Font cssVariable="--font-archivo" preload />
+    <Font cssVariable="--font-roboto" preload />
     <slot name="head" />
   </head>
   <body>

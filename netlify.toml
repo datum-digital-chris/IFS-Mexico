@@ -21,8 +21,8 @@
     # assetsInlineLimit: 0), so script-src needs no 'unsafe-inline'. Styles do:
     # stylesheets are inlined into each page, the RAL swatches carry their
     # colour as a style attribute, and the colour wheel builds its own styles.
-    # YouTube is framed only on /videos-de-demostracion/, after a click.
-    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src https://www.youtube-nocookie.com; form-action 'self'; frame-ancestors 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
+    # Fonts are self-hosted (astro.config.mjs). YouTube is framed only on /videos-de-demostracion/, after a click.
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; frame-src https://www.youtube-nocookie.com; form-action 'self'; frame-ancestors 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
 
 # The e-book sits behind an email form; keep the PDF itself out of search
 # results so it is not found without it.

@@ -127,9 +127,11 @@
   /* Type. Archivo is a contemporary industrial grotesk and replaces Noto Sans
      JP, a Japanese face that was setting Latin headings. Roboto stays for body
      copy: it is neutral and already reads well at 18px. */
-  --font-body: "Roboto", "Helvetica Neue", Arial, sans-serif;
-  --font-heading: "Archivo", "Helvetica Neue", Arial, sans-serif;
-  --font-accent: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  /* Self-hosted through Astro's Fonts API (astro.config.mjs), which defines
+     these variables with the fallback stack and metric-matched fallbacks. */
+  --font-body: var(--font-roboto);
+  --font-heading: var(--font-archivo);
+  --font-accent: var(--font-archivo);
 
   /* A scale with real contrast, so a page title cannot be mistaken for a
      subhead. h1 scales with the viewport. */

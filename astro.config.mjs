@@ -1,4 +1,4 @@
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 
@@ -12,6 +12,30 @@ export default defineConfig({
   trailingSlash: "always",
 
   build: { inlineStylesheets: "always" },
+
+  // Downloaded from Google Fonts at build time and served from this origin, so
+  // a visit sends nothing to Google (see the aviso de privacidad) and the CSP
+  // needs no third-party font host. The weights are the ones the theme uses.
+  fonts: [
+    {
+      provider: fontProviders.google(),
+      name: "Archivo",
+      cssVariable: "--font-archivo",
+      weights: [500, 600, 700, 800, 900],
+      styles: ["normal"],
+      subsets: ["latin"],
+      fallbacks: ["Helvetica Neue", "Arial", "sans-serif"],
+    },
+    {
+      provider: fontProviders.google(),
+      name: "Roboto",
+      cssVariable: "--font-roboto",
+      weights: [400, 500, 700],
+      styles: ["normal"],
+      subsets: ["latin"],
+      fallbacks: ["Helvetica Neue", "Arial", "sans-serif"],
+    },
+  ],
 
   // The form confirmation pages are noindex, so listing them would contradict
   // themselves.
