@@ -377,11 +377,31 @@ function correctText(html) {
   return out;
 }
 
+/**
+ * A link whose visible text is itself an address on one of our hosts shows the
+ * canonical address instead. The privacy policy prints the old staging host
+ * (ifsmexico.us11.cdn-alpha.com) as the text of its terms-of-use link; the href
+ * is rewritten anyway, but a reader sees the text. Trailing whitespace inside
+ * the link moves outside it so the underline stops at the address.
+ */
+function showCanonicalUrl(a) {
+  const text = a.textContent ?? "";
+  const url = text.trim();
+  if (!/^(https?:)?\/\//.test(url) || rewriteUrl(url) === url) return;
+  // Every page URL ends in a slash (astro.config.mjs trailingSlash).
+  const path = rewriteUrl(url).replace(/^([^?#]*\/[^/.?#]+)(?=[?#]|$)/, "$1/");
+  a.textContent = new URL(path, cfg.siteUrl).href;
+  const trailing = text.match(/\s+$/)?.[0];
+  if (trailing) a.parentNode.insertBefore(a.ownerDocument.createTextNode(trailing), a.nextSibling);
+}
+
 /** Inline HTML of a rich-text/text block, with internal links rewritten. */
 function innerHtml(el) {
   tagFeatureLists(el);
-  for (const a of el.querySelectorAll("a[href]"))
+  for (const a of el.querySelectorAll("a[href]")) {
     a.setAttribute("href", rewriteUrl(a.getAttribute("href")));
+    showCanonicalUrl(a);
+  }
   for (const img of el.querySelectorAll("img[src]")) {
     img.setAttribute("src", rewriteUrl(img.getAttribute("src")));
     img.removeAttribute("srcset");

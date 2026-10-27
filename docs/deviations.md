@@ -415,6 +415,12 @@ their own share the home page's hero. Metadata only: no visible text changes.
 
 Feature-list items now go through the corrections too; they had skipped them.
 
+The privacy policy's terms-of-use link printed the old staging address
+(`https://ifsmexico.us11.cdn-alpha.com/condiciones-de-uso`) as its text. Its
+target was already rewritten; the text now reads
+`https://ifscoatings.mx/condiciones-de-uso/`. Any link whose text is an address
+on one of the old hosts gets the same treatment (`showCanonicalUrl`).
+
 ---
 
 ## Not a deviation: `[wpdatatable id=2]`
