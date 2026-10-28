@@ -1,0 +1,34 @@
+---
+/**
+ * The simplified privacy notice every form must show where it collects data
+ * (LFPDPPP 2025, art. 16 II): who is responsible and where, what is collected
+ * and why, how to limit its use, and where the full notice is.
+ */
+import { AVISO } from "@/data/aviso-de-privacidad";
+
+interface Props {
+  id: string;
+  /** What the form collects, e.g. "su nombre, su correo electrónico y su mensaje". */
+  datos: string;
+  /** The primary purpose: what the data is needed for. */
+  finalidad: string;
+  /** A secondary purpose the visitor opts into with a checkbox on the form. */
+  secundaria?: string;
+  class?: string;
+}
+
+const { id, datos, finalidad, secundaria, class: className } = Astro.props;
+---
+
+<p class:list={["ox-hint", className]} id={id}>
+  <strong class="text-ink font-medium">Aviso de privacidad simplificado.</strong>{" "}
+  {AVISO.responsable}, con domicilio en {AVISO.domicilio}, tratará {datos} para {finalidad}.{" "}
+  {secundaria && <>Solo los usaremos para {secundaria} si marca la casilla. </>}
+  Para limitar su uso o divulgación, o ejercer sus derechos ARCO, escriba a{" "}
+  <a href={`mailto:${AVISO.email}`} class="text-brand-deep hover:text-brand-hover underline"
+    >{AVISO.email}</a
+  >. Consulte el{" "}
+  <a href={AVISO.path} class="text-brand-deep hover:text-brand-hover underline"
+    >aviso de privacidad integral</a
+  >.
+</p>

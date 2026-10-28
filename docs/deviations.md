@@ -378,6 +378,52 @@ as the extracted pages do. Their titles and descriptions live once, in
 other page (house rule), and both are left out of the sitemap, since they are
 `noindex`.
 
+## 20. A Mexican aviso de privacidad, and a simplified notice on every form
+
+**Old:** the only privacy text was the IFS group's policy at
+`/politica-de-privacidad/`, written for the US site and the EU's RGPD. The
+contact form linked to nothing.
+
+**New:** `/aviso-de-privacidad/` is an aviso de privacidad integral under the
+Ley Federal de Protección de Datos Personales en Posesión de los Particulares
+(DOF 20-03-2025), covering what art. 15 requires and describing what this site
+actually does. Each form carries the simplified notice art. 16 II requires
+where data is collected (`src/components/AvisoSimplificado.astro`).
+
+The site serves Mexico only, so the old policy is retired
+(`cfg.retireSlugs`) and `/politica-de-privacidad/` redirects to the aviso
+(`docs/url-ledger.csv`). Section 6 of the Condiciones de Uso still refers to
+"nuestra Política de Privacidad"; that is the client's legal wording and is
+left for them to amend.
+
+**Open:** the responsible party and domicile in
+`src/data/aviso-de-privacidad.ts` come from the old policy and need the
+client's confirmation, and the notice needs their legal review before launch.
+
+## 21. Meta descriptions and a default share image
+
+**Old:** no page had a meta description or, except where a page set one, an
+Open Graph image.
+
+**New:** every page has a description, authored from its own copy in
+`cfg.descriptions` (`scripts/site.config.mjs`), and pages without an image of
+their own share the home page's hero. Metadata only: no visible text changes.
+
+## 22. Two typos corrected
+
+`cfg.textCorrections`, like #9:
+
+- The ESD page twice gives the surface resistivity range as "104 a 1011
+  ohmios": the exponents lost their superscript. It reads 10⁴ a 10¹¹ ohmios.
+- The home page's architectural card reads "soluciones de revemiento". It
+  reads "revestimiento".
+
+Feature-list items now go through the corrections too; they had skipped them.
+
+A link whose text is an address on one of the old hosts shows the canonical
+address (`showCanonicalUrl`). The one case was the retired privacy policy's
+terms-of-use link, which printed the old staging host.
+
 ---
 
 ## Not a deviation: `[wpdatatable id=2]`

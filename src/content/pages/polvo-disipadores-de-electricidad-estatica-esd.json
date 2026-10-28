@@ -3,7 +3,7 @@
   "wpId": 119,
   "path": "/polvo-disipadores-de-electricidad-estatica-esd/",
   "title": "Polvo Disipadores de Electricidad Estática (ESD)",
-  "description": "",
+  "description": "Recubrimientos en polvo ESD de IFS que disipan la carga estática, con resistividad superficial de 10⁴ a 10¹¹ ohmios, para gabinetes electrónicos.",
   "ogImage": null,
   "sections": [
     {
@@ -78,7 +78,7 @@
                 {
                   "kind": "richtext",
                   "id": "_rich_text-13-119",
-                  "html": "<p>Los recubrimientos en polvo disipadores de electricidad estática (ESD) de IFS están diseñados para disipar una carga estática que puede dañar los componentes eléctricos sensibles. Disponible en una gama de productos químicos y colores, el producto está formulado para proporcionar una resistividad superficial de 104 a 1011 ohmios.&nbsp;</p>",
+                  "html": "<p>Los recubrimientos en polvo disipadores de electricidad estática (ESD) de IFS están diseñados para disipar una carga estática que puede dañar los componentes eléctricos sensibles. Disponible en una gama de productos químicos y colores, el producto está formulado para proporcionar una resistividad superficial de 10⁴ a 10¹¹ ohmios.&nbsp;</p>",
                   "className": "",
                   "isCard": false,
                   "wrapClassName": "",
@@ -101,7 +101,7 @@
                 {
                   "kind": "richtext",
                   "id": "_rich_text-15-119",
-                  "html": "<p>Creados pensando en un rendimiento interior superior, los recubrimientos en polvo disipadores de electricidad estática (ESD) de IFS exhiben las siguientes propiedades en aplicaciones interiores:</p><ul class=\"feature-list feature-list--wide\"><li>Excelente resistividad superficial (en el rango de 104 a 1011 ohmios)</li><li>Excelente dureza</li><li>Excelente flexibilidad</li><li>Excelente adherencia</li><li>Excelente resistencia al impacto</li><li>Buena resistencia a la niebla salina</li><li>Los recubrimientos en polvo disipadores de electricidad estática (ESD) de IFS ofrecen:</li><li>Excelente funcionalidad</li><li>Amplia gama de aplicaciones</li><li>No se requiere equipo especial para aplicar</li><li>Excelente rendimiento mecánico</li><li>Amplia gama de colores y acabados</li><li>Rango de brillo de 5 a 90</li></ul>",
+                  "html": "<p>Creados pensando en un rendimiento interior superior, los recubrimientos en polvo disipadores de electricidad estática (ESD) de IFS exhiben las siguientes propiedades en aplicaciones interiores:</p><ul class=\"feature-list feature-list--wide\"><li>Excelente resistividad superficial (en el rango de 10⁴ a 10¹¹ ohmios)</li><li>Excelente dureza</li><li>Excelente flexibilidad</li><li>Excelente adherencia</li><li>Excelente resistencia al impacto</li><li>Buena resistencia a la niebla salina</li><li>Los recubrimientos en polvo disipadores de electricidad estática (ESD) de IFS ofrecen:</li><li>Excelente funcionalidad</li><li>Amplia gama de aplicaciones</li><li>No se requiere equipo especial para aplicar</li><li>Excelente rendimiento mecánico</li><li>Amplia gama de colores y acabados</li><li>Rango de brillo de 5 a 90</li></ul>",
                   "className": "pb-0 mb-[20px]",
                   "isCard": false,
                   "wrapClassName": "",
@@ -260,7 +260,7 @@
     "supportImage": "/uploads/library/polvo-disipadores-de-electricidad-estatica-esd-support.jpg",
     "lead": {
       "headline": "¿Qué son los recubrimientos en polvo disipadores de electricidad estática?",
-      "hero": "Los recubrimientos en polvo disipadores de electricidad estática (ESD) de IFS están diseñados para disipar una carga estática que puede dañar los componentes eléctricos sensibles. Disponible en una gama de productos químicos y colores, el producto está formulado para proporcionar una resistividad superficial de 104 a 1011 ohmios.&nbsp;",
+      "hero": "Los recubrimientos en polvo disipadores de electricidad estática (ESD) de IFS están diseñados para disipar una carga estática que puede dañar los componentes eléctricos sensibles. Disponible en una gama de productos químicos y colores, el producto está formulado para proporcionar una resistividad superficial de 10⁴ a 10¹¹ ohmios.&nbsp;",
       "body": []
     },
     "sections": [
@@ -285,7 +285,7 @@
             "icons": false,
             "cells": [
               {
-                "label": "Excelente resistividad superficial (en el rango de 104 a 1011 ohmios)",
+                "label": "Excelente resistividad superficial (en el rango de 10⁴ a 10¹¹ ohmios)",
                 "icon": null
               },
               {

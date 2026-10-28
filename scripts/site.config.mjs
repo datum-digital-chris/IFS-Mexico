@@ -38,7 +38,9 @@ export default {
   mediaOut: "public/uploads",
 
   // The WP default sample post, never linked from the site. Retired, not migrated.
-  retireSlugs: ["hello-world"],
+  // The privacy policy is the IFS group's US/EU one; the site serves Mexico
+  // only, so /aviso-de-privacidad/ (authored) replaces it.
+  retireSlugs: ["hello-world", "politica-de-privacidad"],
 
   // Imagery, imported from the IFS Coatings US site's library.
   //
@@ -201,7 +203,10 @@ export default {
       items: [
         { label: "Calculadora de Cobertura", href: "/calculadora-de-cobertura/" },
         { label: "Videos de Demostración", href: "/videos-de-demostracion/" },
-        { label: "E-Book: Guía de Recubrimiento en Polvo", href: "/guia-de-recubrimiento-en-polvo/" },
+        {
+          label: "E-Book: Guía de Recubrimiento en Polvo",
+          href: "/guia-de-recubrimiento-en-polvo/",
+        },
       ],
     },
   ],
@@ -251,7 +256,85 @@ export default {
       to: "IFS 500FP",
       reason: "product code typo: the product is IFS 500FP",
     },
+    {
+      // The ESD page gives the surface resistivity range twice as "104 a 1011
+      // ohmios": the exponents of 10^4 to 10^11 lost their superscript. Read
+      // literally it is a range of 104 to 1011 ohms, which no ESD coating has.
+      // Superscript characters, not <sup>: the text also feeds plain-text
+      // fields (list labels, the search index) where markup would be lost.
+      from: /\b104 a 1011 ohmios/g,
+      to: "10⁴ a 10¹¹ ohmios",
+      reason: "lost superscripts: the ESD resistivity range is 10^4 to 10^11 ohms",
+    },
+    {
+      // The home page's architectural card: "soluciones de revemiento".
+      from: /\brevemiento\b/g,
+      to: "revestimiento",
+      reason: "typo on the home page: revemiento for revestimiento",
+    },
   ],
+
+  // Meta descriptions. The old site had none on any page (Yoast was installed
+  // but never filled in), so these are authored, keyed by WordPress slug, and
+  // take precedence over the extracted tag. Written from each page's own copy;
+  // they say nothing the page does not. Keep each under 160 characters.
+  descriptions: {
+    home: "IFS Coatings fabrica recubrimientos en polvo para los mercados arquitectónico, industrial, electrodomésticos, automotriz, tráilers y varillas de refuerzo.",
+    "aplicaciones-industriales-generales":
+      "Recubrimientos en polvo IFS para metales industriales, resistentes a la corrosión, al impacto y a la intemperie. Incluye Primers y polvos especiales.",
+    "clave-de-codigo-de-producto":
+      "Cada caja de polvo IFS lleva un código único que define el tipo exacto de producto. Consulte aquí la clave para interpretar el código de su recubrimiento.",
+    "condiciones-de-uso":
+      "Condiciones de uso que regulan el acceso y la utilización del sitio web de IFS Coatings Internacional y de los materiales publicados en él.",
+    conocenos:
+      "Conozca a IFS Coatings, fabricante de recubrimientos en polvo termoendurecibles con planta certificada ISO 9001:2015 y más de 76,000 colores registrados.",
+    contactenos:
+      "Comuníquese con IFS Coatings para solicitar folletos, tarjetas de colores, paneles de muestra o soporte técnico, por teléfono, correo o formulario.",
+    "descargar-informacion":
+      "Descargue folletos de IFS sobre polvos antimicrobianos, PureClad, antigrafiti, arquitectónicos, termorresistentes, Purecoat y recubrimientos para tráilers.",
+    electrodomesticos:
+      "Polvos IFS para lavadoras, refrigeradores y hornos, con resistencia química, a manchas y al rayado, en acabados metálicos, de mica y a color personalizado.",
+    "ifs-pureclad":
+      "IFS PureClad es una línea de recubrimientos en polvo de curado bajo para productos sensibles al calor, como madera natural y de ingeniería, MDF y OSB.",
+    "imprimadores-en-polvo":
+      "Primers en polvo IFS: epoxi, KW, rico en zinc, OGF y conductor, para mejorar adhesión, resistencia a la corrosión, sellado y cobertura de bordes.",
+    maquiladores:
+      "Para maquiladores: miles de colores y efectos en polvo, combinación de colores personalizada, pedidos flexibles y soporte técnico de IFS Coatings.",
+    "mercado-arquitectonico":
+      "Polvos arquitectónicos IFS 500FP, 400SD y 300SP para aluminio y acero, que cumplen los requisitos de AAMA 2605, 2604 y 2603 respectivamente.",
+    "politica-de-privacidad":
+      "Política de privacidad de IFS Coatings Internacional: qué datos personales recopilamos a través del sitio, cómo los usamos y cómo los protegemos.",
+    "polvo-antigrafiti":
+      "Recubrimientos en polvo antigrafiti de IFS en epoxi, poliéster y fluoropolímero, que facilitan retirar grafitis del metal con disolventes comunes.",
+    "polvo-antimicrobiano":
+      "Polvos antimicrobianos IFS con iones de plata que inhiben hongos y microbios. Para laboratorios, hospitales, escuelas, baños y transporte público.",
+    "polvo-de-fluoropolimero-feve":
+      "IFS 500FP, recubrimiento en polvo de fluoropolímero FEVE con resina Lumiflon para uso arquitectónico exterior. Cumple los requisitos de AAMA 2605.",
+    "polvo-de-poliester-estandar":
+      "Polvos de poliéster estándar IFS con y sin TGIC para uso interior y exterior. Conozca sus ventajas, limitaciones y aplicaciones, incluida AAMA 2603.",
+    "polvo-disipadores-de-electricidad-estatica-esd":
+      "Recubrimientos en polvo ESD de IFS que disipan la carga estática, con resistividad superficial de 10⁴ a 10¹¹ ohmios, para gabinetes electrónicos.",
+    "polvo-epoxi":
+      "Polvos epoxi IFS con excelente adherencia y resistencia química y a la corrosión, para muebles, herramientas, armarios metálicos y varilla de refuerzo.",
+    "polvo-hibrido":
+      "Polvo híbrido poliéster-epoxi de IFS, con gama completa de brillo y películas finas, para muebles de oficina, estantería e iluminación interior.",
+    "polvos-de-poliester-superduraderos":
+      "Polvos de poliéster Super Durables de IFS, con y sin TGIC, más resistentes a la intemperie que un poliéster estándar. Base de polvos AAMA 2604.",
+    "polvos-termoplasticos-ifs-puroplaz":
+      "IFS Puroplaz, polvos termoplásticos de polietileno (PE) y nailon (PA) para rociado electrostático o lecho fluidizado, con alta resistencia química.",
+    "recubrimientos-en-polvo-aprobados-por-nsf":
+      "Recubrimientos en polvo IFS aprobados por NSF/ANSI 51 para equipo de alimentos y NSF/ANSI 61 para equipo en contacto con agua potable.",
+    "repintado-de-automoviles":
+      "Polvos IFS para repintado automotriz en ruedas, partes bajo el cofre, bicicletas y autos de carreras, con resistencia a rayones, químicos y astillas.",
+    "trailers-2":
+      "Recubrimientos en polvo IFS para tráilers, con protección contra la corrosión, el rayado y la intemperie, en versiones Super Durables, estándar y Primers.",
+    "ul-polvo":
+      "Polvos IFS listados por UL según UL 1332 para gabinetes de acero de equipo eléctrico en exteriores, probados contra la corrosión atmosférica.",
+    "valores-de-la-mision":
+      "Misión, valores y comportamientos de IFS Coatings, y los cuatro pilares de su servicio: Agilidad, Experiencia, Personalización y Confiabilidad.",
+    "varillas-de-refuerzo":
+      "IFS PureFlex FBE, epoxi adherido por fusión para varillas de refuerzo de acero, diseñado para cumplir ASTM 775, ASTM 1078, AASHTO M284 y AASHTO M254.",
+  },
 
   // Wording the client asked to change (October 2026 review). Unlike
   // textCorrections these are edits, not error fixes: the client's own words,

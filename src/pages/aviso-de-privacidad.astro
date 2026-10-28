@@ -1,0 +1,184 @@
+---
+/**
+ * Aviso de privacidad integral, under the Ley Federal de Protección de Datos
+ * Personales en Posesión de los Particulares (DOF 20-03-2025). Article 15 sets
+ * what it must contain; the section comments below name the fraction each part
+ * answers.
+ *
+ * Authored, not extracted. It replaces the old site's privacy policy, the IFS
+ * group's US/EU one, which does not meet the Mexican law; the site serves
+ * Mexico only, so /politica-de-privacidad/ redirects here. It describes what this site actually does: two Netlify Forms, no
+ * cookies, no analytics, and YouTube only after a video is played. Revisit it
+ * whenever any of that changes.
+ *
+ * NEEDS the client's legal review before launch; see src/data/aviso-de-privacidad.ts.
+ */
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Breadcrumb from "@/components/page/Breadcrumb.astro";
+import CtaBanner from "@/components/CtaBanner.astro";
+import { AVISO } from "@/data/aviso-de-privacidad";
+
+const h2 = "display text-ink mt-12 mb-4 text-2xl sm:text-3xl";
+const mail = `mailto:${AVISO.email}`;
+---
+
+<BaseLayout title={AVISO.title} description={AVISO.description}>
+  <section class="bg-surface-warm">
+    <div class="container-ox band--tight">
+      <Breadcrumb title={AVISO.title} category="" categoryHref={null} class="mb-8" />
+      <h1 class="display display--black max-w-measure text-4xl sm:text-5xl">
+        {AVISO.title}
+      </h1>
+      <p class="text-lead text-ink-muted max-w-measure mt-4">
+        En cumplimiento de la Ley Federal de Protección de Datos Personales en Posesión de los
+        Particulares, le informamos cómo tratamos los datos personales que recabamos a través de
+        este sitio.
+      </p>
+      <p class="text-ink-muted mt-4 text-sm">Última actualización: {AVISO.updated}</p>
+    </div>
+  </section>
+
+  <section class="bg-surface">
+    <div class="container-ox band--tight">
+      <div class="rich-text doc-prose text-ink-body text-lg leading-relaxed">
+        {/* Art. 15 I */}
+        <h2 class={h2}>1. Responsable</h2>
+        <p>
+          {AVISO.responsable} (“IFS”), con domicilio en {AVISO.domicilio}, es responsable del
+          tratamiento de sus datos personales. Puede comunicarse con nosotros en{" "}
+          <a href={mail}>{AVISO.email}</a> o al <a href={AVISO.phone.href}>{AVISO.phone.label}</a>.
+        </p>
+
+        {/* Art. 15 II */}
+        <h2 class={h2}>2. Datos personales que recabamos</h2>
+        <p>Solo recabamos los datos que usted nos proporciona en los formularios de este sitio:</p>
+        <ul>
+          <li>
+            <strong>Formulario de contacto:</strong> nombre, apellido, correo electrónico, asunto y el
+            mensaje que nos escriba.
+          </li>
+          <li>
+            <strong>Descarga del e-book:</strong> nombre, empresa (opcional), correo electrónico y si
+            desea recibir información de productos y novedades.
+          </li>
+        </ul>
+        <p>
+          No solicitamos datos personales sensibles. Le pedimos no incluirlos en sus mensajes; si lo
+          hace, no los usaremos para ninguna finalidad.
+        </p>
+        <p>
+          Este sitio no usa cookies, herramientas de analítica ni publicidad. Como cualquier
+          servidor web, nuestro proveedor de alojamiento registra de forma automática la dirección
+          IP, el tipo de navegador y las páginas solicitadas, únicamente para operar el sitio y
+          protegerlo de abusos.
+        </p>
+        <p>
+          Los videos de la página Videos de Demostración no se cargan hasta que usted elige
+          reproducir uno. A partir de ese momento el video lo sirve YouTube (Google), que trata sus
+          datos conforme a su propia política de privacidad.
+        </p>
+
+        {/* Art. 15 III */}
+        <h2 class={h2}>3. Finalidades del tratamiento</h2>
+        <p>
+          Usamos sus datos para las siguientes finalidades, necesarias para atender su solicitud:
+        </p>
+        <ul>
+          <li>responder a sus consultas y solicitudes de cotización;</li>
+          <li>enviarle la guía que solicitó;</li>
+          <li>
+            dar seguimiento a su solicitud y, en su caso, a la relación comercial que derive de
+            ella.
+          </li>
+        </ul>
+        <p>
+          Con su consentimiento, también podemos usarlos para una finalidad adicional que no es
+          necesaria para atender su solicitud:
+        </p>
+        <ul>
+          <li>enviarle información de productos y novedades de IFS.</li>
+        </ul>
+        <p>
+          Solo trataremos sus datos con esta finalidad si marca la casilla correspondiente en el
+          formulario. Puede retirar su consentimiento en cualquier momento escribiendo a{" "}
+          <a href={mail}>{AVISO.email}</a>; hacerlo no afecta la atención de su solicitud.
+        </p>
+
+        {/* Art. 15 II–III (who else handles the data), art. 35 */}
+        <h2 class={h2}>4. Encargados y transferencias</h2>
+        <p>
+          Para operar este sitio nos apoyamos en proveedores que tratan sus datos solo por cuenta de
+          IFS y conforme a nuestras instrucciones: Netlify, Inc., que aloja el sitio y recibe los
+          formularios en servidores ubicados en los Estados Unidos, y nuestro proveedor de correo
+          electrónico.
+        </p>
+        <p>
+          Podemos compartir sus datos con sociedades del grupo IFS Coatings que operan bajo los
+          mismos procesos y políticas internas, para atender su solicitud, y con autoridades
+          competentes cuando la ley lo exija. Estas transferencias no requieren su consentimiento
+          (artículo 36 de la Ley). No vendemos sus datos ni los transferimos a terceros para fines
+          propios de éstos.
+        </p>
+
+        {/* Art. 15 IV */}
+        <h2 class={h2}>5. Cómo limitar el uso o divulgación de sus datos</h2>
+        <p>
+          Puede pedirnos en cualquier momento que dejemos de enviarle información escribiendo a{" "}
+          <a href={mail}>{AVISO.email}</a>. Lo registraremos en nuestra lista de exclusión y no
+          volveremos a enviarle comunicaciones de ese tipo. También puede inscribirse en el Registro
+          Público para Evitar Publicidad de la Procuraduría Federal del Consumidor.
+        </p>
+
+        {/* Art. 15 V; arts. 28, 31 and 34 */}
+        <h2 class={h2}>6. Derechos ARCO y revocación del consentimiento</h2>
+        <p>
+          Usted tiene derecho a acceder a sus datos personales, rectificarlos, cancelarlos u
+          oponerse a su tratamiento (derechos ARCO), así como a revocar el consentimiento que nos
+          haya otorgado. Para ejercerlos, envíe una solicitud a <a href={mail}>{AVISO.email}</a> que incluya:
+        </p>
+        <ul>
+          <li>su nombre y un medio para recibir nuestra respuesta;</li>
+          <li>
+            un documento que acredite su identidad o, en su caso, la de su representante legal y su
+            representación;
+          </li>
+          <li>
+            la descripción clara de los datos y del derecho que desea ejercer (en una rectificación,
+            los cambios que solicita y la documentación que los sustente), y
+          </li>
+          <li>cualquier otro elemento que nos ayude a localizar sus datos.</li>
+        </ul>
+        <p>
+          Le comunicaremos nuestra respuesta en un plazo máximo de 20 días a partir de que recibamos
+          su solicitud y, si resulta procedente, la haremos efectiva dentro de los 15 días
+          siguientes. El ejercicio de estos derechos es gratuito; solo podrían cobrarse los costos
+          de reproducción o envío.
+        </p>
+
+        <h2 class={h2}>7. Conservación y seguridad</h2>
+        <p>
+          Conservamos sus datos solo durante el tiempo necesario para las finalidades descritas y
+          los protegemos con medidas de seguridad administrativas, técnicas y físicas contra daño,
+          pérdida, alteración, destrucción o uso, acceso o tratamiento no autorizado.
+        </p>
+
+        {/* Art. 15 VI */}
+        <h2 class={h2}>8. Cambios a este aviso</h2>
+        <p>
+          Cualquier cambio a este aviso de privacidad se publicará en esta página, en{" "}
+          <a href={AVISO.path}>ifscoatings.mx{AVISO.path}</a>, con la fecha de su última
+          actualización.
+        </p>
+
+        <h2 class={h2}>9. Autoridad</h2>
+        <p>
+          Si considera que su derecho a la protección de sus datos personales ha sido vulnerado,
+          puede acudir a la Secretaría Anticorrupción y Buen Gobierno, autoridad competente en la
+          materia.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner page="aviso-de-privacidad" />
+</BaseLayout>

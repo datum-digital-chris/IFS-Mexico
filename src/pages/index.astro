@@ -13,11 +13,12 @@
  */
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import home from "@/content/home.json";
+import homePage from "@/content/pages/home.json";
 
 const { hero, intro, markets } = home;
 ---
 
-<BaseLayout title="Home" description={intro.heading}>
+<BaseLayout title="Home" description={homePage.description || intro.heading}>
   {
     /* Hero. The three slogans become one headline plus supporting lines, so the
       page opens with a hierarchy rather than a list of three equal claims. */

@@ -23,7 +23,37 @@ const ROOT = new URL("..", import.meta.url).pathname;
 const P = (...p) => join(ROOT, ...p);
 const VERBOSE = process.argv.includes("--verbose");
 
-const ENTITIES = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " ", hellip: "…", mdash: "—", ndash: "–", rsquo: "'", lsquo: "'", ldquo: '"', rdquo: '"', aacute: "á", eacute: "é", iacute: "í", oacute: "ó", uacute: "ú", ntilde: "ñ", Aacute: "Á", Eacute: "É", Iacute: "Í", Oacute: "Ó", Uacute: "Ú", Ntilde: "Ñ", reg: "®", copy: "©", deg: "°", trade: "™" };
+const ENTITIES = {
+  amp: "&",
+  lt: "<",
+  gt: ">",
+  quot: '"',
+  apos: "'",
+  nbsp: " ",
+  hellip: "…",
+  mdash: "—",
+  ndash: "–",
+  rsquo: "'",
+  lsquo: "'",
+  ldquo: '"',
+  rdquo: '"',
+  aacute: "á",
+  eacute: "é",
+  iacute: "í",
+  oacute: "ó",
+  uacute: "ú",
+  ntilde: "ñ",
+  Aacute: "Á",
+  Eacute: "É",
+  Iacute: "Í",
+  Oacute: "Ó",
+  Uacute: "Ú",
+  Ntilde: "Ñ",
+  reg: "®",
+  copy: "©",
+  deg: "°",
+  trade: "™",
+};
 
 const decode = (s) =>
   s
@@ -66,9 +96,19 @@ const EXPECTED = [
   // "IFS 500P" here. Corrected by cfg.textCorrections, so this sentence now
   // reads 500FP and no longer matches the original run.
   "más información sobre ifs 500p aquí",
+  // Two typos corrected by cfg.textCorrections: the ESD resistivity range lost
+  // its superscripts ("104 a 1011 ohmios" for 10^4 to 10^11), and the home
+  // page's architectural card read "revemiento" for "revestimiento".
+  "104 a 1011 ohmios",
+  "soluciones de revemiento",
 ];
 
-const norm = (s) => s.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").replace(/\s+/g, " ").trim();
+const norm = (s) =>
+  s
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, " ")
+    .replace(/\s+/g, " ")
+    .trim();
 
 // Build the old-site corpus and work out what counts as chrome.
 const oldPages = new Map();
@@ -108,23 +148,37 @@ for (const [slug, oldRuns] of oldPages) {
     rows.push({ slug, status: "NO PAGE", missing: oldRuns.length });
     continue;
   }
-  const distFile = P("dist", path === "/" ? "index.html" : `${path.replace(/^\/|\/$/g, "")}/index.html`);
+  const distFile = P(
+    "dist",
+    path === "/" ? "index.html" : `${path.replace(/^\/|\/$/g, "")}/index.html`,
+  );
   if (!existsSync(distFile)) {
     rows.push({ slug, status: "NOT BUILT", missing: oldRuns.length });
     continue;
   }
   const newText = norm(runs(readFileSync(distFile, "utf8")).join(" \n "));
   const wanted = [...new Set(oldRuns.map(norm))].filter((t) => t && !chrome.has(t));
-  const missing = wanted.filter((t) => !newText.includes(t) && !EXPECTED.some((e) => t.includes(norm(e))));
+  const missing = wanted.filter(
+    (t) => !newText.includes(t) && !EXPECTED.some((e) => t.includes(norm(e))),
+  );
   checked += wanted.length;
   missingTotal += missing.length;
-  rows.push({ slug, status: missing.length ? "MISSING" : "ok", missing: missing.length, total: wanted.length, detail: missing });
+  rows.push({
+    slug,
+    status: missing.length ? "MISSING" : "ok",
+    missing: missing.length,
+    total: wanted.length,
+    detail: missing,
+  });
 }
 
 for (const r of rows.sort((a, b) => b.missing - a.missing)) {
   if (r.status === "ok") continue;
-  console.log(`${r.status.padEnd(10)} ${r.slug.padEnd(48)} ${r.missing}/${r.total ?? "?"} runs missing`);
-  if (VERBOSE && r.detail) for (const d of r.detail.slice(0, 15)) console.log(`             - ${d.slice(0, 110)}`);
+  console.log(
+    `${r.status.padEnd(10)} ${r.slug.padEnd(48)} ${r.missing}/${r.total ?? "?"} runs missing`,
+  );
+  if (VERBOSE && r.detail)
+    for (const d of r.detail.slice(0, 15)) console.log(`             - ${d.slice(0, 110)}`);
 }
 
 console.log(`\npages compared : ${oldPages.size}`);

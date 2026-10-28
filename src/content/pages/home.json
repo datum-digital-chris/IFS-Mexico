@@ -3,7 +3,7 @@
   "wpId": 47,
   "path": "/",
   "title": "Home",
-  "description": "",
+  "description": "IFS Coatings fabrica recubrimientos en polvo para los mercados arquitectónico, industrial, electrodomésticos, automotriz, tráilers y varillas de refuerzo.",
   "ogImage": null,
   "sections": [
     {
@@ -226,7 +226,7 @@
                 {
                   "kind": "richtext",
                   "id": "text_block-190-47",
-                  "html": "Descubra soluciones de revemiento sostenibles para sus edificios<br>",
+                  "html": "Descubra soluciones de revestimiento sostenibles para sus edificios<br>",
                   "className": "text-ink-muted text-[22px]",
                   "isCard": false,
                   "wrapClassName": "",

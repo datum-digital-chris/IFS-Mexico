@@ -20,6 +20,7 @@ import PageHero from "@/components/page/PageHero.astro";
 import Breadcrumb from "@/components/page/Breadcrumb.astro";
 import PageNav from "@/components/page/PageNav.astro";
 import CtaBanner from "@/components/CtaBanner.astro";
+import AvisoSimplificado from "@/components/AvisoSimplificado.astro";
 import ebook from "@/data/ebook.json";
 import { RECURSOS } from "@/data/recursos";
 import { sectionNav } from "@/lib/menu";
@@ -118,14 +119,13 @@ const nav = sectionNav("Recursos", page.path);
             </label>
           </div>
 
-          <p class="ox-hint mt-4" id="ebook-aviso">
-            Usaremos sus datos para enviarle la guía. Solo le enviaremos otra información si marca
-            la casilla. Consulte nuestra
-            <a
-              href="/politica-de-privacidad/"
-              class="text-brand-deep hover:text-brand-hover underline">política de privacidad</a
-            >.
-          </p>
+          <AvisoSimplificado
+            id="ebook-aviso"
+            datos="su nombre, su empresa y su correo electrónico"
+            finalidad="enviarle la guía"
+            secundaria="enviarle información de productos y novedades de IFS"
+            class="mt-4"
+          />
 
           <button type="submit" class="ox-btn mt-6">Descargar la guía</button>
         </form>
