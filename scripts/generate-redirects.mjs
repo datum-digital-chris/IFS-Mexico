@@ -65,6 +65,10 @@ const body = [
   "# WordPress endpoints that no longer exist.",
   ...wpCruft,
   "",
+  "# Media keeps its WordPress path under /uploads/ (the extractor rewrites",
+  "# every reference), so a brochure PDF linked from elsewhere still resolves.",
+  "/wp-content/uploads/* /uploads/:splat 301",
+  "",
 ].join("\n");
 
 const out = P("dist/_redirects");
