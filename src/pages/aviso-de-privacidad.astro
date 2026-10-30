@@ -7,9 +7,11 @@
  *
  * Authored, not extracted. It replaces the old site's privacy policy, the IFS
  * group's US/EU one, which does not meet the Mexican law; the site serves
- * Mexico only, so /politica-de-privacidad/ redirects here. It describes what this site actually does: two Netlify Forms, no
+ * Mexico only, so /politica-de-privacidad/ redirects here. It describes what this site actually does: one Netlify Form, no
  * cookies, no analytics, and YouTube only after a video is played. Revisit it
- * whenever any of that changes.
+ * whenever any of that changes. While the e-book was live it also listed the
+ * e-book form and an opt-in secondary purpose (news from IFS); restore both from
+ * git history (the 27 October 2026 version) if the e-book comes back.
  *
  * NEEDS the client's legal review before launch; see src/data/aviso-de-privacidad.ts.
  */
@@ -51,17 +53,10 @@ const mail = `mailto:${AVISO.email}`;
 
         {/* Art. 15 II */}
         <h2 class={h2}>2. Datos personales que recabamos</h2>
-        <p>Solo recabamos los datos que usted nos proporciona en los formularios de este sitio:</p>
-        <ul>
-          <li>
-            <strong>Formulario de contacto:</strong> nombre, apellido, correo electrónico, asunto y el
-            mensaje que nos escriba.
-          </li>
-          <li>
-            <strong>Descarga del e-book:</strong> nombre, empresa (opcional), correo electrónico y si
-            desea recibir información de productos y novedades.
-          </li>
-        </ul>
+        <p>
+          Solo recabamos los datos que usted nos proporciona en el formulario de contacto de este
+          sitio: nombre, apellido, correo electrónico, asunto y el mensaje que nos escriba.
+        </p>
         <p>
           No solicitamos datos personales sensibles. Le pedimos no incluirlos en sus mensajes; si lo
           hace, no los usaremos para ninguna finalidad.
@@ -84,25 +79,13 @@ const mail = `mailto:${AVISO.email}`;
           Usamos sus datos para las siguientes finalidades, necesarias para atender su solicitud:
         </p>
         <ul>
-          <li>responder a sus consultas y solicitudes de cotización;</li>
-          <li>enviarle la guía que solicitó;</li>
+          <li>responder a sus consultas y solicitudes de cotización, y</li>
           <li>
             dar seguimiento a su solicitud y, en su caso, a la relación comercial que derive de
             ella.
           </li>
         </ul>
-        <p>
-          Con su consentimiento, también podemos usarlos para una finalidad adicional que no es
-          necesaria para atender su solicitud:
-        </p>
-        <ul>
-          <li>enviarle información de productos y novedades de IFS.</li>
-        </ul>
-        <p>
-          Solo trataremos sus datos con esta finalidad si marca la casilla correspondiente en el
-          formulario. Puede retirar su consentimiento en cualquier momento escribiendo a{" "}
-          <a href={mail}>{AVISO.email}</a>; hacerlo no afecta la atención de su solicitud.
-        </p>
+        <p>No usamos sus datos para finalidades distintas de las anteriores.</p>
 
         {/* Art. 15 II–III (who else handles the data), art. 35 */}
         <h2 class={h2}>4. Encargados y transferencias</h2>
@@ -123,9 +106,9 @@ const mail = `mailto:${AVISO.email}`;
         {/* Art. 15 IV */}
         <h2 class={h2}>5. Cómo limitar el uso o divulgación de sus datos</h2>
         <p>
-          Puede pedirnos en cualquier momento que dejemos de enviarle información escribiendo a{" "}
-          <a href={mail}>{AVISO.email}</a>. Lo registraremos en nuestra lista de exclusión y no
-          volveremos a enviarle comunicaciones de ese tipo. También puede inscribirse en el Registro
+          Puede pedirnos en cualquier momento que limitemos el uso o la divulgación de sus datos, o
+          que dejemos de contactarle, escribiendo a <a href={mail}>{AVISO.email}</a>. Lo
+          registraremos en nuestra lista de exclusión. También puede inscribirse en el Registro
           Público para Evitar Publicidad de la Procuraduría Federal del Consumidor.
         </p>
 

@@ -11,6 +11,8 @@ export interface ResourcePage {
   /** Meta description and hero lead. Keep under 160 characters. */
   description: string;
   hero: string;
+  /** Not built and not listed: the page is on hold. */
+  onHold?: boolean;
 }
 
 export const RECURSOS = {
@@ -34,5 +36,6 @@ export const RECURSOS = {
     description:
       "Una referencia completa para aplicadores de todos los niveles. Déjenos su correo electrónico y descargue la guía sin costo.",
     hero: "/uploads/library/guia-de-recubrimiento-en-polvo-hero.jpg",
+    onHold: true,
   },
 } satisfies Record<string, ResourcePage>;
