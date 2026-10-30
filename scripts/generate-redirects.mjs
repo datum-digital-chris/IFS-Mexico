@@ -69,6 +69,10 @@ const body = [
   "# every reference), so a brochure PDF linked from elsewhere still resolves.",
   "/wp-content/uploads/* /uploads/:splat 301",
   "",
+  "# The e-book is on hold (src/data/ebook.json). Temporary, so the address",
+  "# can come back when the Spanish edition exists.",
+  "/guia-de-recubrimiento-en-polvo/* / 302",
+  "",
 ].join("\n");
 
 const out = P("dist/_redirects");

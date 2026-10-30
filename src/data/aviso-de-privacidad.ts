@@ -14,7 +14,7 @@ export const AVISO = {
   description:
     "Cómo IFS Coatings trata los datos personales que recaba a través de este sitio, con qué finalidades y cómo ejercer sus derechos ARCO.",
   /** Shown on the notice and bumped whenever its substance changes. */
-  updated: "27 de octubre de 2026",
+  updated: "30 de octubre de 2026",
   responsable: "IFS Coatings Internacional, Inc.",
   domicilio: "Médanos No. 169, Colonia Las Águilas, Ciudad de México, C.P. 01710",
   /** The address that receives ARCO requests and opt-outs. */

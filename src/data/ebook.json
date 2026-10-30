@@ -1,4 +1,5 @@
 {
+  "_onHold": "ON HOLD since 2026-10-30: the client is not translating the guide for now. The pages are parked in src/pages/_guia-de-recubrimiento-en-polvo/ (the underscore keeps Astro from building them), the menu item is commented out in scripts/site.config.mjs, RECURSOS.ebook has onHold: true, and scripts/generate-redirects.mjs sends the URL home with a 302. Undo all four to bring it back, and restore the e-book form and its opt-in purpose to the aviso de privacidad (see the comment in src/pages/aviso-de-privacidad.astro).",
   "_note": "AUTHORED CONTENT. The gated e-book (client's October 2026 review): the Spanish edition of the .com's 'A Guide to Applying Powder Coatings'. The client is having it translated and set as artwork. Until it arrives `pdf` is null and the confirmation page tells the visitor the guide will be sent by email; the sign-ups are captured either way. When the PDF arrives, put it at public/descargas/ and set `pdf` to its path (e.g. /descargas/guia-de-recubrimiento-en-polvo.pdf).",
   "title": "Guía para la aplicación de recubrimientos en polvo",
   "pdf": null

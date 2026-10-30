@@ -360,13 +360,14 @@ survive re-extraction. All three are authored copy, not extracted, so
   YouTube until a video is played.
 - **`/guia-de-recubrimiento-en-polvo/`**: the e-book, behind a Netlify Form
   (`ebook`) that asks for a name and email. It confirms on `…/descarga/`.
-  The Spanish PDF is still being produced: until `pdf` is set in
-  `src/data/ebook.json` the confirmation page says the guide will follow by
-  email, and the sign-ups are captured meanwhile. Receiving anything further
-  from IFS is a separate, unticked box, and the PDF folder (`/descargas/`) is
-  served `X-Robots-Tag: noindex` so the guide is not found without the form.
+  Receiving anything further from IFS is a separate, unticked box, and the
+  PDF folder (`/descargas/`) is served `X-Robots-Tag: noindex` so the guide is
+  not found without the form. **On hold since 2026-10-30:** the client is not
+  translating the guide for now, so the page is not built, is out of the menu
+  and the search, and its URL redirects home (302). `src/data/ebook.json` lists
+  what to undo to bring it back.
 
-All three open on the breadcrumb and close on the Recursos band and the CTA,
+All the resource pages open on the breadcrumb and close on the Recursos band and the CTA,
 as the extracted pages do. Their titles and descriptions live once, in
 `src/data/recursos.ts`, which the site search reads as well.
 

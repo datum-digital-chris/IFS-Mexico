@@ -203,10 +203,9 @@ export default {
       items: [
         { label: "Calculadora de Cobertura", href: "/calculadora-de-cobertura/" },
         { label: "Videos de Demostración", href: "/videos-de-demostracion/" },
-        {
-          label: "E-Book: Guía de Recubrimiento en Polvo",
-          href: "/guia-de-recubrimiento-en-polvo/",
-        },
+        // The e-book is on hold (client, 2026-10-30: no Spanish translation for
+        // now). To bring it back, restore this item and see src/data/ebook.json:
+        // { label: "E-Book: Guía de Recubrimiento en Polvo", href: "/guia-de-recubrimiento-en-polvo/" },
       ],
     },
   ],
